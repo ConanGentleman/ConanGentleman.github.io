@@ -447,7 +447,7 @@
 
 <h3 id="3-32-删除了默认的landscope主题-性能优化-TODO"><a href="#3-32-删除了默认的landscope主题-性能优化-TODO" class="headerlink" title="3.32 删除了默认的landscope主题(性能优化)(TODO)"></a>3.32 删除了默认的landscope主题(性能优化)(TODO)</h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line">压缩内存</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-33-评论系统"><a href="#3-33-评论系统" class="headerlink" title="3.33 评论系统"></a>3.33 评论系统</h3><p>根据网上对国内国外的评价系统对比，可知Valine是近几年大受欢迎的博客评价系统，但由于作者已经放弃了对 Valine 的维护，bug一堆尚未解决，所以最终敲定用基于Valine开发的新版本<a href="https://waline.js.org/">Waline</a>作为本博客的评价系统。</p>
+<h3 id="3-33-评论系统"><a href="#3-33-评论系统" class="headerlink" title="3.33 评论系统"></a>3.33 评论系统</h3><p>根据网上对国内国外的评价系统对比，可知Valine是近几年大受欢迎的博客评价系统，但由于作者已经放弃了对 Valine 的维护，bug一堆尚未解决，所以最终敲定用基于Valine开发的新版本<a href="https://waline.js.org/">Waline</a>作为本博客的评价系统。<strong>（但我的评价是如果hexo版本不高，建议还是用valine就行了，又快又方便）</strong></p>
 <ol>
 <li>LeanCloud 设置 (数据库)<br>注意！：请使用中国大陆版，国外版已被禁止国内使用<ul>
 <li>Leancloud已经禁止了国内访问国际版 <a href="https://forum.leancloud.cn/t/2022-8/25408">https://forum.leancloud.cn/t/2022-8/25408</a></li>
