@@ -430,14 +430,17 @@
 
 <h3 id="3-33-评论系统"><a href="#3-33-评论系统" class="headerlink" title="3.33 评论系统"></a>3.33 评论系统</h3><p>根据网上对国内国外的评价系统对比，可知Valine是近几年大受欢迎的博客评价系统，但由于作者已经放弃了对 Valine 的维护，bug一堆尚未解决，所以最终敲定用基于Valine开发的新版本<a href="https://waline.js.org/">Waline</a>作为本博客的评价系统。</p>
 <ol>
-<li>LeanCloud 设置 (数据库)</li>
+<li>LeanCloud 设置 (数据库)<br>注意！：请使用中国大陆版，国外版已被禁止国内使用<ul>
+<li>Leancloud已经禁止了国内访问国际版 <a href="https://forum.leancloud.cn/t/2022-8/25408">https://forum.leancloud.cn/t/2022-8/25408</a></li>
+</ul>
+</li>
 </ol>
 <ul>
 <li>(1) 登录或注册<a href="https://console.leancloud.app/login">LeanCloud</a> 并进入 <a href="https://console.leancloud.app/apps">控制台</a></li>
 <li>(2) 点击左上角 创建应用 并起一个你喜欢的名字 (请选择免费的开发版): </li>
 <li>(3) 进入应用，选择左下角的 设置 &gt; 应用凭证。你可以看到你的 APP ID,APP Key 和 Master Key。请记录它们，以便后续使用。<br><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/3.33%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F.png"></li>
 </ul>
-<ol start="2">
+<ol>
 <li>Vercel 部署 (服务端)</li>
 </ol>
 <ul>
@@ -631,6 +634,24 @@
   </entry>
   <entry>
     <title>Hello World</title>
+    <url>/2024/07/20/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
     <url>/2024/07/21/hello-world-1/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
   <script id="hbeData" type="hbeData" data-hmacdigest="a21223aa25b98d7f8aba61d7c704b425a11524de034dcb63c97de03c4e941f73">8857952509ef9895f61625fe2d594ef339e937d6685a3f98341208c8d2d367f4ed12a2b0860d69df027c92cb2108d6dfadf558d07b3d804c3bad8bcbb17e88ac</script>
@@ -647,24 +668,6 @@
       <tags>
         <tag>作为日记加密</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2024/07/20/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>解决Hexo图片不显示的问题</title>
