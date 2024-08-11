@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/2024/07/21/hello-world-1/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="a21223aa25b98d7f8aba61d7c704b425a11524de034dcb63c97de03c4e941f73">8857952509ef9895f61625fe2d594ef339e937d6685a3f98341208c8d2d367f4ed12a2b0860d69df027c92cb2108d6dfadf558d07b3d804c3bad8bcbb17e88ac</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <tags>
+        <tag>作为日记加密</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo+next博客搭建并部署到github</title>
     <url>/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/</url>
     <content><![CDATA[<h1 id="一、安装下载Node-js、Vscode、Git"><a href="#一、安装下载Node-js、Vscode、Git" class="headerlink" title="一、安装下载Node.js、Vscode、Git"></a>一、安装下载Node.js、Vscode、Git</h1><p>1.1 安装可以看这篇博文的第2点 《在Windows系统下安装Node.js》的1-6点（补充除外）：<a href="https://blog.csdn.net/loze/article/details/94208742">https://blog.csdn.net/loze/article/details/94208742</a></p>
@@ -649,25 +668,6 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2024/07/21/hello-world-1/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="a21223aa25b98d7f8aba61d7c704b425a11524de034dcb63c97de03c4e941f73">8857952509ef9895f61625fe2d594ef339e937d6685a3f98341208c8d2d367f4ed12a2b0860d69df027c92cb2108d6dfadf558d07b3d804c3bad8bcbb17e88ac</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <tags>
-        <tag>作为日记加密</tag>
-      </tags>
   </entry>
   <entry>
     <title>解决Hexo图片不显示的问题</title>
