@@ -1,43 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2024/07/20/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2024/07/21/hello-world-1/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="a21223aa25b98d7f8aba61d7c704b425a11524de034dcb63c97de03c4e941f73">8857952509ef9895f61625fe2d594ef339e937d6685a3f98341208c8d2d367f4ed12a2b0860d69df027c92cb2108d6dfadf558d07b3d804c3bad8bcbb17e88ac</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <tags>
-        <tag>作为日记加密</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo+next博客搭建并部署到github</title>
     <url>/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/</url>
     <content><![CDATA[<h1 id="一、安装下载Node-js、Vscode、Git"><a href="#一、安装下载Node-js、Vscode、Git" class="headerlink" title="一、安装下载Node.js、Vscode、Git"></a>一、安装下载Node.js、Vscode、Git</h1><p>1.1 安装可以看这篇博文的第2点 《在Windows系统下安装Node.js》的1-6点（补充除外）：<a href="https://blog.csdn.net/loze/article/details/94208742">https://blog.csdn.net/loze/article/details/94208742</a></p>
@@ -47,16 +10,16 @@
 <p>1.3 （可选）将npm的安装路径修改到其他盘避免占用C盘：<a href="https://blog.csdn.net/Deng872347348/article/details/121646375">https://blog.csdn.net/Deng872347348/article/details/121646375</a> 只做到 <strong>“接下来设置环境变量，关闭cmd窗口，“我的电脑”-右键-“属性”-“高级系统设置”-“高级”-“环境变量””</strong> 之前的步骤</p>
 <h1 id="二、安装Hexo"><a href="#二、安装Hexo" class="headerlink" title="二、安装Hexo"></a>二、安装Hexo</h1><p>2.1 新建 Blog 文件夹，进入此目录下<br>2.2 安装Hexo脚手架.下面的命令会把hexo.cmd安装到<strong>全局包仓库中</strong>，由于该仓库文件夹在Windows系统的path中。所以你就<strong>可以在任意位置执行hexo命令</strong>了。</p>
 <figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
-<p>我这里是安装过了所以是显示这样的<br><img src="/.com//2.1%E5%AE%89%E8%A3%85Hexo%E8%84%9A%E6%89%8B%E6%9E%B6.jpg"><br>2.3 执行一下命令确认hexo安装完好。这里执行如果报错（hexo‘ 不是内部或外部命令，也不是可运行的程序），请参考该内容以配置Hexo的环境变量：<a href="https://blog.csdn.net/Deng872347348/article/details/121646375">https://blog.csdn.net/Deng872347348/article/details/121646375</a> 的 <strong>“接下来设置环境变量，关闭cmd窗口，“我的电脑”-右键-“属性”-“高级系统设置”-“高级”-“环境变量””</strong> 及其之后的步骤 ，如果在2.2步之后不小心重新设置了npm的全局文件夹，则重新执行2.2的npm install -g hexo-cli命令，但**可能会出现权限问题，请以管理员身份运行cmd或者修改nodejs文件夹权限,<a href="https://blog.csdn.net/m0_56253302/article/details/130111914">可以看该网址中的方法二</a>**。解决以上问题后执行下面命令。</p>
+<p>我这里是安装过了所以是显示这样的<br><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/2.1%E5%AE%89%E8%A3%85Hexo%E8%84%9A%E6%89%8B%E6%9E%B6.jpg"><br>2.3 执行一下命令确认hexo安装完好。这里执行如果报错（hexo‘ 不是内部或外部命令，也不是可运行的程序），请参考该内容以配置Hexo的环境变量：<a href="https://blog.csdn.net/Deng872347348/article/details/121646375">https://blog.csdn.net/Deng872347348/article/details/121646375</a> 的 <strong>“接下来设置环境变量，关闭cmd窗口，“我的电脑”-右键-“属性”-“高级系统设置”-“高级”-“环境变量””</strong> 及其之后的步骤 ，如果在2.2步之后不小心重新设置了npm的全局文件夹，则重新执行2.2的npm install -g hexo-cli命令，但**可能会出现权限问题，请以管理员身份运行cmd或者修改nodejs文件夹权限,<a href="https://blog.csdn.net/m0_56253302/article/details/130111914">可以看该网址中的方法二</a>**。解决以上问题后执行下面命令。</p>
 <figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo -v</span></span><br></pre></td></tr></table></figure>
-<p>2.4 新建一个<strong>空文件夹</strong>用于初始化Hexo，启动cmd并进入到文件夹中。<br><img src="/.com//2.4cmd%E8%BF%9B%E5%85%A5%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9.jpg"><br>执行Hexo初始化命令</p>
+<p>2.4 新建一个<strong>空文件夹</strong>用于初始化Hexo，启动cmd并进入到文件夹中。<br><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/2.4cmd%E8%BF%9B%E5%85%A5%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9.jpg"><br>执行Hexo初始化命令</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">init</span></span><br></pre></td></tr></table></figure>
-<p>2.5 cmd命令中进入到themes文件夹<br><img src="/.com//2.5%E8%BF%9B%E5%85%A5theme%E6%96%87%E4%BB%B6%E5%A4%B9.jpg"><br>2.6 cmd命令中执行如下命令，下载 Next主题</p>
+<p>2.5 cmd命令中进入到themes文件夹<br><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/2.5%E8%BF%9B%E5%85%A5theme%E6%96%87%E4%BB%B6%E5%A4%B9.jpg"><br>2.6 cmd命令中执行如下命令，下载 Next主题</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/theme-next/</span>hexo-theme-<span class="keyword">next</span></span><br></pre></td></tr></table></figure>
-<p><img src="/.com//2.6%E4%B8%8B%E8%BD%BDNext%E4%B8%BB%E9%A2%980.jpg"><br>文件夹多出文件<br><img src="/.com//2.6%E4%B8%8B%E8%BD%BDNext%E4%B8%BB%E9%A2%98.jpg"></p>
-<p>2.7 cmd中启动本地服务查看<br><img src="/.com//2.7%E5%90%AF%E5%8A%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1.jpg"></p>
+<p><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/2.6%E4%B8%8B%E8%BD%BDNext%E4%B8%BB%E9%A2%980.jpg"><br>文件夹多出文件<br><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/2.6%E4%B8%8B%E8%BD%BDNext%E4%B8%BB%E9%A2%98.jpg"></p>
+<p>2.7 cmd中启动本地服务查看<br><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/2.7%E5%90%AF%E5%8A%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1.jpg"></p>
 <figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo s</span></span><br></pre></td></tr></table></figure>
-<p>在浏览器中输入<a href="http://localhost:4000/">http://localhost:4000/</a> 即可看到目前的界面<br><img src="/.com//2.7%E7%95%8C%E9%9D%A2.jpg"></p>
+<p>在浏览器中输入<a href="http://localhost:4000/">http://localhost:4000/</a> 即可看到目前的界面<br><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/2.7%E7%95%8C%E9%9D%A2.jpg"></p>
 <p>2.8 一些相关命令</p>
 <ul>
 <li>hexo clean：清除 public 静态目录</li>
@@ -148,7 +111,7 @@
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Post wordcount display settings</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/theme-next/hexo-symbols-count-time</span></span><br><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="attr">separated_meta:</span> <span class="literal">true</span>     <span class="comment"># 是否另起一行（true的话不和发表时间等同一行）</span></span><br><span class="line">  <span class="attr">item_text_post:</span> <span class="literal">true</span>     <span class="comment"># 首页文章统计数量前是否显示文字描述（本文字数、阅读时长）</span></span><br><span class="line">  <span class="attr">item_text_total:</span> <span class="literal">false</span>   <span class="comment"># 页面底部统计数量前是否显示文字描述（站点总字数、站点阅读时长）</span></span><br><span class="line">  <span class="attr">awl:</span> <span class="number">4</span>                   <span class="comment"># Average Word Length</span></span><br><span class="line">  <span class="attr">wpm:</span> <span class="number">275</span>                 <span class="comment"># Words Per Minute（每分钟阅读词数）</span></span><br><span class="line">  <span class="attr">suffix:</span> <span class="string">mins.</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="3-13-阅读全文"><a href="#3-13-阅读全文" class="headerlink" title="3.13 阅读全文"></a>3.13 阅读全文</h3><p>直接在文章中添加 <!-- more --> 来精确控制摘要内容，即控制 Read More（阅读全文） 的位置</p>
-<p>我们可以添加前言引用来对文章进行总结提炼 详情可点击阅读全文~<br><img src="/.com//3.13%E9%98%85%E8%AF%BB%E5%85%A8%E6%96%87.png"></p>
+<p>我们可以添加前言引用来对文章进行总结提炼 详情可点击阅读全文~<br><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/3.13%E9%98%85%E8%AF%BB%E5%85%A8%E6%96%87.png"></p>
 <h3 id="3-14-添加作者头像"><a href="#3-14-添加作者头像" class="headerlink" title="3.14 添加作者头像"></a>3.14 添加作者头像</h3><p>进入主题配置文件，找到下面这行</p>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">avatar:</span> </span><br><span class="line">  <span class="comment"># Replace the default image and set the url here.</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">/images/avatar.gif</span></span><br></pre></td></tr></table></figure>
 
@@ -174,7 +137,7 @@
 <li>在 \themes\hexo-theme-next\layout_layout.swig 文件末尾添加：（我clone下来的next项目名是hexo-theme-next，有的是next，所以看清自己的路径）</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- 页面点击小红心 --&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/js/clicklove.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/.com//3.17%E7%88%B1%E5%BF%83%E5%8A%A8%E7%94%BB.gif"></p>
+<p><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/3.17%E7%88%B1%E5%BF%83%E5%8A%A8%E7%94%BB.gif"></p>
 <ol start="2">
 <li>在 themes&#x2F;hexo-theme-next&#x2F;source&#x2F;js&#x2F; 里面新建文件 fireworks.js 并添加代码：</li>
 </ol>
@@ -189,7 +152,7 @@
 <li>打开主题配置文件，末尾添加：</li>
 </ol>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 鼠标点击动画 Fireworks</span></span><br><span class="line"><span class="attr">fireworks:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p><img src="/.com//3.17%E7%83%9F%E8%8A%B1%E5%8A%A8%E7%94%BB.png"></p>
+<p><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/3.17%E7%83%9F%E8%8A%B1%E5%8A%A8%E7%94%BB.png"></p>
 <h3 id="3-18-背景动画"><a href="#3-18-背景动画" class="headerlink" title="3.18 背景动画"></a>3.18 背景动画</h3><ol>
 <li>丝带背景动画(TODO) 还未启用</li>
 </ol>
@@ -282,14 +245,14 @@
 <li>首先到 GitHub Corners 或者 GitHub Ribbons 选择自己喜欢的图标，然后copy相应的代码粘贴到 themes&#x2F;hexo-theme-next&#x2F;layout&#x2F;_layout.swig 文件中，把代码中的href后面的值替换成你要跳转的地址，比如你的GitHub主页</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://github.com/ConanGentleman&quot;</span> <span class="attr">class</span>=<span class="string">&quot;github-corner&quot;</span> <span class="attr">aria-label</span>=<span class="string">&quot;View source on GitHub&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">&quot;80&quot;</span> <span class="attr">height</span>=<span class="string">&quot;80&quot;</span> <span class="attr">viewBox</span>=<span class="string">&quot;0 0 250 250&quot;</span> <span class="attr">style</span>=<span class="string">&quot;fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;&quot;</span> <span class="attr">aria-hidden</span>=<span class="string">&quot;true&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span><span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;currentColor&quot;</span> <span class="attr">style</span>=<span class="string">&quot;transform-origin: 130px 106px;&quot;</span> <span class="attr">class</span>=<span class="string">&quot;octo-arm&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span><span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;currentColor&quot;</span> <span class="attr">class</span>=<span class="string">&quot;octo-body&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span><span class="tag">&lt;/<span class="name">svg</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"><span class="selector-class">.github-corner</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.octo-arm</span>&#123;<span class="attribute">animation</span>:octocat-wave <span class="number">560ms</span> ease-in-out&#125;<span class="keyword">@keyframes</span> octocat-wave&#123;<span class="number">0%</span>,<span class="number">100%</span>&#123;<span class="attribute">transform</span>:<span class="built_in">rotate</span>(<span class="number">0</span>)&#125;<span class="number">20%</span>,<span class="number">60%</span>&#123;<span class="attribute">transform</span>:<span class="built_in">rotate</span>(-<span class="number">25deg</span>)&#125;<span class="number">40%</span>,<span class="number">80%</span>&#123;<span class="attribute">transform</span>:<span class="built_in">rotate</span>(<span class="number">10deg</span>)&#125;&#125;<span class="keyword">@media</span> (<span class="attribute">max-width</span>:<span class="number">500px</span>)&#123;<span class="selector-class">.github-corner</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.octo-arm</span>&#123;<span class="attribute">animation</span>:none&#125;<span class="selector-class">.github-corner</span> <span class="selector-class">.octo-arm</span>&#123;<span class="attribute">animation</span>:octocat-wave <span class="number">560ms</span> ease-in-out&#125;&#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="/.com//3.23forkmeon%20github%E5%85%A5%E5%8F%A3.jpg"></p>
+<p><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/3.23forkmeon%20github%E5%85%A5%E5%8F%A3.jpg"></p>
 <h3 id="3-23-更换博客背景"><a href="#3-23-更换博客背景" class="headerlink" title="3.23 更换博客背景"></a>3.23 更换博客背景</h3><ol>
 <li>更换主背景</li>
 </ol>
 <ul>
 <li><p>把准备好的背景图放入 themes\hexo-theme-next\source\images 中</p>
 </li>
-<li><p>新版本需要新建 hexo&#x2F;source&#x2F;_data&#x2F;styles.styl，即在 hexo目录的 source文件夹下新建 _data 文件夹，文件夹中新建 styles.styl。<strong>注意：是新建在 hexo目录下 source文件夹里，而不是主题文件 next目录下的 source文件夹</strong>，如图：<br><img src="/.com//3.22%E6%9B%B4%E6%8D%A2%E5%8D%9A%E5%AE%A2%E8%83%8C%E6%99%AF%E6%96%87%E4%BB%B6%E5%A4%B9.jpg"></p>
+<li><p>新版本需要新建 hexo&#x2F;source&#x2F;_data&#x2F;styles.styl，即在 hexo目录的 source文件夹下新建 _data 文件夹，文件夹中新建 styles.styl。<strong>注意：是新建在 hexo目录下 source文件夹里，而不是主题文件 next目录下的 source文件夹</strong>，如图：<br><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/3.22%E6%9B%B4%E6%8D%A2%E5%8D%9A%E5%AE%A2%E8%83%8C%E6%99%AF%E6%96%87%E4%BB%B6%E5%A4%B9.jpg"></p>
 </li>
 <li><p>打开 styles.styl，添加如下：</p>
 </li>
@@ -345,7 +308,7 @@
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">variable:</span> <span class="string">source/_data/variables.styl</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>此时有一个问题就是 侧边栏-分类左下&#x2F;右下 的圆角明显有一层阴影，下图是修正过的（图片只是为了指明位置）<br><img src="/.com//3.25%E8%BE%B9%E6%A1%86%E5%9C%86%E8%A7%92%E9%97%AE%E9%A2%98.jpg"></li>
+<li>此时有一个问题就是 侧边栏-分类左下&#x2F;右下 的圆角明显有一层阴影，下图是修正过的（图片只是为了指明位置）<br><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/3.25%E8%BE%B9%E6%A1%86%E5%9C%86%E8%A7%92%E9%97%AE%E9%A2%98.jpg"></li>
 <li>原因是开启 主题配置文件中back2top 的 sidebar 和 scrollpercent，back2top的阴影背景覆盖了圆角，把阴影背景改为透明便可解决，因为我们需要的只是scrollpercent。打开&#x2F;themes&#x2F;hexo-theme-next&#x2F;source&#x2F;css&#x2F;_variables&#x2F;Gemini.styl 内代码,将 $body-bg-color 赋值为透明 transparent</li>
 </ul>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">// Variables of Gemini scheme</span><br><span class="line">// ==================================================</span><br><span class="line"></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;Pisces.styl&quot;</span>;</span><br><span class="line"></span><br><span class="line">// Settings for some of the most global styles.</span><br><span class="line">// --------------------------------------------------</span><br><span class="line">// $<span class="selector-tag">body</span>-bg-<span class="attribute">color</span>           = <span class="selector-id">#eee</span>;</span><br><span class="line">//将 $<span class="selector-tag">body</span>-bg-<span class="attribute">color</span> 赋值为透明 transparent 解决back2top的阴影背景覆盖边框圆角的问题</span><br><span class="line">$<span class="selector-tag">body</span>-bg-<span class="attribute">color</span>           = transparent; </span><br><span class="line"></span><br><span class="line">// Borders.</span><br><span class="line">// --------------------------------------------------</span><br><span class="line">$<span class="attribute">box-shadow</span>-inner        = <span class="number">0</span> <span class="number">2px</span> <span class="number">2px</span> <span class="number">0</span> rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">12</span>), <span class="number">0</span> <span class="number">3px</span> <span class="number">1px</span> -<span class="number">2px</span> rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">06</span>), <span class="number">0</span> <span class="number">1px</span> <span class="number">5px</span> <span class="number">0</span> rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">12</span>);</span><br><span class="line">$<span class="attribute">box-shadow</span>              = <span class="number">0</span> <span class="number">2px</span> <span class="number">2px</span> <span class="number">0</span> rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">12</span>), <span class="number">0</span> <span class="number">3px</span> <span class="number">1px</span> -<span class="number">2px</span> rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">06</span>), <span class="number">0</span> <span class="number">1px</span> <span class="number">5px</span> <span class="number">0</span> rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">12</span>), <span class="number">0</span> -<span class="number">1px</span> .<span class="number">5px</span> <span class="number">0</span> rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">09</span>);</span><br><span class="line"></span><br><span class="line">$<span class="attribute">border-radius</span>-inner     = initial;</span><br><span class="line">$<span class="attribute">border-radius</span>           = initial;</span><br><span class="line">// $<span class="attribute">border-radius</span>-inner     = <span class="number">0</span> <span class="number">0</span> <span class="number">3px</span> <span class="number">3px</span>;</span><br><span class="line">// $<span class="attribute">border-radius</span>           = <span class="number">3px</span>;</span><br></pre></td></tr></table></figure>
@@ -367,7 +330,7 @@
 </ul>
 <figure class="highlight mel"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Components</span></span><br><span class="line"><span class="comment">// --------------------------------------------------</span></span><br><span class="line"><span class="comment">// Back to top</span></span><br><span class="line">$b2t-opacity                  = <span class="number">.8</span>;</span><br><span class="line">$b2t-opacity-hover            = <span class="number">1</span>;</span><br><span class="line">$b2t-position-bottom          = <span class="number">-100</span>px;</span><br><span class="line">$b2t-position-bottom-on       = <span class="number">30</span>px;</span><br><span class="line"><span class="comment">// $b2t-position-right           = 30px; //注释掉 themes\hexo-theme-next\source\css\_mixins.styl的逻辑也可以注释掉 不然可能有warnning</span></span><br><span class="line"><span class="comment">// $b2t-position-right-mobile    = 20px;//注释掉 themes\hexo-theme-next\source\css\_mixins.styl的逻辑也可以注释掉 不然可能有warnning</span></span><br><span class="line">$b2t-font-<span class="keyword">size</span>                = <span class="number">12</span>px;</span><br><span class="line">$b2t-<span class="keyword">color</span>                    = white;</span><br><span class="line">$b2t-bg-<span class="keyword">color</span>                 = $black-deep;</span><br><span class="line"></span><br><span class="line">$sidebar-<span class="keyword">toggle</span>-inner-<span class="keyword">size</span>    = <span class="number">16</span>px;</span><br><span class="line">$sidebar-<span class="keyword">toggle</span>-padding       = <span class="number">5</span>px;</span><br><span class="line">$sidebar-<span class="keyword">toggle</span>-<span class="keyword">size</span>          = $sidebar-<span class="keyword">toggle</span>-inner-<span class="keyword">size</span> + $sidebar-<span class="keyword">toggle</span>-padding * <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
 
-<p>这里从right修改成left无效的原因是值没有变 只是换了个变量名<br><img src="/.com//3.26%E8%B0%83%E6%95%B4back2top%E7%9A%84%E4%BD%8D%E7%BD%AE.jpeg"></p>
+<p>这里从right修改成left无效的原因是值没有变 只是换了个变量名<br><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/3.26%E8%B0%83%E6%95%B4back2top%E7%9A%84%E4%BD%8D%E7%BD%AE.jpeg"></p>
 <ul>
 <li>然后在 themes\hexo-theme-next\source\css\_common\components\back-to-top.styl 末尾(保证在body里)添加如下两行代码并注释 margin-right: 8px;</li>
 </ul>
@@ -406,7 +369,7 @@
 <li>建议把标签放到侧边栏，在 Blog&#x2F;themes&#x2F;next&#x2F;layout&#x2F;_macro&#x2F;sidebar.njk 或 themes\hexo-theme-next\layout_layout.njk 文件下，同理 <a href="#328-%E4%BE%A7%E6%A0%8Fceleste%E6%97%8B%E8%BD%AC%E7%9A%84%E5%B0%8F%E4%BA%BA">3.28 celeste旋转的小人</a>的方式选择位置粘贴进去，不同位置效果不同。<br>我依旧是在blog\themes\hexo-theme-next\layout\_macro\sidebar.swig里面设置的，放在了小人和back2top的按钮中间</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;twopeople&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span> <span class="attr">style</span>=<span class="string">&quot;height:200px;&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">class</span>=<span class="string">&quot;illo&quot;</span> <span class="attr">width</span>=<span class="string">&quot;800&quot;</span> <span class="attr">height</span>=<span class="string">&quot;800&quot;</span> <span class="attr">style</span>=<span class="string">&quot;max-width: 200px; max-height: 200px; touch-action: none; width: 640px; height: 640px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople1.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/zdog.dist.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">id</span>=<span class="string">&quot;rendered-js&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-class">.twopeople</span>&#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">align-items</span>: center;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">justify-content</span>: center;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css">            <span class="selector-tag">canvas</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">margin</span>: <span class="number">0</span> auto;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">cursor</span>: move;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css">        </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 放在了这里start！！！--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 外链播放器 溯（钢琴版）--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginwidth</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginheight</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">330</span> <span class="attr">height</span>=<span class="string">86</span> <span class="attr">src</span>=<span class="string">&quot;//music.163.com/outchain/player?type=2&amp;id=1433584979&amp;auto=1&amp;height=66&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 放在了这里end！！！--&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      &#123;%- if theme.back2top.enable and theme.back2top.sidebar %&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;back-to-top animated&quot;</span> <span class="attr">role</span>=<span class="string">&quot;button&quot;</span> <span class="attr">aria-label</span>=<span class="string">&quot;&#123;&#123; __(&#x27;accessibility.back_to_top&#x27;) &#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-arrow-up&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">span</span>&gt;</span>0%<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      &#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/.com//3.30%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.jpg"></p>
+<p><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/3.30%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.jpg"></p>
 <h3 id="3-31-添加Aplayer音乐播放器-进阶"><a href="#3-31-添加Aplayer音乐播放器-进阶" class="headerlink" title="3.31 添加Aplayer音乐播放器(进阶)"></a>3.31 添加Aplayer音乐播放器(进阶)</h3><p>由于网易云外链播放器每次只能选择一首歌，如果想要让播放器的功能更加全面丰富，我们可以通过安装插件 Aplayer来满足我们的需求</p>
 <ul>
 <li>首先，先下载Aplayer源码：APlayer 或者执行以下命令</li>
@@ -472,16 +435,16 @@
 <ul>
 <li>(1) 登录或注册<a href="https://console.leancloud.app/login">LeanCloud</a> 并进入 <a href="https://console.leancloud.app/apps">控制台</a></li>
 <li>(2) 点击左上角 创建应用 并起一个你喜欢的名字 (请选择免费的开发版): </li>
-<li>(3) 进入应用，选择左下角的 设置 &gt; 应用凭证。你可以看到你的 APP ID,APP Key 和 Master Key。请记录它们，以便后续使用。<br><img src="/.com//3.33%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F.png"></li>
+<li>(3) 进入应用，选择左下角的 设置 &gt; 应用凭证。你可以看到你的 APP ID,APP Key 和 Master Key。请记录它们，以便后续使用。<br><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/3.33%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F.png"></li>
 </ul>
 <ol start="2">
 <li>Vercel 部署 (服务端)</li>
 </ol>
 <ul>
 <li>(1) 点击进入<a href="https://vercel.com/new/clone?repository-url=https://github.com/walinejs/waline/tree/main/example">Vercel</a>,注册登录</li>
-<li>(2) 选择git 作用域以及输入仓库名（最终我的仓库名为midoli_blog）,并点击 Create 继续:<br><img src="/.com//3.33%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2.jpg"><br><img src="/.com//3.33%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B21.jpg"></li>
+<li>(2) 选择git 作用域以及输入仓库名（最终我的仓库名为midoli_blog）,并点击 Create 继续:<br><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/3.33%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2.jpg"><br><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/3.33%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B21.jpg"></li>
 <li>(3) 此时 Vercel 会基于 Waline 模板帮助你新建并初始化仓库，仓库名为你之前输入的项目名，请等待一会儿</li>
-<li>(4) 构建结束后，点击顶部信息，并点击仓库，找到Settings - Environment Variables 进入环境变量配置页，并配置三个环境变量 <strong>LEAN_ID, LEAN_KEY 和 LEAN_MASTER_KEY</strong>。它们的值分别对应上一步在 LeanCloud 中获得的 <strong>APP ID, APP KEY, Master Key</strong>。（需要进入项目中的 Settings，而不是总设置里，总设置里没有 Environment Variables 选项配置）<br><img src="/.com//3.33%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B22.jpg"><br><img src="/.com//3.33%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B23.png"><br><img src="/.com//3.33%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B24.png"></li>
+<li>(4) 构建结束后，点击顶部信息，并点击仓库，找到Settings - Environment Variables 进入环境变量配置页，并配置三个环境变量 <strong>LEAN_ID, LEAN_KEY 和 LEAN_MASTER_KEY</strong>。它们的值分别对应上一步在 LeanCloud 中获得的 <strong>APP ID, APP KEY, Master Key</strong>。（需要进入项目中的 Settings，而不是总设置里，总设置里没有 Environment Variables 选项配置）<br><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/3.33%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B22.jpg"><br><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/3.33%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B23.png"><br><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/3.33%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B24.png"></li>
 </ul>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">如果你使用 LeanCloud 国内版，请额外配置 LEAN_SERVER 环境变量，值为你绑定好的域名。</span><br></pre></td></tr></table></figure>
 
@@ -494,7 +457,7 @@
 </ol>
 <ul>
 <li>(1) 点击顶部的 Settings - Domains 进入域名配置页</li>
-<li>(2) 输入需要绑定的域名并点击 Add<br><img src="/.com//3.33%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B25.png"></li>
+<li>(2) 输入需要绑定的域名并点击 Add<br><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/3.33%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B25.png"></li>
 <li>(3) 在域名服务器商处添加新的 CNAME 解析记录</li>
 </ul>
 <table>
@@ -514,7 +477,7 @@
 <ul>
 <li>(4) 等待生效，你可以通过自己的域名来访问了<ul>
 <li>评论系统：example.yourdomain.com</li>
-<li>评论管理：example.yourdomain.com&#x2F;ui<br><img src="/.com//3.33%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B26.png"></li>
+<li>评论管理：example.yourdomain.com&#x2F;ui<br><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/3.33%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B26.png"></li>
 </ul>
 </li>
 </ul>
@@ -538,7 +501,7 @@
 <p>还有一个问题 就是大伙评论的东西 不翻墙刷新不出来</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">原因 jsdeliver被墙 参考链接🔗: [jsdelivr被墙,hexo-<span class="keyword">next</span>切换为自定义CDN](https:<span class="regexp">//</span>www.xygblog.com<span class="regexp">/p/</span><span class="number">8</span>ebdba58/)</span><br></pre></td></tr></table></figure>
 <ol start="6">
-<li>leanClound作为数据库，同时可以用来作为图床存储文件，使其文件添加url地址<br><img src="/.com//3.33%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B27.png"></li>
+<li>leanClound作为数据库，同时可以用来作为图床存储文件，使其文件添加url地址<br><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/3.33%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B27.png"></li>
 </ol>
 <h3 id="3-33-1-评论-邮箱通知-TODO"><a href="#3-33-1-评论-邮箱通知-TODO" class="headerlink" title="3.33.1 评论-邮箱通知(TODO)"></a>3.33.1 评论-邮箱通知(TODO)</h3><p><a href="https://waline.js.org/guide/get-started/">详细可查看官方文档</a><br>当网站有用户发布评论或者用户回复评论时，Waline 支持对博主和回复评论作者进行通知。</p>
 <ul>
@@ -588,7 +551,7 @@
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># feed</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/hexojs/hexo-generator-feed</span></span><br><span class="line"><span class="attr">feed:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">atom</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">atom.xml</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">20</span></span><br><span class="line">  <span class="attr">hub:</span></span><br><span class="line">  <span class="attr">content:</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="3-39-打赏功能-TODO"><a href="#3-39-打赏功能-TODO" class="headerlink" title="3.39 打赏功能(TODO)"></a>3.39 打赏功能(TODO)</h3><p>在 主题的 config中找到如下的 raward功能</p>
-<p>enable选择打开，comment输入文字<br>在缀主题的images文件夹中把你的付款码的图片放到 &#x2F;blog &#x2F;themes &#x2F;next &#x2F;source &#x2F;images&#x2F; 中，它会按照这个路径寻找图片<br><img src="/.com//3.39%E6%89%93%E8%B5%8F.png"></p>
+<p>enable选择打开，comment输入文字<br>在缀主题的images文件夹中把你的付款码的图片放到 &#x2F;blog &#x2F;themes &#x2F;next &#x2F;source &#x2F;images&#x2F; 中，它会按照这个路径寻找图片<br><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/3.39%E6%89%93%E8%B5%8F.png"></p>
 <h3 id="3-40-博客基本信息"><a href="#3-40-博客基本信息" class="headerlink" title="3.40 博客基本信息"></a>3.40 博客基本信息</h3><p>修改 博客的标题，副标题，描述，等等基本信息。。。</p>
 <ul>
 <li>在 blog根目录下打开 _config.yml 配置文件，直接修改以下信息即可<br>注意，语言要改成 zh-CN即中国，其他的自己随便改改</li>
@@ -646,10 +609,10 @@
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Easily enable fast Ajax navigation on your website.</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/theme-next/theme-next-pjax</span></span><br><span class="line"><span class="attr">pjax:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="四、部署到github"><a href="#四、部署到github" class="headerlink" title="四、部署到github"></a>四、部署到github</h1><h3 id="4-1-新建Repository"><a href="#4-1-新建Repository" class="headerlink" title="4.1 新建Repository"></a>4.1 新建Repository</h3><p>在github上新建一个 Repository，Repository name一定要是 <strong>你的用户名</strong>.github.io</p>
-<p><img src="/.com//4.1%20%E6%96%B0%E5%BB%BA%E4%BB%93%E5%BA%93.jpg"></p>
+<p><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/4.1%20%E6%96%B0%E5%BB%BA%E4%BB%93%E5%BA%93.jpg"></p>
 <h3 id="4-2-复制仓库地址"><a href="#4-2-复制仓库地址" class="headerlink" title="4.2 复制仓库地址"></a>4.2 复制仓库地址</h3><p>建议复制ssh，</p>
-<p><img src="/.com//4.2%E5%A4%8D%E5%88%B6%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80.jpg"></p>
-<h3 id="4-3-修改站点配置文件"><a href="#4-3-修改站点配置文件" class="headerlink" title="4.3 修改站点配置文件"></a>4.3 修改站点配置文件</h3><p><img src="/.com//4.3%20%E9%83%A8%E7%BD%B2%E7%AB%99%E7%82%B9%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE.jpg"></p>
+<p><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/4.2%E5%A4%8D%E5%88%B6%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80.jpg"></p>
+<h3 id="4-3-修改站点配置文件"><a href="#4-3-修改站点配置文件" class="headerlink" title="4.3 修改站点配置文件"></a>4.3 修改站点配置文件</h3><p><img src="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/4.3%20%E9%83%A8%E7%BD%B2%E7%AB%99%E7%82%B9%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE.jpg"></p>
 <h3 id="4-4-安装插件"><a href="#4-4-安装插件" class="headerlink" title="4.4 安装插件"></a>4.4 安装插件</h3><p>在Blog目录打开cmd命令输入如下命令：</p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
@@ -661,6 +624,43 @@
 <hr>
 <p>本片大部分参考的该博文，但有些地方存在问题，因此做重新梳理。<a href="https://blog.csdn.net/loze/article/details/94208742">https://blog.csdn.net/loze/article/details/94208742</a></p>
 <p>文中带(TODO)表示我未进行设置</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2024/07/21/hello-world-1/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="a21223aa25b98d7f8aba61d7c704b425a11524de034dcb63c97de03c4e941f73">8857952509ef9895f61625fe2d594ef339e937d6685a3f98341208c8d2d367f4ed12a2b0860d69df027c92cb2108d6dfadf558d07b3d804c3bad8bcbb17e88ac</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <tags>
+        <tag>作为日记加密</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2024/07/20/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
 </search>
