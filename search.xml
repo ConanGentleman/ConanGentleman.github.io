@@ -679,7 +679,7 @@
 </ol>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">marked:</span></span><br><span class="line">  <span class="attr">prependRoot:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">postAsset:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
-<p>启用后，资源图片将会被自动解析为其对应文章的路径。 例如： image.jpg 位置为 &#x2F;2020&#x2F;01&#x2F;02&#x2F;foo&#x2F;image.jpg ，这表示它是 &#x2F;2020&#x2F;01&#x2F;02&#x2F;foo&#x2F; 文章的一张资源图片， <img src="/2024/08/11/%E8%A7%A3%E5%86%B3Hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98/image.jpg"> 将会被解析为 &lt;img src&#x3D;”&#x2F;2020&#x2F;01&#x2F;02&#x2F;foo&#x2F;image.jpg”&gt; 。</p>
+<p>启用后，资源图片将会被自动解析为其对应文章的路径。 例如： image.jpg 位置为 &#x2F;2020&#x2F;01&#x2F;02&#x2F;foo&#x2F;image.jpg ，这表示它是 &#x2F;2020&#x2F;01&#x2F;02&#x2F;foo&#x2F; 文章的一张资源图片， ![](image.jpg) 将会被解析为 &lt;img src&#x3D;”&#x2F;2020&#x2F;01&#x2F;02&#x2F;foo&#x2F;image.jpg”&gt; 。</p>
 ]]></content>
       <tags>
         <tag>Hexo</tag>

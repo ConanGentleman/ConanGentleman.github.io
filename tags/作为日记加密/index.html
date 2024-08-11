@@ -569,6 +569,35 @@ window.addEventListener('pjax:success', () => {
 
   
 
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : '5Rv278jx0GPk25ywGlPbXMnA-MdYXbMMI',
+      appKey     : 'lN6tgGMSer9T221zQ6KT9ltQ',
+      placeholder: "请文明评论呀~",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : 'https://midoliblog-git-main-conangentlemans-projects.vercel.app/'
+    });
+  }, window.Valine);
+});
+</script>
+
     </div>
 
 
