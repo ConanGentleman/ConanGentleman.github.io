@@ -447,7 +447,7 @@
 
 <h3 id="3-32-删除了默认的landscope主题-性能优化-TODO"><a href="#3-32-删除了默认的landscope主题-性能优化-TODO" class="headerlink" title="3.32 删除了默认的landscope主题(性能优化)(TODO)"></a>3.32 删除了默认的landscope主题(性能优化)(TODO)</h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line">压缩内存</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-33-评论系统"><a href="#3-33-评论系统" class="headerlink" title="3.33 评论系统"></a>3.33 评论系统</h3><p>根据网上对国内国外的评价系统对比，可知Valine是近几年大受欢迎的博客评价系统，但由于作者已经放弃了对 Valine 的维护，bug一堆尚未解决，所以最终敲定用基于Valine开发的新版本<a href="https://waline.js.org/">Waline</a>作为本博客的评价系统。<strong>（但我的评价是如果hexo版本不高，建议还是用valine就行了，又快又方便）</strong></p>
+<h3 id="3-33-评论系统"><a href="#3-33-评论系统" class="headerlink" title="3.33 评论系统"></a>3.33 评论系统</h3><p>根据网上对国内国外的评价系统对比，可知Valine是近几年大受欢迎的博客评价系统，但由于作者已经放弃了对 Valine 的维护，bug一堆尚未解决，所以最终敲定用基于Valine开发的新版本<a href="https://waline.js.org/">Waline</a>作为本博客的评价系统。<strong>（但我的评价是如果hexo版本不高，建议还是用valine就行了，又快又方便），好像next自带的gitalk也可以评论，有时间可以试试<a href="https://blog.douchen.life/Hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AEGitalk%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/">配置gittalk</a></strong></p>
 <ol>
 <li>LeanCloud 设置 (数据库)<br>注意！：请使用中国大陆版，国外版已被禁止国内使用<ul>
 <li>Leancloud已经禁止了国内访问国际版 <a href="https://forum.leancloud.cn/t/2022-8/25408">https://forum.leancloud.cn/t/2022-8/25408</a></li>
@@ -687,5 +687,25 @@
       <tags>
         <tag>Hexo</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>post</title>
+    <url>/2024/08/13/QFramework-QFramework%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p>test</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>hexo文章多了如何管理</title>
+    <url>/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<p>每次通过hexo new ‘xxx’创建新的博文时，都会将生成的.md文件放置在_post文件夹下，随着文章数的增多，_post文件夹也会越来越混乱。</p>
+<p>可以通过配置全局配置文件_config.yml来依据年月进行分配，在文件中查找new_post_name:并修改为</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">new_post_name:</span> <span class="string">:year/:month/:title.md</span></span><br></pre></td></tr></table></figure>
+<p>修改后，每次创建的文章将会以生成的年月进行管理。</p>
+<ul>
+<li>如果想直接进行分类创建，可以选择采用如下命令进行创建。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new post -p /文件夹名/文件名.md</span><br></pre></td></tr></table></figure>
+<p>如执行如下命令后<br><img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E5%91%BD%E4%BB%A4.jpg"><br>文章将会被创建在QFramework中<br><img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.jpg"><br><img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%841.jpg"></p>
+]]></content>
   </entry>
 </search>

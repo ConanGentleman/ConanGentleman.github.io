@@ -192,6 +192,202 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/midoli.jpg">
+      <meta itemprop="name" content="MiDoLi">
+      <meta itemprop="description" content="欢迎来到我的世界💜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MiDoLi's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">hexo文章多了如何管理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-08-13 23:26:54 / 修改时间：23:41:04" itemprop="dateCreated datePublished" datetime="2024-08-13T23:26:54+08:00">2024-08-13</time>
+            </span>
+
+          
+            <span id="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/" class="post-meta-item leancloud_visitors" data-flag-title="hexo文章多了如何管理" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>271</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>每次通过hexo new ‘xxx’创建新的博文时，都会将生成的.md文件放置在_post文件夹下，随着文章数的增多，_post文件夹也会越来越混乱。</p>
+<p>可以通过配置全局配置文件_config.yml来依据年月进行分配，在文件中查找new_post_name:并修改为</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">new_post_name:</span> <span class="string">:year/:month/:title.md</span></span><br></pre></td></tr></table></figure>
+<p>修改后，每次创建的文章将会以生成的年月进行管理。</p>
+<ul>
+<li>如果想直接进行分类创建，可以选择采用如下命令进行创建。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post -p /文件夹名/文件名.md</span><br></pre></td></tr></table></figure>
+<p>如执行如下命令后<br><img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E5%91%BD%E4%BB%A4.jpg"><br>文章将会被创建在QFramework中<br><img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.jpg"><br><img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%841.jpg"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/13/QFramework-QFramework%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/midoli.jpg">
+      <meta itemprop="name" content="MiDoLi">
+      <meta itemprop="description" content="欢迎来到我的世界💜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MiDoLi's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/08/13/QFramework-QFramework%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">post</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-08-13 23:24:58 / 修改时间：23:25:21" itemprop="dateCreated datePublished" datetime="2024-08-13T23:24:58+08:00">2024-08-13</time>
+            </span>
+
+          
+            <span id="/2024/08/13/QFramework-QFramework%E5%AD%A6%E4%B9%A0/" class="post-meta-item leancloud_visitors" data-flag-title="post" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/08/13/QFramework-QFramework%E5%AD%A6%E4%B9%A0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/08/13/QFramework-QFramework%E5%AD%A6%E4%B9%A0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>test</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/11/%E8%A7%A3%E5%86%B3Hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -327,7 +523,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-08-11 17:05:51" itemprop="dateModified" datetime="2024-08-11T17:05:51+08:00">2024-08-11</time>
+                <time title="修改时间：2024-08-11 17:24:38" itemprop="dateModified" datetime="2024-08-11T17:24:38+08:00">2024-08-11</time>
               </span>
 
           
@@ -357,14 +553,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>12k</span>
+              <span>13k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>45 分钟</span>
+              <span>11 分钟</span>
             </span>
 
         </div>
@@ -673,7 +869,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -781,7 +977,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">46 分钟</span>
+    <span title="站点阅读时长">12 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
