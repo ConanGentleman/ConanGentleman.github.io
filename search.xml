@@ -2656,4 +2656,95 @@
         <tag>lua</tag>
       </tags>
   </entry>
+  <entry>
+    <title>3D数学基础-图形和游戏开发-学习笔记 第一章 笛卡尔坐标系</title>
+    <url>/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/</url>
+    <content><![CDATA[<p>选择性的记录内容，学习笔记</p>
+<span id="more"></span>
+
+<h1 id="1-1-一维数学"><a href="#1-1-一维数学" class="headerlink" title="1.1 一维数学"></a>1.1 一维数学</h1><h1 id="1-2-二维笛卡尔空间"><a href="#1-2-二维笛卡尔空间" class="headerlink" title="1.2 二维笛卡尔空间"></a>1.2 二维笛卡尔空间</h1><h2 id="1-2-2-任意二维坐标空间"><a href="#1-2-2-任意二维坐标空间" class="headerlink" title="1.2.2 任意二维坐标空间"></a>1.2.2 任意二维坐标空间</h2><p>原点、x轴、y轴</p>
+<h2 id="1-2-3-使用笛卡尔坐标指定二维中的位置"><a href="#1-2-3-使用笛卡尔坐标指定二维中的位置" class="headerlink" title="1.2.3 使用笛卡尔坐标指定二维中的位置"></a>1.2.3 使用笛卡尔坐标指定二维中的位置</h2><p>坐标点表示为(x,y)</p>
+<h1 id="1-3-三维笛卡尔空间"><a href="#1-3-三维笛卡尔空间" class="headerlink" title="1.3 三维笛卡尔空间"></a>1.3 三维笛卡尔空间</h1><h2 id="1-3-1-新增维度和轴"><a href="#1-3-1-新增维度和轴" class="headerlink" title="1.3.1 新增维度和轴"></a>1.3.1 新增维度和轴</h2><p>新增z轴</p>
+<h2 id="1-3-2-在三维中制动位置"><a href="#1-3-2-在三维中制动位置" class="headerlink" title="1.3.2 在三维中制动位置"></a>1.3.2 在三维中制动位置</h2><p>坐标点表示为(x,y,z)</p>
+<h2 id="1-3-3-左手与右手坐标空间"><a href="#1-3-3-左手与右手坐标空间" class="headerlink" title="1.3.3 左手与右手坐标空间"></a>1.3.3 左手与右手坐标空间</h2><p><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.3.3%E5%B7%A6%E6%89%8B%E4%B8%8E%E5%8F%B3%E6%89%8B%E5%9D%90%E6%A0%87%E7%B3%BB.jpg"></p>
+<p><strong>1. 左手坐标系</strong></p>
+<ul>
+<li>伸出左手，用拇指和食指做出一个L形</li>
+<li>拇指指向你的右边，食指朝上</li>
+<li>现在伸展你的第三根手指（中指），使它直接指向前方</li>
+</ul>
+<p>这样你就形成了一个<strong>左手坐标系</strong>。你的拇指、食指和第三根（中指）手指分别指向+x、+y和+z方向。</p>
+<p><strong>2. 右手坐标系</strong></p>
+<ul>
+<li>伸出有手，用拇指和食指做出一个L形</li>
+<li>拇指指向你的左边，食指朝上</li>
+<li>现在伸展你的第三根手指（中指），使它直接指向前方<br>这样你就形成了一个<strong>右手坐标系</strong>。你的拇指、食指和第三根（中指）手指分别指向+x、+y和+z方向。</li>
+</ul>
+<p><strong>3. 左旋、右旋坐标系</strong><br><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.3.3%E5%B7%A6%E6%97%8B%E3%80%81%E5%8F%B3%E6%97%8B%E5%9D%90%E6%A0%87%E7%B3%BB.jpg"><br>左旋和右旋坐标系在“正旋转”的定义上也有所不同。假设在空间中有一条直线，需要围绕这条直线旋转指定的角度。我们将此线称为旋转轴(Axis of Rotation)。<br>（1） 左（右）手规则。在左（右）手坐标系中，告知哪一个方向是旋转正方向的，哪一个方向是旋转负方向的标准方法称为<strong>左（右）手规则</strong>。</p>
+<ul>
+<li>将左（右）手摆出一个“竖起大拇指”的位置，拇指指向旋转轴的正值端</li>
+<li>此时，围绕旋转轴的正向旋转方向就是手指卷曲的方向。</li>
+</ul>
+<p><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.3.3%E5%B7%A6%E6%97%8B%E3%80%81%E5%8F%B3%E6%97%8B%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%BB%E8%BD%B4%E6%97%8B%E8%BD%AC.jpg"><br>（2）从图中可以看出，在<strong>左手坐标系</strong>中，<strong>正向旋转</strong>从轴的正端看时是<strong>顺时针</strong>旋转的;而在<strong>右手坐标系中，正向旋转是逆时针旋转</strong>的。</p>
+<p><strong>4. 左右手坐标系转换</strong></p>
+<p>交换一个轴的正负端</p>
+<p><strong>5. 左右手坐标系的应用</strong><br>一些较新的计算机图形文献使用左手坐标系，而传统的图形文献和更多面向数学的线性代数的研究人员则倾向于使用右手坐标系</p>
+<h2 id="1-3-4-一些使用的重要约定"><a href="#1-3-4-一些使用的重要约定" class="headerlink" title="1.3.4 一些使用的重要约定"></a>1.3.4 一些使用的重要约定</h2><ol>
+<li>在设计三维虚拟世界时，必须事先做出几种设计决策，例如左手或右手坐标系、哪个方向是+y等。</li>
+<li><strong><font color="red">这本书后续将使用左手坐标系(+x、+y和+z方向分别指向右、上和前<br>)作为例子讲解，当出现差异时会特别加以指出</font></strong></li>
+</ol>
+<h1 id="1-4-一些零散的知识"><a href="#1-4-一些零散的知识" class="headerlink" title="1.4 一些零散的知识"></a>1.4 一些零散的知识</h1><h3 id="1-4-1-求和与求积的表示法"><a href="#1-4-1-求和与求积的表示法" class="headerlink" title="1.4.1 求和与求积的表示法"></a>1.4.1 求和与求积的表示法</h3><p><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.1%E6%B1%82%E5%92%8C%E8%A1%A8%E7%A4%BA%E6%B3%95.jpg"><br><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.1%E6%B1%82%E7%A7%AF%E8%A1%A8%E7%A4%BA%E6%B3%95.jpg"></p>
+<h2 id="1-4-2-区间符号"><a href="#1-4-2-区间符号" class="headerlink" title="1.4.2 区间符号"></a>1.4.2 区间符号</h2><ul>
+<li>$[a,b]$ 表示 “所有满足$a≤x≤b$的数字$x$” ,是一个闭区间，包含a,b</li>
+<li>$(a,b)$ 表示 “所有满足$a&lt;x&lt;b$的数字$x$” ,是一个开区间，不包含a,b</li>
+<li>$(a,b]$ 与$[a,b)$ 表示半开区间</li>
+</ul>
+<h2 id="1-4-3-角度、度数和弧度"><a href="#1-4-3-角度、度数和弧度" class="headerlink" title="1.4.3 角度、度数和弧度"></a>1.4.3 角度、度数和弧度</h2><p>（1）角度可以测量平面中的旋转量。表示角度的变量通常被赋予希腊字母$\theta$。用于指定角度的最重要的度量单位是<strong>度( °）和弧度（rad）</strong>。</p>
+<p>（2）人类通常使用度（Degree）数来测量角度。<strong>一度表示旋转1&#x2F;360，因此360°代表旋转完整的一圈</strong>。然而，数学家更喜欢以弧度为单位测量角度，<strong>弧度是基于圆的属性的度量单位</strong>。当以弧度指定两条线之间的角度时，<strong>实际上是测量单位圆(以半径为1的原点为中心的圆）的截取弧的长度</strong></p>
+<p>（3）弧度和度数的转换<br><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.1%E5%BC%A7%E5%BA%A6%E5%92%8C%E8%A7%92%E5%BA%A6%E7%9A%84%E8%BD%AC%E6%8D%A2.jpg"></p>
+<h2 id="1-4-4-三角函数"><a href="#1-4-4-三角函数" class="headerlink" title="1.4.4 三角函数"></a>1.4.4 三角函数</h2><p>（1） 正弦$cos\theta$、余弦$sin\theta$</p>
+<ul>
+<li>在坐标中也有特殊的意义， $cos\theta &#x3D; x$ ,$sin\theta &#x3D; y$</li>
+</ul>
+<p>（2）割线(secant)、余割（cosecant）、切线（tangent）和余切（cotangent）也是有用的三角函数。<br><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.4%20%E5%89%B2%E7%BA%BF%E3%80%81%E4%BD%99%E5%89%B2%E3%80%81%E5%88%87%E7%BA%BF%E5%92%8C%E4%BD%99%E5%88%87.jpg"></p>
+<p>（3） 勾股与三角函数的对应关系<br>在术语中，勾被称为邻边(Adjacent)，长度为x;股被称为对边(Opposite),长度为y。它们都是相对于角度0进行解释的。同样，在这里字母顺序也是一个有用的记忆辅助手段——Adjacent和 Opposite 的顺序与相应的cosine和 sine 的顺序是相同的。弦则被称为斜边（Hypotenuse)，而缩写词 <strong>hyp、adj和 opp则分别指的是斜边、邻边和对边的长度</strong>，如图所示。<br><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.4%20%E5%8B%BE%E8%82%A1%E4%B8%8E%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0.jpg"></p>
+<ul>
+<li>当$\theta$为钝角时，上述等式不太适用，因为不能形成具有钝角内角的直角三角形。但是，通过在标准位置显示角度并允许旋转的线条为任何长度r，可以使用x、y和r表示以下对比关系。<br><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.4%20%E5%8B%BE%E8%82%A1%E4%B8%8E%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0_%E8%A7%92%E5%BA%A6%E4%B8%BA%E9%92%9D%E8%A7%92%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg"><br><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.4%20%E5%8B%BE%E8%82%A1%E4%B8%8E%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0_%E8%A7%92%E5%BA%A6%E4%B8%BA%E9%92%9D%E8%A7%92.jpg"></li>
+</ul>
+<p><strong>（4）常见角度的度数和弧度值，以及相应的三角函数的值</strong>⭐<br><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.4%20%E5%B8%B8%E8%A7%81%E8%A7%92%E5%BA%A6%E7%9A%84%E5%BA%A6%E6%95%B0%E5%92%8C%E5%BC%A7%E5%BA%A6%E5%80%BC%E4%BB%A5%E5%8F%8A%E7%9B%B8%E5%BA%94%E7%9A%84%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E7%9A%84%E5%80%BC.jpg"><br><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.4%20%E5%B8%B8%E8%A7%81%E8%A7%92%E5%BA%A6%E7%9A%84%E5%BA%A6%E6%95%B0%E5%92%8C%E5%BC%A7%E5%BA%A6%E5%80%BC%E4%BB%A5%E5%8F%8A%E7%9B%B8%E5%BA%94%E7%9A%84%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E7%9A%84%E5%80%BC1.jpg"></p>
+<h2 id="1-4-5-三角函数恒等式-⭐"><a href="#1-4-5-三角函数恒等式-⭐" class="headerlink" title="1.4.5 三角函数恒等式 ⭐"></a>1.4.5 三角函数恒等式 ⭐</h2><p>（1）基本恒等式（可基于单位圆的对称性推导出）<br><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.5%20%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F.jpg"></p>
+<p>（2）毕达哥拉斯恒等式<br><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.5%20%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F_%E6%AF%95%E8%BE%BE%E5%93%A5%E6%8B%89%E6%96%AF%E6%81%92%E7%AD%89%E5%BC%8F.jpg"></p>
+<p>（3）和差公式<br><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.5%20%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F_%E5%92%8C%E5%B7%AE%E5%85%AC%E5%BC%8F.jpg"></p>
+<p>（4）等腰三角形恒等式（和差公式的特殊情况）<br><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.5%20%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F_%E7%AD%89%E8%85%B0%E4%B8%89%E8%A7%92%E5%BD%A2%E6%81%92%E7%AD%89%E5%BC%8F.jpg"></p>
+<p>（5）正弦定理与余弦定理<br><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.5%20%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F_%E6%AD%A3%E5%BC%A6%E5%AE%9A%E7%90%86%E4%B8%8E%E4%BD%99%E5%BC%A6%E5%AE%9A%E7%90%86.jpg"></p>
+]]></content>
+      <tags>
+        <tag>3D数学基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3D数学基础-图形和游戏开发-学习笔记 第二章 矢量</title>
+    <url>/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/</url>
+    <content><![CDATA[<p>选择性的记录内容，学习笔记</p>
+<span id="more"></span>
+
+<h1 id="12-矢量叉积"><a href="#12-矢量叉积" class="headerlink" title="12 矢量叉积"></a>12 矢量叉积</h1><h2 id="12-1-正式线性代数规则"><a href="#12-1-正式线性代数规则" class="headerlink" title="12.1 正式线性代数规则"></a>12.1 正式线性代数规则</h2><ol>
+<li>叉积的表示为 <strong>a</strong>x<strong>b</strong> </li>
+<li>叉积的公式：</li>
+</ol>
+<p>$<br>\left[\begin{array}<br>x_1\<br>y_1\<br>z_1\<br>\end{array}\right]<br>\times<br>\left[\begin{array}<br>x_2\<br>y_2\<br>z_2\<br>\end{array}\right]&#x3D;<br>\left[\begin{array}<br>y_1z_2-z_1y_2\<br>z_1x_2-x_1z_2\<br>x_1y_2-y_1x_2\<br>\end{array}\right]<br>$</p>
+<ol>
+<li>叉积和点积具有相同的运算符优先级：乘法正在加减法之前。当点积和叉积一起使用时，叉积优先：$\vec{a}·\vec{b}\times\vec{c}&#x3D;\vec{a}·(\vec{b}\times\vec{c})$，因为如果先算了点积的话，不能采用标量和矢量的叉积。</li>
+<li>叉积的反交换：$\vec{a}\times\vec{b}&#x3D;-(\vec{b}\times\vec{a})$</li>
+</ol>
+<h3 id="12-2-几何解释"><a href="#12-2-几何解释" class="headerlink" title="12.2 几何解释"></a>12.2 几何解释</h3>]]></content>
+      <tags>
+        <tag>3D数学基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>post</title>
+    <url>/2024/09/20/%E7%83%AD%E6%9B%B4%E6%96%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%AD%A6%E4%B9%A0-AssetBundle-AB%E5%8C%85/</url>
+    <content><![CDATA[]]></content>
+  </entry>
 </search>
