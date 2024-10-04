@@ -2,25 +2,6 @@
 <search>
   <entry>
     <title>Hello World</title>
-    <url>/2024/07/21/hello-world-1/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="48a0ae5effc070c82e44be4a84f8ae9a09954921e0e4136a68b7e5fd229605e4">8857952509ef9895f61625fe2d594ef339e937d6685a3f98341208c8d2d367f4dc0b58f485d52aa0392b14c338af3a49fa9334860d39e66200a503ef5c6f15e63ad2aba5b3bf18c0d6d9f7017f8db44c2c9343dded772edbc3c220543b5d966a4117eabff0585a2d555d0aad8bfd14e10eab5b64af4637f63aeb3e8dd9946bf6da6710df2eb5cb68d40344fab74bc207f2b3ab564720dd3bbdaf275382565b91fc09d67374a24e44135d9e7555af78484137904f464ddd94cb8db1eee25c0c9978eb6e799b1ad3780f520bf6b233d1743f3783536c51e859ec0ee37cfad84134b99bf5c26ed05c01a5b415dcecd23171</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <tags>
-        <tag>作为日记加密</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
     <url>/2024/07/20/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="quick-start" tabindex="-1">Quick Start</h2>
@@ -36,14 +17,6 @@
 <h3 id="deploy-to-remote-sites" tabindex="-1">Deploy to remote sites</h3>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-  </entry>
-  <entry>
-    <title>post</title>
-    <url>/2024/08/13/QFramework-QFramework%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p>test</p>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
@@ -67,6 +40,25 @@
 ]]></content>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2024/07/21/hello-world-1/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="48a0ae5effc070c82e44be4a84f8ae9a09954921e0e4136a68b7e5fd229605e4">8857952509ef9895f61625fe2d594ef339e937d6685a3f98341208c8d2d367f4dc0b58f485d52aa0392b14c338af3a49fa9334860d39e66200a503ef5c6f15e63ad2aba5b3bf18c0d6d9f7017f8db44c2c9343dded772edbc3c220543b5d966a4117eabff0585a2d555d0aad8bfd14e10eab5b64af4637f63aeb3e8dd9946bf6da6710df2eb5cb68d40344fab74bc207f2b3ab564720dd3bbdaf275382565b91fc09d67374a24e44135d9e7555af78484137904f464ddd94cb8db1eee25c0c9978eb6e799b1ad3780f520bf6b233d1743f3783536c51e859ec0ee37cfad84134b99bf5c26ed05c01a5b415dcecd23171</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <tags>
+        <tag>作为日记加密</tag>
       </tags>
   </entry>
   <entry>
@@ -765,6 +757,14 @@
       </tags>
   </entry>
   <entry>
+    <title>post</title>
+    <url>/2024/08/13/QFramework-QFramework%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p>test</p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+  </entry>
+  <entry>
     <title>3D数学基础-图形和游戏开发-学习笔记 第二章 矢量</title>
     <url>/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/</url>
     <content><![CDATA[<p>矢量(Vector)是用于构建2D和3D数学的正式数学单元</p>
@@ -856,10 +856,133 @@ c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></spa
 <p>使矢量变负会产生大小相同但方向相反的矢量<br>
 <img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.5.2%20%E8%B4%9F%E7%9F%A2%E9%87%8F%E7%9A%84%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A.jpg" alt></p>
 <h1 id="2.6-%E6%A0%87%E9%87%8F%E5%92%8C%E7%9F%A2%E9%87%8F%E7%9A%84%E4%B9%98%E6%B3%95" tabindex="-1">2.6 标量和矢量的乘法</h1>
-<h1 id="12-%E7%9F%A2%E9%87%8F%E5%8F%89%E7%A7%AF" tabindex="-1">12 矢量叉积</h1>
-<h2 id="12.1-%E6%AD%A3%E5%BC%8F%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%A7%84%E5%88%99" tabindex="-1">12.1 正式线性代数规则</h2>
+<p>矢量不可以和标量相加，但可以相乘。结果是一个与原始矢量平行的矢量,但具有不同的长度和可能相反的方向。</p>
+<h2 id="2.6.1-%E6%AD%A3%E5%BC%8F%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%A7%84%E5%88%99" tabindex="-1">2.6.1 正式线性代数规则</h2>
+<p>表述如下：<br>
+<img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.6.1%20%E6%A0%87%E9%87%8F%E4%B9%98%E4%BB%A5%E7%9F%A2%E9%87%8F.jpg" alt><br>
+大多数人都会选择将标量放在左边</p>
+<h2 id="2.6.2-%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A" tabindex="-1">2.6.2 几何解释</h2>
+<p>在几何上，将矢量乘以标量k具有将长度缩放<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><mi>k</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">|k |</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord">∣</span></span></span></span></eq>因子的效果。<br>
+<img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.6.2%20%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A.jpg" alt></p>
+<h1 id="2.7-%E7%9F%A2%E9%87%8F%E7%9A%84%E5%8A%A0%E6%B3%95%E5%92%8C%E5%87%8F%E6%B3%95" tabindex="-1">2.7 矢量的加法和减法</h1>
+<p>如果两个矢量的维度相同，则可以让他们相加。</p>
+<h2 id="2.7.1-%E6%AD%A3%E5%BC%8F%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%A7%84%E5%88%99" tabindex="-1">2.7.1 正式线性代数规则</h2>
+<p>矢量相加，使用它们相应的分量相加即可。<br>
+<img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.7.1%20%E7%9F%A2%E9%87%8F%E5%8A%A0%E5%87%8F%E6%B3%95%E8%A7%84%E5%88%99.jpg" alt></p>
+<h2 id="2.7.2-%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A" tabindex="-1">2.7.2 几何解释</h2>
+<p>向量a与b相加，按几何形式实际上就是使得a的头部接触b的尾部，然后绘制一个从a的尾部到b的头部的矢量。换句话说，如果从一个点开始应用由a指定的位移，然后再应用由b指定的位移，那就像应用了单个位移a+ b一样。这被称为矢量加法的三角形法则。<br>
+<img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.7.1%20%E7%9F%A2%E9%87%8F%E5%8A%A0%E5%87%8F%E6%B3%95%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A.jpg" alt></p>
+<h2 id="2.7.3-%E4%BB%8E%E4%B8%80%E7%82%B9%E5%88%B0%E5%8F%A6%E4%B8%80%E7%82%B9%E7%9A%84%E4%BD%8D%E7%A7%BB%E7%9F%A2%E9%87%8F" tabindex="-1">2.7.3 从一点到另一点的位移矢量</h2>
+<p>通过矢量加减法即可</p>
+<h1 id="2.8-%E7%9F%A2%E9%87%8F%E5%A4%A7%E5%B0%8F" tabindex="-1">2.8 矢量大小</h1>
+<h2 id="2.8.1-%E6%AD%A3%E5%BC%8F%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%A7%84%E5%88%99" tabindex="-1">2.8.1 正式线性代数规则</h2>
+<p>矢量的大小是矢量分量的平方和的平方根。计算方法：<br>
+<img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.8.1%20%E7%9F%A2%E9%87%8F%E5%A4%A7%E5%B0%8F%E8%AE%A1%E7%AE%97.jpg" alt></p>
+<p><strong>有些图书使用单垂直线符号来表示矢量的大小，即<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><mi>v</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">|v|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">∣</span></span></span></span></eq>。</strong></p>
+<h2 id="2.8.2-%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A" tabindex="-1">2.8.2 几何解释</h2>
+<p>对于二维中的任何矢量v，可以形成一个直角三角形,其中v作为斜边，毕达哥拉斯定理指出，对于任何直角三角形，斜边长度的平方等于另外两边长度的平方和。<br>
+<img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.8.2%20%E7%9F%A2%E9%87%8F%E7%9A%84%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A.jpg" alt></p>
+<h1 id="2.9-%E5%8D%95%E4%BD%8D%E7%9F%A2%E9%87%8F" tabindex="-1">2.9 单位矢量</h1>
+<p>单位矢量是大小为1的矢量，单位矢量有时也被称为归一化矢量或者法线。</p>
+<h2 id="2.9.1-%E6%AD%A3%E5%BC%8F%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%A7%84%E5%88%99" tabindex="-1">2.9.1 正式线性代数规则</h2>
+<p>对于任何非零矢量v，可以计算指向与v相同方向的单位矢量，此过程称为矢量的归一化。为了归一化矢量，可以将矢量除以其大小，具体如下:<br>
+<img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.9.1%20%E7%9F%A2%E9%87%8F%E5%BD%92%E4%B8%80%E5%8C%96.jpg" alt></p>
+<h2 id="2.9.2-%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A" tabindex="-1">2.9.2 几何解释</h2>
+<p>在二维中，如果将单位矢量的尾部绘制在原点处，则矢量的头部将接触到以原点为中心的单位圆(单位圆的半径为1)。在三维中，单位矢量接触到的是单位球面。<br>
+<img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.9.2%20%E5%8D%95%E4%BD%8D%E7%9F%A2%E9%87%8F%E5%BD%92%E4%B8%80%E5%8C%96%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A.jpg" alt></p>
+<h1 id="2.10-%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F" tabindex="-1">2.10 距离公式</h1>
+<p>距离定义为两点之间的线段长度，先计算两点之间的矢量，然后使用2.8中提到的矢量大小求法，求矢量的长度，即为两点之间的距离。</p>
+<h1 id="2.11-%E7%9F%A2%E9%87%8F%E7%82%B9%E7%A7%AF" tabindex="-1">2.11 矢量点积</h1>
+<p>点积在较多地方都有使用，例如矩阵乘法、信号卷积、统计相关和傅立叶变换等。</p>
+<h2 id="2.11.1-%E6%AD%A3%E5%BC%8F%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%A7%84%E5%88%99" tabindex="-1">2.11.1 正式线性代数规则</h2>
+<p>“点积”的名称来自矢量乘积表示法中使用的点符号:<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo separator="true">⋅</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a·b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">a</span><span class="mpunct">⋅</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">b</span></span></span></span></eq>。两个矢量的点积是相应分量的乘积之和,得到的是一个标量。<br>
+<img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.11.1%20%E7%9F%A2%E9%87%8F%E7%82%B9%E7%A7%AF%E8%A1%A8%E8%BE%BE%E5%BC%8F.jpg" alt></p>
+<h2 id="2.11.2-%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A" tabindex="-1">2.11.2 几何解释</h2>
 <ol>
-<li>叉积的表示为 <strong>a</strong>x<strong>b</strong></li>
+<li>两个非零矢量<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>a</mi><mo>⃗</mo></mover><mo separator="true">,</mo><mover accent="true"><mi>b</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{a},\vec{b}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1719em;vertical-align:-0.1944em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.714em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">a</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2355em;"><span class="overlay" style="height:0.714em;width:0.471em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.471em" height="0.714em" style="width:0.471em" viewbox="0 0 471 714" preserveaspectratio="xMinYMin"><path d="M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
+3.333 2.667 6.667 9 10 19 6.667 24.667 20.333 43.667 41 57 7.333 4.667 11
+10.667 11 18 0 6-1 10-3 12s-6.667 5-14 9c-28.667 14.667-53.667 35.667-75 63
+-1.333 1.333-3.167 3.5-5.5 6.5s-4 4.833-5 5.5c-1 .667-2.5 1.333-4.5 2s-4.333 1
+-7 1c-4.667 0-9.167-1.833-13.5-5.5S337 184 337 178c0-12.667 15.667-32.333 47-59
+H213l-171-1c-8.667-6-13-12.333-13-19 0-4.667 4.333-11.333 13-20h359
+c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9774em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">b</span></span><span style="top:-3.2634em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2355em;"><span class="overlay" style="height:0.714em;width:0.471em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.471em" height="0.714em" style="width:0.471em" viewbox="0 0 471 714" preserveaspectratio="xMinYMin"><path d="M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
+3.333 2.667 6.667 9 10 19 6.667 24.667 20.333 43.667 41 57 7.333 4.667 11
+10.667 11 18 0 6-1 10-3 12s-6.667 5-14 9c-28.667 14.667-53.667 35.667-75 63
+-1.333 1.333-3.167 3.5-5.5 6.5s-4 4.833-5 5.5c-1 .667-2.5 1.333-4.5 2s-4.333 1
+-7 1c-4.667 0-9.167-1.833-13.5-5.5S337 184 337 178c0-12.667 15.667-32.333 47-59
+H213l-171-1c-8.667-6-13-12.333-13-19 0-4.667 4.333-11.333 13-20h359
+c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></span></span></span></span></eq>点积运算，<strong>实际上就是一个矢量在另一个矢量上的投影长度</strong>。</li>
+</ol>
+<ul>
+<li>当<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>a</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{a}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.714em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.714em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">a</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2355em;"><span class="overlay" style="height:0.714em;width:0.471em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.471em" height="0.714em" style="width:0.471em" viewbox="0 0 471 714" preserveaspectratio="xMinYMin"><path d="M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
+3.333 2.667 6.667 9 10 19 6.667 24.667 20.333 43.667 41 57 7.333 4.667 11
+10.667 11 18 0 6-1 10-3 12s-6.667 5-14 9c-28.667 14.667-53.667 35.667-75 63
+-1.333 1.333-3.167 3.5-5.5 6.5s-4 4.833-5 5.5c-1 .667-2.5 1.333-4.5 2s-4.333 1
+-7 1c-4.667 0-9.167-1.833-13.5-5.5S337 184 337 178c0-12.667 15.667-32.333 47-59
+H213l-171-1c-8.667-6-13-12.333-13-19 0-4.667 4.333-11.333 13-20h359
+c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></span></span></span></span></eq>与<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>b</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{b}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9774em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9774em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">b</span></span><span style="top:-3.2634em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2355em;"><span class="overlay" style="height:0.714em;width:0.471em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.471em" height="0.714em" style="width:0.471em" viewbox="0 0 471 714" preserveaspectratio="xMinYMin"><path d="M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
+3.333 2.667 6.667 9 10 19 6.667 24.667 20.333 43.667 41 57 7.333 4.667 11
+10.667 11 18 0 6-1 10-3 12s-6.667 5-14 9c-28.667 14.667-53.667 35.667-75 63
+-1.333 1.333-3.167 3.5-5.5 6.5s-4 4.833-5 5.5c-1 .667-2.5 1.333-4.5 2s-4.333 1
+-7 1c-4.667 0-9.167-1.833-13.5-5.5S337 184 337 178c0-12.667 15.667-32.333 47-59
+H213l-171-1c-8.667-6-13-12.333-13-19 0-4.667 4.333-11.333 13-20h359
+c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></span></span></span></span></eq>方向相同，结果为正</li>
+<li>当<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>a</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{a}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.714em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.714em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">a</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2355em;"><span class="overlay" style="height:0.714em;width:0.471em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.471em" height="0.714em" style="width:0.471em" viewbox="0 0 471 714" preserveaspectratio="xMinYMin"><path d="M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
+3.333 2.667 6.667 9 10 19 6.667 24.667 20.333 43.667 41 57 7.333 4.667 11
+10.667 11 18 0 6-1 10-3 12s-6.667 5-14 9c-28.667 14.667-53.667 35.667-75 63
+-1.333 1.333-3.167 3.5-5.5 6.5s-4 4.833-5 5.5c-1 .667-2.5 1.333-4.5 2s-4.333 1
+-7 1c-4.667 0-9.167-1.833-13.5-5.5S337 184 337 178c0-12.667 15.667-32.333 47-59
+H213l-171-1c-8.667-6-13-12.333-13-19 0-4.667 4.333-11.333 13-20h359
+c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></span></span></span></span></eq>与<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>b</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{b}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9774em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9774em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">b</span></span><span style="top:-3.2634em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2355em;"><span class="overlay" style="height:0.714em;width:0.471em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.471em" height="0.714em" style="width:0.471em" viewbox="0 0 471 714" preserveaspectratio="xMinYMin"><path d="M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
+3.333 2.667 6.667 9 10 19 6.667 24.667 20.333 43.667 41 57 7.333 4.667 11
+10.667 11 18 0 6-1 10-3 12s-6.667 5-14 9c-28.667 14.667-53.667 35.667-75 63
+-1.333 1.333-3.167 3.5-5.5 6.5s-4 4.833-5 5.5c-1 .667-2.5 1.333-4.5 2s-4.333 1
+-7 1c-4.667 0-9.167-1.833-13.5-5.5S337 184 337 178c0-12.667 15.667-32.333 47-59
+H213l-171-1c-8.667-6-13-12.333-13-19 0-4.667 4.333-11.333 13-20h359
+c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></span></span></span></span></eq>方向相反，结果为负<br>
+<img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.11.2%20%E7%9F%A2%E9%87%8F%E7%82%B9%E7%A7%AF%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A.jpg" alt></li>
+</ul>
+<ol start="2">
+<li>
+<p>点积结合律<br>
+<img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.11.2%20%E7%9F%A2%E9%87%8F%E7%82%B9%E7%A7%AF%E7%BB%93%E5%90%88%E5%BE%8B.jpg" alt></p>
+</li>
+<li>
+<p>点积交换律<br>
+当两个矢量<strong>a</strong>和<strong>b</strong>都是单位矢量时，可以很容易地得出一个几何论证，即<strong>a</strong>在<strong>b</strong>上的投影与<strong>b</strong>在<strong>a</strong>上的投影具有相同的长度。考虑下图，两个三角形具有相等的内角，因此它们是相似的。由于<strong>a</strong>和<strong>b</strong>是对应的边并且具有相同的长度，因此两个三角形是彼此的反射。<br>
+<img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.11.2%20%E7%9F%A2%E9%87%8F%E7%82%B9%E7%A7%AF%E4%BA%A4%E6%8D%A2%E5%BE%8B.jpg" alt></p>
+</li>
+<li>
+<p>点积分配律<br>
+<img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.11.2%20%E7%9F%A2%E9%87%8F%E7%82%B9%E7%A7%AF%E5%88%86%E9%85%8D%E5%BE%8B.jpg" alt><br>
+<img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.11.2%20%E7%9F%A2%E9%87%8F%E7%82%B9%E7%A7%AF%E5%8A%A0%E6%B3%95%E5%88%86%E5%B8%83.jpg" alt></p>
+</li>
+<li>
+<p>自身的点积<br>
+矢量投影到自身上，则该投影的长度就是矢量的大小。但要记住，<strong>a·b</strong>等于<strong>b</strong>投影到<strong>a</strong>上的长度，并且按||<strong>a</strong>||缩放。如果用矢量自身计算矢量点积，例如<strong>v·v</strong>，则得到的是投影的长度（即|||<strong>v</strong>||）乘以投射到的矢量的长度。<br>
+<img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.11.2%20%E7%9F%A2%E9%87%8F%E7%82%B9%E7%A7%AF%E8%87%AA%E8%BA%AB%E7%9A%84%E7%82%B9%E7%A7%AF.jpg" alt></p>
+</li>
+<li>
+<p>点积与截取角度的关系<br>
+(1) 根据点积求截取角度<br>
+<img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.11.2%20%E7%9F%A2%E9%87%8F%E7%82%B9%E7%A7%AF-%E7%82%B9%E7%A7%AF%E4%B8%8E%E6%88%AA%E5%8F%96%E8%A7%92%E5%BA%A6.jpg" alt><br>
+<img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.11.2%20%E7%9F%A2%E9%87%8F%E7%82%B9%E7%A7%AF-%E7%82%B9%E7%A7%AF%E4%B8%8E%E6%88%AA%E5%8F%96%E8%A7%92%E5%BA%A6-1.jpg" alt><br>
+(2) 根据点积结果，得到向量的方向关系<br>
+<img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.11.2%20%E7%9F%A2%E9%87%8F%E7%82%B9%E7%A7%AF-%E7%82%B9%E7%A7%AF%E7%BB%93%E6%9E%9C%E6%B1%82%E5%90%91%E9%87%8F%E6%96%B9%E5%90%91%E5%85%B3%E7%B3%BB.jpg" alt></p>
+</li>
+<li>
+<p>总结</p>
+</li>
+</ol>
+<ul>
+<li>点积<strong>a·b</strong>将测量<strong>b</strong>投影到<strong>a</strong>上的长度，乘以<strong>a</strong>的长度。</li>
+<li>点积可用于测量特定方向的位移。<br>
+投影运算与余弦函数密切相关。点积<strong>a·b</strong>也等于||<strong>a</strong>||||<strong>b</strong>||<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mi>o</mi><mi>s</mi><mi>θ</mi></mrow><annotation encoding="application/x-tex">cos\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">cos</span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span></span></span></eq>，其中，<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span></span></span></eq>是矢量之间的角度。</li>
+</ul>
+<h1 id="2.12-%E7%9F%A2%E9%87%8F%E5%8F%89%E7%A7%AF" tabindex="-1">2.12 矢量叉积</h1>
+<h2 id="2.12.1-%E6%AD%A3%E5%BC%8F%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%A7%84%E5%88%99" tabindex="-1">2.12.1 正式线性代数规则</h2>
+<ol>
+<li>叉积的表示为 <strong>a</strong>x<strong>b</strong> ,其中的“×”不能像标量一样省略。</li>
 <li>叉积的公式：</li>
 </ol>
 <section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mrow><mo fence="true">[</mo><mtable rowspacing="0.25em" columnalign="right" columnspacing><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mtext> </mtext><msub><mi>x</mi><mn>1</mn></msub></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><msub><mi>y</mi><mn>1</mn></msub></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><msub><mi>z</mi><mn>1</mn></msub></mstyle></mtd></mtr></mtable><mo fence="true">]</mo></mrow><mo>×</mo><mrow><mo fence="true">[</mo><mtable rowspacing="0.25em" columnalign="right" columnspacing><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mtext> </mtext><msub><mi>x</mi><mn>2</mn></msub></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><msub><mi>y</mi><mn>2</mn></msub></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><msub><mi>z</mi><mn>2</mn></msub></mstyle></mtd></mtr></mtable><mo fence="true">]</mo></mrow><mo>=</mo><mrow><mo fence="true">[</mo><mtable rowspacing="0.25em" columnalign="right" columnspacing><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mtext> </mtext><msub><mi>y</mi><mn>1</mn></msub><msub><mi>z</mi><mn>2</mn></msub><mo>−</mo><msub><mi>z</mi><mn>1</mn></msub><msub><mi>y</mi><mn>2</mn></msub></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><msub><mi>z</mi><mn>1</mn></msub><msub><mi>x</mi><mn>2</mn></msub><mo>−</mo><msub><mi>x</mi><mn>1</mn></msub><msub><mi>z</mi><mn>2</mn></msub></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><msub><mi>x</mi><mn>1</mn></msub><msub><mi>y</mi><mn>2</mn></msub><mo>−</mo><msub><mi>y</mi><mn>1</mn></msub><msub><mi>x</mi><mn>2</mn></msub></mrow></mstyle></mtd></mtr></mtable><mo fence="true">]</mo></mrow></mrow><annotation encoding="application/x-tex">
@@ -886,7 +1009,7 @@ H403z M403 1759 V0 H319 V1759 v600 v1759 h84z"/></svg></span></span></span><span
 M347 1759 V0 H263 V1759 v600 v1759 h84z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.85em;"><span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:4.5em;vertical-align:-2em;"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.35em;"><span style="top:-4.35em;"><span class="pstrut" style="height:6.2em;"></span><span style="width:0.667em;height:4.200em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.667em" height="4.200em" viewbox="0 0 667 4200"><path d="M403 1759 V84 H666 V0 H319 V1759 v600 v1759 h347 v-84
 H403z M403 1759 V0 H319 V1759 v600 v1759 h84z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.85em;"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.5em;"><span style="top:-4.66em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mspace"> </span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.044em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.044em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.044em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.044em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-1.66em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2em;"><span></span></span></span></span></span></span></span><span class="mclose"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.35em;"><span style="top:-4.35em;"><span class="pstrut" style="height:6.2em;"></span><span style="width:0.667em;height:4.200em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.667em" height="4.200em" viewbox="0 0 667 4200"><path d="M347 1759 V0 H0 V84 H263 V1759 v600 v1759 H0 v84 H347z
 M347 1759 V0 H263 V1759 v600 v1759 h84z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.85em;"><span></span></span></span></span></span></span></span></span></span></span></span></eqn></section><ol>
-<li>叉积和点积具有相同的运算符优先级：乘法正在加减法之前。当点积和叉积一起使用时，叉积优先：<section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mover accent="true"><mi>a</mi><mo>⃗</mo></mover><mo separator="true">⋅</mo><mover accent="true"><mi>b</mi><mo>⃗</mo></mover><mo>×</mo><mover accent="true"><mi>c</mi><mo>⃗</mo></mover><mo>=</mo><mover accent="true"><mi>a</mi><mo>⃗</mo></mover><mo separator="true">⋅</mo><mo stretchy="false">(</mo><mover accent="true"><mi>b</mi><mo>⃗</mo></mover><mo>×</mo><mover accent="true"><mi>c</mi><mo>⃗</mo></mover><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\vec{a}·\vec{b}\times\vec{c}=\vec{a}·(\vec{b}\times\vec{c})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0608em;vertical-align:-0.0833em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.714em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">a</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2355em;"><span class="overlay" style="height:0.714em;width:0.471em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.471em" height="0.714em" style="width:0.471em" viewbox="0 0 471 714" preserveaspectratio="xMinYMin"><path d="M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
+<li>叉积和点积具有相同的运算符优先级：乘法正在加减法之前。<strong>当点积和叉积一起使用时，叉积优先</strong>：<section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mover accent="true"><mi>a</mi><mo>⃗</mo></mover><mo separator="true">⋅</mo><mover accent="true"><mi>b</mi><mo>⃗</mo></mover><mo>×</mo><mover accent="true"><mi>c</mi><mo>⃗</mo></mover><mo>=</mo><mover accent="true"><mi>a</mi><mo>⃗</mo></mover><mo separator="true">⋅</mo><mo stretchy="false">(</mo><mover accent="true"><mi>b</mi><mo>⃗</mo></mover><mo>×</mo><mover accent="true"><mi>c</mi><mo>⃗</mo></mover><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\vec{a}·\vec{b}\times\vec{c}=\vec{a}·(\vec{b}\times\vec{c})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0608em;vertical-align:-0.0833em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.714em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">a</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2355em;"><span class="overlay" style="height:0.714em;width:0.471em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.471em" height="0.714em" style="width:0.471em" viewbox="0 0 471 714" preserveaspectratio="xMinYMin"><path d="M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
 3.333 2.667 6.667 9 10 19 6.667 24.667 20.333 43.667 41 57 7.333 4.667 11
 10.667 11 18 0 6-1 10-3 12s-6.667 5-14 9c-28.667 14.667-53.667 35.667-75 63
 -1.333 1.333-3.167 3.5-5.5 6.5s-4 4.833-5 5.5c-1 .667-2.5 1.333-4.5 2s-4.333 1
@@ -949,7 +1072,21 @@ c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></spa
 H213l-171-1c-8.667-6-13-12.333-13-19 0-4.667 4.333-11.333 13-20h359
 c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></eqn></section></li>
 </ol>
-<h3 id="12.2-%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A" tabindex="-1">12.2 几何解释</h3>
+<h3 id="2.12.2-%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A" tabindex="-1">2.12.2 几何解释</h3>
+<ol>
+<li>
+<p>叉积将产生一个矢量，垂直于原始的两个矢量。<strong>a×b</strong>的长度等于<strong>a</strong>和<strong>b</strong>的大小的乘积再乘以<strong>a</strong>和<strong>b</strong>之间角度的正弦值。<br>
+<img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.12.2%20%E5%8F%89%E7%A7%AF%E5%85%AC%E5%BC%8F.jpg" alt><br>
+<img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.12.2%20%E5%8F%89%E7%A7%AF%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A.jpg" alt></p>
+</li>
+<li>
+<p>基本轴的叉积<br>
+可以使用1.3.3节中使用手的方法来求叉积的基本轴<br>
+<img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.12.2%20%E5%9F%BA%E6%9C%AC%E8%BD%B4%E7%9A%84%E5%8F%89%E7%A7%AF.jpg" alt></p>
+</li>
+</ol>
+<h2 id="2.13-%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F" tabindex="-1">2.13 线性代数恒等式</h2>
+<p><img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.13%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F.jpg" alt></p>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
@@ -1069,6 +1206,27 @@ c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></spa
     <title>post</title>
     <url>/2024/09/20/%E7%83%AD%E6%9B%B4%E6%96%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%AD%A6%E4%B9%A0-AssetBundle-AB%E5%8C%85/</url>
     <content><![CDATA[<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+  </entry>
+  <entry>
+    <title>hexo文章多了如何管理</title>
+    <url>/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<p>每次通过hexo new ‘xxx’创建新的博文时，都会将生成的.md文件放置在_post文件夹下，随着文章数的增多，_post文件夹也会越来越混乱。</p>
+<span id="more"></span>
+<p>可以通过配置全局配置文件_config.yml来依据年月进行分配，在文件中查找new_post_name:并修改为</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">new_post_name:</span> <span class="string">:year/:month/:title.md</span></span><br></pre></td></tr></table></figure>
+<p>修改后，每次创建的文章将会以生成的年月进行管理。</p>
+<ul>
+<li>如果想直接进行分类创建，可以选择采用如下命令进行创建。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new post -p /文件夹名/文件名.md</span><br></pre></td></tr></table></figure>
+<p>如执行如下命令后<br>
+<img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E5%91%BD%E4%BB%A4.jpg" alt><br>
+文章将会被创建在QFramework中<br>
+<img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.jpg" alt><br>
+<img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%841.jpg" alt></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
   </entry>
@@ -3218,26 +3376,5 @@ LuaRocks 安装方法：</li>
       <tags>
         <tag>lua</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>hexo文章多了如何管理</title>
-    <url>/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/</url>
-    <content><![CDATA[<p>每次通过hexo new ‘xxx’创建新的博文时，都会将生成的.md文件放置在_post文件夹下，随着文章数的增多，_post文件夹也会越来越混乱。</p>
-<span id="more"></span>
-<p>可以通过配置全局配置文件_config.yml来依据年月进行分配，在文件中查找new_post_name:并修改为</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">new_post_name:</span> <span class="string">:year/:month/:title.md</span></span><br></pre></td></tr></table></figure>
-<p>修改后，每次创建的文章将会以生成的年月进行管理。</p>
-<ul>
-<li>如果想直接进行分类创建，可以选择采用如下命令进行创建。</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new post -p /文件夹名/文件名.md</span><br></pre></td></tr></table></figure>
-<p>如执行如下命令后<br>
-<img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E5%91%BD%E4%BB%A4.jpg" alt><br>
-文章将会被创建在QFramework中<br>
-<img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.jpg" alt><br>
-<img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%841.jpg" alt></p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
   </entry>
 </search>
