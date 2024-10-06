@@ -575,7 +575,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-10-06 22:49:11" itemprop="dateModified" datetime="2024-10-06T22:49:11+08:00">2024-10-06</time>
+                <time title="修改时间：2024-10-06 22:50:11" itemprop="dateModified" datetime="2024-10-06T22:50:11+08:00">2024-10-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -634,151 +634,14 @@
 
       
           <p>热更新解决方案学习-AssetBundle-AB包</p>
-<h1 id="%E4%B8%80%E3%80%81ab%E5%8C%85%E7%9A%84%E5%AE%9A%E4%B9%89" tabindex="-1">一、AB包的定义</h1>
-<ul>
-<li>特定于平台的资产压缩包，类似压缩文件</li>
-<li>资产包括：模型、贴图、预制体、音效、材质球等</li>
-</ul>
-<h1 id="%E4%BA%8C%E3%80%81ab%E5%8C%85%E7%9A%84%E4%BD%9C%E7%94%A8" tabindex="-1">二、AB包的作用</h1>
-<ul>
-<li>
-<p>相对于Resources下的资源，AB包更好管理资源</p>
-<ul>
-<li>Resources打包时定死、制度、无法修改。只能通过Load加载</li>
-<li>存储位置、压缩方式（打包哪些、压多少）自定义，后期可以动态更新。可以从网络或本地加载。<br>
-<img src="/2024/09/19/%E7%83%AD%E6%9B%B4%E6%96%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%AD%A6%E4%B9%A0-AssetBundle-AB%E5%8C%85/Resource%E5%92%8CAB%E5%8C%85%E7%9A%84%E5%8C%BA%E5%88%AB.png" alt></li>
-</ul>
-</li>
-<li>
-<p>减少包体大小</p>
-<ul>
-<li>压缩资源</li>
-<li>减少初始包大小。（先安装一个小安装包，在进入游戏时再下载安装）</li>
-</ul>
-</li>
-<li>
-<p>热更新使用</p>
-<ul>
-<li>资源热更新（美术类）</li>
-<li>脚本热更新（更新lua脚本）-unity3d中的C#代码是没法打包成AB包的，只能打包物体关联了哪些代码脚本的信息（一堆数据）</li>
-<li>热更新的基本规则<br>
-<img src="/2024/09/19/%E7%83%AD%E6%9B%B4%E6%96%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%AD%A6%E4%B9%A0-AssetBundle-AB%E5%8C%85/%E7%83%AD%E6%9B%B4%E6%96%B0%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%88%99.png" alt></li>
-</ul>
-</li>
-</ul>
-<h1 id="%E4%B8%89%E3%80%81%E7%94%9F%E6%88%90ab%E5%8C%85%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6" tabindex="-1">三、生成AB包资源文件</h1>
-<ul>
-<li>
-<p>Unity编辑器开发，通过U3D提供的API自定义打包工具（一般公司已经做好了）。</p>
-</li>
-<li>
-<p>官方提供好的打包工具：Asset Bundle Browser（主要学习）</p>
-</li>
-<li>
-<p>AssetBundleBrowser参数相关</p>
-</li>
-<li>
-<p>点击中文件夹中的物体，在Inspector面板最下方有个AssetBundle的第一个空格进行命名<br>
-<img src="/2024/09/19/%E7%83%AD%E6%9B%B4%E6%96%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%AD%A6%E4%B9%A0-AssetBundle-AB%E5%8C%85/AssetBundle%E5%91%BD%E5%90%8D.png" alt></p>
-</li>
-<li>
-<p>在window-AssetBundle Browser内可以看到刚刚命名的一些内容。（资源关联到包名）</p>
-</li>
-<li>
-<p>另一方面，可以发现cube（预制体）上有很多组件（碰撞体、网格等）看起来都是脚本，其实会利用反射机制，使得预制体记录的只是一些数据。所以打包到ab时不是打包的脚本（代码）本身，而是预制体关联了哪些代码<br>
-<img src="/2024/09/19/%E7%83%AD%E6%9B%B4%E6%96%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%AD%A6%E4%B9%A0-AssetBundle-AB%E5%8C%85/AB%E5%AE%9E%E9%99%85%E6%89%93%E5%8C%85%E7%9A%84%E4%B8%9C%E8%A5%BF.png" alt><br>
-<img src="/2024/09/19/%E7%83%AD%E6%9B%B4%E6%96%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%AD%A6%E4%B9%A0-AssetBundle-AB%E5%8C%85/%E9%A2%84%E5%88%B6%E4%BD%93%E7%9A%84%E6%96%87%E6%9C%AC%E4%BF%A1%E6%81%AF.png" alt></p>
-</li>
-<li>
-<p>最终打包-Build：目标平台-输出路径-（是否清空文件夹，包过大时会影响打包速度，因为每次都要打包全部）-（是否把打包到输出路径的AB复制一份到StreamingAssets，<strong>该文件夹内的文件在PC上是可读可写的，在移动端是可读的）</strong></p>
-</li>
-<li>
-<p>压缩方式：不压缩包很大解压快；LZMA: 压缩包最小，使用某一个资源时需要解压整个包，速度满；LZ4: 大小次之，需要什么资源解压什么资源，速度适中）<br>
-<img src="/2024/09/19/%E7%83%AD%E6%9B%B4%E6%96%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%AD%A6%E4%B9%A0-AssetBundle-AB%E5%8C%85/AB%E5%8C%85%E7%9A%84%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0.png" alt><br>
-<img src="/2024/09/19/%E7%83%AD%E6%9B%B4%E6%96%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%AD%A6%E4%B9%A0-AssetBundle-AB%E5%8C%85/AB%E5%8C%85%E7%9A%84%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0%E6%A0%91%E7%8A%B6%E5%9B%BE.png" alt></p>
-</li>
-<li>
-<p>AB包生成的文件</p>
-<ul>
-<li>AB包文件-资源文件
-<ul>
-<li>manifest文件</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>AB包文件信息</p>
-<ul>
-<li>当加载时，提供了关键信息：资源信息、依赖关系、版本信息等</li>
-</ul>
-</li>
-<li>
-<p>关键AB包（和目录名一样的包）</p>
-<ul>
-<li>主包</li>
-<li>AB包依赖关系</li>
-</ul>
-</li>
-<li>
-<p>实例</p>
-<ul>
-<li>StandaloneWindowsAB指的是打包出去的主包</li>
-<li>不带后缀名的（ui、cude）指的是资源文件</li>
-<li>后缀manifest文件是表示的对应的资源文件的配置信息<br>
-<img src="/2024/09/19/%E7%83%AD%E6%9B%B4%E6%96%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%AD%A6%E4%B9%A0-AssetBundle-AB%E5%8C%85/AB%E5%8C%85%E6%89%93%E5%8C%85%E5%90%8E%E7%9A%84%E6%96%87%E4%BB%B6.png" alt><br>
-<img src="/2024/09/19/%E7%83%AD%E6%9B%B4%E6%96%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%AD%A6%E4%B9%A0-AssetBundle-AB%E5%8C%85/AB%E5%8C%85%E6%89%93%E5%8C%85%E5%90%8E%E7%9A%84manifest%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF.png" alt></li>
-</ul>
-</li>
-<li>
-<p>Inspect页面 （检查页面）</p>
-<ul>
-<li>可以把打包好的AB包添加进来，查看相关的信息<br>
-<img src="/2024/09/19/%E7%83%AD%E6%9B%B4%E6%96%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%AD%A6%E4%B9%A0-AssetBundle-AB%E5%8C%85/AB%E5%8C%85%E6%A3%80%E6%9F%A5%E7%95%8C%E9%9D%A2-Inspect%E9%A1%B5%E9%9D%A2.png" alt></li>
-</ul>
-</li>
-</ul>
-<h1 id="%E5%9B%9B%E3%80%81ab%E5%8C%85%E7%9A%84%E4%BD%BF%E7%94%A8" tabindex="-1">四、AB包的使用</h1>
-<p>1、加载AB包，由于在打包时复制到了StreamingAssets中，通过AB加载其中的AB包<br>
-<img src="/2024/09/19/%E7%83%AD%E6%9B%B4%E6%96%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%AD%A6%E4%B9%A0-AssetBundle-AB%E5%8C%85/%E5%8A%A0%E8%BD%BDAB%E5%8C%85%E8%B5%84%E6%BA%90.png" alt><br>
-2、异步加载AB包<br>
-<img src="/2024/09/19/%E7%83%AD%E6%9B%B4%E6%96%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%AD%A6%E4%B9%A0-AssetBundle-AB%E5%8C%85/%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BDAB%E5%8C%85%E8%B5%84%E6%BA%90.png" alt><br>
-3、卸载AB包</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">AssetBundle.UnloadAllAssetBundles(<span class="literal">true</span>);<span class="comment">//卸载所有AB包以及其场景上已经加载的资源</span></span><br><span class="line">AssetBundle.UnloadAllAssetBundles(<span class="literal">false</span>);<span class="comment">//只卸载所有AB包，其场景上已经加载的资源不受影响（常用）</span></span><br><span class="line">ab.Unload(<span class="literal">true</span>);<span class="comment">//卸载单个ab包及其场景上已经加载的资源（同步）-ab包自己卸载自己</span></span><br><span class="line">ab.Unload(<span class="literal">false</span>);<span class="comment">//只卸载单个ab包，其场景上已经加载的资源不受影响（同步）</span></span><br><span class="line">ab.UnloadAsync(<span class="literal">true</span>);<span class="comment">//卸载单个ab包及其场景上已经加载的资源（异步）</span></span><br><span class="line">ab.UnloadAsync(<span class="literal">false</span>);<span class="comment">//只卸载单个ab包，其场景上已经加载的资源不受影响（异步)</span></span><br></pre></td></tr></table></figure>
-<h1 id="%E4%BA%94%E3%80%81ab%E5%8C%85%E7%9A%84%E4%BE%9D%E8%B5%96" tabindex="-1">五、AB包的依赖</h1>
-<ul>
-<li>给球添加材质后，并没有给材质添加到AB打包，但AB自动添加了材质</li>
-<li><strong>即在包中的资源如果使用了另一个资源，那么另一个资源会被默认打在同一个包中（脚本不算）</strong></li>
-<li><strong>如果另一个资源自己选择不打包在同一个包，当只加载自己的包,通过它创建对象,会出现资源丢失的情况，那么此时需要加载另一个资源所在的包（称依赖包），才能修复丢失。</strong><br>
-<img src="/2024/09/19/%E7%83%AD%E6%9B%B4%E6%96%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%AD%A6%E4%B9%A0-AssetBundle-AB%E5%8C%85/AB%E5%8C%85%E4%BE%9D%E8%B5%96.png" alt></li>
-</ul>
-<p>（1）当我们并<strong>不知道依赖的包</strong>是哪一个时，如何判断——依赖- 包的关键知识点： <strong>利用主包 获取依赖信息</strong></p>
-<ul>
-<li>加载主包</li>
-<li>加载主包中的固定文件</li>
-<li>从固定文件中得到依赖信息</li>
-<li>得到依赖包的名字</li>
-<li>依据依赖包名字加载依赖包</li>
-</ul>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//依赖包的关键知识点—利用主包 获取依赖信息</span></span><br><span class="line">        <span class="comment">//加载主包</span></span><br><span class="line">        AssetBundle abMain = AssetBundle.LoadFromFile(Application.streamingAssetsPath +  <span class="string">&quot;/&quot;</span> + <span class="string">&quot;StandaloneWindowsAB&quot;</span>);</span><br><span class="line">        <span class="comment">//加载主包中的固定文件</span></span><br><span class="line">        AssetBundleManifest abMainfest =  abMain.LoadAsset&lt;AssetBundleManifest&gt;(<span class="string">&quot;AssetBundleManifest&quot;</span>);</span><br><span class="line">        <span class="comment">//从固定文件中 得到依赖信息(得到uicube包的所有依赖信息）</span></span><br><span class="line">        <span class="built_in">string</span>[] strs = abMainfest.GetAllDependencies(<span class="string">&quot;uicube&quot;</span>);</span><br><span class="line">        <span class="comment">//得到了 依赖包的名字</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; strs.Length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            Debug.Log(strs[i]);</span><br><span class="line">            <span class="comment">//依据依赖包名字加载依赖包</span></span><br><span class="line">            AssetBundle.LoadFromFile(Application.streamingAssetsPath + <span class="string">&quot;/&quot;</span> + strs[i]);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<h1 id="%E5%85%AD%E3%80%81ab%E5%8C%85%E8%B5%84%E6%BA%90%E5%8A%A0%E8%BD%BD%E7%AE%A1%E7%90%86%E5%99%A8" tabindex="-1">六、AB包资源加载管理器</h1>
-<ul>
-<li>字典-保存已经加载的ab包</li>
-<li>协程-异步加载ab包中的资源</li>
-<li>单例模式-提供加载资源的接口</li>
-<li>AB包相关API-AssetBundle的一些接口</li>
-<li>委托（lambda表达式）-异步加载完后返回响应的操作</li>
-</ul>
-<h1 id="%E5%85%B6%E4%BB%96" tabindex="-1">其他</h1>
-<h2 id="unityaction%E5%92%8Csystem.action%E7%9A%84%E5%8C%BA%E5%88%AB" tabindex="-1">UnityAction和System.Action的区别</h2>
-<ol>
-<li>首先，unity内置的.AddListener只能注册UnityAction来添加非持久监听器</li>
-<li>如果希望在inspector面板访问委托，只能使用UnityAction，否则无法序列化。</li>
-<li>注意，有人说UnityAction参数最多四个，System.Action参数远远多于UnityAction。但那是.Net环境的System.Action，这在unity环境下是不对的，因为unity用的是Mone，所以System.Action参数也最多是四个。当然如果环境变了，或许会有所不同。</li>
-</ol>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/09/19/%E7%83%AD%E6%9B%B4%E6%96%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%AD%A6%E4%B9%A0-AssetBundle-AB%E5%8C%85/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
