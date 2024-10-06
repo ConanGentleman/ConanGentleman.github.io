@@ -22,20 +22,24 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="在本地markdown上，照片能正常显示，但是部署后却不显示。看了一下官方文档，Hexo3以上可以通过设置post_asset_folder来解决。">
+  <meta name="description" content="开发人员会为特定的理由构建坐标空间（有经验的老手可能会告诉你说“在不同的情况下需要不同的空间”）。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="解决Hexo图片不显示的问题">
-<meta property="og:url" content="http://example.com/2024/08/11/%E8%A7%A3%E5%86%B3Hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="3D数学基础-图形和游戏开发-学习笔记 第三章 多个坐标空间">
+<meta property="og:url" content="http://example.com/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/index.html">
 <meta property="og:site_name" content="MiDoLi&#39;s Blog">
-<meta property="og:description" content="在本地markdown上，照片能正常显示，但是部署后却不显示。看了一下官方文档，Hexo3以上可以通过设置post_asset_folder来解决。">
+<meta property="og:description" content="开发人员会为特定的理由构建坐标空间（有经验的老手可能会告诉你说“在不同的情况下需要不同的空间”）。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-08-11T05:27:23.000Z">
-<meta property="article:modified_time" content="2024-09-21T15:32:52.069Z">
+<meta property="og:image" content="http://example.com/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.2.3%20%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg">
+<meta property="og:image" content="http://example.com/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.2.3%20%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg">
+<meta property="og:image" content="http://example.com/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.2.4%20%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg">
+<meta property="article:published_time" content="2024-10-04T06:31:30.000Z">
+<meta property="article:modified_time" content="2024-10-06T13:23:57.342Z">
 <meta property="article:author" content="MiDoLi">
-<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="3D数学基础">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.2.3%20%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg">
 
-<link rel="canonical" href="http://example.com/2024/08/11/%E8%A7%A3%E5%86%B3Hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98/">
+<link rel="canonical" href="http://example.com/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/">
 
 
 <script id="page-configurations">
@@ -48,7 +52,7 @@
   };
 </script>
 
-  <title>解决Hexo图片不显示的问题 | MiDoLi's Blog</title>
+  <title>3D数学基础-图形和游戏开发-学习笔记 第三章 多个坐标空间 | MiDoLi's Blog</title>
   
 
 
@@ -200,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/11/%E8%A7%A3%E5%86%B3Hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/midoli.jpg">
@@ -213,7 +217,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          解决Hexo图片不显示的问题
+          3D数学基础-图形和游戏开发-学习笔记 第三章 多个坐标空间
         </h1>
 
         <div class="post-meta">
@@ -223,18 +227,27 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2024-08-11 13:27:23" itemprop="dateCreated datePublished" datetime="2024-08-11T13:27:23+08:00">2024-08-11</time>
+              <time title="创建时间：2024-10-04 14:31:30" itemprop="dateCreated datePublished" datetime="2024-10-04T14:31:30+08:00">2024-10-04</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-21 23:32:52" itemprop="dateModified" datetime="2024-09-21T23:32:52+08:00">2024-09-21</time>
+                <time title="修改时间：2024-10-06 21:23:57" itemprop="dateModified" datetime="2024-10-06T21:23:57+08:00">2024-10-06</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/3D%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">3D数学基础</span></a>
+                </span>
+            </span>
 
           
-            <span id="/2024/08/11/%E8%A7%A3%E5%86%B3Hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="解决Hexo图片不显示的问题" title="阅读次数">
+            <span id="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/" class="post-meta-item leancloud_visitors" data-flag-title="3D数学基础-图形和游戏开发-学习笔记 第三章 多个坐标空间" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -256,8 +269,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2024/08/11/%E8%A7%A3%E5%86%B3Hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/08/11/%E8%A7%A3%E5%86%B3Hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+    <a title="valine" href="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -267,14 +280,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>147</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -286,17 +299,55 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在本地markdown上，照片能正常显示，但是部署后却不显示。看了一下<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/asset-folders">官方文档</a>，Hexo3以上可以通过设置post_asset_folder来解决。</p>
+        <p>开发人员会为特定的理由构建坐标空间（有经验的老手可能会告诉你说“在不同的情况下需要不同的空间”）。</p>
 <span id="more"></span>
-<ol>
-<li>在Blog根目录安装插件：</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-<span class="selector-tag">image</span> <span class="attr">--save</span></span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>在全局配置文件中找到post_asset_folder并配置</li>
-</ol>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">marked:</span></span><br><span class="line">  <span class="attr">prependRoot:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">postAsset:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>启用后，资源图片将会被自动解析为其对应文章的路径。 例如： image.jpg 位置为 /2020/01/02/foo/image.jpg ，这表示它是 /2020/01/02/foo/ 文章的一张资源图片， ![](image.jpg) 将会被解析为 &lt;img src=“/2020/01/02/foo/image.jpg”&gt; 。</p>
+<p>本章主要介绍多个坐标系的概念。它分为以下5个主要小节:- - 第3.1节将证明需要多个坐标系。</p>
+<ul>
+<li>第3.2节将介绍一些常见的坐标系。介绍的主要概念包括:
+<ul>
+<li>世界空间。</li>
+<li>对象空间。</li>
+<li>相机空间。</li>
+<li>垂直空间。</li>
+</ul>
+</li>
+<li>第3.3节将描述坐标-空间转换。
+<ul>
+<li>第3.3.1节将揭示两种坐标空间转换的思考方式之间的二元性。</li>
+<li>第3.3.2节将描述如何根据一个坐标系来指定另一个坐标系。</li>
+<li>第3.3.3节将讨论基矢量的非常重要的概念。</li>
+</ul>
+</li>
+<li>第3.4节将讨论嵌套坐标空间,它常用于在三维空间中为分层分割对象设置动画。</li>
+<li>第3.5节将是针对直立空间的强调说明。</li>
+</ul>
+<h1 id="3.1-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">3.1 为什么需要多个坐标空间</h1>
+<p>在不同情况下使用不同的坐标空间会更方便</p>
+<h1 id="3.2-%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">3.2 一些有用的坐标空间</h1>
+<p>开发人员需要不同的坐标空间，因为某些信息是有意义的或仅在特定上下文环境中可用。</p>
+<h2 id="3.2.1-%E4%B8%96%E7%95%8C%E7%A9%BA%E9%97%B4" tabindex="-1">3.2.1 世界空间</h2>
+<p>（1）世界坐标系是一个特殊的坐标系，它为所有其他要指定的坐标系建立了一个“全局”参考系。换句话说，我们可以用世界坐标空间来表达其他坐标空间的位置，但是我们不能用任何更大的外部坐标空间来表示世界坐标空间。<br>
+（2）世界坐标空间也称为全局(Global）坐标空间或通用(Universal）坐标空间。</p>
+<h2 id="3.2.2-%E5%AF%B9%E8%B1%A1%E7%A9%BA%E9%97%B4%EF%BC%88%E6%A8%A1%E5%9E%8B%E7%A9%BA%E9%97%B4%EF%BC%89" tabindex="-1">3.2.2 对象空间（模型空间）</h2>
+<p>（1）对象空间（Object Space）是与特定对象关联的坐标空间。<br>
+（2）每个对象都有自己独立的对象空间。<br>
+（3）当一个对象移动或改变方向时，与该对象关联的对象坐标空间被随之携带，因此它也会移动或改变方向。<br>
+（4）可以在对象空间中指定位置和方向。<br>
+（5）在图形的上下文中，对象空间也称为模型(Model)空间，因为模型顶点的坐标以模型空间表示。对象空间也称为体（Body)空间，特别是在物理环境中。使用像“相对于体轴”这样的短语也是很常见的，这意味着“使用体空间坐标表示”。</p>
+<h2 id="3.2.3-%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%EF%BC%88%E8%A7%82%E5%AF%9F%E7%A9%BA%E9%97%B4%EF%BC%89" tabindex="-1">3.2.3 相机空间（观察空间）</h2>
+<p>（1）对象空间的一个特别重要的示例是<strong>相机空间，其是与用于渲染的视点相关联的对象空间</strong>。<br>
+（2）在相机空间中，<strong>相机位于原点，+x指向右侧，+z指向前方（进入屏幕，相机朝向的方向)，+y指向“向上”</strong>（注意，这里不是相对于世界的“向上”，而是相对于相机顶部的“向上”）。图3.1显示了相机空间的示意图。<br>
+<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.2.3%20%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt><br>
+（3）这些是传统的左手坐标系统约定，其他的都很常见。<strong>特别要指出的是，OpenGL 传统上是右手坐标系统，-z指向屏幕，+z从屏幕出来朝向观众。</strong><br>
+（4）请仔细注意相机空间(三维空间）与屏幕空间（二维空间)之间的差异。<strong>从相机空间坐标到屏幕空间坐标的映射涉及的操作称为投影</strong>。将在第十章中讨论。</p>
+<h2 id="3.2.4-%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4" tabindex="-1">3.2.4 直立空间</h2>
+<p>（1）当要理解坐标空间转换这个主题时，可以通过文字或通过代码与计算机进行通信，<strong>将每个对象与一个新的坐标空间关联在一起，这个新坐标空间我们将其称为对象的直立坐标空间</strong>。<br>
+（2）在某种意义上，<strong>对象的直立空间是世界空间与其对象空间之间的“中间过渡”</strong>，因为<strong>直立空间的轴线与世界空间的轴线平行，而直立空间的原点则与对象空间的原点重合</strong>。下图在二维中说明了这个原理（请注意，我们已经做出了任意选择，<strong>将原点放在机器人的脚之间，而不是放在她的质心中</strong>）。<br>
+<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.2.3%20%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt></p>
+<p>（3）在<strong>对象空间和直立空间</strong>之间<strong>转换点</strong>只需要<strong>旋转</strong>；在<strong>直立空间和世界空间</strong>之间<strong>转换点</strong>则只需要更改位置，通常称为<strong>平移</strong>。</p>
+<p>（4）下图演示了坐标空间之间的转换。<strong>世界空间</strong>（图左侧的示意图）可通<strong>过平移原点的方式转换为直立空间</strong>（图中间的示意图）﹔而为了将<strong>直立空间转换为对象空间</strong>，可以<strong>旋转直立空间的轴直到它们与对象空间的轴对齐</strong>。在本示例中，机器人认为她的y轴是从她的脚指向她的头部，并且她的x轴指向她的左边。”我们将在第3.3节中再次讨论这个概念。<br>
+<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.2.4%20%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt></p>
+<p>（5）在物理学中，质心坐标一般用来描述直立空间中所表示的坐标。</p>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 
@@ -314,7 +365,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/3D%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" rel="tag"># 3D数学基础</a>
           </div>
 
         
@@ -323,13 +374,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/" rel="prev" title="Hexo+next博客搭建并部署到github">
-      <i class="fa fa-chevron-left"></i> Hexo+next博客搭建并部署到github
+    <a href="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/" rel="prev" title="3D数学基础-图形和游戏开发-学习笔记 第二章 矢量">
+      <i class="fa fa-chevron-left"></i> 3D数学基础-图形和游戏开发-学习笔记 第二章 矢量
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/08/13/QFramework-QFramework%E5%AD%A6%E4%B9%A0/" rel="next" title="post">
-      post <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -389,6 +437,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#3.1-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4"><span class="nav-number">1.</span> <span class="nav-text">3.1 为什么需要多个坐标空间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3.2-%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4"><span class="nav-number">2.</span> <span class="nav-text">3.2 一些有用的坐标空间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3.2.1-%E4%B8%96%E7%95%8C%E7%A9%BA%E9%97%B4"><span class="nav-number">2.1.</span> <span class="nav-text">3.2.1 世界空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3.2.2-%E5%AF%B9%E8%B1%A1%E7%A9%BA%E9%97%B4%EF%BC%88%E6%A8%A1%E5%9E%8B%E7%A9%BA%E9%97%B4%EF%BC%89"><span class="nav-number">2.2.</span> <span class="nav-text">3.2.2 对象空间（模型空间）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3.2.3-%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%EF%BC%88%E8%A7%82%E5%AF%9F%E7%A9%BA%E9%97%B4%EF%BC%89"><span class="nav-number">2.3.</span> <span class="nav-text">3.2.3 相机空间（观察空间）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3.2.4-%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4"><span class="nav-number">2.4.</span> <span class="nav-text">3.2.4 直立空间</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
