@@ -59,7 +59,7 @@
 <meta property="og:image" content="http://example.com/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.12.2%20%E5%9F%BA%E6%9C%AC%E8%BD%B4%E7%9A%84%E5%8F%89%E7%A7%AF.jpg">
 <meta property="og:image" content="http://example.com/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.13%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F.jpg">
 <meta property="article:published_time" content="2024-09-21T14:35:36.000Z">
-<meta property="article:modified_time" content="2024-10-04T06:20:44.602Z">
+<meta property="article:modified_time" content="2024-10-23T14:58:08.563Z">
 <meta property="article:author" content="MiDoLi">
 <meta property="article:tag" content="3D数学基础">
 <meta name="twitter:card" content="summary">
@@ -260,7 +260,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-10-04 14:20:44" itemprop="dateModified" datetime="2024-10-04T14:20:44+08:00">2024-10-04</time>
+                <time title="修改时间：2024-10-23 22:58:08" itemprop="dateModified" datetime="2024-10-23T22:58:08+08:00">2024-10-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -306,14 +306,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>2.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>9 分钟</span>
+              <span>10 分钟</span>
             </span>
 
         </div>
@@ -327,6 +327,71 @@
       
         <p>矢量(Vector)是用于构建2D和3D数学的正式数学单元</p>
 <span id="more"></span>
+<p>目录</p>
+<ul>
+<li><a href="#21-%E5%90%91%E9%87%8F%E5%92%8C%E5%85%B6%E4%BB%96%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9A%84%E5%AE%9A%E4%B9%89">2.1 向量和其他的数学的定义</a></li>
+<li><a href="#22-%E7%9F%A2%E9%87%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%AE%9A%E4%B9%89">2.2 矢量的几何定义</a></li>
+<li><a href="#23-%E4%BD%BF%E7%94%A8%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E6%8C%87%E5%AE%9A%E7%9F%A2%E9%87%8F">2.3 使用笛卡尔坐标指定矢量</a>
+<ul>
+<li><a href="#231-%E4%BD%9C%E4%B8%BA%E4%BD%8D%E7%A7%BB%E5%BA%8F%E5%88%97%E7%9A%84%E7%9F%A2%E9%87%8F">2.3.1 作为位移序列的矢量</a></li>
+<li><a href="#232-%E9%9B%B6%E7%9F%A2%E9%87%8F">2.3.2 零矢量</a></li>
+</ul>
+</li>
+<li><a href="#24-%E7%9F%A2%E9%87%8F%E4%B8%8E%E7%82%B9">2.4 矢量与点</a>
+<ul>
+<li><a href="#241-%E7%9B%B8%E5%AF%B9%E4%BD%8D%E7%BD%AE">2.4.1 相对位置</a></li>
+<li><a href="#242-%E7%82%B9%E4%B8%8E%E7%9F%A2%E9%87%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB">2.4.2 点与矢量之间的关系</a></li>
+</ul>
+</li>
+<li><a href="#25-%E8%B4%9F%E7%9F%A2%E9%87%8F">2.5 负矢量</a>
+<ul>
+<li><a href="#251-%E6%AD%A3%E5%BC%8F%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%A7%84%E5%88%99">2.5.1 正式线性代数规则</a></li>
+<li><a href="#252-%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A">2.5.2 几何解释</a></li>
+</ul>
+</li>
+<li><a href="#26-%E6%A0%87%E9%87%8F%E5%92%8C%E7%9F%A2%E9%87%8F%E7%9A%84%E4%B9%98%E6%B3%95">2.6 标量和矢量的乘法</a>
+<ul>
+<li><a href="#261-%E6%AD%A3%E5%BC%8F%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%A7%84%E5%88%99">2.6.1 正式线性代数规则</a></li>
+<li><a href="#262-%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A">2.6.2 几何解释</a></li>
+</ul>
+</li>
+<li><a href="#27-%E7%9F%A2%E9%87%8F%E7%9A%84%E5%8A%A0%E6%B3%95%E5%92%8C%E5%87%8F%E6%B3%95">2.7 矢量的加法和减法</a>
+<ul>
+<li><a href="#271-%E6%AD%A3%E5%BC%8F%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%A7%84%E5%88%99">2.7.1 正式线性代数规则</a></li>
+<li><a href="#272-%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A">2.7.2 几何解释</a></li>
+<li><a href="#273-%E4%BB%8E%E4%B8%80%E7%82%B9%E5%88%B0%E5%8F%A6%E4%B8%80%E7%82%B9%E7%9A%84%E4%BD%8D%E7%A7%BB%E7%9F%A2%E9%87%8F">2.7.3 从一点到另一点的位移矢量</a></li>
+</ul>
+</li>
+<li><a href="#28-%E7%9F%A2%E9%87%8F%E5%A4%A7%E5%B0%8F">2.8 矢量大小</a>
+<ul>
+<li><a href="#281-%E6%AD%A3%E5%BC%8F%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%A7%84%E5%88%99">2.8.1 正式线性代数规则</a></li>
+<li><a href="#282-%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A">2.8.2 几何解释</a></li>
+</ul>
+</li>
+<li><a href="#29-%E5%8D%95%E4%BD%8D%E7%9F%A2%E9%87%8F">2.9 单位矢量</a>
+<ul>
+<li><a href="#291-%E6%AD%A3%E5%BC%8F%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%A7%84%E5%88%99">2.9.1 正式线性代数规则</a></li>
+<li><a href="#292-%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A">2.9.2 几何解释</a></li>
+</ul>
+</li>
+<li><a href="#210-%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F">2.10 距离公式</a></li>
+<li><a href="#211-%E7%9F%A2%E9%87%8F%E7%82%B9%E7%A7%AF">2.11 矢量点积</a>
+<ul>
+<li><a href="#2111-%E6%AD%A3%E5%BC%8F%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%A7%84%E5%88%99">2.11.1 正式线性代数规则</a></li>
+<li><a href="#2112-%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A">2.11.2 几何解释</a></li>
+</ul>
+</li>
+<li><a href="#212-%E7%9F%A2%E9%87%8F%E5%8F%89%E7%A7%AF">2.12 矢量叉积</a>
+<ul>
+<li><a href="#2121-%E6%AD%A3%E5%BC%8F%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%A7%84%E5%88%99">2.12.1 正式线性代数规则</a>
+<ul>
+<li><a href="#2122-%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A">2.12.2 几何解释</a></li>
+</ul>
+</li>
+<li><a href="#213-%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F">2.13 线性代数恒等式</a></li>
+</ul>
+</li>
+</ul>
 <h1 id="2.1-%E5%90%91%E9%87%8F%E5%92%8C%E5%85%B6%E4%BB%96%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9A%84%E5%AE%9A%E4%B9%89" tabindex="-1">2.1 向量和其他的数学的定义</h1>
 <p>（1）对于数学家来说，向量是一个数字列表（数组）。数学家会区分向量和标量。标量其实就是普通数字的技术术语。当希望强调特定的数量而不是向量数量时，就会特意使用这个术语。例如，速度（Velocity）和位移（Displacement）都是向量，而速率（Speed）和距离（Distance）则是标量。<br>
 向量的维度（Dimension）表示包含的向量的数量。<br>
@@ -758,11 +823,11 @@ c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></spa
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -860,12 +925,12 @@ c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></spa
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">44k</span>
+    <span title="站点总字数">45k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:41</span>
+    <span title="站点阅读时长">2:44</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

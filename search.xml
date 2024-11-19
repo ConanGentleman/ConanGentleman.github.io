@@ -57,8 +57,11 @@
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
+      <categories>
+        <category>hexo博客搭建</category>
+      </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>hexo博客搭建</tag>
       </tags>
   </entry>
   <entry>
@@ -66,6 +69,34 @@
     <url>/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/</url>
     <content><![CDATA[<p>选择性的记录内容，学习笔记</p>
 <span id="more"></span>
+<h1 id="%E7%9B%AE%E5%BD%95" tabindex="-1">目录</h1>
+<ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#11-%E4%B8%80%E7%BB%B4%E6%95%B0%E5%AD%A6">1.1 一维数学</a></li>
+<li><a href="#12-%E4%BA%8C%E7%BB%B4%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A9%BA%E9%97%B4">1.2 二维笛卡尔空间</a>
+<ul>
+<li><a href="#122-%E4%BB%BB%E6%84%8F%E4%BA%8C%E7%BB%B4%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4">1.2.2 任意二维坐标空间</a></li>
+<li><a href="#123-%E4%BD%BF%E7%94%A8%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E6%8C%87%E5%AE%9A%E4%BA%8C%E7%BB%B4%E4%B8%AD%E7%9A%84%E4%BD%8D%E7%BD%AE">1.2.3 使用笛卡尔坐标指定二维中的位置</a></li>
+</ul>
+</li>
+<li><a href="#13-%E4%B8%89%E7%BB%B4%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A9%BA%E9%97%B4">1.3 三维笛卡尔空间</a>
+<ul>
+<li><a href="#131-%E6%96%B0%E5%A2%9E%E7%BB%B4%E5%BA%A6%E5%92%8C%E8%BD%B4">1.3.1 新增维度和轴</a></li>
+<li><a href="#132-%E5%9C%A8%E4%B8%89%E7%BB%B4%E4%B8%AD%E5%88%B6%E5%8A%A8%E4%BD%8D%E7%BD%AE">1.3.2 在三维中制动位置</a></li>
+<li><a href="#133-%E5%B7%A6%E6%89%8B%E4%B8%8E%E5%8F%B3%E6%89%8B%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4">1.3.3 左手与右手坐标空间</a></li>
+<li><a href="#134-%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E7%9A%84%E9%87%8D%E8%A6%81%E7%BA%A6%E5%AE%9A">1.3.4 一些使用的重要约定</a></li>
+</ul>
+</li>
+<li><a href="#14-%E4%B8%80%E4%BA%9B%E9%9B%B6%E6%95%A3%E7%9A%84%E7%9F%A5%E8%AF%86">1.4 一些零散的知识</a>
+<ul>
+<li><a href="#141-%E6%B1%82%E5%92%8C%E4%B8%8E%E6%B1%82%E7%A7%AF%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%B3%95">1.4.1 求和与求积的表示法</a></li>
+<li><a href="#142-%E5%8C%BA%E9%97%B4%E7%AC%A6%E5%8F%B7">1.4.2 区间符号</a></li>
+<li><a href="#143-%E8%A7%92%E5%BA%A6%E5%BA%A6%E6%95%B0%E5%92%8C%E5%BC%A7%E5%BA%A6">1.4.3 角度、度数和弧度</a></li>
+<li><a href="#144-%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0">1.4.4 三角函数</a></li>
+<li><a href="#145-%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F-">1.4.5 三角函数恒等式 ⭐</a></li>
+</ul>
+</li>
+</ul>
 <h1 id="1.1-%E4%B8%80%E7%BB%B4%E6%95%B0%E5%AD%A6" tabindex="-1">1.1 一维数学</h1>
 <h1 id="1.2-%E4%BA%8C%E7%BB%B4%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A9%BA%E9%97%B4" tabindex="-1">1.2 二维笛卡尔空间</h1>
 <h2 id="1.2.2-%E4%BB%BB%E6%84%8F%E4%BA%8C%E7%BB%B4%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">1.2.2 任意二维坐标空间</h2>
@@ -857,8 +888,11 @@
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
+      <categories>
+        <category>hexo博客搭建</category>
+      </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>hexo博客搭建</tag>
       </tags>
   </entry>
   <entry>
@@ -921,6 +955,19 @@
 <li>3.3.3 将介绍基矢量(Basis Vector)的主要思想</li>
 </ul>
 <h2 id="3.3.1-%E5%8F%8C%E9%87%8D%E8%A7%86%E8%A7%92" tabindex="-1">3.3.1 双重视角</h2>
+<p>（1）前面的机器人示例，我们只是<strong>改变了参考框架并且能够使用不同的坐标空间来描述该点，改变了坐标空间！</strong></p>
+<p>如下图所示，将机器人在世界空间的原点进行创建。目前，由于模型处于其原始位置，因此对象空间和世界空间(以及直立空间)根据定义都是相同的。世界空间和对象空间是一致的。<br>
+<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.3.1%20%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%A8%A1%E5%9E%8B.png" alt="机器人"></p>
+<p>我们的目标是根据在某一时刻可以执行其想法的机器人所期望的位置和方向，将模型的顶点从其原始位置转换到某个新位置(在我们的示例中，就是要进入一间虚构的厨房)，如下图所示<br>
+<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.3.1%20%E6%A8%A1%E5%9E%8B%E7%A7%BB%E5%8A%A8%E7%A4%BA%E6%84%8F.png" alt><br>
+通过旋转和平移的方式最终将机器人从对象空间变换到世界空间。<strong>（必须是先旋转，再平移）</strong><br>
+<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.3.1%20%E5%B0%86%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%BB%8E%E5%AF%B9%E8%B1%A1%E7%A9%BA%E9%97%B4%E5%8F%98%E6%8D%A2%E5%88%B0%E4%B8%96%E7%95%8C%E7%A9%BA%E9%97%B4.png" alt></p>
+<p>（2）<strong>围绕原点的旋转是线性变换，而围绕任何其他点的旋转则是仿射变换</strong>（在第六章中将对仿射变换进行详细说明）</p>
+<h2 id="3.3.2-%E6%8C%87%E5%AE%9A%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">3.3.2 指定坐标空间</h2>
+<ul>
+<li>指定坐标空间的位置，即描述原点的位置</li>
+<li>指定坐标空间的方向，即通过告知<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mi>x</mi><mo separator="true">,</mo><mo>+</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">+x,+y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.1944em;"></span><span class="mord">+</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">+</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></eq>的方向来描述.(在二维中还可以通过角度进行方向的描述-极坐标)</li>
+</ul>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
@@ -936,6 +983,71 @@
     <url>/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/</url>
     <content><![CDATA[<p>矢量(Vector)是用于构建2D和3D数学的正式数学单元</p>
 <span id="more"></span>
+<p>目录</p>
+<ul>
+<li><a href="#21-%E5%90%91%E9%87%8F%E5%92%8C%E5%85%B6%E4%BB%96%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9A%84%E5%AE%9A%E4%B9%89">2.1 向量和其他的数学的定义</a></li>
+<li><a href="#22-%E7%9F%A2%E9%87%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%AE%9A%E4%B9%89">2.2 矢量的几何定义</a></li>
+<li><a href="#23-%E4%BD%BF%E7%94%A8%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E6%8C%87%E5%AE%9A%E7%9F%A2%E9%87%8F">2.3 使用笛卡尔坐标指定矢量</a>
+<ul>
+<li><a href="#231-%E4%BD%9C%E4%B8%BA%E4%BD%8D%E7%A7%BB%E5%BA%8F%E5%88%97%E7%9A%84%E7%9F%A2%E9%87%8F">2.3.1 作为位移序列的矢量</a></li>
+<li><a href="#232-%E9%9B%B6%E7%9F%A2%E9%87%8F">2.3.2 零矢量</a></li>
+</ul>
+</li>
+<li><a href="#24-%E7%9F%A2%E9%87%8F%E4%B8%8E%E7%82%B9">2.4 矢量与点</a>
+<ul>
+<li><a href="#241-%E7%9B%B8%E5%AF%B9%E4%BD%8D%E7%BD%AE">2.4.1 相对位置</a></li>
+<li><a href="#242-%E7%82%B9%E4%B8%8E%E7%9F%A2%E9%87%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB">2.4.2 点与矢量之间的关系</a></li>
+</ul>
+</li>
+<li><a href="#25-%E8%B4%9F%E7%9F%A2%E9%87%8F">2.5 负矢量</a>
+<ul>
+<li><a href="#251-%E6%AD%A3%E5%BC%8F%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%A7%84%E5%88%99">2.5.1 正式线性代数规则</a></li>
+<li><a href="#252-%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A">2.5.2 几何解释</a></li>
+</ul>
+</li>
+<li><a href="#26-%E6%A0%87%E9%87%8F%E5%92%8C%E7%9F%A2%E9%87%8F%E7%9A%84%E4%B9%98%E6%B3%95">2.6 标量和矢量的乘法</a>
+<ul>
+<li><a href="#261-%E6%AD%A3%E5%BC%8F%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%A7%84%E5%88%99">2.6.1 正式线性代数规则</a></li>
+<li><a href="#262-%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A">2.6.2 几何解释</a></li>
+</ul>
+</li>
+<li><a href="#27-%E7%9F%A2%E9%87%8F%E7%9A%84%E5%8A%A0%E6%B3%95%E5%92%8C%E5%87%8F%E6%B3%95">2.7 矢量的加法和减法</a>
+<ul>
+<li><a href="#271-%E6%AD%A3%E5%BC%8F%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%A7%84%E5%88%99">2.7.1 正式线性代数规则</a></li>
+<li><a href="#272-%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A">2.7.2 几何解释</a></li>
+<li><a href="#273-%E4%BB%8E%E4%B8%80%E7%82%B9%E5%88%B0%E5%8F%A6%E4%B8%80%E7%82%B9%E7%9A%84%E4%BD%8D%E7%A7%BB%E7%9F%A2%E9%87%8F">2.7.3 从一点到另一点的位移矢量</a></li>
+</ul>
+</li>
+<li><a href="#28-%E7%9F%A2%E9%87%8F%E5%A4%A7%E5%B0%8F">2.8 矢量大小</a>
+<ul>
+<li><a href="#281-%E6%AD%A3%E5%BC%8F%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%A7%84%E5%88%99">2.8.1 正式线性代数规则</a></li>
+<li><a href="#282-%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A">2.8.2 几何解释</a></li>
+</ul>
+</li>
+<li><a href="#29-%E5%8D%95%E4%BD%8D%E7%9F%A2%E9%87%8F">2.9 单位矢量</a>
+<ul>
+<li><a href="#291-%E6%AD%A3%E5%BC%8F%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%A7%84%E5%88%99">2.9.1 正式线性代数规则</a></li>
+<li><a href="#292-%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A">2.9.2 几何解释</a></li>
+</ul>
+</li>
+<li><a href="#210-%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F">2.10 距离公式</a></li>
+<li><a href="#211-%E7%9F%A2%E9%87%8F%E7%82%B9%E7%A7%AF">2.11 矢量点积</a>
+<ul>
+<li><a href="#2111-%E6%AD%A3%E5%BC%8F%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%A7%84%E5%88%99">2.11.1 正式线性代数规则</a></li>
+<li><a href="#2112-%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A">2.11.2 几何解释</a></li>
+</ul>
+</li>
+<li><a href="#212-%E7%9F%A2%E9%87%8F%E5%8F%89%E7%A7%AF">2.12 矢量叉积</a>
+<ul>
+<li><a href="#2121-%E6%AD%A3%E5%BC%8F%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%A7%84%E5%88%99">2.12.1 正式线性代数规则</a>
+<ul>
+<li><a href="#2122-%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A">2.12.2 几何解释</a></li>
+</ul>
+</li>
+<li><a href="#213-%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F">2.13 线性代数恒等式</a></li>
+</ul>
+</li>
+</ul>
 <h1 id="2.1-%E5%90%91%E9%87%8F%E5%92%8C%E5%85%B6%E4%BB%96%E7%9A%84%E6%95%B0%E5%AD%A6%E7%9A%84%E5%AE%9A%E4%B9%89" tabindex="-1">2.1 向量和其他的数学的定义</h1>
 <p>（1）对于数学家来说，向量是一个数字列表（数组）。数学家会区分向量和标量。标量其实就是普通数字的技术术语。当希望强调特定的数量而不是向量数量时，就会特意使用这个术语。例如，速度（Velocity）和位移（Displacement）都是向量，而速率（Speed）和距离（Distance）则是标量。<br>
 向量的维度（Dimension）表示包含的向量的数量。<br>
@@ -1449,6 +1561,12 @@ c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></spa
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
+      <categories>
+        <category>hexo博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo博客搭建</tag>
+      </tags>
   </entry>
   <entry>
     <title>lua学习笔记1</title>
@@ -3593,8 +3711,11 @@ LuaRocks 安装方法：</li>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
+      <categories>
+        <category>热更新相关</category>
+      </categories>
       <tags>
-        <tag>lua</tag>
+        <tag>热更新相关</tag>
       </tags>
   </entry>
 </search>
