@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="矩阵在3D数学中具有根本意义上的重要性,它们主要用于描述两个坐标空间之间的关系。它们通过定义将矢量从一个坐标空间转换为另一个坐标空间来实现此目的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3D数学基础-图形和游戏开发-学习笔记 第四章 矩阵简介">
+<meta property="og:url" content="http://example.com/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/index.html">
+<meta property="og:site_name" content="MiDoLi&#39;s Blog">
+<meta property="og:description" content="矩阵在3D数学中具有根本意义上的重要性,它们主要用于描述两个坐标空间之间的关系。它们通过定义将矢量从一个坐标空间转换为另一个坐标空间来实现此目的。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.1%20%E7%9F%A9%E9%98%B5%E8%A1%A8%E7%A4%BA.png">
+<meta property="og:image" content="http://example.com/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.1%20%E7%9F%A9%E9%98%B5%E5%AD%97%E6%AF%8D%E8%A1%A8%E7%A4%BA.png">
+<meta property="og:image" content="http://example.com/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.2%20%E5%AF%B9%E8%A7%92%E5%85%83%E7%B4%A0.png">
+<meta property="og:image" content="http://example.com/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.2%20%E5%AF%B9%E8%A7%92%E7%9F%A9%E9%98%B5.png">
+<meta property="og:image" content="http://example.com/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.2%20%E5%8D%95%E4%BD%8D%E7%9F%A9%E9%98%B5.png">
+<meta property="og:image" content="http://example.com/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.3%20%E4%BD%9C%E4%B8%BA%E7%9F%A9%E9%98%B5%E7%9A%84%E7%9F%A2%E9%87%8F.png">
+<meta property="og:image" content="http://example.com/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.3%20%E8%BD%AC%E7%BD%AE%E7%9F%A9%E9%98%B5.png">
+<meta property="og:image" content="http://example.com/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.3%20%E8%A1%8C%E5%88%97%E7%9F%A2%E9%87%8F%E8%BD%AC%E7%BD%AE.png">
+<meta property="og:image" content="http://example.com/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.5%20%E7%9F%A9%E9%98%B5%E4%B8%8E%E6%A0%87%E9%87%8F%E7%9B%B8%E4%B9%98.png">
+<meta property="og:image" content="http://example.com/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.6%20%E4%B8%A4%E4%B8%AA%E7%9F%A9%E9%98%B5%E4%B9%98%E7%A7%AF.png">
+<meta property="og:image" content="http://example.com/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.6%20%E4%B8%A4%E4%B8%AA%E7%9F%A9%E9%98%B5%E4%B9%98%E7%A7%AF1.png">
+<meta property="og:image" content="http://example.com/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.6%20%E4%B8%A4%E4%B8%AA%E7%9F%A9%E9%98%B5%E4%B9%98%E7%A7%AF2.png">
+<meta property="og:image" content="http://example.com/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.7%20%E7%9F%A2%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5%E7%9B%B8%E4%B9%98.png">
+<meta property="article:published_time" content="2024-11-24T10:56:44.000Z">
+<meta property="article:modified_time" content="2024-11-27T15:08:51.176Z">
+<meta property="article:author" content="MiDoLi">
+<meta property="article:tag" content="3D数学基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.1%20%E7%9F%A9%E9%98%B5%E8%A1%A8%E7%A4%BA.png">
+
+<link rel="canonical" href="http://example.com/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>3D数学基础-图形和游戏开发-学习笔记 第四章 矩阵简介 | MiDoLi's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <!--pjax：防止跳转页面音乐暂停-->
+  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script> 
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="MiDoLi's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">MiDoLi's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Code builds world !</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/midoli.jpg">
+      <meta itemprop="name" content="MiDoLi">
+      <meta itemprop="description" content="欢迎来到我的世界💜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MiDoLi's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          3D数学基础-图形和游戏开发-学习笔记 第四章 矩阵简介
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-11-24 18:56:44" itemprop="dateCreated datePublished" datetime="2024-11-24T18:56:44+08:00">2024-11-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-27 23:08:51" itemprop="dateModified" datetime="2024-11-27T23:08:51+08:00">2024-11-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/3D%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">3D数学基础</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/" class="post-meta-item leancloud_visitors" data-flag-title="3D数学基础-图形和游戏开发-学习笔记 第四章 矩阵简介" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>矩阵在3D数学中具有根本意义上的重要性,它们主要用于描述两个坐标空间之间的关系。它们通过定义将矢量从一个坐标空间转换为另一个坐标空间来实现此目的。</p>
+<span id="more"></span>
+<p>本章主要介绍矩阵的理论和应用。当引入矢量时，我们的讨论将遵循第2章中设置的模式:先介绍数学定义，然后提供几何解释。本章主要分为以下3节:</p>
+<ul>
+<li>第4.1节将严格从数学角度讨论矩阵的一些基本属性和操作(更多矩阵运算将在第6章中讨论)。</li>
+<li>第4.2节将解释如何以几何方式解读这些属性和操作。</li>
+<li>第4.3节将本书中矩阵的使用放在更大的线性代数领域中来考查。</li>
+</ul>
+<h1 id="4.1-%E7%9F%A9%E9%98%B5%E7%9A%84%E6%95%B0%E5%AD%A6%E5%AE%9A%E4%B9%89" tabindex="-1">4.1 矩阵的数学定义</h1>
+<p>在线性代数中，矩阵是排列成行和列的矩形数字网格。前文将矢量定义为数字的一维数组，矩阵同样可以定义为数字的二维数组(Two-Dimension Aray)。“二维数组”中的“二”来自于行和列，不应与二维矢量或矩阵混淆。因此，矢量是标量的数组，而矩阵则是矢量的数组。<br>
+下面将分8个小节介绍矩阵，</p>
+<ul>
+<li>第 4.1.1节将介绍矩阵维度的概念，并描述一些矩阵表示法。</li>
+<li>第 4.1.2节将描述方形矩阵。</li>
+<li>第 4.1.3 节将矢量解释为矩阵。</li>
+<li>第 4.1.4节将描述矩阵转置。</li>
+<li>第 4.1.5 节将解释如何将矩阵乘以标量。</li>
+<li>第 4.1.6节将解释如何将矩阵乘以另一个矩阵。</li>
+<li>第 4.1.7节将解释如何将矢量乘以矩阵。</li>
+<li>第 4.1.8 节将比较行和列矢量的矩阵。</li>
+</ul>
+<h2 id="4.1.1-%E7%9F%A9%E9%98%B5%E7%BB%B4%E5%BA%A6%E5%92%8C%E8%A1%A8%E7%A4%BA%E6%B3%95" tabindex="-1">4.1.1 矩阵维度和表示法</h2>
+<ol>
+<li>对于具有<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span></eq>行和<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></eq>列的矩阵,称为是<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>×</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">r \times c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></eq>(读作“<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span></eq>乘<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></eq>”)，例如下面的4×3矩阵。<br>
+<img src="/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.1%20%E7%9F%A9%E9%98%B5%E8%A1%A8%E7%A4%BA.png" alt></li>
+<li>用大写字母表示矩阵变量，如<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>M</mi></mstyle><mtext>、</mtext><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>A</mi></mstyle><mtext>、</mtext><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>R</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{M}、\pmb{A}、\pmb{R}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span><span class="mord cjk_fallback">、</span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal">A</span></span><span class="mord cjk_fallback">、</span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span></span></eq>，而矩阵中的元素则使用下标表示法，通常使用小写斜体字母。<br>
+<img src="/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.1%20%E7%9F%A9%E9%98%B5%E5%AD%97%E6%AF%8D%E8%A1%A8%E7%A4%BA.png" alt></li>
+</ol>
+<h2 id="4.1.2-%E6%96%B9%E5%BD%A2%E7%9F%A9%E9%98%B5" tabindex="-1">4.1.2 方形矩阵</h2>
+<ol>
+<li>具有相同行数和列数的矩阵称为<strong>方形矩阵</strong>。</li>
+<li><strong>方阵的对角元素是行和列索引相同的元素</strong>，例如3×3矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>M</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span></span></eq>的<strong>对角元素是</strong><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mn>11</mn></msub><mo separator="true">,</mo><msub><mi>m</mi><mn>22</mn></msub><mo separator="true">,</mo><msub><mi>m</mi><mn>33</mn></msub></mrow><annotation encoding="application/x-tex">m_{11},m_{22},m_{33}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">11</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">22</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">33</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>，<strong>其他元素是非对角元素</strong><br>
+<img src="/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.2%20%E5%AF%B9%E8%A7%92%E5%85%83%E7%B4%A0.png" alt></li>
+<li>如果矩阵中的所有非对角元素都为零，则该矩阵为<strong>对角矩阵</strong>(DiagonalMatrix)。以下4x4矩阵就是一个对角矩阵:<br>
+<img src="/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.2%20%E5%AF%B9%E8%A7%92%E7%9F%A9%E9%98%B5.png" alt></li>
+<li>对角线上的值为1，其他元素均为0，且为<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n\times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></eq>矩阵，则称为<strong>单位矩阵</strong>，表示为<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>I</mi></mstyle><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">\pmb{I}_{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>，一般上下文清楚的情况下可以省去下标<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></eq>，即<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>I</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{I}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span></span></span></span></span></eq><br>
+<img src="/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.2%20%E5%8D%95%E4%BD%8D%E7%9F%A9%E9%98%B5.png" alt></li>
+<li>单位矩阵在矩阵中的意义就相当于标量中的1，任何矩阵乘以单位矩阵都等于自身。</li>
+</ol>
+<h2 id="4.1.3-%E4%BD%9C%E4%B8%BA%E7%9F%A9%E9%98%B5%E7%9A%84%E7%9F%A2%E9%87%8F" tabindex="-1">4.1.3 作为矩阵的矢量</h2>
+<ol>
+<li>矩阵可以包含任何正数的行和列，这个正数也可以是1。</li>
+<li>一行或一列的矩阵也可被称为矢量，维数n的矢量可以被是为1×n矩阵，或者n×1的矩阵。1×n矩阵称为行矢量，n×1称为列矢量。<br>
+<img src="/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.3%20%E4%BD%9C%E4%B8%BA%E7%9F%A9%E9%98%B5%E7%9A%84%E7%9F%A2%E9%87%8F.png" alt></li>
+</ol>
+<h2 id="4.1.4-%E7%9F%A9%E9%98%B5%E8%BD%AC%E7%BD%AE" tabindex="-1">4.1.4 矩阵转置</h2>
+<ol>
+<li>给定<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>×</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">r\times c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></eq>矩阵，<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>M</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span></span></eq>的转置(Transpose)表示为<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>M</mi></mstyle><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">\pmb{M}^{T}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9146em;"></span><span class="mord"><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9146em;"><span style="top:-3.1362em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span></span></span></span></eq>，是<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>×</mo><mi>r</mi></mrow><annotation encoding="application/x-tex">c\times r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">c</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span></eq>矩阵，其中，列由<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>M</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span></span></eq>的行构成。换句话说，<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>M</mi></mstyle><mo>=</mo><msup><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>M</mi></mstyle><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">\pmb{M}=\pmb{M}^{T}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9146em;"></span><span class="mord"><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9146em;"><span style="top:-3.1362em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span></span></span></span></eq>。这实际上是以对角方式“翻转”矩阵。以下式(4.1)和式(4.2)显示了两个转置矩阵的例子:<br>
+<img src="/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.3%20%E8%BD%AC%E7%BD%AE%E7%9F%A9%E9%98%B5.png" alt></li>
+<li>对于矢量，转置会将行矢量转换为列矢量，反之亦然。列矢量一般会用转置表示法写成<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo separator="true">,</mo><mi>c</mi><msup><mo stretchy="false">]</mo><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">[a,b,c]^T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0913em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">b</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">c</span><span class="mclose"><span class="mclose">]</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span></span></span></eq><br>
+<img src="/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.3%20%E8%A1%8C%E5%88%97%E7%9F%A2%E9%87%8F%E8%BD%AC%E7%BD%AE.png" alt></li>
+<li>转置的特性：
+<ul>
+<li>对于任何维度的矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>M</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span></span></eq>,则<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msup><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>M</mi></mstyle><mi>T</mi></msup><msup><mo stretchy="false">)</mo><mi>T</mi></msup><mo>=</mo><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>M</mi></mstyle></mrow><annotation encoding="application/x-tex">(\pmb{M}^{T})^{T}=\pmb{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1646em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9146em;"><span style="top:-3.1362em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span></span></eq>。即如果先转置矩阵，然后再转置一次，即可得到原始矩阵。</li>
+<li>任何对角矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>D</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{D}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span></span></eq>等于其转置：<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>D</mi></mstyle><mi>T</mi></msub><mo>=</mo><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>D</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{D}_{T}=\pmb{D}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span></span></eq>。单位矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>I</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{I}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span></span></span></span></span></eq>也是。</li>
+</ul>
+</li>
+</ol>
+<h2 id="4.1.5-%E7%9F%A9%E9%98%B5%E4%B8%8E%E6%A0%87%E9%87%8F%E7%9B%B8%E4%B9%98" tabindex="-1">4.1.5 矩阵与标量相乘</h2>
+<p>矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>M</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span></span></eq>可以与标量<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></eq>相乘，得到与<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>M</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span></span></eq>相同维度的矩阵。结果矩阵 <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>M</mi></mstyle></mrow><annotation encoding="application/x-tex">k\pmb{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span></span></eq>中的每个元素是<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></eq>与<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>M</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span></span></eq>中相应元素的乘积。例如，<br>
+<img src="/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.5%20%E7%9F%A9%E9%98%B5%E4%B8%8E%E6%A0%87%E9%87%8F%E7%9B%B8%E4%B9%98.png" alt></p>
+<h2 id="4.1.6-%E4%B8%A4%E4%B8%AA%E7%9F%A9%E9%98%B5%E7%9B%B8%E4%B9%98" tabindex="-1">4.1.6 两个矩阵相乘</h2>
+<ol>
+<li>两个矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>A</mi></mstyle><mtext>、</mtext><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>B</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{A}、\pmb{B}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal">A</span></span><span class="mord cjk_fallback">、</span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span></span></eq>相乘时，需要满足<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>A</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{A}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal">A</span></span></span></span></span></eq>的列数与<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>B</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{B}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span></span></eq>中的行数相等，否则无法相乘。</li>
+<li>矩阵乘法的计算如下：<br>
+设矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>C</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{C}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span></span></eq>为<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">r\times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></eq>矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>A</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{A}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal">A</span></span></span></span></span></eq>与<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">n\times c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></eq>矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>B</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{B}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span></span></eq>的<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>×</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">r\times c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></eq>乘积<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>A</mi><mi>B</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{AB}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span></span></eq>。然后每个元素<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></eq>等于<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>A</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{A}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal">A</span></span></span></span></span></eq>的行<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span></eq>与<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>B</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{B}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span></span></eq>的列<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span></eq>的矢量点积，其用计算公式表述如下:<br>
+<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>c</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msub><mi>a</mi><mrow><mi>i</mi><mi>k</mi></mrow></msub><msub><mi>b</mi><mrow><mi>k</mi><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">c_{ij}=\sum\limits_{k=1}^{n}a_{ik}b_{kj}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.3535em;vertical-align:-1.0021em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3514em;"><span style="top:-2.0979em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop op-symbol small-op">∑</span></span></span><span style="top:-3.95em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.0021em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">ik</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">kj</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></eq><br>
+简单的描述一下:对于结果中的每个元素<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></eq>，找到<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>A</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{A}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal">A</span></span></span></span></span></eq>中的第<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span></eq>行和<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>B</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{B}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span></span></eq>中的第<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span></eq>列:将行和列的相应元素相乘，并对积求和,<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></eq>等于此总和，它相当于<br>
+<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>A</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{A}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal">A</span></span></span></span></span></eq>中第<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span></eq>行和<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>B</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{B}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span></span></eq>中的第<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span></eq>列的点积。例如<br>
+<img src="/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.6%20%E4%B8%A4%E4%B8%AA%E7%9F%A9%E9%98%B5%E4%B9%98%E7%A7%AF.png" alt><br>
+<img src="/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.6%20%E4%B8%A4%E4%B8%AA%E7%9F%A9%E9%98%B5%E4%B9%98%E7%A7%AF1.png" alt><br>
+<img src="/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.6%20%E4%B8%A4%E4%B8%AA%E7%9F%A9%E9%98%B5%E4%B9%98%E7%A7%AF2.png" alt></li>
+<li><strong>矩阵乘法的总结：</strong>
+<ul>
+<li>（1）将任何矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>M</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span></span></eq>乘以一个方形矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>S</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{S}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span></span></eq>(<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>S</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{S}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span></span></eq>放在哪一边都可以，即<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>M</mi><mi>S</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{MS}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.05764em;">MS</span></span></span></span></span></eq>或<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>S</mi><mi>M</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{SM}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.10903em;">SM</span></span></span></span></span></eq>都行)将得到与<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>M</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span></span></eq> 大小相同的矩阵，条件是矩阵的大小允许乘法。如果<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>S</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{S}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span></span></eq>是单位矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>I</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{I}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span></span></span></span></span></eq>，则结果是原始矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>M</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span></span></eq>:<br>
+<section><eqn><span class="katex-error" title="ParseError: KaTeX parse error: Unexpected end of input in a macro argument, expected &#x27;}&#x27; at end of input: …}=\pmb{IM}=\pmb" style="color:#cc0000">\pmb{MI}=\pmb{IM}=\pmb</span></eqn></section></li>
+<li>（2）矩阵乘法不可交换（没有交换律）<br>
+<section><eqn><span class="katex-error" title="ParseError: KaTeX parse error: Unexpected end of input in a macro argument, expected &#x27;}&#x27; at end of input: …b{AB} \neq \pmb" style="color:#cc0000">\pmb{AB} \neq \pmb</span></eqn></section></li>
+<li>（3）矩阵乘法可以结合（有结合律），可以拓展到多个矩阵相乘的情况<br>
+<section><eqn><span class="katex-error" title="ParseError: KaTeX parse error: Unexpected end of input in a macro argument, expected &#x27;}&#x27; at end of input: …b{(AB)C} = \pmb" style="color:#cc0000">\pmb{(AB)C} = \pmb</span></eqn></section></li>
+<li>（4）矩阵乘法可以与标量或矢量结合<br>
+<section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo stretchy="false">(</mo><mi>k</mi><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>A</mi></mstyle><mo stretchy="false">)</mo><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>B</mi></mstyle><mo>=</mo><mi>k</mi><mo stretchy="false">(</mo><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>A</mi><mi>B</mi></mstyle><mo stretchy="false">)</mo><mo>=</mo><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>A</mi></mstyle><mo stretchy="false">(</mo><mi>k</mi><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>B</mi></mstyle><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(k\pmb{A})\pmb{B}=k(\pmb{AB})=\pmb{A}(k\pmb{B})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal">A</span></span><span class="mclose">)</span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mopen">(</span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal">A</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span><span class="mclose">)</span></span></span></span></span></eqn></section><br>
+<section><eqn><span class="katex-error" title="ParseError: KaTeX parse error: Unexpected end of input in a macro argument, expected &#x27;}&#x27; at end of input: …mb{(vA)B}=v\pmb" style="color:#cc0000">\pmb{(vA)B}=v\pmb</span></eqn></section></li>
+<li>（5）转置两个矩阵的乘积与以相反顺序取得其转置的乘积相同，可以拓展到多个矩阵转置的情况<br>
+<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mo stretchy="false">(</mo><mi>A</mi><mi>B</mi><mo stretchy="false">)</mo></mstyle><mi>T</mi></msup><mo>=</mo><msup><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>B</mi></mstyle><mi>T</mi></msup><msup><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>A</mi></mstyle><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">\pmb{(AB)}^T=\pmb{B}^T\pmb{A}^T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2312em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9812em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9146em;"></span><span class="mord"><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9146em;"><span style="top:-3.1362em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span><span class="mord"><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal">A</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9146em;"><span style="top:-3.1362em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span></span></span></eq></li>
+</ul>
+</li>
+</ol>
+<h2 id="4.1.7-%E7%9F%A2%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5%E7%9B%B8%E4%B9%98" tabindex="-1">4.1.7 矢量和矩阵相乘</h2>
+<ol>
+<li>由于矢量可以被认为是具有一行或一列的矩阵，因此可以通过第4.1.6节中讨论<br>
+的规则将矢量和矩阵相乘。<br>
+<img src="/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/4.1.7%20%E7%9F%A2%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5%E7%9B%B8%E4%B9%98.png" alt><br>
+不难发现，当将左侧的行矢量乘以右侧的矩阵时，如式(4.4)所示，其结果是行矢量;当将左边的矩阵乘以右边的列矢量时，如式(4.5)所示，其结果是列矢量。</li>
+<li>矢量与矩阵乘法的总结：</li>
+</ol>
+<ul>
+<li><strong>结果矢量中的每个元素是原始矢量与矩阵中的单个行或列的点积</strong>。</li>
+<li>矩阵中的每个元素确定输入矢量中的特定元素对输出矢量中的元素有多大的“权重”。例如，在式(4.4)中，当使用行矢量时，<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mn>12</mn></msub></mrow><annotation encoding="application/x-tex">m_{12}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">12</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>控制输入的x值有多少输出到了y值。<br>
+矢量与矩阵乘法分布在矢量加法上 <strong>(分配律)</strong> ，即对于矢量<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>v</mi></mstyle><mtext>、</mtext><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>w</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{v}、\pmb{w}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span><span class="mord cjk_fallback">、</span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span></span></span></span></span></eq>和矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle style="text-shadow: 0.02em 0.01em 0.04px"><mi>M</mi></mstyle></mrow><annotation encoding="application/x-tex">\pmb{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord" style="text-shadow:0.02em 0.01em 0.04px;"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span></span></eq>，有<br>
+<section><eqn><span class="katex-error" title="ParseError: KaTeX parse error: Unexpected end of input in a macro argument, expected &#x27;}&#x27; at end of input: \pmb" style="color:#cc0000">\pmb</span></eqn></section></li>
+<li>乘法的结果是矩阵的行或列的线性组合。例如，在式(4.5)中，<strong>当使用列矢量时，得到的列矢量可以被解释为矩阵的列的线性组合，其中的系数来自矢量操作数</strong>。这是一个关键事实，不仅对于学习3D数学有用，而且对于一般的线性代数来说也很重要，所以<strong>请记住它</strong>。</li>
+</ul>
+<h2 id="4.1.8-%E8%A1%8C%E4%B8%8E%E5%88%97%E7%9F%A2%E9%87%8F" tabindex="-1">4.1.8 行与列矢量</h2>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+
+    </div>
+
+    
+    
+    
+
+<div>
+  
+    
+  
+</div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/3D%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" rel="tag"># 3D数学基础</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/" rel="prev" title="3D数学基础-图形和游戏开发-学习笔记 第三章 多个坐标空间">
+      <i class="fa fa-chevron-left"></i> 3D数学基础-图形和游戏开发-学习笔记 第三章 多个坐标空间
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/" rel="next" title="Hexo在多台电脑上提交和更新">
+      Hexo在多台电脑上提交和更新 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#4.1-%E7%9F%A9%E9%98%B5%E7%9A%84%E6%95%B0%E5%AD%A6%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">4.1 矩阵的数学定义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4.1.1-%E7%9F%A9%E9%98%B5%E7%BB%B4%E5%BA%A6%E5%92%8C%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">4.1.1 矩阵维度和表示法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4.1.2-%E6%96%B9%E5%BD%A2%E7%9F%A9%E9%98%B5"><span class="nav-number">1.2.</span> <span class="nav-text">4.1.2 方形矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4.1.3-%E4%BD%9C%E4%B8%BA%E7%9F%A9%E9%98%B5%E7%9A%84%E7%9F%A2%E9%87%8F"><span class="nav-number">1.3.</span> <span class="nav-text">4.1.3 作为矩阵的矢量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4.1.4-%E7%9F%A9%E9%98%B5%E8%BD%AC%E7%BD%AE"><span class="nav-number">1.4.</span> <span class="nav-text">4.1.4 矩阵转置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4.1.5-%E7%9F%A9%E9%98%B5%E4%B8%8E%E6%A0%87%E9%87%8F%E7%9B%B8%E4%B9%98"><span class="nav-number">1.5.</span> <span class="nav-text">4.1.5 矩阵与标量相乘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4.1.6-%E4%B8%A4%E4%B8%AA%E7%9F%A9%E9%98%B5%E7%9B%B8%E4%B9%98"><span class="nav-number">1.6.</span> <span class="nav-text">4.1.6 两个矩阵相乘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4.1.7-%E7%9F%A2%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5%E7%9B%B8%E4%B9%98"><span class="nav-number">1.7.</span> <span class="nav-text">4.1.7 矢量和矩阵相乘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4.1.8-%E8%A1%8C%E4%B8%8E%E5%88%97%E7%9F%A2%E9%87%8F"><span class="nav-number">1.8.</span> <span class="nav-text">4.1.8 行与列矢量</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="MiDoLi"
+      src="/images/midoli.jpg">
+  <p class="site-author-name" itemprop="name">MiDoLi</p>
+  <div class="site-description" itemprop="description">欢迎来到我的世界💜</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ConanGentleman" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ConanGentleman" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/936184713@qq.com" title="E-Mail → 936184713@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/8032462?spm_id_from=333.1007.0.0" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;8032462?spm_id_from&#x3D;333.1007.0.0" rel="noopener" target="_blank"><i class="fa bilibili fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/qq_41234218?type=blog" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_41234218?type&#x3D;blog" rel="noopener" target="_blank"><i class="fa csdn fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bilibili.com/" title="https:&#x2F;&#x2F;www.bilibili.com&#x2F;" rel="noopener" target="_blank">Bilibil</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+
+<div class="twopeople">
+        <div class="container" style="height:200px;">
+            <canvas class="illo" width="800" height="800" style="max-width: 200px; max-height: 200px; touch-action: none; width: 640px; height: 640px;"></canvas>
+        </div>
+        <script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople1.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/zdog.dist.js"></script>
+        <script id="rendered-js" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople.js"></script>
+        <style>
+            .twopeople{
+                margin: 0;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+            canvas {
+                display: block;
+                margin: 0 auto;
+                cursor: move;
+            }
+        </style>
+      </div>
+<!-- 外链播放器 溯（钢琴版）-->
+<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1433584979&auto=1&height=66"></iframe> -->
+<!-- 不使用上面的外链播放器了 改用下面的Aplayer -->
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+<!-- 改用Aplayer end -->
+        <div class="back-to-top animated" role="button" aria-label="accessibility.back_to_top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+
+      </div>
+    </main>
+
+
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MiDoLi</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">49k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:01</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("03/01/2023 10:00:00"); //此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+  
+
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'QTH3K4IUb5oOIc5ZyxHm6JPQ-gzGzoHsz',
+      appKey     : 'WPGPkvPHhUGV1zwuL8JITOOr',
+      placeholder: "请文明评论呀~",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+
+
+
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/fireworks.js"></script>
+
+
+<script type="text/javascript"
+    count="150"
+    opacity: 1
+    src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right"},"mobile":{"show":true}});</script></body>
+</html>
+
+<!-- 添加fork me on github入口 -->
+<a target="_blank" rel="noopener" href="https://github.com/ConanGentleman" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
