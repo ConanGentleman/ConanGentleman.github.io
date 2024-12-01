@@ -7,6 +7,9 @@ categories: hexo博客搭建
 
 参考链接：https://blog.csdn.net/K1052176873/article/details/122879462
 
+有时候更换电脑需要也将博客迁移，但新电脑上直接配置是效率较低的因此git来管理
+<!--more-->
+
 # 一、Hexo的文件夹说明
 ![](./Hexo在多台电脑上提交和更新/文件目录说明.png)
 
