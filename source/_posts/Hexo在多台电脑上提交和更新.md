@@ -35,7 +35,7 @@ deploy:
 
 由于master分支和source分支实际上是相互独立的两个普通的分支，所以我们**源文件和静态页面的更新也是相互独立的，故而需要手动分别执行git add . git commit git push来更新源文件,然后执行hexo d更新静态页面**。
 
-# 二、具体操作（⭐）
+# 二、旧电脑具体操作（⭐）
 1. github准备
 创建一个分支hexo，在输入框输入hexo并点击下面的创建。
 ![](./Hexo在多台电脑上提交和更新/创建分支.png)
@@ -46,3 +46,58 @@ clone该仓库到本地（clone的是hexo默认分支）
 ```shell
 git clone git@github.com:username/username.github.io.git
 ```
+4. 下载的文件夹里仅留下.git 文件夹，其他的文件都删除
+
+5. 找到原博客文件位置，将文件夹内除.deploy_git 以外都复制到clone下来的文件夹中
+6. 现在clone下来的文件夹内应该有个 **.gitignore文件** ，用来忽略一些不需要的文件，表示这些类型文件不需要git。如果没有，右键新建，**内容如下**：
+```
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+```
+7. 如果**已经clone过主题文件，那么需要把theme主题文件夹里的 .git 也删除**。因为git不能嵌套上传，最好是显示隐藏文件，检查一下有没有，**否则上传的时候会出错**，导致你的主题文件无法上传，这样你的配置在别的电脑上就用不了了。
+![](./Hexo在多台电脑上提交和更新/主题文件git删除.png)
+8. 将clone并修改以后的文件夹推送到远程库
+```shell
+git add .
+git commit –m add_branch
+git push
+```
+9.  此时已经成功将整个网站推送到了远程库的默认分支hexo,
+10. 至此，网站部署至master分支，整个网站备份至hexo分支。当网站的配置或文章修改后都要将远程仓库更新。首先，依次执行
+```shell
+git add .
+git commit -m 内容
+git push （或者git push origin hexo）
+```
+保证hexo分支版本最新。然后执行
+```shell
+hexo d -g
+```
+在此之前，有时可能需要执行**hexo clean**，完成后就会发现，最新改动已经更新到master分支了，两个分支互不干扰！
+
+# 三、新电脑上的操作（⭐）
+1. 将新电脑的生成的ssh key添加到GitHub账户上
+2. 在新电脑上克隆username.github.io仓库的source分支(就是存放源码的分支)到本地，此时本地git仓库处于source分支,可以执行git branch -v查看。
+3. 在新电脑的username.github.io文件夹下执行
+```shell
+npm install hexo
+npm install
+npm install hexo-deployer-git （记得，不需要hexo init这条指令）
+```
+4. 最后执行
+```shell
+hexo g
+hexo s
+hexo d
+```
+等命令即可提交成功
+上面步骤中，**npm install其实就是读取了packages.json里面的信息，自动安装依赖**，有的小伙伴**可能只执行npm install就行了，不过按照上面的三步是最稳妥的。**
+
+这里提一嘴，当新电脑上的操作成功之后，其实对于新电脑还是老电脑其实都无所谓了，任何一台电脑包括老电脑只要安装了NodeJs环境，就都可以按照在新电脑上的操作完整地复刻出一个hexo环境，你甚至可以把老电脑原有的hexo工程删掉再执行上面这几步一样可以快速构建hexo环境，可以看到步骤非常简单。
+
+此外，为了保证同步，推荐**先git pull合并**更新再进行博客的编写。
