@@ -85,7 +85,7 @@ hexo d -g
 2. 在新电脑上克隆username.github.io仓库的source分支(就是存放源码的分支)到本地，此时本地git仓库处于source分支,可以执行git branch -v查看。
 3. 在新电脑的username.github.io文件夹下执行
 ```shell
-npm install hexo
+npm install hexo (如果安装后hexo无效使用 npm install -g hexo来全局安装hexo)
 npm install
 npm install hexo-deployer-git （记得，不需要hexo init这条指令）
 ```
