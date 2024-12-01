@@ -1,0 +1,46 @@
+/*
+.site-brand-container {
+  background: $black-deep;
+
+  +tablet-mobile() {
+    box-shadow: 0 0 16px rgba(0, 0, 0, .5);
+  }
+}
+*/
+.site-brand-container {
+  // background: var(--theme-color); // 默认背景
+  background: url('https://images.unsplash.com/photo-1668871333606-ef8461d43922?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60');
+  // background: url('https://images.unsplash.com/photo-1661961110144-12ac85918e40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw4NHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60');
+  // background: url('https://images.unsplash.com/photo-1668735648397-9defaa967b15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMDV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60');
+  // background: url('https://images.unsplash.com/photo-1668765005700-021ea0bb9250?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMDN8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60');
+  //background: url('https://images.unsplash.com/photo-1668681919287-7367677cdc4c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNTV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60');
+  background-size: cover; // 填充
+  //background-size: 100% 100%;
+
+  .site-nav-on & {
+    +tablet-mobile() {
+      box-shadow: 0 0 16px rgba(0, 0, 0, .5);
+    }
+  }
+}
+
+
+.site-meta {
+  padding: 20px 0;
+}
+
+.brand {
+  padding: 0;
+}
+
+.site-subtitle {
+  margin: 10px 10px 0;
+}
+
+.custom-logo-image {
+  margin-top: 20px;
+
+  +tablet-mobile() {
+    display: none;
+  }
+}

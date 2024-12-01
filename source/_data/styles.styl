@@ -1,0 +1,13 @@
+body {
+    background-image: url(/images/background.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    // background-size: cover // 填充
+    opacity: 0.85;
+    //可选(用于移动端显示)
+    +mobile(){
+      background-image: url(https://unsplash.com/photos/shooting-star-in-night-sky-5LOhydOtTKU); //这里选用的是https://source.unsplash.com/上的在线图片，用于移动端显示（可选）
+      background-size: cover;
+    }
+}

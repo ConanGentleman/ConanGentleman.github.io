@@ -1,0 +1,51 @@
+.back-to-top {
+  background: $b2t-bg-color;
+  bottom: $b2t-position-bottom;
+  box-sizing: border-box;
+  color: $b2t-color;
+  cursor: pointer;
+  left: $b2t-position-right;
+  opacity: $b2t-opacity;
+  padding: 0 6px;
+  position: fixed;
+  transition-property: bottom;
+  z-index: $zindex-3;
+
+  if (hexo-config('back2top.scrollpercent')) {
+    width: initial;
+  } else {
+    width: 24px;
+
+    span {
+      display: none;
+    }
+  }
+
+  &:hover {
+    color: $sidebar-highlight;
+  }
+
+  &.back-to-top-on {
+    bottom: $b2t-position-bottom-on;
+  }
+
+  +tablet-mobile() {
+    left: $b2t-position-right-mobile;
+    opacity: $b2t-opacity-hover;
+  }
+  
+if (hexo-config('back2top.enable')) {
+  .back-to-top {
+    font-size: $b2t-font-size;
+
+    span {
+      //margin-right: 8px; // 注释掉（默认设置是这个 给改成末尾两行）
+    }
+    ...
+    ...
+    padding-right: 5px; // 新添加的代码
+    left: 30px; // // 新添加的代码
+  }
+}
+
+}
