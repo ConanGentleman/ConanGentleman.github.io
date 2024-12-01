@@ -14,7 +14,7 @@
   "dependencies": {
     "@waline/hexo-next": "^3.0.1",
     "aplayer": "^1.10.1",
-    "eslint": "^9.7.0",
+    "eslint": "^9.16.0",
     "hexo": "^7.3.0",
     "hexo-asset-image": "github:CodeFalling/hexo-asset-image",
     "hexo-blog-encrypt": "^3.1.9",
