@@ -87,46 +87,6 @@ clone该仓库到本地（clone的是hexo默认分支）</li>
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2024/07/21/hello-world-1/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="48a0ae5effc070c82e44be4a84f8ae9a09954921e0e4136a68b7e5fd229605e4">8857952509ef9895f61625fe2d594ef339e937d6685a3f98341208c8d2d367f4dc0b58f485d52aa0392b14c338af3a49fa9334860d39e66200a503ef5c6f15e63ad2aba5b3bf18c0d6d9f7017f8db44c2c9343dded772edbc3c220543b5d966a4117eabff0585a2d555d0aad8bfd14e10eab5b64af4637f63aeb3e8dd9946bf6da6710df2eb5cb68d40344fab74bc207f2b3ab564720dd3bbdaf275382565b91fc09d67374a24e44135d9e7555af78484137904f464ddd94cb8db1eee25c0c9978eb6e799b1ad3780f520bf6b233d1743f3783536c51e859ec0ee37cfad84134b99bf5c26ed05c01a5b415dcecd23171</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <tags>
-        <tag>作为日记加密</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2024/07/01/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-start" tabindex="-1">Quick Start</h2>
-<h3 id="create-a-new-post" tabindex="-1">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server" tabindex="-1">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files" tabindex="-1">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites" tabindex="-1">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-  </entry>
-  <entry>
     <title>Hexo+next博客搭建并部署到github</title>
     <url>/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/</url>
     <content><![CDATA[<h1 id="%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85%E4%B8%8B%E8%BD%BDnode.js%E3%80%81vscode%E3%80%81git" tabindex="-1">一、安装下载Node.js、Vscode、Git</h1>
@@ -825,6 +785,46 @@ clone该仓库到本地（clone的是hexo默认分支）</li>
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2024/07/21/hello-world-1/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="48a0ae5effc070c82e44be4a84f8ae9a09954921e0e4136a68b7e5fd229605e4">8857952509ef9895f61625fe2d594ef339e937d6685a3f98341208c8d2d367f4dc0b58f485d52aa0392b14c338af3a49fa9334860d39e66200a503ef5c6f15e63ad2aba5b3bf18c0d6d9f7017f8db44c2c9343dded772edbc3c220543b5d966a4117eabff0585a2d555d0aad8bfd14e10eab5b64af4637f63aeb3e8dd9946bf6da6710df2eb5cb68d40344fab74bc207f2b3ab564720dd3bbdaf275382565b91fc09d67374a24e44135d9e7555af78484137904f464ddd94cb8db1eee25c0c9978eb6e799b1ad3780f520bf6b233d1743f3783536c51e859ec0ee37cfad84134b99bf5c26ed05c01a5b415dcecd23171</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <tags>
+        <tag>作为日记加密</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2024/07/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="quick-start" tabindex="-1">Quick Start</h2>
+<h3 id="create-a-new-post" tabindex="-1">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server" tabindex="-1">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files" tabindex="-1">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites" tabindex="-1">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+  </entry>
+  <entry>
     <title>解决Hexo图片不显示的问题</title>
     <url>/2024/08/11/%E8%A7%A3%E5%86%B3Hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>在本地markdown上，照片能正常显示，但是部署后却不显示。看了一下<a href="https://hexo.io/zh-cn/docs/asset-folders">官方文档</a>，Hexo3以上可以通过设置post_asset_folder来解决。</p>
@@ -971,142 +971,6 @@ clone该仓库到本地（clone的是hexo默认分支）</li>
 <img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.5%20%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F_%E7%AD%89%E8%85%B0%E4%B8%89%E8%A7%92%E5%BD%A2%E6%81%92%E7%AD%89%E5%BC%8F.jpg" alt></p>
 <p>（5）正弦定理与余弦定理<br>
 <img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.5%20%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F_%E6%AD%A3%E5%BC%A6%E5%AE%9A%E7%90%86%E4%B8%8E%E4%BD%99%E5%BC%A6%E5%AE%9A%E7%90%86.jpg" alt></p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>3D数学基础</category>
-      </categories>
-      <tags>
-        <tag>3D数学基础</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>3D数学基础-图形和游戏开发-学习笔记 第三章 多个坐标空间</title>
-    <url>/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/</url>
-    <content><![CDATA[<p>开发人员会为特定的理由构建坐标空间（有经验的老手可能会告诉你说“在不同的情况下需要不同的空间”）。</p>
-<span id="more"></span>
-<ul>
-<li><a href="#31-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4">3.1 为什么需要多个坐标空间</a></li>
-<li><a href="#32-%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4">3.2 一些有用的坐标空间</a>
-<ul>
-<li><a href="#321-%E4%B8%96%E7%95%8C%E7%A9%BA%E9%97%B4">3.2.1 世界空间</a></li>
-<li><a href="#322-%E5%AF%B9%E8%B1%A1%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%9E%8B%E7%A9%BA%E9%97%B4">3.2.2 对象空间（模型空间）</a></li>
-<li><a href="#323-%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%E8%A7%82%E5%AF%9F%E7%A9%BA%E9%97%B4">3.2.3 相机空间（观察空间）</a></li>
-<li><a href="#324-%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4">3.2.4 直立空间</a></li>
-</ul>
-</li>
-<li><a href="#33-%E5%9F%BA%E7%9F%A2%E9%87%8F%E5%92%8C%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4%E8%BD%AC%E6%8D%A2">3.3 基矢量和坐标空间转换</a>
-<ul>
-<li><a href="#331-%E5%8F%8C%E9%87%8D%E8%A7%86%E8%A7%92">3.3.1 双重视角</a></li>
-<li><a href="#332-%E6%8C%87%E5%AE%9A%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4">3.3.2 指定坐标空间</a></li>
-<li><a href="#333-%E5%9F%BA%E7%9F%A2%E9%87%8F">3.3.3 基矢量</a></li>
-</ul>
-</li>
-<li><a href="#34-%E5%B5%8C%E5%A5%97%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4">3.4 嵌套坐标空间</a></li>
-<li><a href="#35-%E9%92%88%E5%AF%B9%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4%E7%9A%84%E5%86%8D%E8%A7%A3%E9%87%8A">3.5 针对直立空间的再解释</a></li>
-</ul>
-<p>本章主要介绍多个坐标系的概念。它分为以下5个主要小节:- - 第3.1节将证明需要多个坐标系。</p>
-<ul>
-<li>第3.2节将介绍一些常见的坐标系。介绍的主要概念包括:
-<ul>
-<li>世界空间。</li>
-<li>对象空间。</li>
-<li>相机空间。</li>
-<li>垂直空间。</li>
-</ul>
-</li>
-<li>第3.3节将描述坐标-空间转换。
-<ul>
-<li>第3.3.1节将揭示两种坐标空间转换的思考方式之间的二元性。</li>
-<li>第3.3.2节将描述如何根据一个坐标系来指定另一个坐标系。</li>
-<li>第3.3.3节将讨论基矢量的非常重要的概念。</li>
-</ul>
-</li>
-<li>第3.4节将讨论嵌套坐标空间,它常用于在三维空间中为分层分割对象设置动画。</li>
-<li>第3.5节将是针对直立空间的强调说明。</li>
-</ul>
-<h1 id="3.1-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">3.1 为什么需要多个坐标空间</h1>
-<p>在不同情况下使用不同的坐标空间会更方便</p>
-<h1 id="3.2-%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">3.2 一些有用的坐标空间</h1>
-<p>开发人员需要不同的坐标空间，因为某些信息是有意义的或仅在特定上下文环境中可用。</p>
-<h2 id="3.2.1-%E4%B8%96%E7%95%8C%E7%A9%BA%E9%97%B4" tabindex="-1">3.2.1 世界空间</h2>
-<p>（1）世界坐标系是一个特殊的坐标系，它为所有其他要指定的坐标系建立了一个“全局”参考系。换句话说，我们可以用世界坐标空间来表达其他坐标空间的位置，但是我们不能用任何更大的外部坐标空间来表示世界坐标空间。<br>
-（2）世界坐标空间也称为全局(Global）坐标空间或通用(Universal）坐标空间。</p>
-<h2 id="3.2.2-%E5%AF%B9%E8%B1%A1%E7%A9%BA%E9%97%B4%EF%BC%88%E6%A8%A1%E5%9E%8B%E7%A9%BA%E9%97%B4%EF%BC%89" tabindex="-1">3.2.2 对象空间（模型空间）</h2>
-<p>（1）对象空间（Object Space）是与特定对象关联的坐标空间。<br>
-（2）每个对象都有自己独立的对象空间。<br>
-（3）当一个对象移动或改变方向时，与该对象关联的对象坐标空间被随之携带，因此它也会移动或改变方向。<br>
-（4）可以在对象空间中指定位置和方向。<br>
-（5）在图形的上下文中，对象空间也称为模型(Model)空间，因为模型顶点的坐标以模型空间表示。对象空间也称为体（Body)空间，特别是在物理环境中。使用像“相对于体轴”这样的短语也是很常见的，这意味着“使用体空间坐标表示”。</p>
-<h2 id="3.2.3-%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%EF%BC%88%E8%A7%82%E5%AF%9F%E7%A9%BA%E9%97%B4%EF%BC%89" tabindex="-1">3.2.3 相机空间（观察空间）</h2>
-<p>（1）对象空间的一个特别重要的示例是<strong>相机空间，其是与用于渲染的视点相关联的对象空间</strong>。<br>
-（2）在相机空间中，<strong>相机位于原点，+x指向右侧，+z指向前方（进入屏幕，相机朝向的方向)，+y指向“向上”</strong>（注意，这里不是相对于世界的“向上”，而是相对于相机顶部的“向上”）。图3.1显示了相机空间的示意图。<br>
-<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.2.3%20%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt><br>
-（3）这些是传统的左手坐标系统约定，其他的都很常见。<strong>特别要指出的是，OpenGL 传统上是右手坐标系统，-z指向屏幕，+z从屏幕出来朝向观众。</strong><br>
-（4）请仔细注意相机空间(三维空间）与屏幕空间（二维空间)之间的差异。<strong>从相机空间坐标到屏幕空间坐标的映射涉及的操作称为投影</strong>。将在第十章中讨论。</p>
-<h2 id="3.2.4-%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4" tabindex="-1">3.2.4 直立空间</h2>
-<p>（1）当要理解坐标空间转换这个主题时，可以通过文字或通过代码与计算机进行通信，<strong>将每个对象与一个新的坐标空间关联在一起，这个新坐标空间我们将其称为对象的直立坐标空间</strong>。<br>
-（2）在某种意义上，<strong>对象的直立空间是世界空间与其对象空间之间的“中间过渡”</strong>，因为<strong>直立空间的轴线与世界空间的轴线平行，而直立空间的原点则与对象空间的原点重合</strong>。下图在二维中说明了这个原理（请注意，我们已经做出了任意选择，<strong>将原点放在机器人的脚之间，而不是放在她的质心中</strong>）。<br>
-<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.2.3%20%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt></p>
-<p>（3）在<strong>对象空间和直立空间</strong>之间<strong>转换点</strong>只需要<strong>旋转</strong>；在<strong>直立空间和世界空间</strong>之间<strong>转换点</strong>则只需要更改位置，通常称为<strong>平移</strong>。</p>
-<p>（4）下图演示了坐标空间之间的转换。<strong>世界空间</strong>（图左侧的示意图）可通<strong>过平移原点的方式转换为直立空间</strong>（图中间的示意图）﹔而为了将<strong>直立空间转换为对象空间</strong>，可以<strong>旋转直立空间的轴直到它们与对象空间的轴对齐</strong>。在本示例中，机器人认为她的y轴是从她的脚指向她的头部，并且她的x轴指向她的左边。”我们将在第3.3节中再次讨论这个概念。<br>
-<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.2.4%20%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt></p>
-<p>（5）在物理学中，质心坐标一般用来描述直立空间中所表示的坐标。</p>
-<h1 id="3.3-%E5%9F%BA%E7%9F%A2%E9%87%8F%E5%92%8C%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4%E8%BD%AC%E6%8D%A2" tabindex="-1">3.3 基矢量和坐标空间转换</h1>
-<p>有时某些问题只能在特定的坐标空间中得到解答。</p>
-<ul>
-<li>3.3.1 将讨论初级视频游戏程序员进场会遇到的转换：图形</li>
-<li>3.3.2 确保我们清楚根据一个坐标空间指定另一个坐标空间意味着什么。</li>
-<li>3.3.3 将介绍基矢量(Basis Vector)的主要思想</li>
-</ul>
-<h2 id="3.3.1-%E5%8F%8C%E9%87%8D%E8%A7%86%E8%A7%92" tabindex="-1">3.3.1 双重视角</h2>
-<p>（1）前面的机器人示例，我们只是<strong>改变了参考框架并且能够使用不同的坐标空间来描述该点，改变了坐标空间！</strong></p>
-<p>如下图所示，将机器人在世界空间的原点进行创建。目前，由于模型处于其原始位置，因此对象空间和世界空间(以及直立空间)根据定义都是相同的。世界空间和对象空间是一致的。<br>
-<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.3.1%20%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%A8%A1%E5%9E%8B.png" alt="机器人"></p>
-<p>我们的目标是根据在某一时刻可以执行其想法的机器人所期望的位置和方向，将模型的顶点从其原始位置转换到某个新位置(在我们的示例中，就是要进入一间虚构的厨房)，如下图所示<br>
-<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.3.1%20%E6%A8%A1%E5%9E%8B%E7%A7%BB%E5%8A%A8%E7%A4%BA%E6%84%8F.png" alt><br>
-通过旋转和平移的方式最终将机器人从对象空间变换到世界空间。<strong>（必须是先旋转，再平移）</strong><br>
-<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.3.1%20%E5%B0%86%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%BB%8E%E5%AF%B9%E8%B1%A1%E7%A9%BA%E9%97%B4%E5%8F%98%E6%8D%A2%E5%88%B0%E4%B8%96%E7%95%8C%E7%A9%BA%E9%97%B4.png" alt></p>
-<p>（2）<strong>围绕原点的旋转是线性变换，而围绕任何其他点的旋转则是仿射变换</strong>（在第六章中将对仿射变换进行详细说明）</p>
-<h2 id="3.3.2-%E6%8C%87%E5%AE%9A%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">3.3.2 指定坐标空间</h2>
-<ul>
-<li>指定坐标空间的位置，即描述原点的位置</li>
-<li>指定坐标空间的方向，即通过告知<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mi>x</mi><mo separator="true">,</mo><mo>+</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">+x,+y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.1944em;"></span><span class="mord">+</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">+</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></eq>的方向来描述.(在二维中还可以通过角度进行方向的描述-极坐标)</li>
-</ul>
-<h2 id="3.3.3-%E5%9F%BA%E7%9F%A2%E9%87%8F" tabindex="-1">3.3.3 基矢量</h2>
-<ol>
-<li>任意矢量可以扩展为基矢量的线性组合：<br>
-在这里，<strong>p、q和r</strong>是三维空间的基矢量(Basis Vector)，大多数时候<strong>p</strong>=[1,0,0],<strong>q</strong>=[0,1,0],<strong>r</strong>=[0,0,1]<br>
-<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.3.2%20%E5%9F%BA%E7%9F%A2%E9%87%8F-%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88.png" alt></li>
-<li>有很多书籍通过用世界基矢量定义所有矢量，“世界基矢量”通常表示为i、j、k，并且被解释为不能进一步分解的元素实体。</li>
-<li>当我们说正在使用标准基时，这相当于说，我们只涉及一个单一的坐标空间。这与我们所称的坐标空间没有区别，因为我们无法在不引入基矢量的情况下引用任何其他坐标空间。<strong>当我们考虑任何替代基时，则隐式地引入了另一个坐标空间:用于测量基矢量的坐标空间!</strong></li>
-<li>基矢量的坐标是根据参考帧测量的，该参考帧与基所在的坐标空间不同。因此，基矢量与坐标空间变换密切相关。</li>
-<li>基矢量有可能会选的“很糟糕”，一般会假设他们具有相同的长度且相互垂直(<strong>一组相互垂直的基矢量称为正交基，如果长度也相同，那么称为标准正交基</strong>)，但有时情况并非如此。</li>
-<li>可以表示为基矢量的线性组合的矢量集称为基矢量的跨度。</li>
-<li>一组线性相关的矢量对于基来说是一个糟糕的选择。</li>
-<li>矢量相对于给定基的数值坐标是该矢量作为基失量的线性组合的扩展中的系数，例<br>
-如，<strong>a</strong>=<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>a</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">a_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq><strong>p</strong>+<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>a</mi><mi>y</mi></msub></mrow><annotation encoding="application/x-tex">a_y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></eq><strong>q</strong>。</li>
-<li><strong>当基矢量正交时，坐标是解耦的</strong>。矢量<strong>v</strong>的任何给定坐标可以仅由<strong>v</strong>和相应的基矢<br>
-量确定。例如，如果其他基矢量垂直于P，那么可以计算仅知道p的<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">v_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>。</li>
-<li>在标准正交基中，矢量<strong>v</strong>的每个坐标是在对应的基矢量的方向上测量的有符号的位<br>
-移<strong>v</strong>。这可以通过直接计算<strong>v</strong>与该基矢量的<strong>点积</strong>来获得。<br>
-因此，在标准正交基的特殊情况下，有一种简单的方法来<strong>确定体空间坐标，只知道<br>
-体轴的世界坐标</strong>。因此，假设<strong>p</strong>、<strong>q</strong>和<strong>r</strong>构成标准正交基，<br>
-<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">b_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>=<strong>u·P</strong>，<br>
-<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mi>y</mi></msub></mrow><annotation encoding="application/x-tex">b_y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></eq>=<strong>u·q</strong>，<br>
-<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mi>z</mi></msub></mrow><annotation encoding="application/x-tex">b_z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.04398em;">z</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>=<strong>u·r</strong></li>
-</ol>
-<h1 id="3.4-%E5%B5%8C%E5%A5%97%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">3.4 嵌套坐标空间</h1>
-<ol>
-<li>三维虚拟世界中的每个对象都有自己的坐标空间——它自己的原点和轴。例如，它的原点可以位于其质心处。它的轴将指定它认为相对于其原点的“向上”“向右”“向<br>
-前”的方向。由美术设计师为虚拟世界创建的三维模型将由该设计师决定其原点和轴，并且构成多边形网格的点将相对于由该原点和轴定义的对象空间。例如，绵羊的中心可以<br>
-放置在(0.0.0)，其鼻尖位于(0,0,1.5)，尾部尖端位于(0,0,-1.2)，右耳尖位于(0.5,0.2,1.2)。这些坐标是绵羊的对象空间中这些部分的位置。<br>
-绵羊的各个部分可以利用世界空间的相对位置计算出来。</li>
-<li>可以将世界空间视为“父”空间，将对象空间视为“子”空间。还可很方便地将对象分解为子对象并单独为其设置动画。<br>
-分解为这样的层次结构的模型有时被称为关节模型(Articulated Model)。</li>
-</ol>
-<h1 id="3.5-%E9%92%88%E5%AF%B9%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4%E7%9A%84%E5%86%8D%E8%A7%A3%E9%87%8A" tabindex="-1">3.5 针对直立空间的再解释</h1>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
@@ -1517,6 +1381,142 @@ c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></spa
       </tags>
   </entry>
   <entry>
+    <title>3D数学基础-图形和游戏开发-学习笔记 第三章 多个坐标空间</title>
+    <url>/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/</url>
+    <content><![CDATA[<p>开发人员会为特定的理由构建坐标空间（有经验的老手可能会告诉你说“在不同的情况下需要不同的空间”）。</p>
+<span id="more"></span>
+<ul>
+<li><a href="#31-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4">3.1 为什么需要多个坐标空间</a></li>
+<li><a href="#32-%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4">3.2 一些有用的坐标空间</a>
+<ul>
+<li><a href="#321-%E4%B8%96%E7%95%8C%E7%A9%BA%E9%97%B4">3.2.1 世界空间</a></li>
+<li><a href="#322-%E5%AF%B9%E8%B1%A1%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%9E%8B%E7%A9%BA%E9%97%B4">3.2.2 对象空间（模型空间）</a></li>
+<li><a href="#323-%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%E8%A7%82%E5%AF%9F%E7%A9%BA%E9%97%B4">3.2.3 相机空间（观察空间）</a></li>
+<li><a href="#324-%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4">3.2.4 直立空间</a></li>
+</ul>
+</li>
+<li><a href="#33-%E5%9F%BA%E7%9F%A2%E9%87%8F%E5%92%8C%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4%E8%BD%AC%E6%8D%A2">3.3 基矢量和坐标空间转换</a>
+<ul>
+<li><a href="#331-%E5%8F%8C%E9%87%8D%E8%A7%86%E8%A7%92">3.3.1 双重视角</a></li>
+<li><a href="#332-%E6%8C%87%E5%AE%9A%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4">3.3.2 指定坐标空间</a></li>
+<li><a href="#333-%E5%9F%BA%E7%9F%A2%E9%87%8F">3.3.3 基矢量</a></li>
+</ul>
+</li>
+<li><a href="#34-%E5%B5%8C%E5%A5%97%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4">3.4 嵌套坐标空间</a></li>
+<li><a href="#35-%E9%92%88%E5%AF%B9%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4%E7%9A%84%E5%86%8D%E8%A7%A3%E9%87%8A">3.5 针对直立空间的再解释</a></li>
+</ul>
+<p>本章主要介绍多个坐标系的概念。它分为以下5个主要小节:- - 第3.1节将证明需要多个坐标系。</p>
+<ul>
+<li>第3.2节将介绍一些常见的坐标系。介绍的主要概念包括:
+<ul>
+<li>世界空间。</li>
+<li>对象空间。</li>
+<li>相机空间。</li>
+<li>垂直空间。</li>
+</ul>
+</li>
+<li>第3.3节将描述坐标-空间转换。
+<ul>
+<li>第3.3.1节将揭示两种坐标空间转换的思考方式之间的二元性。</li>
+<li>第3.3.2节将描述如何根据一个坐标系来指定另一个坐标系。</li>
+<li>第3.3.3节将讨论基矢量的非常重要的概念。</li>
+</ul>
+</li>
+<li>第3.4节将讨论嵌套坐标空间,它常用于在三维空间中为分层分割对象设置动画。</li>
+<li>第3.5节将是针对直立空间的强调说明。</li>
+</ul>
+<h1 id="3.1-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">3.1 为什么需要多个坐标空间</h1>
+<p>在不同情况下使用不同的坐标空间会更方便</p>
+<h1 id="3.2-%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">3.2 一些有用的坐标空间</h1>
+<p>开发人员需要不同的坐标空间，因为某些信息是有意义的或仅在特定上下文环境中可用。</p>
+<h2 id="3.2.1-%E4%B8%96%E7%95%8C%E7%A9%BA%E9%97%B4" tabindex="-1">3.2.1 世界空间</h2>
+<p>（1）世界坐标系是一个特殊的坐标系，它为所有其他要指定的坐标系建立了一个“全局”参考系。换句话说，我们可以用世界坐标空间来表达其他坐标空间的位置，但是我们不能用任何更大的外部坐标空间来表示世界坐标空间。<br>
+（2）世界坐标空间也称为全局(Global）坐标空间或通用(Universal）坐标空间。</p>
+<h2 id="3.2.2-%E5%AF%B9%E8%B1%A1%E7%A9%BA%E9%97%B4%EF%BC%88%E6%A8%A1%E5%9E%8B%E7%A9%BA%E9%97%B4%EF%BC%89" tabindex="-1">3.2.2 对象空间（模型空间）</h2>
+<p>（1）对象空间（Object Space）是与特定对象关联的坐标空间。<br>
+（2）每个对象都有自己独立的对象空间。<br>
+（3）当一个对象移动或改变方向时，与该对象关联的对象坐标空间被随之携带，因此它也会移动或改变方向。<br>
+（4）可以在对象空间中指定位置和方向。<br>
+（5）在图形的上下文中，对象空间也称为模型(Model)空间，因为模型顶点的坐标以模型空间表示。对象空间也称为体（Body)空间，特别是在物理环境中。使用像“相对于体轴”这样的短语也是很常见的，这意味着“使用体空间坐标表示”。</p>
+<h2 id="3.2.3-%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%EF%BC%88%E8%A7%82%E5%AF%9F%E7%A9%BA%E9%97%B4%EF%BC%89" tabindex="-1">3.2.3 相机空间（观察空间）</h2>
+<p>（1）对象空间的一个特别重要的示例是<strong>相机空间，其是与用于渲染的视点相关联的对象空间</strong>。<br>
+（2）在相机空间中，<strong>相机位于原点，+x指向右侧，+z指向前方（进入屏幕，相机朝向的方向)，+y指向“向上”</strong>（注意，这里不是相对于世界的“向上”，而是相对于相机顶部的“向上”）。图3.1显示了相机空间的示意图。<br>
+<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.2.3%20%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt><br>
+（3）这些是传统的左手坐标系统约定，其他的都很常见。<strong>特别要指出的是，OpenGL 传统上是右手坐标系统，-z指向屏幕，+z从屏幕出来朝向观众。</strong><br>
+（4）请仔细注意相机空间(三维空间）与屏幕空间（二维空间)之间的差异。<strong>从相机空间坐标到屏幕空间坐标的映射涉及的操作称为投影</strong>。将在第十章中讨论。</p>
+<h2 id="3.2.4-%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4" tabindex="-1">3.2.4 直立空间</h2>
+<p>（1）当要理解坐标空间转换这个主题时，可以通过文字或通过代码与计算机进行通信，<strong>将每个对象与一个新的坐标空间关联在一起，这个新坐标空间我们将其称为对象的直立坐标空间</strong>。<br>
+（2）在某种意义上，<strong>对象的直立空间是世界空间与其对象空间之间的“中间过渡”</strong>，因为<strong>直立空间的轴线与世界空间的轴线平行，而直立空间的原点则与对象空间的原点重合</strong>。下图在二维中说明了这个原理（请注意，我们已经做出了任意选择，<strong>将原点放在机器人的脚之间，而不是放在她的质心中</strong>）。<br>
+<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.2.3%20%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt></p>
+<p>（3）在<strong>对象空间和直立空间</strong>之间<strong>转换点</strong>只需要<strong>旋转</strong>；在<strong>直立空间和世界空间</strong>之间<strong>转换点</strong>则只需要更改位置，通常称为<strong>平移</strong>。</p>
+<p>（4）下图演示了坐标空间之间的转换。<strong>世界空间</strong>（图左侧的示意图）可通<strong>过平移原点的方式转换为直立空间</strong>（图中间的示意图）﹔而为了将<strong>直立空间转换为对象空间</strong>，可以<strong>旋转直立空间的轴直到它们与对象空间的轴对齐</strong>。在本示例中，机器人认为她的y轴是从她的脚指向她的头部，并且她的x轴指向她的左边。”我们将在第3.3节中再次讨论这个概念。<br>
+<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.2.4%20%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt></p>
+<p>（5）在物理学中，质心坐标一般用来描述直立空间中所表示的坐标。</p>
+<h1 id="3.3-%E5%9F%BA%E7%9F%A2%E9%87%8F%E5%92%8C%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4%E8%BD%AC%E6%8D%A2" tabindex="-1">3.3 基矢量和坐标空间转换</h1>
+<p>有时某些问题只能在特定的坐标空间中得到解答。</p>
+<ul>
+<li>3.3.1 将讨论初级视频游戏程序员进场会遇到的转换：图形</li>
+<li>3.3.2 确保我们清楚根据一个坐标空间指定另一个坐标空间意味着什么。</li>
+<li>3.3.3 将介绍基矢量(Basis Vector)的主要思想</li>
+</ul>
+<h2 id="3.3.1-%E5%8F%8C%E9%87%8D%E8%A7%86%E8%A7%92" tabindex="-1">3.3.1 双重视角</h2>
+<p>（1）前面的机器人示例，我们只是<strong>改变了参考框架并且能够使用不同的坐标空间来描述该点，改变了坐标空间！</strong></p>
+<p>如下图所示，将机器人在世界空间的原点进行创建。目前，由于模型处于其原始位置，因此对象空间和世界空间(以及直立空间)根据定义都是相同的。世界空间和对象空间是一致的。<br>
+<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.3.1%20%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%A8%A1%E5%9E%8B.png" alt="机器人"></p>
+<p>我们的目标是根据在某一时刻可以执行其想法的机器人所期望的位置和方向，将模型的顶点从其原始位置转换到某个新位置(在我们的示例中，就是要进入一间虚构的厨房)，如下图所示<br>
+<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.3.1%20%E6%A8%A1%E5%9E%8B%E7%A7%BB%E5%8A%A8%E7%A4%BA%E6%84%8F.png" alt><br>
+通过旋转和平移的方式最终将机器人从对象空间变换到世界空间。<strong>（必须是先旋转，再平移）</strong><br>
+<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.3.1%20%E5%B0%86%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%BB%8E%E5%AF%B9%E8%B1%A1%E7%A9%BA%E9%97%B4%E5%8F%98%E6%8D%A2%E5%88%B0%E4%B8%96%E7%95%8C%E7%A9%BA%E9%97%B4.png" alt></p>
+<p>（2）<strong>围绕原点的旋转是线性变换，而围绕任何其他点的旋转则是仿射变换</strong>（在第六章中将对仿射变换进行详细说明）</p>
+<h2 id="3.3.2-%E6%8C%87%E5%AE%9A%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">3.3.2 指定坐标空间</h2>
+<ul>
+<li>指定坐标空间的位置，即描述原点的位置</li>
+<li>指定坐标空间的方向，即通过告知<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mi>x</mi><mo separator="true">,</mo><mo>+</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">+x,+y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.1944em;"></span><span class="mord">+</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">+</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></eq>的方向来描述.(在二维中还可以通过角度进行方向的描述-极坐标)</li>
+</ul>
+<h2 id="3.3.3-%E5%9F%BA%E7%9F%A2%E9%87%8F" tabindex="-1">3.3.3 基矢量</h2>
+<ol>
+<li>任意矢量可以扩展为基矢量的线性组合：<br>
+在这里，<strong>p、q和r</strong>是三维空间的基矢量(Basis Vector)，大多数时候<strong>p</strong>=[1,0,0],<strong>q</strong>=[0,1,0],<strong>r</strong>=[0,0,1]<br>
+<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.3.2%20%E5%9F%BA%E7%9F%A2%E9%87%8F-%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88.png" alt></li>
+<li>有很多书籍通过用世界基矢量定义所有矢量，“世界基矢量”通常表示为i、j、k，并且被解释为不能进一步分解的元素实体。</li>
+<li>当我们说正在使用标准基时，这相当于说，我们只涉及一个单一的坐标空间。这与我们所称的坐标空间没有区别，因为我们无法在不引入基矢量的情况下引用任何其他坐标空间。<strong>当我们考虑任何替代基时，则隐式地引入了另一个坐标空间:用于测量基矢量的坐标空间!</strong></li>
+<li>基矢量的坐标是根据参考帧测量的，该参考帧与基所在的坐标空间不同。因此，基矢量与坐标空间变换密切相关。</li>
+<li>基矢量有可能会选的“很糟糕”，一般会假设他们具有相同的长度且相互垂直(<strong>一组相互垂直的基矢量称为正交基，如果长度也相同，那么称为标准正交基</strong>)，但有时情况并非如此。</li>
+<li>可以表示为基矢量的线性组合的矢量集称为基矢量的跨度。</li>
+<li>一组线性相关的矢量对于基来说是一个糟糕的选择。</li>
+<li>矢量相对于给定基的数值坐标是该矢量作为基失量的线性组合的扩展中的系数，例<br>
+如，<strong>a</strong>=<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>a</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">a_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq><strong>p</strong>+<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>a</mi><mi>y</mi></msub></mrow><annotation encoding="application/x-tex">a_y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></eq><strong>q</strong>。</li>
+<li><strong>当基矢量正交时，坐标是解耦的</strong>。矢量<strong>v</strong>的任何给定坐标可以仅由<strong>v</strong>和相应的基矢<br>
+量确定。例如，如果其他基矢量垂直于P，那么可以计算仅知道p的<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">v_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>。</li>
+<li>在标准正交基中，矢量<strong>v</strong>的每个坐标是在对应的基矢量的方向上测量的有符号的位<br>
+移<strong>v</strong>。这可以通过直接计算<strong>v</strong>与该基矢量的<strong>点积</strong>来获得。<br>
+因此，在标准正交基的特殊情况下，有一种简单的方法来<strong>确定体空间坐标，只知道<br>
+体轴的世界坐标</strong>。因此，假设<strong>p</strong>、<strong>q</strong>和<strong>r</strong>构成标准正交基，<br>
+<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">b_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>=<strong>u·P</strong>，<br>
+<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mi>y</mi></msub></mrow><annotation encoding="application/x-tex">b_y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></eq>=<strong>u·q</strong>，<br>
+<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mi>z</mi></msub></mrow><annotation encoding="application/x-tex">b_z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.04398em;">z</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>=<strong>u·r</strong></li>
+</ol>
+<h1 id="3.4-%E5%B5%8C%E5%A5%97%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">3.4 嵌套坐标空间</h1>
+<ol>
+<li>三维虚拟世界中的每个对象都有自己的坐标空间——它自己的原点和轴。例如，它的原点可以位于其质心处。它的轴将指定它认为相对于其原点的“向上”“向右”“向<br>
+前”的方向。由美术设计师为虚拟世界创建的三维模型将由该设计师决定其原点和轴，并且构成多边形网格的点将相对于由该原点和轴定义的对象空间。例如，绵羊的中心可以<br>
+放置在(0.0.0)，其鼻尖位于(0,0,1.5)，尾部尖端位于(0,0,-1.2)，右耳尖位于(0.5,0.2,1.2)。这些坐标是绵羊的对象空间中这些部分的位置。<br>
+绵羊的各个部分可以利用世界空间的相对位置计算出来。</li>
+<li>可以将世界空间视为“父”空间，将对象空间视为“子”空间。还可很方便地将对象分解为子对象并单独为其设置动画。<br>
+分解为这样的层次结构的模型有时被称为关节模型(Articulated Model)。</li>
+</ol>
+<h1 id="3.5-%E9%92%88%E5%AF%B9%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4%E7%9A%84%E5%86%8D%E8%A7%A3%E9%87%8A" tabindex="-1">3.5 针对直立空间的再解释</h1>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>3D数学基础</category>
+      </categories>
+      <tags>
+        <tag>3D数学基础</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>3D数学基础-图形和游戏开发-学习笔记 第四章 矩阵简介</title>
     <url>/2024/11/24/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%AE%80%E4%BB%8B/</url>
     <content><![CDATA[<p>矩阵在3D数学中具有根本意义上的重要性,它们主要用于描述两个坐标空间之间的关系。它们通过定义将矢量从一个坐标空间转换为另一个坐标空间来实现此目的。</p>
@@ -1707,7 +1707,54 @@ M347 1759 V0 H263 V1759 v0 v1759 h84z"/></svg></span></span></span><span class="
 </ul>
 <h1 id="4.3-%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9A%84%E5%AE%8F%E5%A4%A7%E5%9B%BE%E6%99%AF" tabindex="-1">4.3 线性代数的宏大图景</h1>
 <ol>
-<li>线性代数被发明用于操纵和求解线性方程组。</li>
+<li>线性代数被发明用于操纵和求解线性方程组。<br>
+<section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo>−</mo><mn>5</mn><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><msub><mi>x</mi><mn>3</mn></msub><mo>=</mo><mo>−</mo><mn>10</mn><mspace linebreak="newline"></mspace><mn>2</mn><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>2</mn><mo>+</mo><mn>4</mn><msub><mi>x</mi><mn>3</mn></msub><mo>=</mo><mn>12</mn><mspace linebreak="newline"></mspace><msub><mi>x</mi><mn>1</mn></msub><mo>−</mo><mn>3</mn><msub><mi>x</mi><mn>3</mn></msub><mo>=</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">
+-5x_1+x_2+x_3=-10 \\
+2x_1+2x+2+4x_3=12 \\
+x_1-3x_3 = 9
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7944em;vertical-align:-0.15em;"></span><span class="mord">−</span><span class="mord">5</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">10</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.7944em;vertical-align:-0.15em;"></span><span class="mord">2</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7944em;vertical-align:-0.15em;"></span><span class="mord">4</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">12</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.7333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7944em;vertical-align:-0.15em;"></span><span class="mord">3</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">9</span></span></span></span></span></eqn></section></li>
+</ol>
+<p>的解是<br>
+<section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>=</mo><mn>3</mn><mo separator="true">,</mo><mspace linebreak="newline"></mspace><msub><mi>x</mi><mn>2</mn></msub><mo>=</mo><mn>7</mn><mo separator="true">,</mo><mspace linebreak="newline"></mspace><msub><mi>x</mi><mn>3</mn></msub><mo>=</mo><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">
+x_1=3, \\
+x_2=7, \\
+x_3=-2
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">3</span><span class="mpunct">,</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">7</span><span class="mpunct">,</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">2</span></span></span></span></span></eqn></section></p>
+<ol start="2">
+<li>上面的方程组和求解结果可以写为以下形式：<br>
+<section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mrow><mo fence="true">[</mo><mtable rowspacing="0.16em" columnalign="center center center" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mn>5</mn></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>2</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>2</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>4</mn></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mn>3</mn></mrow></mstyle></mtd></mtr></mtable><mo fence="true">]</mo></mrow><mrow><mo fence="true">[</mo><mtable rowspacing="0.16em" columnalign="center" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mn>1</mn></msub></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mn>2</mn></msub></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mn>3</mn></msub></mstyle></mtd></mtr></mtable><mo fence="true">]</mo></mrow><mo>=</mo><mrow><mo fence="true">[</mo><mtable rowspacing="0.16em" columnalign="center" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mn>10</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>12</mn></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>9</mn></mstyle></mtd></mtr></mtable><mo fence="true">]</mo></mrow></mrow><annotation encoding="application/x-tex">
+\left[
+\begin{matrix}
+-5 &amp; 1 &amp; 1 \\
+2 &amp; 2 &amp; 4 \\
+1 &amp; 0 &amp; -3
+\end{matrix}
+\right]
+\left[
+\begin{matrix}
+x_1\\
+x_2\\
+x_3
+\end{matrix}
+\right]
+=
+\left[
+\begin{matrix}
+-10\\
+12\\
+9
+\end{matrix}
+\right]
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:3.6em;vertical-align:-1.55em;"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.05em;"><span style="top:-4.05em;"><span class="pstrut" style="height:5.6em;"></span><span style="width:0.667em;height:3.600em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.667em" height="3.600em" viewbox="0 0 667 3600"><path d="M403 1759 V84 H666 V0 H319 V1759 v0 v1759 h347 v-84
+H403z M403 1759 V0 H319 V1759 v0 v1759 h84z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.55em;"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.05em;"><span style="top:-4.21em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">−</span><span class="mord">5</span></span></span><span style="top:-3.01em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-1.81em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.55em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.05em;"><span style="top:-4.21em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span><span style="top:-3.01em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-1.81em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.55em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.05em;"><span style="top:-4.21em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span><span style="top:-3.01em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">4</span></span></span><span style="top:-1.81em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">−</span><span class="mord">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.55em;"><span></span></span></span></span></span></span></span><span class="mclose"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.05em;"><span style="top:-4.05em;"><span class="pstrut" style="height:5.6em;"></span><span style="width:0.667em;height:3.600em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.667em" height="3.600em" viewbox="0 0 667 3600"><path d="M347 1759 V0 H0 V84 H263 V1759 v0 v1759 H0 v84 H347z
+M347 1759 V0 H263 V1759 v0 v1759 h84z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.55em;"><span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.05em;"><span style="top:-4.05em;"><span class="pstrut" style="height:5.6em;"></span><span style="width:0.667em;height:3.600em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.667em" height="3.600em" viewbox="0 0 667 3600"><path d="M403 1759 V84 H666 V0 H319 V1759 v0 v1759 h347 v-84
+H403z M403 1759 V0 H319 V1759 v0 v1759 h84z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.55em;"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.05em;"><span style="top:-4.21em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.01em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-1.81em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.55em;"><span></span></span></span></span></span></span></span><span class="mclose"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.05em;"><span style="top:-4.05em;"><span class="pstrut" style="height:5.6em;"></span><span style="width:0.667em;height:3.600em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.667em" height="3.600em" viewbox="0 0 667 3600"><path d="M347 1759 V0 H0 V84 H263 V1759 v0 v1759 H0 v84 H347z
+M347 1759 V0 H263 V1759 v0 v1759 h84z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.55em;"><span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:3.6em;vertical-align:-1.55em;"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.05em;"><span style="top:-4.05em;"><span class="pstrut" style="height:5.6em;"></span><span style="width:0.667em;height:3.600em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.667em" height="3.600em" viewbox="0 0 667 3600"><path d="M403 1759 V84 H666 V0 H319 V1759 v0 v1759 h347 v-84
+H403z M403 1759 V0 H319 V1759 v0 v1759 h84z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.55em;"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.05em;"><span style="top:-4.21em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">−</span><span class="mord">10</span></span></span><span style="top:-3.01em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">12</span></span></span><span style="top:-1.81em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">9</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.55em;"><span></span></span></span></span></span></span></span><span class="mclose"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.05em;"><span style="top:-4.05em;"><span class="pstrut" style="height:5.6em;"></span><span style="width:0.667em;height:3.600em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.667em" height="3.600em" viewbox="0 0 667 3600"><path d="M347 1759 V0 H0 V84 H263 V1759 v0 v1759 H0 v84 H347z
+M347 1759 V0 H263 V1759 v0 v1759 h84z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.55em;"><span></span></span></span></span></span></span></span></span></span></span></span></eqn></section></li>
+<li>在游戏中，也许必须求解大型方程组的最直接和最明显的地方是物理引擎。传统线性代数方法出现的另一个常见地方是最小二乘近似(Least Squares Approximation)和其他数据拟合应用。</li>
+<li>要学习和理解线性代数和科学计算的宏大图景,推荐一个很好的资源,那就是Gilbert Strang 教授的系列讲座，你可以从ocw.mit.edu的MIT OpenCourseWare(麻省理工学院公<br>
+开课)免费下载。他提供本科阶段基础线性代数课程以及计算科学和工程专业的研究生课程。他为他的班级编写的教科书(详见本书参考文献[67，68])是针对工程师(而不是数学家)的并且让人心情愉快的读物，并且获得了推荐，但要注意他的写作风格是一种速记式的，所以，如果你没有听课，可能会遇到一些理解上的困难。</li>
 </ol>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
@@ -3878,33 +3925,6 @@ LuaRocks 安装方法：</li>
       </tags>
   </entry>
   <entry>
-    <title>hexo文章多了如何管理</title>
-    <url>/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/</url>
-    <content><![CDATA[<p>每次通过hexo new ‘xxx’创建新的博文时，都会将生成的.md文件放置在_post文件夹下，随着文章数的增多，_post文件夹也会越来越混乱。</p>
-<span id="more"></span>
-<p>可以通过配置全局配置文件_config.yml来依据年月进行分配，在文件中查找new_post_name:并修改为</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">new_post_name:</span> <span class="string">:year/:month/:title.md</span></span><br></pre></td></tr></table></figure>
-<p>修改后，每次创建的文章将会以生成的年月进行管理。</p>
-<ul>
-<li>如果想直接进行分类创建，可以选择采用如下命令进行创建。</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new post -p /文件夹名/文件名.md</span><br></pre></td></tr></table></figure>
-<p>如执行如下命令后<br>
-<img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E5%91%BD%E4%BB%A4.jpg" alt><br>
-文章将会被创建在QFramework中<br>
-<img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.jpg" alt><br>
-<img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%841.jpg" alt></p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>hexo博客搭建</category>
-      </categories>
-      <tags>
-        <tag>hexo博客搭建</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>AssetBundle-AB包</title>
     <url>/2024/09/19/%E7%83%AD%E6%9B%B4%E6%96%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%AD%A6%E4%B9%A0-AssetBundle-AB%E5%8C%85/</url>
     <content><![CDATA[<p>热更新解决方案学习-AssetBundle-AB包</p>
@@ -4059,6 +4079,33 @@ LuaRocks 安装方法：</li>
       </categories>
       <tags>
         <tag>热更新相关</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo文章多了如何管理</title>
+    <url>/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<p>每次通过hexo new ‘xxx’创建新的博文时，都会将生成的.md文件放置在_post文件夹下，随着文章数的增多，_post文件夹也会越来越混乱。</p>
+<span id="more"></span>
+<p>可以通过配置全局配置文件_config.yml来依据年月进行分配，在文件中查找new_post_name:并修改为</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">new_post_name:</span> <span class="string">:year/:month/:title.md</span></span><br></pre></td></tr></table></figure>
+<p>修改后，每次创建的文章将会以生成的年月进行管理。</p>
+<ul>
+<li>如果想直接进行分类创建，可以选择采用如下命令进行创建。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new post -p /文件夹名/文件名.md</span><br></pre></td></tr></table></figure>
+<p>如执行如下命令后<br>
+<img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E5%91%BD%E4%BB%A4.jpg" alt><br>
+文章将会被创建在QFramework中<br>
+<img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.jpg" alt><br>
+<img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%841.jpg" alt></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>hexo博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo博客搭建</tag>
       </tags>
   </entry>
   <entry>
