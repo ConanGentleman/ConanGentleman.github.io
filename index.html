@@ -196,6 +196,278 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/25/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%8C-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/midoli.jpg">
+      <meta itemprop="name" content="MiDoLi">
+      <meta itemprop="description" content="欢迎来到我的世界💜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MiDoLi's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/02/25/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%8C-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/" class="post-title-link" itemprop="url">Unity编辑器拓展（二）-自定义窗口拓展</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-02-25 21:25:49" itemprop="dateCreated datePublished" datetime="2025-02-25T21:25:49+08:00">2025-02-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-03-02 21:37:39" itemprop="dateModified" datetime="2025-03-02T21:37:39+08:00">2025-03-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Unity学习笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2025/02/25/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%8C-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/" class="post-meta-item leancloud_visitors" data-flag-title="Unity编辑器拓展（二）-自定义窗口拓展" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2025/02/25/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%8C-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/02/25/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%8C-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+<h2 id="%E4%B8%80%E3%80%81%E5%88%9B%E5%BB%BA%E7%AA%97%E5%8F%A3%E7%B1%BB" tabindex="-1">一、创建窗口类</h2>
+<ol>
+<li>
+<p>命名空间：UnityEditor</p>
+</li>
+<li>
+<p>继承类名：EditorWindow</p>
+</li>
+<li>
+<p>方法：</p>
+</li>
+</ol>
+<ul>
+<li>当我们想要为Unity拓展一个自定义窗口时</li>
+<li>我们只需要实现一个继承了EditorWindow的类即可</li>
+<li>并且在该类的OnGUI函数中编写面板控件相关的逻辑</li>
+</ul>
+<ol start="4">
+<li>示例</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Lesson2</span> : <span class="title">EditorWindow</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnGUI</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        GUILayout.Label(<span class="string">&quot;测试文本&quot;</span>); <span class="comment">//绘制文本</span></span><br><span class="line">        <span class="keyword">if</span>(GUILayout.Button(<span class="string">&quot;测试按钮&quot;</span>)) <span class="comment">//绘制点击按钮</span></span><br><span class="line">        &#123;</span><br><span class="line">            Debug.Log(<span class="string">&quot;Test&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="%E4%BA%8C%E3%80%81%E6%98%BE%E7%A4%BA%E7%AA%97%E5%8F%A3" tabindex="-1">二、显示窗口</h2>
+<ol>
+<li>
+<p>用自定义菜单栏拓展的方式，添加一个自定义页签用于开启窗口<br>
+调用EditorWindow.GetWindow</p>
+</li>
+<li>
+<p>EditorWindow.GetWindow方法有很多种重载，其中的主要参数一般有</p>
+</li>
+</ol>
+<ul>
+<li>Type或T：窗口类的类型</li>
+<li>utility：为 true 可创建浮动实用程序窗口，设置为 false 可创建正常窗口。所谓浮动窗口就是可以自由拖动自由改变大小</li>
+<li>title：窗口标题</li>
+<li>focus：是否为窗口提供焦点（如果已存在）。（如果 GetWindow 创建新窗口，则将始终获得焦点）</li>
+<li>desiredDockNextTo:窗口试图停靠到其上的 EditorWindow 类型的数组</li>
+</ul>
+<ol start="3">
+<li>
+<p>创建窗口对象<br>
+之后调用对象的Show方法即可显示窗口</p>
+</li>
+<li>
+<p>代码</p>
+</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">MenuItem(<span class="string">&quot;Unity编辑器拓展/Lesson2/显示自定义面板&quot;</span>)</span>]</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ShowWindow</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Lesson2 win = EditorWindow.GetWindow&lt;Lesson2&gt;(); <span class="comment">//获取窗口（唯一窗口），如果希望有多个窗口的话使用EditorWindow.CreateWindow&lt;Lesson2&gt;();</span></span><br><span class="line">    win.titleContent = <span class="keyword">new</span> GUIContent(<span class="string">&quot;我的窗口&quot;</span>); <span class="comment">//创建窗口</span></span><br><span class="line">    win.Show(); <span class="comment">//显示窗口</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>效果（与1点的代码同时）<br>
+<img src="/2025/02/25/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%8C-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/2.%20%E6%98%BE%E7%A4%BA%E7%AA%97%E5%8F%A3.png" alt></li>
+</ol>
+<h2 id="%E4%B8%89%E3%80%81%E7%AA%97%E5%8F%A3%E4%BA%8B%E4%BB%B6%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0" tabindex="-1">三、窗口事件回调函数</h2>
+<ol>
+<li>继承EditorWindow的窗口类 自带一些事件回调函数，当触发对应事件时会自动进入</li>
+</ol>
+<ul>
+<li>(1) OnHierarchyChange():当场景中的层次结构（Hierarchy）发生变化时调用。
+<ul>
+<li>例如，当游戏对象被创建、删除或重命名时触发。</li>
+</ul>
+</li>
+<li>(2) OnFocus():当窗口获得焦点时调用。
+<ul>
+<li>在这个方法中，你可以执行一些在窗口获得焦点时需要进行的操作。</li>
+</ul>
+</li>
+<li>(3) OnLostFocus():当窗口失去焦点时调用。
+<ul>
+<li>通常在这个方法中执行一些在窗口失去焦点时需要进行的清理工作。</li>
+</ul>
+</li>
+<li>(4) OnProjectChange():当项目资源发生变化时调用。
+<ul>
+<li>例如，当添加、删除或修改项目中的文件时触发。</li>
+</ul>
+</li>
+<li>(5) OnInspectorUpdate():在检视器（Inspector）面板更新时调用。
+<ul>
+<li>可以在这个方法中执行需要在检视器面板刷新时进行的逻辑，比如更新显示的信息</li>
+</ul>
+</li>
+<li>(6) OnSelectionChange():当选择的对象发生变化时调用。
+<ul>
+<li>在这个方法中，你可以执行与所选对象相关的操作，以确保编辑器窗口的内容与当前选择保持同步。</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>示例</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnHierarchyChange</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;当Hierarchy窗口内容发生变化时&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnFocus</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;获取焦点&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnLostFocus</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;失去焦点&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnProjectChange</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;当Project窗口内容发生变化时&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnInspectorUpdate</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;当Inspector窗口内容发生变化时&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnSelectionChange</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;当选中对象发生变化时&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="%E5%9B%9B%E3%80%81%E7%AA%97%E5%8F%A3%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0" tabindex="-1">四、窗口中常用的生命周期函数</h2>
+<ol>
+<li>OnEnable():
+<ul>
+<li>当窗口被激活时调用，通常在窗口创建时会调用一次。</li>
+<li>在这个方法中，你可以进行一些初始化工作，例如注册事件监听器或设置初始变量。</li>
+</ul>
+</li>
+<li>OnGUI():
+<ul>
+<li>每帧都会调用此方法，用于绘制编辑器窗口的 GUI。</li>
+<li>在这个方法中，你可以使用 GUILayout 或 EditorGUILayout 等类创建界面元素，以便用户与窗口进行交互。</li>
+</ul>
+</li>
+<li>OnDestroy():
+<ul>
+<li>当窗口被销毁时调用，通常在关闭编辑器或切换场景时触发。在这里进行最终的清理工作，确保没有未释放的资源。</li>
+</ul>
+</li>
+<li>Update():
+<ul>
+<li>在编辑器窗口每帧更新时调用。通常在这里执行一些需要在每帧进行的逻辑</li>
+</ul>
+</li>
+</ol>
+<h2 id="%E4%BA%94%E3%80%81%E7%BC%96%E8%BE%91%E5%99%A8%E7%AA%97%E5%8F%A3%E7%B1%BB%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E6%88%90%E5%91%98" tabindex="-1">五、编辑器窗口类中的常用成员</h2>
+<p>Unity官方文档有关于编辑器窗口类的API说明<br>
+<a target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2022.3/ScriptReference/EditorWindow.html">https://docs.unity.cn/cn/2022.3/ScriptReference/EditorWindow.html</a></p>
+<ol>
+<li>
+<p>静态变量</p>
+<ul>
+<li>(1) focusedWindow：当前已获得键盘焦点的 EditorWindow。（只读）</li>
+<li>(2) mouseOverWindow：当前在鼠标光标下的 EditorWindow。（只读）</li>
+</ul>
+</li>
+<li>
+<p>静态函数</p>
+</li>
+</ol>
+<ul>
+<li>(1) CreateWindow: 创建窗口，如果允许一个窗口有多个可以用该API创建窗口</li>
+<li>(2) GetWindow: 通过它我们可以创建一个窗口对象</li>
+<li>(3) GetWindowWithRect：返回一个指定位置、大小的窗口</li>
+<li>(4) HasOpenInstances：检查编辑器窗口是否打开</li>
+</ul>
+<ol start="3">
+<li>成员变量</li>
+</ol>
+<ul>
+<li>(1) titleContent：窗口标题名</li>
+<li>(2) positon：窗口位置大小信息</li>
+<li>(3) wantsMouseEnterLeaveWindow:如果设置为 true，则每当鼠标进入或离开窗口时，该窗口都会收到一次 OnGUI 调用</li>
+</ul>
+<ol start="4">
+<li>成员函数</li>
+</ol>
+<ul>
+<li>(1) Show: 显示面板</li>
+<li>(2) Repaint：重绘窗口</li>
+<li>(3) Close: 关闭窗口</li>
+</ul>
+<h2 id="%E5%85%AD%E3%80%81%E6%80%BB%E7%BB%93" tabindex="-1">六、总结</h2>
+<p>编辑器拓展中想要实现自定义窗口</p>
+<ol>
+<li>只需要继承EditorWindow类</li>
+<li>主要在OnGUI中利用GUI相关API绘制控件处理功能逻辑</li>
+<li>对应的事件回调函数，可以帮助我们监听到一些特殊情况用于处理对应逻辑</li>
+</ol>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/02/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%B8%80-%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95%E6%A0%8F%E6%8B%93%E5%B1%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -210,7 +482,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/12/02/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%B8%80-%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95%E6%A0%8F%E6%8B%93%E5%B1%95/" class="post-title-link" itemprop="url">Unity编辑器拓展-自定义菜单栏拓展</a>
+            <a href="/2024/12/02/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%B8%80-%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95%E6%A0%8F%E6%8B%93%E5%B1%95/" class="post-title-link" itemprop="url">Unity编辑器拓展（一）-自定义菜单栏拓展</a>
         </h2>
 
         <div class="post-meta">
@@ -227,7 +499,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-02-23 17:37:56" itemprop="dateModified" datetime="2025-02-23T17:37:56+08:00">2025-02-23</time>
+                <time title="修改时间：2025-02-25 21:26:17" itemprop="dateModified" datetime="2025-02-25T21:26:17+08:00">2025-02-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -240,7 +512,7 @@
             </span>
 
           
-            <span id="/2024/12/02/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%B8%80-%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95%E6%A0%8F%E6%8B%93%E5%B1%95/" class="post-meta-item leancloud_visitors" data-flag-title="Unity编辑器拓展-自定义菜单栏拓展" title="阅读次数">
+            <span id="/2024/12/02/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%B8%80-%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95%E6%A0%8F%E6%8B%93%E5%B1%95/" class="post-meta-item leancloud_visitors" data-flag-title="Unity编辑器拓展（一）-自定义菜单栏拓展" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1233,108 +1505,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/13/QFramework-QFramework%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/midoli.jpg">
-      <meta itemprop="name" content="MiDoLi">
-      <meta itemprop="description" content="欢迎来到我的世界💜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MiDoLi's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/08/13/QFramework-QFramework%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">post</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-08-13 23:24:58" itemprop="dateCreated datePublished" datetime="2024-08-13T23:24:58+08:00">2024-08-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-08-20 21:51:31" itemprop="dateModified" datetime="2024-08-20T21:51:31+08:00">2024-08-20</time>
-              </span>
-
-          
-            <span id="/2024/08/13/QFramework-QFramework%E5%AD%A6%E4%B9%A0/" class="post-meta-item leancloud_visitors" data-flag-title="post" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2024/08/13/QFramework-QFramework%E5%AD%A6%E4%B9%A0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/08/13/QFramework-QFramework%E5%AD%A6%E4%B9%A0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>test</p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1406,7 +1576,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1517,12 +1687,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">52k</span>
+    <span title="站点总字数">53k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:08</span>
+    <span title="站点阅读时长">3:12</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
