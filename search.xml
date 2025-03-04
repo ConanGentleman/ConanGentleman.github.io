@@ -4433,4 +4433,76 @@ LuaRocks 安装方法：</li>
         <tag>Unity学习笔记</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Unity编辑器拓展（三）-EditorGUI相关</title>
+    <url>/2025/03/04/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%B8%89-EditorGUI%E7%9B%B8%E5%85%B3/</url>
+    <content><![CDATA[<p>EditorGUI相关的内容</p>
+<span id="more"></span>
+<h1 id="%E4%B8%80%E3%80%81editorgui%E6%98%AF%E4%BB%80%E4%B9%88" tabindex="-1">一、EditorGUI是什么</h1>
+<h2 id="1.1-%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE" tabindex="-1">1.1 知识回顾</h2>
+<ol>
+<li>
+<p>GUILayout 是一个GUI自动布局的公共类</p>
+</li>
+<li>
+<p>它其中的方法和GUI基本一模一样，都是用来绘制、响应各种UI控件的</p>
+</li>
+<li>
+<p>只不过它在<strong>GUI的基础上加入了自动布局功能</strong></p>
+</li>
+<li>
+<p>我们无需过多的去关心UI控件的位置和大小</p>
+</li>
+<li>
+<p>guilayoutoption 布局选项</p>
+</li>
+</ol>
+<ul>
+<li>方法 ：GUILayout.Button(“文本”,[guilayoutoption])</li>
+<li>使用示例：</li>
+</ul>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">GUILayout.Button(<span class="string">&quot;确定&quot;</span>,guilayout.width(<span class="number">300</span>),guilayout.height(<span class="number">200</span>),...)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>更多：</li>
+</ul>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">//方法 ：GUILayout.Button(&quot;确定&quot;,[guilayoutoption])</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//控件的固定宽高</span></span><br><span class="line">guilayout.width(<span class="number">300</span>);</span><br><span class="line">guilayout.height(<span class="number">200</span>);</span><br><span class="line"><span class="comment">//允许控件的最小宽高</span></span><br><span class="line">guilayout.minwidth(<span class="number">50</span>);</span><br><span class="line">guilayout.minheight(<span class="number">50</span>);</span><br><span class="line"><span class="comment">//允许控件的最大宽高</span></span><br><span class="line">guilayout.maxwidth(<span class="number">100</span>);</span><br><span class="line">guilayout.maxheight(<span class="number">100</span>);</span><br><span class="line"><span class="comment">//允许或禁止水平拓展</span></span><br><span class="line">guilayout.expandwidth(<span class="literal">true</span>);<span class="comment">//允许</span></span><br><span class="line">guilayout.expandheight(<span class="literal">false</span>);<span class="comment">//禁止</span></span><br><span class="line">guilayout.expandheight(<span class="literal">true</span>);<span class="comment">//允许</span></span><br><span class="line">guilayout.expandheight(<span class="literal">false</span>);<span class="comment">//禁止</span></span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>创建一个GUI窗口</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">[<span class="meta">MenuItem(<span class="string">&quot;Unity编辑器拓展/Lesson3/EditorGUI窗口&quot;</span>)</span>]</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">OpenLesson3</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Lesson3 win = EditorWindow.GetWindow&lt;Lesson3&gt;(<span class="string">&quot;EditorGUI窗口&quot;</span>);</span><br><span class="line">    <span class="comment">//win.titleContent = new GUIContent(&quot;EditorGUI窗口&quot;); </span></span><br><span class="line">    win.Show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1.2-editorgui%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F" tabindex="-1">1.2 EditorGUI是什么？</h2>
+<ol>
+<li>
+<p>EditorGUI 类似 GUI，是一个主要用于绘制编辑器拓展 UI 的工具类</p>
+<ul>
+<li>它提供了一些 GUI 中没有的API，主要是 编辑器功能中会用到的一些特殊控件</li>
+</ul>
+</li>
+<li>
+<p>而EditorGUILayout 类似于 GUILayout，是一个<strong>带有自动布局功能的</strong> EditorGUI 绘制工具类</p>
+</li>
+<li>
+<p>我们经常会将 EditorGUI 和 GUI 混合使用 来制作一些编辑器拓展功能</p>
+<ul>
+<li>但是由于更多时候我们会用到自动布局功能</li>
+<li>因此着重学习 EditorGUILayout 中的功能</li>
+</ul>
+</li>
+<li>
+<p>EditorGUI和EditorGUILayout的区别仅仅是需要自己设置位置而已</p>
+</li>
+<li>
+<p>更多详细内容：<a href="https://docs.unity.cn/cn/2022.3/ScriptReference/EditorGUILayout.html">https://docs.unity.cn/cn/2022.3/ScriptReference/EditorGUILayout.html</a></p>
+</li>
+</ol>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>Unity学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Unity学习笔记</tag>
+      </tags>
+  </entry>
 </search>
