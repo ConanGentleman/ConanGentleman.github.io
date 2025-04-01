@@ -119,12 +119,12 @@ GUILayout.Button("确定",guilayout.width(300),guilayout.height(200),...)
 ## 3.1 枚举选择控件
 1. 枚举选择（方法）
 ```cs
-//  枚举变量 = (枚举类型)EditorGUILayout.EnumPopup("枚举选择", 枚举变量);
+枚举变量 = (枚举类型)EditorGUILayout.EnumPopup("枚举选择", 枚举变量);
 ```
 2. 多选枚举（方法）
 注意：**多选枚举进行的是或运算**，声明枚举时一定注意其中的赋值，并且一定要有多种情况的搭配值）,**即如果是多选枚举，需要给每个不同的枚举要赋值为2的次方**
 ```cs
-//  枚举变量 = (枚举类型)EditorGUILayout.EnumFlagsField("枚举多选", 枚举变量);
+枚举变量 = (枚举类型)EditorGUILayout.EnumFlagsField("枚举多选", 枚举变量);
 ```
 3. 示例
 ```cs
@@ -163,7 +163,7 @@ EditorGUILayout.LabelField(num.ToString());
 
 1. 方法
 ```cs
-//EditorGUILayout.DropdownButton(new GUIContent("按钮上文字"), FocusType.Passive)
+EditorGUILayout.DropdownButton(new GUIContent("按钮上文字"), FocusType.Passive)
 ```
 2. 参数的类型：
 - FocusType枚举时告诉UI系统能够获得键盘焦点 当用户按Tab键时在控件之间进行切换
