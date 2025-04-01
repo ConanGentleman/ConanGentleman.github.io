@@ -155,8 +155,12 @@ int变量 = EditorGUILayout.IntPopup("整数单选框", int变量, 字符串数�
 2. 示例
 ```cs
 //整数选择控件
-//返回值 其实是整数数组当中的某一个值
+// strs是每个值的描述
+// ints是每个描述对应的值
+//返回值num 是整数数组当中的某一个值，而不是索引
+
 num = EditorGUILayout.IntPopup("整数单选框", num, strs, ints);
+
 EditorGUILayout.LabelField(num.ToString());
 ```
 ## 3.3 按下就触发的按钮控件
