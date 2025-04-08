@@ -233,7 +233,7 @@ if (EditorGUILayout.DropdownButton(new GUIContent("按钮上文字"), FocusType.
     boundsInt = EditorGUILayout.BoundsIntField("Bounds输入： ", boundsInt);//范围变量（整型）
 
     //注意：EditorGUILayout中还有一些Delayed开头的输入控件
-    //     他们和普通输入控件最主要的区别是：在用户按 Enter 键或将焦点从字段移开之前，返回值不会更改。个人这边测试下来感觉DelayedIntField就算不会实时更改i2，而是enter或者焦点移开后更改
+    //     他们和普通输入控件最主要的区别是：在用户按 Enter 键或将焦点从字段移开之前，返回值不会更改。个人这边测试下来感觉DelayedIntField就是 不会实时更改i2，而是enter或者焦点移开后更改
     i2 = EditorGUILayout.DelayedIntField("Int输入框", i2);
     EditorGUILayout.LabelField(i2.ToString());
 ```
