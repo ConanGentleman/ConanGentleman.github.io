@@ -183,3 +183,60 @@ if (EditorGUILayout.DropdownButton(new GUIContent("按钮上文字"), FocusType.
 ## 3.4 效果
 
 ![](./三-EditorGUI相关/L5枚举选择、整数选择、按下就触发的按钮.png)
+
+# 四、对象关联、各类型输入 控件
+## 4.1 对象关联控件
+1. 方法
+```cs
+    对象变量 = EditorGUILayout.ObjectField(对象变量, typeof(对象类型), 是否允许关联场景上对象资源) as 对象类型;
+```
+2. 示例
+```cs
+    GameObject obj;
+    //对象关联
+    obj = EditorGUILayout.ObjectField("关联资源对象", obj, typeof(GameObject), false) as GameObject;
+```
+## 4.2 各类型输入控件
+1. 方法
+```cs
+    int变量 = EditorGUILayout.IntField("Int输入框", int变量);
+    long变量 = EditorGUILayout.LongField("long输入框", long变量);
+    float变量 = EditorGUILayout.FloatField("Float 输入：", float变量);
+    double变量 = EditorGUILayout.DoubleField("double 输入：", double变量);
+
+    string变量 = EditorGUILayout.TextField("Text输入：", string变量);
+    vector2变量 = EditorGUILayout.Vector2Field("Vec2输入： ", vector2变量);
+    vector3变量 = EditorGUILayout.Vector3Field("Vec3输入： ", vector3变量);
+    vector4变量 = EditorGUILayout.Vector4Field("Vec4输入： ", vector4变量);
+    rect变量 = EditorGUILayout.RectField("rect输入： ", rect变量);
+    bounds变量 = EditorGUILayout.BoundsField("Bounds输入： ", bounds变量);
+    boundsInt变量 = EditorGUILayout.BoundsIntField("Bounds输入： ", boundsInt变量);
+```
+2. 注意：EditorGUILayout中还有一些Delayed开头的输入控件
+他们和普通输入控件**最主要的区别是：在用户按 Enter 键或将焦点从字段移开之前，返回值不会更改**
+3. 示例
+```cs
+    //各类型输入
+    i = EditorGUILayout.IntField("Int输入框", i);
+    EditorGUILayout.LabelField(i.ToString());
+    l = EditorGUILayout.LongField("long输入框", l);
+    f = EditorGUILayout.FloatField("Float 输入：", f);
+    d = EditorGUILayout.DoubleField("double 输入：", d);
+
+    str = EditorGUILayout.TextField("Text输入：", str);
+    vec2 = EditorGUILayout.Vector2Field("Vec2输入： ", vec2);
+    vec3 = EditorGUILayout.Vector3Field("Vec3输入： ", vec3);
+    vec4 = EditorGUILayout.Vector4Field("Vec4输入： ", vec4);
+
+    rect = EditorGUILayout.RectField("rect输入： ", rect); //矩形变量
+    bounds = EditorGUILayout.BoundsField("Bounds输入： ", bounds); //范围变量
+    boundsInt = EditorGUILayout.BoundsIntField("Bounds输入： ", boundsInt);//范围变量（整型）
+
+    //注意：EditorGUILayout中还有一些Delayed开头的输入控件
+    //     他们和普通输入控件最主要的区别是：在用户按 Enter 键或将焦点从字段移开之前，返回值不会更改。个人这边测试下来感觉DelayedIntField就算不会实时更改i2，而是enter或者焦点移开后更改
+    i2 = EditorGUILayout.DelayedIntField("Int输入框", i2);
+    EditorGUILayout.LabelField(i2.ToString());
+```
+
+## 4.3 效果展示
+![](./三-EditorGUI相关/L6对象关联、各类型输入控件.png)
