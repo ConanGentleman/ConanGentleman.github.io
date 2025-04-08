@@ -240,3 +240,89 @@ if (EditorGUILayout.DropdownButton(new GUIContent("按钮上文字"), FocusType.
 
 ## 4.3 效果展示
 ![](./三-EditorGUI相关/L6对象关联、各类型输入控件.png)
+
+# 五、 折叠、折叠组空间
+
+## 5.1 折叠控件
+1. 方法
+```cs
+    bool变量 = EditorGUILayout.Foldout(bool变量, "标题名");
+    //通过bool变量配合 if(bool变量){
+    //  折叠的内容进行使用
+    // }
+```
+2.示例
+```cs
+    bool isHide;
+    isHide = EditorGUILayout.Foldout(isHide, "折叠控件", false);
+
+    if (isHide)
+    {
+        //枚举选择
+        type = (E_TestType)EditorGUILayout.EnumPopup("枚举选择", type);
+
+        type2 = (E_TestType)EditorGUILayout.EnumFlagsField("枚举多选", type2);
+
+        //整数选择控件
+        // strs是每个值的描述
+        // ints是每个描述对应的值
+        //返回值num 是整数数组当中的某一个值，而不是索引
+        num = EditorGUILayout.IntPopup("整数单选框", num, strs, ints);
+        EditorGUILayout.LabelField(num.ToString());
+
+        //按下就响应的按钮
+        if (EditorGUILayout.DropdownButton(new GUIContent("按钮上文字"), FocusType.Passive))
+            Debug.Log("按下就响应");
+    }
+```
+
+## 5.2 折叠组控件
+配合其他控件使用，避免控件展示过多、或者分类控件
+1. 方法
+两行代码需要成对存在
+```cs
+    bool变量 = EditorGUILayout.BeginFoldoutHeaderGroup(bool变量, "标题名",整行是否能点击折叠交互);
+    //通过bool变量配合 if(bool变量){
+    //  折叠的内容进行使用
+    // }
+    EditorGUILayout.EndFoldoutHeaderGroup(); 
+```
+1. 示例
+```cs
+    bool isHideGroup;
+    isHideGroup = EditorGUILayout.BeginFoldoutHeaderGroup(isHideGroup, "折叠组控件");
+
+    if (isHideGroup)
+    {
+        //对象关联 ----对象变量 = EditorGUILayout.ObjectField(对象变量, typeof(对象类型), 是否允许关联场景上对象资源) as 对象类型;
+        obj = EditorGUILayout.ObjectField("关联资源对象", obj, typeof(GameObject), false) as GameObject;
+        //各类型输入
+        i = EditorGUILayout.IntField("Int输入框", i);
+        EditorGUILayout.LabelField(i.ToString());
+        l = EditorGUILayout.LongField("long输入框", l);
+        f = EditorGUILayout.FloatField("Float 输入：", f);
+        d = EditorGUILayout.DoubleField("double 输入：", d);
+
+        str = EditorGUILayout.TextField("Text输入：", str);
+        vec2 = EditorGUILayout.Vector2Field("Vec2输入： ", vec2);
+        vec3 = EditorGUILayout.Vector3Field("Vec3输入： ", vec3);
+        vec4 = EditorGUILayout.Vector4Field("Vec4输入： ", vec4);
+
+        rect = EditorGUILayout.RectField("rect输入： ", rect);//矩形变量
+        bounds = EditorGUILayout.BoundsField("Bounds输入： ", bounds);//范围变量
+        boundsInt = EditorGUILayout.BoundsIntField("Bounds输入： ", boundsInt);//范围变量（整型）
+
+        //注意：EditorGUILayout中还有一些Delayed开头的输入控件
+        //     他们和普通输入控件最主要的区别是：在用户按 Enter 键或将焦点从字段移开之前，返回值不会更改
+        i2 = EditorGUILayout.DelayedIntField("Int输入框", i2);
+        EditorGUILayout.LabelField(i2.ToString());
+    }
+
+    EditorGUILayout.EndFoldoutHeaderGroup();
+```
+
+## 5.3 折叠和折叠组的区别
+折叠组的文本会加粗高亮，并且默认点击整行也会交互展开，主要是表现上的区别。具体看下面效果图
+
+## 5.4 效果
+![](./三-EditorGUI相关/L7折叠、折叠组.png)
