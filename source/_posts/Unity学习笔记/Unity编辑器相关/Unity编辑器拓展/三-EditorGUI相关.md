@@ -241,7 +241,7 @@ if (EditorGUILayout.DropdownButton(new GUIContent("按钮上文字"), FocusType.
 ## 4.3 效果展示
 ![](./三-EditorGUI相关/L6对象关联、各类型输入控件.png)
 
-# 五、 折叠、折叠组空间
+# 五、 折叠、折叠组控件
 
 ## 5.1 折叠控件
 1. 方法
@@ -251,7 +251,7 @@ if (EditorGUILayout.DropdownButton(new GUIContent("按钮上文字"), FocusType.
     //  折叠的内容进行使用
     // }
 ```
-2.示例
+2. 示例
 ```cs
     bool isHide;
     isHide = EditorGUILayout.Foldout(isHide, "折叠控件", false);
@@ -287,7 +287,7 @@ if (EditorGUILayout.DropdownButton(new GUIContent("按钮上文字"), FocusType.
     // }
     EditorGUILayout.EndFoldoutHeaderGroup(); 
 ```
-1. 示例
+2. 示例
 ```cs
     bool isHideGroup;
     isHideGroup = EditorGUILayout.BeginFoldoutHeaderGroup(isHideGroup, "折叠组控件");
@@ -326,3 +326,65 @@ if (EditorGUILayout.DropdownButton(new GUIContent("按钮上文字"), FocusType.
 
 ## 5.4 效果
 ![](./三-EditorGUI相关/L7折叠、折叠组.png)
+
+# 六、开关、开关组控件
+
+
+## 6.1 开关控件
+
+1. 方法
+```cs
+bool变量 = EditorGUILayout.Toggle("普通开关", bool变量);
+
+bool变量 = EditorGUILayout.ToggleLeft("开关在左侧", bool变量);
+```
+2. 示例
+下面与开关组一起写了
+## 6.2 开关组控件
+1. 方法
+```cs
+bool变量 = EditorGUILayout.BeginToggleGroup("开关组", bool变量);
+//其他控件绘制(包裹起来)
+EditorGUILayout.EndToggleGroup();
+```
+2. 示例
+```cs
+    //开关组控件
+    isTogGroup = EditorGUILayout.BeginToggleGroup("开关组控件", isTogGroup);
+    //开关控件
+    isTog = EditorGUILayout.Toggle("开关控件", isTog);
+    isTogLeft = EditorGUILayout.ToggleLeft("左侧开关", isTogLeft);
+    EditorGUILayout.EndToggleGroup();
+```
+
+## 6.3 效果
+![](./三-EditorGUI相关/L8开关、开关组.png)
+
+# 七、 滑动条、双块滑动条控件
+## 7.1 知识点一 滑动条控件
+1. 方法
+```cs
+    float变量 = EditorGUILayout.Slider("滑动条", float变量, 最小值, 最大值);
+    int变量 = EditorGUILayout.IntSlider("整数值滑动条", int变量, 最小值, 最大值);
+```
+2. 示例
+```cs
+    //滑动条
+    fSlider = EditorGUILayout.Slider("滑动条", fSlider, 0, 10);
+    iSlider = EditorGUILayout.IntSlider("整形滑动条", iSlider, 0, 10);
+```
+## 7.2 知识点二 双块滑动条控件
+1. 方法
+```cs
+    EditorGUILayout.MinMaxSlider("双块滑动条", ref 左侧值, ref 右侧值, 最小值, 最大值);
+```
+2. 示例
+```cs
+    //双块滑动条
+    EditorGUILayout.MinMaxSlider("双块滑动条", ref leftV, ref rightV, 0, 10);
+    EditorGUILayout.LabelField(leftV.ToString());
+    EditorGUILayout.LabelField(rightV.ToString());
+```
+
+## 7.3 效果
+![](./三-EditorGUI相关/L9滑动条、双块滑动条控件.png)
