@@ -388,3 +388,25 @@ EditorGUILayout.EndToggleGroup();
 
 ## 7.3 效果
 ![](./三-EditorGUI相关/L9滑动条、双块滑动条控件.png)
+
+
+# 八、帮助框、垂直间隔 控件
+## 8.1 帮助框控件
+1. 方法及示例
+```cs
+EditorGUILayout.HelpBox("一般提示", MessageType.None);
+EditorGUILayout.HelpBox("感叹号提示", MessageType.Info);
+EditorGUILayout.HelpBox("警告符号提示", MessageType.Warning);
+EditorGUILayout.HelpBox("错误符号提示", MessageType.Error);
+```
+
+## 8.2  间隔控件
+1. 方法及示例
+```cs
+//控件1
+EditorGUILayout.Space(10); //进行10个单位的间隔
+//控件2
+```
+
+## 8.3 效果
+![](./三-EditorGUI相关/L10帮助框、间隔控件.png)
