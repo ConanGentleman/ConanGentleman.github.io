@@ -9,6 +9,47 @@ EditorGUI相关的内容
 
 <!--more-->
 
+- [一、EditorGUI是什么](#一editorgui是什么)
+  - [1.1 知识回顾](#11-知识回顾)
+  - [1.2 EditorGUI是什么？](#12-editorgui是什么)
+- [二、文本、层级和标签、颜色拾取控件](#二文本层级和标签颜色拾取控件)
+  - [2.1 EditorGUILayout中的文本控件](#21-editorguilayout中的文本控件)
+  - [2.2 EditorGUILayout中的层级、标签选择](#22-editorguilayout中的层级标签选择)
+  - [2.3 EditorGUILayout中的颜色获取](#23-editorguilayout中的颜色获取)
+- [2.4 效果展示](#24-效果展示)
+- [三、枚举选择、整数选择、按下就触发的按钮](#三枚举选择整数选择按下就触发的按钮)
+  - [3.1 枚举选择控件](#31-枚举选择控件)
+  - [3.2 整数选择控件](#32-整数选择控件)
+  - [3.3 按下就触发的按钮控件](#33-按下就触发的按钮控件)
+  - [3.4 效果](#34-效果)
+- [四、对象关联、各类型输入 控件](#四对象关联各类型输入-控件)
+  - [4.1 对象关联控件](#41-对象关联控件)
+  - [4.2 各类型输入控件](#42-各类型输入控件)
+  - [4.3 效果展示](#43-效果展示)
+- [五、 折叠、折叠组控件](#五-折叠折叠组控件)
+  - [5.1 折叠控件](#51-折叠控件)
+  - [5.2 折叠组控件](#52-折叠组控件)
+  - [5.3 折叠和折叠组的区别](#53-折叠和折叠组的区别)
+  - [5.4 效果](#54-效果)
+- [六、开关、开关组控件](#六开关开关组控件)
+  - [6.1 开关控件](#61-开关控件)
+  - [6.2 开关组控件](#62-开关组控件)
+  - [6.3 效果](#63-效果)
+- [七、 滑动条、双块滑动条控件](#七-滑动条双块滑动条控件)
+  - [7.1 知识点一 滑动条控件](#71-知识点一-滑动条控件)
+  - [7.2 知识点二 双块滑动条控件](#72-知识点二-双块滑动条控件)
+  - [7.3 效果](#73-效果)
+- [八、帮助框、垂直间隔 控件](#八帮助框垂直间隔-控件)
+  - [8.1 帮助框控件](#81-帮助框控件)
+  - [8.2  间隔控件](#82--间隔控件)
+  - [8.3 效果](#83-效果)
+- [九、动画曲线控件和布局API](#九动画曲线控件和布局api)
+  - [9.1 动画曲线控件](#91-动画曲线控件)
+  - [9.2 布局相关API](#92-布局相关api)
+  - [9.3 效果](#93-效果)
+- [十、总结](#十总结)
+
+
 # 一、EditorGUI是什么
 ## 1.1 知识回顾
 
@@ -410,3 +451,70 @@ EditorGUILayout.Space(10); //进行10个单位的间隔
 
 ## 8.3 效果
 ![](./三-EditorGUI相关/L10帮助框、间隔控件.png)
+
+
+# 九、动画曲线控件和布局API
+
+## 9.1 动画曲线控件
+
+1. 方法
+```cs
+    AnimationCurve变量  = EditorGUILayout.CurveField("动画曲线：", AnimationCurve变量);
+```
+
+2. 示例
+```cs
+    AnimationCurve curve = new AnimationCurve();
+    //动画曲线控件
+    curve = EditorGUILayout.CurveField("曲线控件", curve);
+```
+
+## 9.2 布局相关API
+1. 方法
+```cs
+    EditorGUILayout.BeginHorizontal(); //开始水平布局
+    //一大堆控件
+    EditorGUILayout.EndHorizontal();//结束水平布局
+
+    EditorGUILayout.BeginVertical();//开始垂直布局
+    //一大堆控件
+    EditorGUILayout.EndVertical();//结束垂直布局
+
+    Vector2布局 = EditorGUILayout.BeginScrollView(Vector2布局); //开启滚动视图
+    //一大堆控件
+    EditorGUILayout.EndScrollView(); //结束滚动视图
+```
+
+2. 示例
+```cs
+    Vector2 vec2Pos;
+    //布局API
+    EditorGUILayout.BeginHorizontal(); //开始水平布局
+    EditorGUILayout.LabelField("123123");
+    EditorGUILayout.LabelField("123123");
+    EditorGUILayout.LabelField("123123");
+    EditorGUILayout.EndHorizontal();//结束水平布局
+
+    EditorGUILayout.BeginVertical();//开始垂直布局
+    EditorGUILayout.LabelField("123123");
+    EditorGUILayout.LabelField("123123");
+    EditorGUILayout.LabelField("123123");
+    EditorGUILayout.EndVertical();//结束垂直布局
+
+    
+    vec2Pos = EditorGUILayout.BeginScrollView(vec2Pos); //开启滚动视图
+    //一大堆控件
+    EditorGUILayout.LabelField("滚动1");
+    EditorGUILayout.LabelField("滚动2");
+    EditorGUILayout.LabelField("滚动3");
+    EditorGUILayout.LabelField("滚动4");
+    EditorGUILayout.LabelField("滚动5");
+    EditorGUILayout.EndScrollView(); //结束滚动视图
+```
+
+## 9.3 效果
+![](./三-EditorGUI相关/L11动画曲线控件和布局API.png)
+
+# 十、总结
+
+EditorGUILayout中更多内容：https://docs.unity.cn/cn/2022.3/ScriptReference/EditorGUILayout.html
