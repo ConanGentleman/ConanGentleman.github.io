@@ -62,3 +62,84 @@ EditorGUIUtility.LoadRequired
 
 ## 2.3 效果
 ![](./四-EditorGUIUtility公共类/L13加载资源.png)
+
+
+
+
+# 三、搜索框查询、对象选中提示
+## 3.1 搜索框查询
+1. 主要作用：
+    弹出一个搜索窗口，用于选择自己想要的资源，只能打开窗口，无法监听选择的对象信息，需要配合第3点中的EditorGUIUtility.GetObjectPickerObject()进行使用
+2. 主要API：
+```cs
+    EditorGUIUtility.ShowObjectPicker<资源类型>(默认被选中的对象, 是否允许查找场景对象, "查找对象名称过滤", 0);
+```
+   - 参数1. 默认被选中的对象的引用
+   - 参数2. 是否允许查找场景对象
+   - 参数3. 查找对象名称过滤（比如这里的normal是指文件名称中有normal的会被搜索到）
+   - 参数4. controlID, 默认写0
+
+3. 获取选择对象，主要API：
+```cs
+EditorGUIUtility.GetObjectPickerObject()
+```
+- 弹出的搜索窗口会通过发送事件的形式，通知开启它的窗口对象信息的变化
+- 通过Event公共类可以获取其它窗口发送给自己的事件。（即Event公共类会给当前打开的窗口发送事件信息）
+- Event.current 获取当前事件
+    - commandName 获取事件命令的名字
+      - ObjectSelectorUpdated 对象选择发生变化时发送
+      - ObjectSelectorClosed 对象选择窗口关闭时发送
+```cs
+    if(Event.current.commandName == "ObjectSelectorUpdated")
+    {
+    //当选择发生更新时通知进入
+
+    }
+    else if (Event.current.commandName == "ObjectSelectorClosed")
+    {
+    //当选择窗口关闭时通知进入
+    }
+```
+1. 示例
+```cs
+    private Texture img3;
+    //搜索框查询
+    if (GUILayout.Button("打开搜索框查询窗口"))
+    {
+        EditorGUIUtility.ShowObjectPicker<Texture>(null, false, "Editor", 0);//传参分别表示，默认选中的是null对象，不允许查找场景物体，文件名称中有Editor的会被搜索到的Texture资源
+    }
+
+    if (Event.current.commandName == "ObjectSelectorUpdated")
+    {
+        img3 = EditorGUIUtility.GetObjectPickerObject() as Texture;
+        if (img3 != null)
+            Debug.Log(img3.name);
+    }
+    else if (Event.current.commandName == "ObjectSelectorClosed")
+    {
+        img3 = EditorGUIUtility.GetObjectPickerObject() as Texture;
+        if (img3 != null)
+            Debug.Log("窗口关闭 - " + img3.name);
+    }
+```
+## 3.2 对象选中提示
+1. 方法
+```cs
+    EditorGUIUtility.PingObject(想要提示选中的对象);
+```
+
+1. 示例
+```cs
+    //对象选中提示提示
+    if (GUILayout.Button("高亮选中对象"))
+    {
+        if (img3 != null)
+            EditorGUIUtility.PingObject(img3);
+    }
+```
+
+## 3.3 效果
+1. 搜索框查询
+![](./四-EditorGUIUtility公共类/L14打开搜索框查询.png)
+2. 对象选中提示
+![](./四-EditorGUIUtility公共类/L14选中对象提示.png)
