@@ -143,3 +143,62 @@ EditorGUIUtility.GetObjectPickerObject()
 ![](./四-EditorGUIUtility公共类/L14打开搜索框查询.png)
 2. 对象选中提示
 ![](./四-EditorGUIUtility公共类/L14选中对象提示.png)
+
+# 四、窗口事件传递、坐标转换
+## 4.1 region 知识点一 窗口事件传递
+1. 方法
+在传递事件时,会自动将接受事件的窗口打开,不管对象是否有监听处理对应的内容
+```cs
+    Event e = EditorGUIUtility.CommandEvent("事件名");
+    //获取到另一个窗口后，让该窗口调用SendEvent(e) 
+    //在另一个窗口中可以通过
+    Event.current.type == EventType.ExecuteCommand 判断
+    Event.current.commandName == "事件名" 判断
+```
+2. 示例
+```cs
+    //窗口事件传递
+    if (GUILayout.Button("传递事件"))
+    {
+        //声明事件
+        Event e = EditorGUIUtility.CommandEvent("测试事件");
+        Lesson3 win = EditorWindow.GetWindow<Lesson3>();
+        win.SendEvent(e);
+    }
+//````````````````````````````````````````````````````````````````
+    //另一个窗口代码的OnGUI中（这里指Lesson3.cs的OnGUI中）
+    if (Event.current.type == EventType.ExecuteCommand)
+    {
+        if (Event.current.commandName == "测试事件")
+        {
+            Debug.Log("收到测试事件");
+        }
+    }
+```
+
+## 4.2 坐标转换
+- 屏幕坐标系：原点为屏幕左上角
+- GUI坐标系：原点为当前窗口左上角
+1. 方法
+- GUIToScreenPoint:将点从GUI位置转换为屏幕空间
+- GUIToScreenRect:将rect从GUI位置转换为屏幕空间
+
+- ScreenToGUIPoint:将点从屏幕空间转换为GUI位置
+- ScreenToGUIRect:将rect从屏幕空间转换为GUI位置
+
+2. 示例
+```cs
+    //坐标转换
+    if (GUILayout.Button("坐标转换测试"))
+    {
+        Vector2 v = new Vector2(10, 10);//GUI坐标
+        GUI.BeginGroup(new Rect(10, 10, 100, 100));
+        //转换函数 如果包裹在布局相关函数中 那么位置会加上布局的偏移 再进行转换
+        Vector2 screenPos = EditorGUIUtility.GUIToScreenPoint(v);
+        GUI.EndGroup();
+        Debug.Log("GUI:" + v + "Screen:" + screenPos);
+    }
+```
+
+## 4.3 效果
+![](./四-EditorGUIUtility公共类/L15窗口事件和坐标转换.png)
