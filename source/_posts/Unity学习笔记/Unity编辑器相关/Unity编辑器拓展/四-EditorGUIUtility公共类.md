@@ -202,3 +202,77 @@ EditorGUIUtility.GetObjectPickerObject()
 
 ## 4.3 效果
 ![](./四-EditorGUIUtility公共类/L15窗口事件和坐标转换.png)
+
+# 五、指定区域使用对应鼠标指针
+## 5.1 方法
+```cs
+    AddCursorRect(Rect position, MouseCursor mouse);
+    //  MouseCursor鼠标光标类型枚举
+    //  Arrow	            普通指针箭头
+    //  Text                文本文本光标
+    //  ResizeVertical      调整大小垂直调整大小箭头
+    //  ResizeHorizontal    调整大小水平调整大小箭头
+    //  Link                带有链接徽章的链接箭头
+    //  SlideArrow          滑动箭头带有小箭头的箭头，用于指示在数字字段处滑动
+    //  ResizeUpRight       调整大小向上向右调整窗口边缘的大小
+    //  ResizeUpLeft        窗口边缘为左
+    //  MoveArrow           带有移动符号的箭头旁边用于场景视图
+    //  RotateArrow         旁边有用于场景视图的旋转符号
+    //  ScaleArrow          旁边有用于场景视图的缩放符号
+    //  ArrowPlus           旁边带有加号的箭头
+    //  ArrowMinus          旁边带有减号的箭头
+    //  Pan                 用拖动的手拖动光标进行平移
+    //  Orbit               用眼睛观察轨道的光标
+    //  Zoom                使用放大镜进行缩放的光标
+    //  FPS                 带眼睛的光标和用于FPS导航的样式化箭头键
+    //  CustomCursor        当前用户定义的光标
+    //  SplitResizeUpDown   向上-向下调整窗口拆分器的大小箭头
+    //  SplitResizeLeftRight窗口拆分器的左-右调整大小箭头
+```
+## 5.2 示例
+```cs
+    EditorGUI.DrawRect(new Rect(0, 150, 100, 100), Color.green);//绘制一块绿色矩形
+    EditorGUIUtility.AddCursorRect(new Rect(0, 150, 100, 100), MouseCursor.Text);
+```
+
+## 5.3 效果
+![](./四-EditorGUIUtility公共类/L16指定区域使用对应鼠标指针.jpg)
+
+# 六、绘制色板、绘制曲线
+## 6.1 绘制色板
+1. 方法
+在指定区域绘制一个色板矩形,主要配合 EditorGUILayout.ColorField 颜色输入控件使用
+```cs
+    EditorGUIUtility.DrawColorSwatch(Rect 绘制色板的矩形, Color 颜色);
+```
+2. 示例
+```cs
+    private Color color;
+    //绘制色板
+    color = EditorGUILayout.ColorField(new GUIContent("选取颜色"), color, true, true, true);
+    EditorGUIUtility.DrawColorSwatch(new Rect(180, 180, 30, 30), Color.blue);//绘制蓝色色板
+```
+## 6.2 绘制曲线
+1. 方法
+在指定区域绘制曲线,主要配合EditorGUILayout.CurveField 曲线输入控件使用
+```cs
+    EditorGUIUtility.DrawCurveSwatch(Rect 绘制曲线的范围,
+                                       AnimationCurve 曲线,
+                                       SerializedProperty 要绘制为SerializedProperty的曲线,
+                                       Color 绘制曲线的颜色,
+                                       Color 绘制背景的颜色);
+```
+
+2. 示例
+```cs
+//绘制曲线
+    private AnimationCurve curve = new AnimationCurve();
+    curve = EditorGUILayout.CurveField("曲线设置", curve);
+    EditorGUIUtility.DrawCurveSwatch(new Rect(0, 300, 100, 80), curve, null, Color.red, Color.white);
+```
+
+## 6.3 效果
+![](./四-EditorGUIUtility公共类/L17绘制色板、绘制曲线.png)
+
+# 七、更多API
+官方文档：https://docs.unity3d.com/ScriptReference/EditorGUIUtility.html
