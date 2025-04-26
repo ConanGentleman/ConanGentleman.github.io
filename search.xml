@@ -1,22 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2024/07/21/hello-world-1/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="48a0ae5effc070c82e44be4a84f8ae9a09954921e0e4136a68b7e5fd229605e4">8857952509ef9895f61625fe2d594ef339e937d6685a3f98341208c8d2d367f4dc0b58f485d52aa0392b14c338af3a49fa9334860d39e66200a503ef5c6f15e63ad2aba5b3bf18c0d6d9f7017f8db44c2c9343dded772edbc3c220543b5d966a4117eabff0585a2d555d0aad8bfd14e10eab5b64af4637f63aeb3e8dd9946bf6da6710df2eb5cb68d40344fab74bc207f2b3ab564720dd3bbdaf275382565b91fc09d67374a24e44135d9e7555af78484137904f464ddd94cb8db1eee25c0c9978eb6e799b1ad3780f520bf6b233d1743f3783536c51e859ec0ee37cfad84134b99bf5c26ed05c01a5b415dcecd23171</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+    <title>Hexo在多台电脑上提交和更新</title>
+    <url>/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/</url>
+    <content><![CDATA[<p>参考链接：<a href="https://blog.csdn.net/K1052176873/article/details/122879462">https://blog.csdn.net/K1052176873/article/details/122879462</a></p>
+<p>有时候更换电脑需要也将博客迁移，但新电脑上直接配置是效率较低的因此git来管理</p>
+<span id="more"></span>
+<h1 id="%E4%B8%80%E3%80%81hexo%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E8%AF%B4%E6%98%8E" tabindex="-1">一、Hexo的文件夹说明</h1>
+<p><img src="/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E8%AF%B4%E6%98%8E.png" alt></p>
+<h1 id="%E4%BA%8C%E3%80%81%E5%90%8C%E6%AD%A5%E5%8E%9F%E7%90%86" tabindex="-1">二、同步原理</h1>
+<ol>
+<li>主要思路是利用git分支来实现hexo的同步。<br>
+<strong>hexo生成的静态页面文件默认放在master分支上，这是由_config.yml配置文件所决定的</strong><br>
+你可以在全局配置文件_config.yml中找到这么一段</li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:username/username.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<p>因此每当我们<strong>执行hexo d</strong>的时候，hexo都会帮我们把<strong>生成好的静态页面文件推到master分支上</strong></p>
+<p>在我们<strong>第一次部署好博客的时候</strong>，github给我们创建的唯一一个分支就是<strong>master分支，同时也是默认分支</strong>。默认分支就<strong>意味着每次我们执行git clone 仓库地址或者git pull 仓库地址拉取的是默认分支的代码</strong>。</p>
+<p><strong>但是执行hexo d</strong> 对应的分支和默认分支是没有关系的，因为这<strong>是由配置文件决定的，配置文件写的哪个分支就是哪个分支</strong>。</p>
+<ol start="2">
+<li>因此，hexo生成的<strong>静态博客文件默认放在master分支上</strong>。<strong>hexo的源文件（部署环境文件）可以都放在source分支上</strong>（可以新创建一个source分支）。然后<strong>把source分支设置成默认分支</strong>。有小伙伴可能会担心默认分支的改变会不会影响到原来的网页的正常显示，其实如果是<strong>用GitHub Pages对博客进行托管</strong>的话也很简单，第一次搭建博客默认使用master分支作为页面。在下图所示的设置里可以找到。如果<strong>不小心搞错了只要把分支设置成静态页面对应的分支就好了</strong>。<br>
+<img src="/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/%E5%8D%9A%E5%AE%A2%E5%88%86%E6%94%AF%E9%80%89%E6%8B%A9.png" alt></li>
+</ol>
+<p><strong>把source分支设置成默认分支，用来存放源文件，master分支依然存放静态文件</strong>。在老电脑上，我们需要<strong>把必要的源文件push到source分支。换新电脑时，直接git clone 仓库地址此时会从source分支下载源文件</strong>，剩下的就是安装hexo环境，在新电脑上就可以重新生成静态页面了，并且<strong>因为配置文件clone下来，deploy配置依旧是master分支，所以在新电脑上执行hexo d还是会把更新过后的静态文件推送到master分支上</strong>。</p>
+<p>由于master分支和source分支实际上是相互独立的两个普通的分支，所以我们<strong>源文件和静态页面的更新也是相互独立的，故而需要手动分别执行git add . git commit git push来更新源文件,然后执行hexo d更新静态页面</strong>。</p>
+<h1 id="%E4%BA%8C%E3%80%81%E6%97%A7%E7%94%B5%E8%84%91%E5%85%B7%E4%BD%93%E6%93%8D%E4%BD%9C%EF%BC%88%E2%AD%90%EF%BC%89" tabindex="-1">二、旧电脑具体操作（⭐）</h1>
+<ol>
+<li>github准备<br>
+创建一个分支hexo，在输入框输入hexo并点击下面的创建。<br>
+<img src="/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF.png" alt></li>
+<li>设置默认分支<br>
+<img src="/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E5%88%86%E6%94%AF.png" alt></li>
+<li>打包将要推送到GitHub上的原始文件<br>
+clone该仓库到本地（clone的是hexo默认分支）</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone git@github.com:username/username.github.io.git</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>
+<p>下载的文件夹里仅留下.git 文件夹，其他的文件都删除</p>
+</li>
+<li>
+<p>找到原博客文件位置，将文件夹内除.deploy_git 以外都复制到clone下来的文件夹中</p>
+</li>
+<li>
+<p>现在clone下来的文件夹内应该有个 <strong>.gitignore文件</strong> ，用来忽略一些不需要的文件，表示这些类型文件不需要git。如果没有，右键新建，<strong>内容如下</strong>：</p>
+</li>
+</ol>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="meta">.DS_Store</span></span><br><span class="line">Thumbs<span class="number">.</span><span class="built_in">db</span></span><br><span class="line"><span class="built_in">db</span><span class="number">.</span>json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line"><span class="meta">public</span>/</span><br><span class="line"><span class="meta">.deploy</span>*/</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>如果<strong>已经clone过主题文件，那么需要把theme主题文件夹里的 .git 也删除</strong>。因为git不能嵌套上传，最好是显示隐藏文件，检查一下有没有，<strong>否则上传的时候会出错</strong>，导致你的主题文件无法上传，这样你的配置在别的电脑上就用不了了。<br>
+<img src="/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/%E4%B8%BB%E9%A2%98%E6%96%87%E4%BB%B6git%E5%88%A0%E9%99%A4.png" alt></li>
+<li>将clone并修改以后的文件夹推送到远程库</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit –m add_branch</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<ol start="9">
+<li>此时已经成功将整个网站推送到了远程库的默认分支hexo,</li>
+<li>至此，网站部署至master分支，整个网站备份至hexo分支。当网站的配置或文章修改后都要将远程仓库更新。首先，依次执行</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m 内容</span><br><span class="line">git push （或者git push origin hexo）</span><br></pre></td></tr></table></figure>
+<p>保证hexo分支版本最新。然后执行</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+<p>在此之前，有时可能需要执行<strong>hexo clean</strong>，完成后就会发现，最新改动已经更新到master分支了，两个分支互不干扰！</p>
+<h1 id="%E4%B8%89%E3%80%81%E6%96%B0%E7%94%B5%E8%84%91%E4%B8%8A%E7%9A%84%E6%93%8D%E4%BD%9C%EF%BC%88%E2%AD%90%EF%BC%89" tabindex="-1">三、新电脑上的操作（⭐）</h1>
+<ol>
+<li>将新电脑的生成的ssh key添加到GitHub账户上</li>
+<li>在新电脑上克隆username.github.io仓库的source分支(就是存放源码的分支)到本地，此时本地git仓库处于source分支,可以执行git branch -v查看。</li>
+<li>在新电脑的username.github.io文件夹下执行</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo (如果安装后hexo无效使用 npm install -g hexo来全局安装hexo)</span><br><span class="line">npm install</span><br><span class="line">npm install hexo-deployer-git （记得，不需要hexo init这条指令）</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>最后执行</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>等命令即可提交成功<br>
+上面步骤中，<strong>npm install其实就是读取了packages.json里面的信息，自动安装依赖</strong>，有的小伙伴<strong>可能只执行npm install就行了，不过按照上面的三步是最稳妥的。</strong></p>
+<p>这里提一嘴，当新电脑上的操作成功之后，其实对于新电脑还是老电脑其实都无所谓了，任何一台电脑包括老电脑只要安装了NodeJs环境，就都可以按照在新电脑上的操作完整地复刻出一个hexo环境，你甚至可以把老电脑原有的hexo工程删掉再执行上面这几步一样可以快速构建hexo环境，可以看到步骤非常简单。</p>
+<p>此外，为了保证同步，推荐<strong>先git pull合并</strong>更新再进行博客的编写。</p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>hexo博客搭建</category>
+      </categories>
       <tags>
-        <tag>作为日记加密</tag>
+        <tag>hexo博客搭建</tag>
       </tags>
   </entry>
   <entry>
@@ -718,90 +785,44 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo在多台电脑上提交和更新</title>
-    <url>/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/</url>
-    <content><![CDATA[<p>参考链接：<a href="https://blog.csdn.net/K1052176873/article/details/122879462">https://blog.csdn.net/K1052176873/article/details/122879462</a></p>
-<p>有时候更换电脑需要也将博客迁移，但新电脑上直接配置是效率较低的因此git来管理</p>
-<span id="more"></span>
-<h1 id="%E4%B8%80%E3%80%81hexo%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E8%AF%B4%E6%98%8E" tabindex="-1">一、Hexo的文件夹说明</h1>
-<p><img src="/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E8%AF%B4%E6%98%8E.png" alt></p>
-<h1 id="%E4%BA%8C%E3%80%81%E5%90%8C%E6%AD%A5%E5%8E%9F%E7%90%86" tabindex="-1">二、同步原理</h1>
-<ol>
-<li>主要思路是利用git分支来实现hexo的同步。<br>
-<strong>hexo生成的静态页面文件默认放在master分支上，这是由_config.yml配置文件所决定的</strong><br>
-你可以在全局配置文件_config.yml中找到这么一段</li>
-</ol>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:username/username.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-<p>因此每当我们<strong>执行hexo d</strong>的时候，hexo都会帮我们把<strong>生成好的静态页面文件推到master分支上</strong></p>
-<p>在我们<strong>第一次部署好博客的时候</strong>，github给我们创建的唯一一个分支就是<strong>master分支，同时也是默认分支</strong>。默认分支就<strong>意味着每次我们执行git clone 仓库地址或者git pull 仓库地址拉取的是默认分支的代码</strong>。</p>
-<p><strong>但是执行hexo d</strong> 对应的分支和默认分支是没有关系的，因为这<strong>是由配置文件决定的，配置文件写的哪个分支就是哪个分支</strong>。</p>
-<ol start="2">
-<li>因此，hexo生成的<strong>静态博客文件默认放在master分支上</strong>。<strong>hexo的源文件（部署环境文件）可以都放在source分支上</strong>（可以新创建一个source分支）。然后<strong>把source分支设置成默认分支</strong>。有小伙伴可能会担心默认分支的改变会不会影响到原来的网页的正常显示，其实如果是<strong>用GitHub Pages对博客进行托管</strong>的话也很简单，第一次搭建博客默认使用master分支作为页面。在下图所示的设置里可以找到。如果<strong>不小心搞错了只要把分支设置成静态页面对应的分支就好了</strong>。<br>
-<img src="/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/%E5%8D%9A%E5%AE%A2%E5%88%86%E6%94%AF%E9%80%89%E6%8B%A9.png" alt></li>
-</ol>
-<p><strong>把source分支设置成默认分支，用来存放源文件，master分支依然存放静态文件</strong>。在老电脑上，我们需要<strong>把必要的源文件push到source分支。换新电脑时，直接git clone 仓库地址此时会从source分支下载源文件</strong>，剩下的就是安装hexo环境，在新电脑上就可以重新生成静态页面了，并且<strong>因为配置文件clone下来，deploy配置依旧是master分支，所以在新电脑上执行hexo d还是会把更新过后的静态文件推送到master分支上</strong>。</p>
-<p>由于master分支和source分支实际上是相互独立的两个普通的分支，所以我们<strong>源文件和静态页面的更新也是相互独立的，故而需要手动分别执行git add . git commit git push来更新源文件,然后执行hexo d更新静态页面</strong>。</p>
-<h1 id="%E4%BA%8C%E3%80%81%E6%97%A7%E7%94%B5%E8%84%91%E5%85%B7%E4%BD%93%E6%93%8D%E4%BD%9C%EF%BC%88%E2%AD%90%EF%BC%89" tabindex="-1">二、旧电脑具体操作（⭐）</h1>
-<ol>
-<li>github准备<br>
-创建一个分支hexo，在输入框输入hexo并点击下面的创建。<br>
-<img src="/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF.png" alt></li>
-<li>设置默认分支<br>
-<img src="/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E5%88%86%E6%94%AF.png" alt></li>
-<li>打包将要推送到GitHub上的原始文件<br>
-clone该仓库到本地（clone的是hexo默认分支）</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone git@github.com:username/username.github.io.git</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>
-<p>下载的文件夹里仅留下.git 文件夹，其他的文件都删除</p>
-</li>
-<li>
-<p>找到原博客文件位置，将文件夹内除.deploy_git 以外都复制到clone下来的文件夹中</p>
-</li>
-<li>
-<p>现在clone下来的文件夹内应该有个 <strong>.gitignore文件</strong> ，用来忽略一些不需要的文件，表示这些类型文件不需要git。如果没有，右键新建，<strong>内容如下</strong>：</p>
-</li>
-</ol>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="meta">.DS_Store</span></span><br><span class="line">Thumbs<span class="number">.</span><span class="built_in">db</span></span><br><span class="line"><span class="built_in">db</span><span class="number">.</span>json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line"><span class="meta">public</span>/</span><br><span class="line"><span class="meta">.deploy</span>*/</span><br></pre></td></tr></table></figure>
-<ol start="7">
-<li>如果<strong>已经clone过主题文件，那么需要把theme主题文件夹里的 .git 也删除</strong>。因为git不能嵌套上传，最好是显示隐藏文件，检查一下有没有，<strong>否则上传的时候会出错</strong>，导致你的主题文件无法上传，这样你的配置在别的电脑上就用不了了。<br>
-<img src="/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/%E4%B8%BB%E9%A2%98%E6%96%87%E4%BB%B6git%E5%88%A0%E9%99%A4.png" alt></li>
-<li>将clone并修改以后的文件夹推送到远程库</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit –m add_branch</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-<ol start="9">
-<li>此时已经成功将整个网站推送到了远程库的默认分支hexo,</li>
-<li>至此，网站部署至master分支，整个网站备份至hexo分支。当网站的配置或文章修改后都要将远程仓库更新。首先，依次执行</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m 内容</span><br><span class="line">git push （或者git push origin hexo）</span><br></pre></td></tr></table></figure>
-<p>保证hexo分支版本最新。然后执行</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
-<p>在此之前，有时可能需要执行<strong>hexo clean</strong>，完成后就会发现，最新改动已经更新到master分支了，两个分支互不干扰！</p>
-<h1 id="%E4%B8%89%E3%80%81%E6%96%B0%E7%94%B5%E8%84%91%E4%B8%8A%E7%9A%84%E6%93%8D%E4%BD%9C%EF%BC%88%E2%AD%90%EF%BC%89" tabindex="-1">三、新电脑上的操作（⭐）</h1>
-<ol>
-<li>将新电脑的生成的ssh key添加到GitHub账户上</li>
-<li>在新电脑上克隆username.github.io仓库的source分支(就是存放源码的分支)到本地，此时本地git仓库处于source分支,可以执行git branch -v查看。</li>
-<li>在新电脑的username.github.io文件夹下执行</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo (如果安装后hexo无效使用 npm install -g hexo来全局安装hexo)</span><br><span class="line">npm install</span><br><span class="line">npm install hexo-deployer-git （记得，不需要hexo init这条指令）</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>最后执行</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<p>等命令即可提交成功<br>
-上面步骤中，<strong>npm install其实就是读取了packages.json里面的信息，自动安装依赖</strong>，有的小伙伴<strong>可能只执行npm install就行了，不过按照上面的三步是最稳妥的。</strong></p>
-<p>这里提一嘴，当新电脑上的操作成功之后，其实对于新电脑还是老电脑其实都无所谓了，任何一台电脑包括老电脑只要安装了NodeJs环境，就都可以按照在新电脑上的操作完整地复刻出一个hexo环境，你甚至可以把老电脑原有的hexo工程删掉再执行上面这几步一样可以快速构建hexo环境，可以看到步骤非常简单。</p>
-<p>此外，为了保证同步，推荐<strong>先git pull合并</strong>更新再进行博客的编写。</p>
+    <title>Hello World</title>
+    <url>/2024/07/21/hello-world-1/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="48a0ae5effc070c82e44be4a84f8ae9a09954921e0e4136a68b7e5fd229605e4">8857952509ef9895f61625fe2d594ef339e937d6685a3f98341208c8d2d367f4dc0b58f485d52aa0392b14c338af3a49fa9334860d39e66200a503ef5c6f15e63ad2aba5b3bf18c0d6d9f7017f8db44c2c9343dded772edbc3c220543b5d966a4117eabff0585a2d555d0aad8bfd14e10eab5b64af4637f63aeb3e8dd9946bf6da6710df2eb5cb68d40344fab74bc207f2b3ab564720dd3bbdaf275382565b91fc09d67374a24e44135d9e7555af78484137904f464ddd94cb8db1eee25c0c9978eb6e799b1ad3780f520bf6b233d1743f3783536c51e859ec0ee37cfad84134b99bf5c26ed05c01a5b415dcecd23171</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <tags>
+        <tag>作为日记加密</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2024/07/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="quick-start" tabindex="-1">Quick Start</h2>
+<h3 id="create-a-new-post" tabindex="-1">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server" tabindex="-1">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files" tabindex="-1">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites" tabindex="-1">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
-      <categories>
-        <category>hexo博客搭建</category>
-      </categories>
-      <tags>
-        <tag>hexo博客搭建</tag>
-      </tags>
   </entry>
   <entry>
     <title>解决Hexo图片不显示的问题</title>
@@ -826,27 +847,6 @@ clone该仓库到本地（clone的是hexo默认分支）</li>
       <tags>
         <tag>hexo博客搭建</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2024/07/01/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-start" tabindex="-1">Quick Start</h2>
-<h3 id="create-a-new-post" tabindex="-1">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server" tabindex="-1">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files" tabindex="-1">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites" tabindex="-1">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
   </entry>
   <entry>
     <title>3D数学基础-图形和游戏开发-学习笔记 第一章 笛卡尔坐标系</title>
@@ -971,6 +971,142 @@ clone该仓库到本地（clone的是hexo默认分支）</li>
 <img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.5%20%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F_%E7%AD%89%E8%85%B0%E4%B8%89%E8%A7%92%E5%BD%A2%E6%81%92%E7%AD%89%E5%BC%8F.jpg" alt></p>
 <p>（5）正弦定理与余弦定理<br>
 <img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.5%20%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F_%E6%AD%A3%E5%BC%A6%E5%AE%9A%E7%90%86%E4%B8%8E%E4%BD%99%E5%BC%A6%E5%AE%9A%E7%90%86.jpg" alt></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>3D数学基础</category>
+      </categories>
+      <tags>
+        <tag>3D数学基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3D数学基础-图形和游戏开发-学习笔记 第三章 多个坐标空间</title>
+    <url>/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/</url>
+    <content><![CDATA[<p>开发人员会为特定的理由构建坐标空间（有经验的老手可能会告诉你说“在不同的情况下需要不同的空间”）。</p>
+<span id="more"></span>
+<ul>
+<li><a href="#31-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4">3.1 为什么需要多个坐标空间</a></li>
+<li><a href="#32-%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4">3.2 一些有用的坐标空间</a>
+<ul>
+<li><a href="#321-%E4%B8%96%E7%95%8C%E7%A9%BA%E9%97%B4">3.2.1 世界空间</a></li>
+<li><a href="#322-%E5%AF%B9%E8%B1%A1%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%9E%8B%E7%A9%BA%E9%97%B4">3.2.2 对象空间（模型空间）</a></li>
+<li><a href="#323-%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%E8%A7%82%E5%AF%9F%E7%A9%BA%E9%97%B4">3.2.3 相机空间（观察空间）</a></li>
+<li><a href="#324-%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4">3.2.4 直立空间</a></li>
+</ul>
+</li>
+<li><a href="#33-%E5%9F%BA%E7%9F%A2%E9%87%8F%E5%92%8C%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4%E8%BD%AC%E6%8D%A2">3.3 基矢量和坐标空间转换</a>
+<ul>
+<li><a href="#331-%E5%8F%8C%E9%87%8D%E8%A7%86%E8%A7%92">3.3.1 双重视角</a></li>
+<li><a href="#332-%E6%8C%87%E5%AE%9A%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4">3.3.2 指定坐标空间</a></li>
+<li><a href="#333-%E5%9F%BA%E7%9F%A2%E9%87%8F">3.3.3 基矢量</a></li>
+</ul>
+</li>
+<li><a href="#34-%E5%B5%8C%E5%A5%97%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4">3.4 嵌套坐标空间</a></li>
+<li><a href="#35-%E9%92%88%E5%AF%B9%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4%E7%9A%84%E5%86%8D%E8%A7%A3%E9%87%8A">3.5 针对直立空间的再解释</a></li>
+</ul>
+<p>本章主要介绍多个坐标系的概念。它分为以下5个主要小节:- - 第3.1节将证明需要多个坐标系。</p>
+<ul>
+<li>第3.2节将介绍一些常见的坐标系。介绍的主要概念包括:
+<ul>
+<li>世界空间。</li>
+<li>对象空间。</li>
+<li>相机空间。</li>
+<li>垂直空间。</li>
+</ul>
+</li>
+<li>第3.3节将描述坐标-空间转换。
+<ul>
+<li>第3.3.1节将揭示两种坐标空间转换的思考方式之间的二元性。</li>
+<li>第3.3.2节将描述如何根据一个坐标系来指定另一个坐标系。</li>
+<li>第3.3.3节将讨论基矢量的非常重要的概念。</li>
+</ul>
+</li>
+<li>第3.4节将讨论嵌套坐标空间,它常用于在三维空间中为分层分割对象设置动画。</li>
+<li>第3.5节将是针对直立空间的强调说明。</li>
+</ul>
+<h1 id="3.1-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">3.1 为什么需要多个坐标空间</h1>
+<p>在不同情况下使用不同的坐标空间会更方便</p>
+<h1 id="3.2-%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">3.2 一些有用的坐标空间</h1>
+<p>开发人员需要不同的坐标空间，因为某些信息是有意义的或仅在特定上下文环境中可用。</p>
+<h2 id="3.2.1-%E4%B8%96%E7%95%8C%E7%A9%BA%E9%97%B4" tabindex="-1">3.2.1 世界空间</h2>
+<p>（1）世界坐标系是一个特殊的坐标系，它为所有其他要指定的坐标系建立了一个“全局”参考系。换句话说，我们可以用世界坐标空间来表达其他坐标空间的位置，但是我们不能用任何更大的外部坐标空间来表示世界坐标空间。<br>
+（2）世界坐标空间也称为全局(Global）坐标空间或通用(Universal）坐标空间。</p>
+<h2 id="3.2.2-%E5%AF%B9%E8%B1%A1%E7%A9%BA%E9%97%B4%EF%BC%88%E6%A8%A1%E5%9E%8B%E7%A9%BA%E9%97%B4%EF%BC%89" tabindex="-1">3.2.2 对象空间（模型空间）</h2>
+<p>（1）对象空间（Object Space）是与特定对象关联的坐标空间。<br>
+（2）每个对象都有自己独立的对象空间。<br>
+（3）当一个对象移动或改变方向时，与该对象关联的对象坐标空间被随之携带，因此它也会移动或改变方向。<br>
+（4）可以在对象空间中指定位置和方向。<br>
+（5）在图形的上下文中，对象空间也称为模型(Model)空间，因为模型顶点的坐标以模型空间表示。对象空间也称为体（Body)空间，特别是在物理环境中。使用像“相对于体轴”这样的短语也是很常见的，这意味着“使用体空间坐标表示”。</p>
+<h2 id="3.2.3-%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%EF%BC%88%E8%A7%82%E5%AF%9F%E7%A9%BA%E9%97%B4%EF%BC%89" tabindex="-1">3.2.3 相机空间（观察空间）</h2>
+<p>（1）对象空间的一个特别重要的示例是<strong>相机空间，其是与用于渲染的视点相关联的对象空间</strong>。<br>
+（2）在相机空间中，<strong>相机位于原点，+x指向右侧，+z指向前方（进入屏幕，相机朝向的方向)，+y指向“向上”</strong>（注意，这里不是相对于世界的“向上”，而是相对于相机顶部的“向上”）。图3.1显示了相机空间的示意图。<br>
+<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.2.3%20%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt><br>
+（3）这些是传统的左手坐标系统约定，其他的都很常见。<strong>特别要指出的是，OpenGL 传统上是右手坐标系统，-z指向屏幕，+z从屏幕出来朝向观众。</strong><br>
+（4）请仔细注意相机空间(三维空间）与屏幕空间（二维空间)之间的差异。<strong>从相机空间坐标到屏幕空间坐标的映射涉及的操作称为投影</strong>。将在第十章中讨论。</p>
+<h2 id="3.2.4-%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4" tabindex="-1">3.2.4 直立空间</h2>
+<p>（1）当要理解坐标空间转换这个主题时，可以通过文字或通过代码与计算机进行通信，<strong>将每个对象与一个新的坐标空间关联在一起，这个新坐标空间我们将其称为对象的直立坐标空间</strong>。<br>
+（2）在某种意义上，<strong>对象的直立空间是世界空间与其对象空间之间的“中间过渡”</strong>，因为<strong>直立空间的轴线与世界空间的轴线平行，而直立空间的原点则与对象空间的原点重合</strong>。下图在二维中说明了这个原理（请注意，我们已经做出了任意选择，<strong>将原点放在机器人的脚之间，而不是放在她的质心中</strong>）。<br>
+<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.2.3%20%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt></p>
+<p>（3）在<strong>对象空间和直立空间</strong>之间<strong>转换点</strong>只需要<strong>旋转</strong>；在<strong>直立空间和世界空间</strong>之间<strong>转换点</strong>则只需要更改位置，通常称为<strong>平移</strong>。</p>
+<p>（4）下图演示了坐标空间之间的转换。<strong>世界空间</strong>（图左侧的示意图）可通<strong>过平移原点的方式转换为直立空间</strong>（图中间的示意图）﹔而为了将<strong>直立空间转换为对象空间</strong>，可以<strong>旋转直立空间的轴直到它们与对象空间的轴对齐</strong>。在本示例中，机器人认为她的y轴是从她的脚指向她的头部，并且她的x轴指向她的左边。”我们将在第3.3节中再次讨论这个概念。<br>
+<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.2.4%20%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt></p>
+<p>（5）在物理学中，质心坐标一般用来描述直立空间中所表示的坐标。</p>
+<h1 id="3.3-%E5%9F%BA%E7%9F%A2%E9%87%8F%E5%92%8C%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4%E8%BD%AC%E6%8D%A2" tabindex="-1">3.3 基矢量和坐标空间转换</h1>
+<p>有时某些问题只能在特定的坐标空间中得到解答。</p>
+<ul>
+<li>3.3.1 将讨论初级视频游戏程序员进场会遇到的转换：图形</li>
+<li>3.3.2 确保我们清楚根据一个坐标空间指定另一个坐标空间意味着什么。</li>
+<li>3.3.3 将介绍基矢量(Basis Vector)的主要思想</li>
+</ul>
+<h2 id="3.3.1-%E5%8F%8C%E9%87%8D%E8%A7%86%E8%A7%92" tabindex="-1">3.3.1 双重视角</h2>
+<p>（1）前面的机器人示例，我们只是<strong>改变了参考框架并且能够使用不同的坐标空间来描述该点，改变了坐标空间！</strong></p>
+<p>如下图所示，将机器人在世界空间的原点进行创建。目前，由于模型处于其原始位置，因此对象空间和世界空间(以及直立空间)根据定义都是相同的。世界空间和对象空间是一致的。<br>
+<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.3.1%20%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%A8%A1%E5%9E%8B.png" alt="机器人"></p>
+<p>我们的目标是根据在某一时刻可以执行其想法的机器人所期望的位置和方向，将模型的顶点从其原始位置转换到某个新位置(在我们的示例中，就是要进入一间虚构的厨房)，如下图所示<br>
+<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.3.1%20%E6%A8%A1%E5%9E%8B%E7%A7%BB%E5%8A%A8%E7%A4%BA%E6%84%8F.png" alt><br>
+通过旋转和平移的方式最终将机器人从对象空间变换到世界空间。<strong>（必须是先旋转，再平移）</strong><br>
+<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.3.1%20%E5%B0%86%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%BB%8E%E5%AF%B9%E8%B1%A1%E7%A9%BA%E9%97%B4%E5%8F%98%E6%8D%A2%E5%88%B0%E4%B8%96%E7%95%8C%E7%A9%BA%E9%97%B4.png" alt></p>
+<p>（2）<strong>围绕原点的旋转是线性变换，而围绕任何其他点的旋转则是仿射变换</strong>（在第六章中将对仿射变换进行详细说明）</p>
+<h2 id="3.3.2-%E6%8C%87%E5%AE%9A%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">3.3.2 指定坐标空间</h2>
+<ul>
+<li>指定坐标空间的位置，即描述原点的位置</li>
+<li>指定坐标空间的方向，即通过告知<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mi>x</mi><mo separator="true">,</mo><mo>+</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">+x,+y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.1944em;"></span><span class="mord">+</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">+</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></eq>的方向来描述.(在二维中还可以通过角度进行方向的描述-极坐标)</li>
+</ul>
+<h2 id="3.3.3-%E5%9F%BA%E7%9F%A2%E9%87%8F" tabindex="-1">3.3.3 基矢量</h2>
+<ol>
+<li>任意矢量可以扩展为基矢量的线性组合：<br>
+在这里，<strong>p、q和r</strong>是三维空间的基矢量(Basis Vector)，大多数时候<strong>p</strong>=[1,0,0],<strong>q</strong>=[0,1,0],<strong>r</strong>=[0,0,1]<br>
+<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.3.2%20%E5%9F%BA%E7%9F%A2%E9%87%8F-%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88.png" alt></li>
+<li>有很多书籍通过用世界基矢量定义所有矢量，“世界基矢量”通常表示为i、j、k，并且被解释为不能进一步分解的元素实体。</li>
+<li>当我们说正在使用标准基时，这相当于说，我们只涉及一个单一的坐标空间。这与我们所称的坐标空间没有区别，因为我们无法在不引入基矢量的情况下引用任何其他坐标空间。<strong>当我们考虑任何替代基时，则隐式地引入了另一个坐标空间:用于测量基矢量的坐标空间!</strong></li>
+<li>基矢量的坐标是根据参考帧测量的，该参考帧与基所在的坐标空间不同。因此，基矢量与坐标空间变换密切相关。</li>
+<li>基矢量有可能会选的“很糟糕”，一般会假设他们具有相同的长度且相互垂直(<strong>一组相互垂直的基矢量称为正交基，如果长度也相同，那么称为标准正交基</strong>)，但有时情况并非如此。</li>
+<li>可以表示为基矢量的线性组合的矢量集称为基矢量的跨度。</li>
+<li>一组线性相关的矢量对于基来说是一个糟糕的选择。</li>
+<li>矢量相对于给定基的数值坐标是该矢量作为基失量的线性组合的扩展中的系数，例<br>
+如，<strong>a</strong>=<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>a</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">a_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq><strong>p</strong>+<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>a</mi><mi>y</mi></msub></mrow><annotation encoding="application/x-tex">a_y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></eq><strong>q</strong>。</li>
+<li><strong>当基矢量正交时，坐标是解耦的</strong>。矢量<strong>v</strong>的任何给定坐标可以仅由<strong>v</strong>和相应的基矢<br>
+量确定。例如，如果其他基矢量垂直于P，那么可以计算仅知道p的<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">v_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>。</li>
+<li>在标准正交基中，矢量<strong>v</strong>的每个坐标是在对应的基矢量的方向上测量的有符号的位<br>
+移<strong>v</strong>。这可以通过直接计算<strong>v</strong>与该基矢量的<strong>点积</strong>来获得。<br>
+因此，在标准正交基的特殊情况下，有一种简单的方法来<strong>确定体空间坐标，只知道<br>
+体轴的世界坐标</strong>。因此，假设<strong>p</strong>、<strong>q</strong>和<strong>r</strong>构成标准正交基，<br>
+<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">b_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>=<strong>u·P</strong>，<br>
+<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mi>y</mi></msub></mrow><annotation encoding="application/x-tex">b_y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></eq>=<strong>u·q</strong>，<br>
+<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mi>z</mi></msub></mrow><annotation encoding="application/x-tex">b_z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.04398em;">z</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>=<strong>u·r</strong></li>
+</ol>
+<h1 id="3.4-%E5%B5%8C%E5%A5%97%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">3.4 嵌套坐标空间</h1>
+<ol>
+<li>三维虚拟世界中的每个对象都有自己的坐标空间——它自己的原点和轴。例如，它的原点可以位于其质心处。它的轴将指定它认为相对于其原点的“向上”“向右”“向<br>
+前”的方向。由美术设计师为虚拟世界创建的三维模型将由该设计师决定其原点和轴，并且构成多边形网格的点将相对于由该原点和轴定义的对象空间。例如，绵羊的中心可以<br>
+放置在(0.0.0)，其鼻尖位于(0,0,1.5)，尾部尖端位于(0,0,-1.2)，右耳尖位于(0.5,0.2,1.2)。这些坐标是绵羊的对象空间中这些部分的位置。<br>
+绵羊的各个部分可以利用世界空间的相对位置计算出来。</li>
+<li>可以将世界空间视为“父”空间，将对象空间视为“子”空间。还可很方便地将对象分解为子对象并单独为其设置动画。<br>
+分解为这样的层次结构的模型有时被称为关节模型(Articulated Model)。</li>
+</ol>
+<h1 id="3.5-%E9%92%88%E5%AF%B9%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4%E7%9A%84%E5%86%8D%E8%A7%A3%E9%87%8A" tabindex="-1">3.5 针对直立空间的再解释</h1>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
@@ -1303,193 +1439,6 @@ F^{-1}(F(a)) = F(F^{-1}(a))=a
 <p>下表5.1总结了各种类型的变换。在此表中，<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">Y</mi></mrow><annotation encoding="application/x-tex">\bold{Y}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf" style="margin-right:0.02875em;">Y</span></span></span></span></eq>表示该行中的的变换始终具有与该列关联的属性。没有<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">Y</mi></mrow><annotation encoding="application/x-tex">\bold{Y}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf" style="margin-right:0.02875em;">Y</span></span></span></span></eq>并不意味着“永远不”关联；相反，它意意味着&quot;并不总是&quot;关联<br>
 <img src="/2025/02/17/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%9F%A9%E9%98%B5%E5%92%8C%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2/5.7.7%20%E5%8F%98%E6%8D%A2%E7%9A%84%E7%B1%BB%E5%9E%8B1.png" alt><br>
 <img src="/2025/02/17/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%9F%A9%E9%98%B5%E5%92%8C%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2/5.7.7%20%E5%8F%98%E6%8D%A2%E7%9A%84%E7%B1%BB%E5%9E%8B2.png" alt></p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>3D数学基础</category>
-      </categories>
-      <tags>
-        <tag>3D数学基础</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>3D数学基础-图形和游戏开发-学习笔记 第三章 多个坐标空间</title>
-    <url>/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/</url>
-    <content><![CDATA[<p>开发人员会为特定的理由构建坐标空间（有经验的老手可能会告诉你说“在不同的情况下需要不同的空间”）。</p>
-<span id="more"></span>
-<ul>
-<li><a href="#31-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4">3.1 为什么需要多个坐标空间</a></li>
-<li><a href="#32-%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4">3.2 一些有用的坐标空间</a>
-<ul>
-<li><a href="#321-%E4%B8%96%E7%95%8C%E7%A9%BA%E9%97%B4">3.2.1 世界空间</a></li>
-<li><a href="#322-%E5%AF%B9%E8%B1%A1%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%9E%8B%E7%A9%BA%E9%97%B4">3.2.2 对象空间（模型空间）</a></li>
-<li><a href="#323-%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%E8%A7%82%E5%AF%9F%E7%A9%BA%E9%97%B4">3.2.3 相机空间（观察空间）</a></li>
-<li><a href="#324-%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4">3.2.4 直立空间</a></li>
-</ul>
-</li>
-<li><a href="#33-%E5%9F%BA%E7%9F%A2%E9%87%8F%E5%92%8C%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4%E8%BD%AC%E6%8D%A2">3.3 基矢量和坐标空间转换</a>
-<ul>
-<li><a href="#331-%E5%8F%8C%E9%87%8D%E8%A7%86%E8%A7%92">3.3.1 双重视角</a></li>
-<li><a href="#332-%E6%8C%87%E5%AE%9A%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4">3.3.2 指定坐标空间</a></li>
-<li><a href="#333-%E5%9F%BA%E7%9F%A2%E9%87%8F">3.3.3 基矢量</a></li>
-</ul>
-</li>
-<li><a href="#34-%E5%B5%8C%E5%A5%97%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4">3.4 嵌套坐标空间</a></li>
-<li><a href="#35-%E9%92%88%E5%AF%B9%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4%E7%9A%84%E5%86%8D%E8%A7%A3%E9%87%8A">3.5 针对直立空间的再解释</a></li>
-</ul>
-<p>本章主要介绍多个坐标系的概念。它分为以下5个主要小节:- - 第3.1节将证明需要多个坐标系。</p>
-<ul>
-<li>第3.2节将介绍一些常见的坐标系。介绍的主要概念包括:
-<ul>
-<li>世界空间。</li>
-<li>对象空间。</li>
-<li>相机空间。</li>
-<li>垂直空间。</li>
-</ul>
-</li>
-<li>第3.3节将描述坐标-空间转换。
-<ul>
-<li>第3.3.1节将揭示两种坐标空间转换的思考方式之间的二元性。</li>
-<li>第3.3.2节将描述如何根据一个坐标系来指定另一个坐标系。</li>
-<li>第3.3.3节将讨论基矢量的非常重要的概念。</li>
-</ul>
-</li>
-<li>第3.4节将讨论嵌套坐标空间,它常用于在三维空间中为分层分割对象设置动画。</li>
-<li>第3.5节将是针对直立空间的强调说明。</li>
-</ul>
-<h1 id="3.1-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">3.1 为什么需要多个坐标空间</h1>
-<p>在不同情况下使用不同的坐标空间会更方便</p>
-<h1 id="3.2-%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">3.2 一些有用的坐标空间</h1>
-<p>开发人员需要不同的坐标空间，因为某些信息是有意义的或仅在特定上下文环境中可用。</p>
-<h2 id="3.2.1-%E4%B8%96%E7%95%8C%E7%A9%BA%E9%97%B4" tabindex="-1">3.2.1 世界空间</h2>
-<p>（1）世界坐标系是一个特殊的坐标系，它为所有其他要指定的坐标系建立了一个“全局”参考系。换句话说，我们可以用世界坐标空间来表达其他坐标空间的位置，但是我们不能用任何更大的外部坐标空间来表示世界坐标空间。<br>
-（2）世界坐标空间也称为全局(Global）坐标空间或通用(Universal）坐标空间。</p>
-<h2 id="3.2.2-%E5%AF%B9%E8%B1%A1%E7%A9%BA%E9%97%B4%EF%BC%88%E6%A8%A1%E5%9E%8B%E7%A9%BA%E9%97%B4%EF%BC%89" tabindex="-1">3.2.2 对象空间（模型空间）</h2>
-<p>（1）对象空间（Object Space）是与特定对象关联的坐标空间。<br>
-（2）每个对象都有自己独立的对象空间。<br>
-（3）当一个对象移动或改变方向时，与该对象关联的对象坐标空间被随之携带，因此它也会移动或改变方向。<br>
-（4）可以在对象空间中指定位置和方向。<br>
-（5）在图形的上下文中，对象空间也称为模型(Model)空间，因为模型顶点的坐标以模型空间表示。对象空间也称为体（Body)空间，特别是在物理环境中。使用像“相对于体轴”这样的短语也是很常见的，这意味着“使用体空间坐标表示”。</p>
-<h2 id="3.2.3-%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%EF%BC%88%E8%A7%82%E5%AF%9F%E7%A9%BA%E9%97%B4%EF%BC%89" tabindex="-1">3.2.3 相机空间（观察空间）</h2>
-<p>（1）对象空间的一个特别重要的示例是<strong>相机空间，其是与用于渲染的视点相关联的对象空间</strong>。<br>
-（2）在相机空间中，<strong>相机位于原点，+x指向右侧，+z指向前方（进入屏幕，相机朝向的方向)，+y指向“向上”</strong>（注意，这里不是相对于世界的“向上”，而是相对于相机顶部的“向上”）。图3.1显示了相机空间的示意图。<br>
-<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.2.3%20%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt><br>
-（3）这些是传统的左手坐标系统约定，其他的都很常见。<strong>特别要指出的是，OpenGL 传统上是右手坐标系统，-z指向屏幕，+z从屏幕出来朝向观众。</strong><br>
-（4）请仔细注意相机空间(三维空间）与屏幕空间（二维空间)之间的差异。<strong>从相机空间坐标到屏幕空间坐标的映射涉及的操作称为投影</strong>。将在第十章中讨论。</p>
-<h2 id="3.2.4-%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4" tabindex="-1">3.2.4 直立空间</h2>
-<p>（1）当要理解坐标空间转换这个主题时，可以通过文字或通过代码与计算机进行通信，<strong>将每个对象与一个新的坐标空间关联在一起，这个新坐标空间我们将其称为对象的直立坐标空间</strong>。<br>
-（2）在某种意义上，<strong>对象的直立空间是世界空间与其对象空间之间的“中间过渡”</strong>，因为<strong>直立空间的轴线与世界空间的轴线平行，而直立空间的原点则与对象空间的原点重合</strong>。下图在二维中说明了这个原理（请注意，我们已经做出了任意选择，<strong>将原点放在机器人的脚之间，而不是放在她的质心中</strong>）。<br>
-<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.2.3%20%E7%9B%B8%E6%9C%BA%E7%A9%BA%E9%97%B4%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt></p>
-<p>（3）在<strong>对象空间和直立空间</strong>之间<strong>转换点</strong>只需要<strong>旋转</strong>；在<strong>直立空间和世界空间</strong>之间<strong>转换点</strong>则只需要更改位置，通常称为<strong>平移</strong>。</p>
-<p>（4）下图演示了坐标空间之间的转换。<strong>世界空间</strong>（图左侧的示意图）可通<strong>过平移原点的方式转换为直立空间</strong>（图中间的示意图）﹔而为了将<strong>直立空间转换为对象空间</strong>，可以<strong>旋转直立空间的轴直到它们与对象空间的轴对齐</strong>。在本示例中，机器人认为她的y轴是从她的脚指向她的头部，并且她的x轴指向她的左边。”我们将在第3.3节中再次讨论这个概念。<br>
-<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.2.4%20%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt></p>
-<p>（5）在物理学中，质心坐标一般用来描述直立空间中所表示的坐标。</p>
-<h1 id="3.3-%E5%9F%BA%E7%9F%A2%E9%87%8F%E5%92%8C%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4%E8%BD%AC%E6%8D%A2" tabindex="-1">3.3 基矢量和坐标空间转换</h1>
-<p>有时某些问题只能在特定的坐标空间中得到解答。</p>
-<ul>
-<li>3.3.1 将讨论初级视频游戏程序员进场会遇到的转换：图形</li>
-<li>3.3.2 确保我们清楚根据一个坐标空间指定另一个坐标空间意味着什么。</li>
-<li>3.3.3 将介绍基矢量(Basis Vector)的主要思想</li>
-</ul>
-<h2 id="3.3.1-%E5%8F%8C%E9%87%8D%E8%A7%86%E8%A7%92" tabindex="-1">3.3.1 双重视角</h2>
-<p>（1）前面的机器人示例，我们只是<strong>改变了参考框架并且能够使用不同的坐标空间来描述该点，改变了坐标空间！</strong></p>
-<p>如下图所示，将机器人在世界空间的原点进行创建。目前，由于模型处于其原始位置，因此对象空间和世界空间(以及直立空间)根据定义都是相同的。世界空间和对象空间是一致的。<br>
-<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.3.1%20%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%A8%A1%E5%9E%8B.png" alt="机器人"></p>
-<p>我们的目标是根据在某一时刻可以执行其想法的机器人所期望的位置和方向，将模型的顶点从其原始位置转换到某个新位置(在我们的示例中，就是要进入一间虚构的厨房)，如下图所示<br>
-<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.3.1%20%E6%A8%A1%E5%9E%8B%E7%A7%BB%E5%8A%A8%E7%A4%BA%E6%84%8F.png" alt><br>
-通过旋转和平移的方式最终将机器人从对象空间变换到世界空间。<strong>（必须是先旋转，再平移）</strong><br>
-<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.3.1%20%E5%B0%86%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%BB%8E%E5%AF%B9%E8%B1%A1%E7%A9%BA%E9%97%B4%E5%8F%98%E6%8D%A2%E5%88%B0%E4%B8%96%E7%95%8C%E7%A9%BA%E9%97%B4.png" alt></p>
-<p>（2）<strong>围绕原点的旋转是线性变换，而围绕任何其他点的旋转则是仿射变换</strong>（在第六章中将对仿射变换进行详细说明）</p>
-<h2 id="3.3.2-%E6%8C%87%E5%AE%9A%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">3.3.2 指定坐标空间</h2>
-<ul>
-<li>指定坐标空间的位置，即描述原点的位置</li>
-<li>指定坐标空间的方向，即通过告知<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mi>x</mi><mo separator="true">,</mo><mo>+</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">+x,+y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.1944em;"></span><span class="mord">+</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">+</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></eq>的方向来描述.(在二维中还可以通过角度进行方向的描述-极坐标)</li>
-</ul>
-<h2 id="3.3.3-%E5%9F%BA%E7%9F%A2%E9%87%8F" tabindex="-1">3.3.3 基矢量</h2>
-<ol>
-<li>任意矢量可以扩展为基矢量的线性组合：<br>
-在这里，<strong>p、q和r</strong>是三维空间的基矢量(Basis Vector)，大多数时候<strong>p</strong>=[1,0,0],<strong>q</strong>=[0,1,0],<strong>r</strong>=[0,0,1]<br>
-<img src="/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/3.3.2%20%E5%9F%BA%E7%9F%A2%E9%87%8F-%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88.png" alt></li>
-<li>有很多书籍通过用世界基矢量定义所有矢量，“世界基矢量”通常表示为i、j、k，并且被解释为不能进一步分解的元素实体。</li>
-<li>当我们说正在使用标准基时，这相当于说，我们只涉及一个单一的坐标空间。这与我们所称的坐标空间没有区别，因为我们无法在不引入基矢量的情况下引用任何其他坐标空间。<strong>当我们考虑任何替代基时，则隐式地引入了另一个坐标空间:用于测量基矢量的坐标空间!</strong></li>
-<li>基矢量的坐标是根据参考帧测量的，该参考帧与基所在的坐标空间不同。因此，基矢量与坐标空间变换密切相关。</li>
-<li>基矢量有可能会选的“很糟糕”，一般会假设他们具有相同的长度且相互垂直(<strong>一组相互垂直的基矢量称为正交基，如果长度也相同，那么称为标准正交基</strong>)，但有时情况并非如此。</li>
-<li>可以表示为基矢量的线性组合的矢量集称为基矢量的跨度。</li>
-<li>一组线性相关的矢量对于基来说是一个糟糕的选择。</li>
-<li>矢量相对于给定基的数值坐标是该矢量作为基失量的线性组合的扩展中的系数，例<br>
-如，<strong>a</strong>=<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>a</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">a_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq><strong>p</strong>+<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>a</mi><mi>y</mi></msub></mrow><annotation encoding="application/x-tex">a_y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></eq><strong>q</strong>。</li>
-<li><strong>当基矢量正交时，坐标是解耦的</strong>。矢量<strong>v</strong>的任何给定坐标可以仅由<strong>v</strong>和相应的基矢<br>
-量确定。例如，如果其他基矢量垂直于P，那么可以计算仅知道p的<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">v_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>。</li>
-<li>在标准正交基中，矢量<strong>v</strong>的每个坐标是在对应的基矢量的方向上测量的有符号的位<br>
-移<strong>v</strong>。这可以通过直接计算<strong>v</strong>与该基矢量的<strong>点积</strong>来获得。<br>
-因此，在标准正交基的特殊情况下，有一种简单的方法来<strong>确定体空间坐标，只知道<br>
-体轴的世界坐标</strong>。因此，假设<strong>p</strong>、<strong>q</strong>和<strong>r</strong>构成标准正交基，<br>
-<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">b_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>=<strong>u·P</strong>，<br>
-<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mi>y</mi></msub></mrow><annotation encoding="application/x-tex">b_y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></eq>=<strong>u·q</strong>，<br>
-<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mi>z</mi></msub></mrow><annotation encoding="application/x-tex">b_z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.04398em;">z</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>=<strong>u·r</strong></li>
-</ol>
-<h1 id="3.4-%E5%B5%8C%E5%A5%97%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">3.4 嵌套坐标空间</h1>
-<ol>
-<li>三维虚拟世界中的每个对象都有自己的坐标空间——它自己的原点和轴。例如，它的原点可以位于其质心处。它的轴将指定它认为相对于其原点的“向上”“向右”“向<br>
-前”的方向。由美术设计师为虚拟世界创建的三维模型将由该设计师决定其原点和轴，并且构成多边形网格的点将相对于由该原点和轴定义的对象空间。例如，绵羊的中心可以<br>
-放置在(0.0.0)，其鼻尖位于(0,0,1.5)，尾部尖端位于(0,0,-1.2)，右耳尖位于(0.5,0.2,1.2)。这些坐标是绵羊的对象空间中这些部分的位置。<br>
-绵羊的各个部分可以利用世界空间的相对位置计算出来。</li>
-<li>可以将世界空间视为“父”空间，将对象空间视为“子”空间。还可很方便地将对象分解为子对象并单独为其设置动画。<br>
-分解为这样的层次结构的模型有时被称为关节模型(Articulated Model)。</li>
-</ol>
-<h1 id="3.5-%E9%92%88%E5%AF%B9%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4%E7%9A%84%E5%86%8D%E8%A7%A3%E9%87%8A" tabindex="-1">3.5 针对直立空间的再解释</h1>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>3D数学基础</category>
-      </categories>
-      <tags>
-        <tag>3D数学基础</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>3D数学基础-图形和游戏开发-学习笔记 第六章 矩阵详解</title>
-    <url>/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<p>之前第4章介绍了矩阵的大部分重要属性和操作,并讨论了如何使用矩阵来表示一般的几何变换。第5章详细讨论了矩阵和几何变换。本章将通过讨论一些更有趣和有用的矩阵运算来结束矩阵主题。</p>
-<span id="more"></span>
-<ul>
-<li>第6.1节将介绍矩阵的行列式。</li>
-<li>第6.2节将解释矩阵的逆矩阵。</li>
-<li>第6.3节将讨论正交矩阵。</li>
-<li>第6.4节将介绍齐次矢量和4×4矩阵,并演示如何将它们应用于三维中执行仿射变换。</li>
-<li>第6.5节将讨论透视投影,并展示如何使用4x4矩阵进行透视投影。</li>
-</ul>
-<h1 id="6.1-%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F" tabindex="-1">6.1 矩阵行列式</h1>
-<p>对于方形矩阵,有一个特殊的标量称为矩阵的行列式(Determinant)。行列式在线性代数中有许多有用的属性,在几何中也有一些有趣的解释。<br>
-按照习惯,我们将首先讨论一些数学,然后做一些几何解释；第6.1.1节将介绍行列式的符号，并给出用于计算2×2或3×3矩阵的行列式的线性代数规则；第6.1.2节将讨论子矩阵行列式(Minor)和余子式(Cofactor)；第6.1.3节节将展示如何使用子矩阵和余子式计算任意nxn矩阵的行列式；第6.1.4节将从几何角度解释行列式。</p>
-<h2 id="6.1.1-%E5%85%B3%E4%BA%8E2%C3%972%E5%92%8C3%C3%973%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F" tabindex="-1">6.1.1 关于2×2和3×3的行列式</h2>
-<ol>
-<li>方形矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">M</mi></mrow><annotation encoding="application/x-tex">\bold{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">M</span></span></span></span></eq>的行列式表示为<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><mi mathvariant="bold">M</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">|\bold{M}|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathbf">M</span><span class="mord">∣</span></span></span></span></eq>,有些图书也将它表示为&quot;det <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">M</mi></mrow><annotation encoding="application/x-tex">\bold{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">M</span></span></span></span></eq>&quot;。非方形矩阵的行列式是未定义的。本节将介绍如何计算2×2和3×3矩阵的行列式。第6.1.3节将讨论相当复杂的一般性<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n\times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></eq>矩阵的行列式。</li>
-</ol>
-<ul>
-<li><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">2</mn><mo>×</mo><mn mathvariant="bold">2</mn></mrow><annotation encoding="application/x-tex">\bold{2}\times \bold{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord mathbf">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord mathbf">2</span></span></span></span></eq>的行列式由下式给出：<br>
-<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%202x2%E7%9F%A9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F.png" alt><br>
-（当编写矩阵的行列式时，将使用垂直线代替括号）
-<ul>
-<li>使用下面的示意图可以更容易地记住式(6.1)。只需沿对角线和反对角线分别让元素相乘,然后使用对角线元素相乘的结果减去反对角线元无素相乘的结果即可。<br>
-<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.1.1%202x2%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97.png" alt></li>
-</ul>
-</li>
-<li><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">3</mn><mo>×</mo><mn mathvariant="bold">3</mn></mrow><annotation encoding="application/x-tex">\bold{3}\times \bold{3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord mathbf">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord mathbf">3</span></span></span></span></eq>的行列式由下式给出：<br>
-<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%203x3%E7%9F%A9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F.png" alt>
-<ul>
-<li>我们可以通过一个类似的示意图来帮助记忆式(6.2)。先并排编写矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">M</mi></mrow><annotation encoding="application/x-tex">\bold{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">M</span></span></span></span></eq>的两个副本,然后沿对角线和反对角线分别让元素相乘,最后使用对角线元素相乘的结果的和减去反对角线元素相乘的结果即可。<br>
-<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%203x3%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97.png" alt></li>
-</ul>
-</li>
-</ul>
-<ol start="3">
-<li>如果将<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">3</mn><mo>×</mo><mn mathvariant="bold">3</mn></mrow><annotation encoding="application/x-tex">\bold{3}\times \bold{3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord mathbf">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord mathbf">3</span></span></span></span></eq>矩阵的行解释为3个矢量,那么该矩阵的行列式就等价于3个矢量的所谓三重积(TripleProduct),具体如下:<br>
-<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%203x3%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F%E4%B8%8E%E4%B8%89%E7%BB%B4%E7%9F%A2%E9%87%8F%E4%B8%89%E9%87%8D%E7%A7%AF.png" alt></li>
-</ol>
-<h2 id="6.1.2-%E5%AD%90%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F%E5%92%8C%E4%BD%99%E5%AD%90%E5%BC%8F" tabindex="-1">6.1.2 子矩阵行列式和余子式</h2>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
@@ -1889,6 +1838,57 @@ c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></spa
 </ol>
 <h2 id="2.13-%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F" tabindex="-1">2.13 线性代数恒等式</h2>
 <p><img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.13%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F.jpg" alt></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>3D数学基础</category>
+      </categories>
+      <tags>
+        <tag>3D数学基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3D数学基础-图形和游戏开发-学习笔记 第六章 矩阵详解</title>
+    <url>/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<p>之前第4章介绍了矩阵的大部分重要属性和操作,并讨论了如何使用矩阵来表示一般的几何变换。第5章详细讨论了矩阵和几何变换。本章将通过讨论一些更有趣和有用的矩阵运算来结束矩阵主题。</p>
+<span id="more"></span>
+<ul>
+<li>第6.1节将介绍矩阵的行列式。</li>
+<li>第6.2节将解释矩阵的逆矩阵。</li>
+<li>第6.3节将讨论正交矩阵。</li>
+<li>第6.4节将介绍齐次矢量和4×4矩阵,并演示如何将它们应用于三维中执行仿射变换。</li>
+<li>第6.5节将讨论透视投影,并展示如何使用4x4矩阵进行透视投影。</li>
+</ul>
+<h1 id="6.1-%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F" tabindex="-1">6.1 矩阵行列式</h1>
+<p>对于方形矩阵,有一个特殊的标量称为矩阵的行列式(Determinant)。行列式在线性代数中有许多有用的属性,在几何中也有一些有趣的解释。<br>
+按照习惯,我们将首先讨论一些数学,然后做一些几何解释；第6.1.1节将介绍行列式的符号，并给出用于计算2×2或3×3矩阵的行列式的线性代数规则；第6.1.2节将讨论子矩阵行列式(Minor)和余子式(Cofactor)；第6.1.3节节将展示如何使用子矩阵和余子式计算任意nxn矩阵的行列式；第6.1.4节将从几何角度解释行列式。</p>
+<h2 id="6.1.1-%E5%85%B3%E4%BA%8E2%C3%972%E5%92%8C3%C3%973%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F" tabindex="-1">6.1.1 关于2×2和3×3的行列式</h2>
+<ol>
+<li>方形矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">M</mi></mrow><annotation encoding="application/x-tex">\bold{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">M</span></span></span></span></eq>的行列式表示为<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><mi mathvariant="bold">M</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">|\bold{M}|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathbf">M</span><span class="mord">∣</span></span></span></span></eq>,有些图书也将它表示为&quot;det <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">M</mi></mrow><annotation encoding="application/x-tex">\bold{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">M</span></span></span></span></eq>&quot;。非方形矩阵的行列式是未定义的。本节将介绍如何计算2×2和3×3矩阵的行列式。第6.1.3节将讨论相当复杂的一般性<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n\times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></eq>矩阵的行列式。</li>
+</ol>
+<ul>
+<li><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">2</mn><mo>×</mo><mn mathvariant="bold">2</mn></mrow><annotation encoding="application/x-tex">\bold{2}\times \bold{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord mathbf">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord mathbf">2</span></span></span></span></eq>的行列式由下式给出：<br>
+<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%202x2%E7%9F%A9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F.png" alt><br>
+（当编写矩阵的行列式时，将使用垂直线代替括号）
+<ul>
+<li>使用下面的示意图可以更容易地记住式(6.1)。只需沿对角线和反对角线分别让元素相乘,然后使用对角线元素相乘的结果减去反对角线元无素相乘的结果即可。<br>
+<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.1.1%202x2%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97.png" alt></li>
+</ul>
+</li>
+<li><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">3</mn><mo>×</mo><mn mathvariant="bold">3</mn></mrow><annotation encoding="application/x-tex">\bold{3}\times \bold{3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord mathbf">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord mathbf">3</span></span></span></span></eq>的行列式由下式给出：<br>
+<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%203x3%E7%9F%A9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F.png" alt>
+<ul>
+<li>我们可以通过一个类似的示意图来帮助记忆式(6.2)。先并排编写矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">M</mi></mrow><annotation encoding="application/x-tex">\bold{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">M</span></span></span></span></eq>的两个副本,然后沿对角线和反对角线分别让元素相乘,最后使用对角线元素相乘的结果的和减去反对角线元素相乘的结果即可。<br>
+<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%203x3%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97.png" alt></li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>如果将<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">3</mn><mo>×</mo><mn mathvariant="bold">3</mn></mrow><annotation encoding="application/x-tex">\bold{3}\times \bold{3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord mathbf">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord mathbf">3</span></span></span></span></eq>矩阵的行解释为3个矢量,那么该矩阵的行列式就等价于3个矢量的所谓三重积(TripleProduct),具体如下:<br>
+<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%203x3%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F%E4%B8%8E%E4%B8%89%E7%BB%B4%E7%9F%A2%E9%87%8F%E4%B8%89%E9%87%8D%E7%A7%AF.png" alt></li>
+</ol>
+<h2 id="6.1.2-%E5%AD%90%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F%E5%92%8C%E4%BD%99%E5%AD%90%E5%BC%8F" tabindex="-1">6.1.2 子矩阵行列式和余子式</h2>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
@@ -5198,9 +5198,180 @@ LuaRocks 安装方法：</li>
       </tags>
   </entry>
   <entry>
-    <title>Unity编辑器拓展（五）---Selection公共类</title>
+    <title>Unity编辑器拓展（五）-Selection公共类</title>
     <url>/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/</url>
     <content><![CDATA[<p>Selection公共类</p>
+<span id="more"></span>
+<ul>
+<li><a href="#%E4%B8%80selection%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88">一、Selection公共类的作用是什么</a>
+<ul>
+<li><a href="#11-selection%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88">1.1 Selection公共类的作用是什么</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8Cselection%E4%B8%AD%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%88%90%E5%91%98">二、Selection中常用静态成员</a>
+<ul>
+<li><a href="#21-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84object">2.1 获取当前选择的Object</a></li>
+<li><a href="#22-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84gameobject">2.2 获取当前选择的GameObject</a></li>
+<li><a href="#23-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84transform">2.3 获取当前选择的Transform</a></li>
+<li><a href="#24-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89object">2.4 获取当前选择的所有Object</a></li>
+<li><a href="#25-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89gameobject">2.5 获取当前选择的所有GameObject</a></li>
+<li><a href="#26-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89transform">2.6 获取当前选择的所有Transform</a></li>
+<li><a href="#27-%E5%89%8D%E9%9D%A26%E4%B8%AD%E6%83%85%E5%86%B5%E4%BD%BF%E7%94%A8">2.7 前面6中情况使用</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89selection%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95">三、Selection常用静态方法</a>
+<ul>
+<li><a href="#31-%E5%88%A4%E6%96%AD%E6%9F%90%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E8%A2%AB%E9%80%89%E4%B8%AD">3.1 判断某个对象是否被选中</a></li>
+<li><a href="#32-%E7%AD%9B%E9%80%89%E5%AF%B9%E8%B1%A1">3.2 筛选对象</a></li>
+<li><a href="#33-%E5%BD%93%E9%80%89%E4%B8%AD%E5%8F%98%E5%8C%96%E6%97%B6%E4%BC%9A%E8%B0%83%E7%94%A8%E7%9A%84%E5%A7%94%E6%89%98">3.3 当选中变化时会调用的委托</a></li>
+<li><a href="#34-%E6%95%88%E6%9E%9C">3.4 效果</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B%E6%80%BB%E7%BB%93">四、总结</a></li>
+</ul>
+<h1 id="%E4%B8%80%E3%80%81selection%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88" tabindex="-1">一、Selection公共类的作用是什么</h1>
+<h2 id="1.1-selection%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88" tabindex="-1">1.1 Selection公共类的作用是什么</h2>
+<ul>
+<li>主要用来获取当前在Unity编辑器中选择的对象</li>
+<li>只能用于编辑器开发中</li>
+</ul>
+<h1 id="%E4%BA%8C%E3%80%81selection%E4%B8%AD%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%88%90%E5%91%98" tabindex="-1">二、Selection中常用静态成员</h1>
+<h2 id="2.1-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84object" tabindex="-1">2.1 获取当前选择的Object</h2>
+<ol>
+<li>作用：</li>
+</ol>
+<ul>
+<li>获取当前在面板上选择的游戏物体Object，未选择则返回Null</li>
+<li>选择多个则返回最后一个选择的游戏物体</li>
+</ul>
+<ol start="2">
+<li>方法</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Selection.activeObject</span><br></pre></td></tr></table></figure>
+<h2 id="2.2-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84gameobject" tabindex="-1">2.2 获取当前选择的GameObject</h2>
+<ol>
+<li>作用：</li>
+</ol>
+<ul>
+<li>获取当前在面板上选择的游戏物体GameObject，未选择则返回Null</li>
+<li>选择多个则返回最后一个选择的游戏物体</li>
+</ul>
+<ol start="2">
+<li>方法</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Selection.activeGameObject</span><br></pre></td></tr></table></figure>
+<h2 id="2.3-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84transform" tabindex="-1">2.3 获取当前选择的Transform</h2>
+<ol>
+<li>作用</li>
+</ol>
+<ul>
+<li>获取当前在面板上选择的游戏物体的Transform，未选择则返回Null</li>
+<li>选择多个则返回最后一个选择的游戏物体</li>
+<li><strong>只能获取到场景中（Hierarchy）的对象的Transform</strong></li>
+</ul>
+<ol start="2">
+<li>方法</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Selection.activeTransform</span><br></pre></td></tr></table></figure>
+<h2 id="2.4-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89object" tabindex="-1">2.4 获取当前选择的所有Object</h2>
+<ol>
+<li>作用：</li>
+</ol>
+<ul>
+<li>获取当前在面板上选择的物体<strong>数组</strong>，未选择则返回Null</li>
+</ul>
+<ol start="2">
+<li>方法</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Selection.objects </span><br></pre></td></tr></table></figure>
+<h2 id="2.5-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89gameobject" tabindex="-1">2.5 获取当前选择的所有GameObject</h2>
+<ol>
+<li>作用：</li>
+</ol>
+<ul>
+<li>获取当前在面板上选择的<strong>游戏物体或Project中预设体 GameObject数组</strong></li>
+<li>未选择则返回Null</li>
+</ul>
+<ol start="2">
+<li>方法</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Selection.gameObjects</span><br><span class="line"><span class="comment">//可以遍历获取所有信息</span></span><br></pre></td></tr></table></figure>
+<h2 id="2.6-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89transform" tabindex="-1">2.6 获取当前选择的所有Transform</h2>
+<ol>
+<li>作用</li>
+</ol>
+<ul>
+<li>获取当前在面板上选择的游戏物体Transform数组，未选择则返回Null</li>
+</ul>
+<ol start="2">
+<li>方法</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Selection.transforms</span><br><span class="line"><span class="comment">//可以遍历获取所有信息</span></span><br></pre></td></tr></table></figure>
+<h2 id="2.7-%E5%89%8D%E9%9D%A26%E4%B8%AD%E6%83%85%E5%86%B5%E4%BD%BF%E7%94%A8" tabindex="-1">2.7 前面6中情况使用</h2>
+<ol>
+<li>示例</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> StringBuilder str = <span class="keyword">new</span> StringBuilder(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line"><span class="keyword">private</span> StringBuilder str2 = <span class="keyword">new</span> StringBuilder(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line"><span class="keyword">private</span> StringBuilder str3 = <span class="keyword">new</span> StringBuilder(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line"><span class="keyword">private</span> StringBuilder str4 = <span class="keyword">new</span> StringBuilder(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line"><span class="comment">//1.当前选择的Object</span></span><br><span class="line"><span class="keyword">if</span>(GUILayout.Button(<span class="string">&quot;获取当前选择的Object的名字&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(Selection.activeObject != <span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        str.Clear();</span><br><span class="line">        str.Append(Selection.activeObject.name);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (Selection.activeObject <span class="keyword">is</span> GameObject)</span><br><span class="line">            Debug.Log(<span class="string">&quot;它是游戏对象&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(Selection.activeObject <span class="keyword">is</span> Texture)</span><br><span class="line">            Debug.Log(<span class="string">&quot;它是一张纹理&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (Selection.activeObject <span class="keyword">is</span> TextAsset)</span><br><span class="line">            Debug.Log(<span class="string">&quot;它是一个文本&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            Debug.Log(<span class="string">&quot;它是其他类型的资源&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        str.Clear();</span><br><span class="line">        str.Append(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EditorGUILayout.LabelField(<span class="string">&quot;当前选择的对象&quot;</span>, str.ToString());</span><br><span class="line"><span class="comment">//2.当前选择的GameObject</span></span><br><span class="line"><span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;获取当前选择的GameObject的名字&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Selection.activeGameObject != <span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        str2.Clear();</span><br><span class="line">        str2.Append(Selection.activeGameObject.name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        str2.Clear();</span><br><span class="line">        str2.Append(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EditorGUILayout.LabelField(<span class="string">&quot;当前选择GameObject对象&quot;</span>, str2.ToString());</span><br><span class="line"><span class="comment">//3.当前选择的Transform</span></span><br><span class="line"><span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;获取当前选择的Transform的名字&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Selection.activeTransform != <span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        str3.Clear();</span><br><span class="line">        str3.Append(Selection.activeTransform.name);</span><br><span class="line">        Selection.activeTransform.position = <span class="keyword">new</span> Vector3(<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>); <span class="comment">//改变对象的位置</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        str3.Clear();</span><br><span class="line">        str3.Append(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EditorGUILayout.LabelField(<span class="string">&quot;当前选择Transform对象&quot;</span>, str3.ToString());</span><br><span class="line"><span class="comment">//4.当前选择的所有Object</span></span><br><span class="line"><span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;获取当前选择的所有Object的名字&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Selection.count != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        str4.Clear();</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; Selection.objects.Length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            str4.Append(Selection.objects[i].name + <span class="string">&quot;||&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        str4.Clear();</span><br><span class="line">        str4.Append(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EditorGUILayout.LabelField(<span class="string">&quot;当前选择的所有Object对象&quot;</span>, str4.ToString());</span><br><span class="line"><span class="comment">//5.当前选择的所有GameObject</span></span><br><span class="line"><span class="comment">//Selection.gameObjects</span></span><br><span class="line"><span class="comment">//6.当前选择的所有Transform</span></span><br><span class="line"><span class="comment">//Selection.transforms</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>效果</li>
+</ol>
+<ul>
+<li>选择代码对象<br>
+<img src="/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/L19Selection%E4%B8%AD%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%88%90%E5%91%98(%E9%80%89%E6%8B%A9%E4%BB%A3%E7%A0%81%E5%AF%B9%E8%B1%A1).png" alt></li>
+<li>多选场景对象<br>
+<img src="/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/L19Selection%E4%B8%AD%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%88%90%E5%91%98(%E5%A4%9A%E9%80%89%E5%9C%BA%E6%99%AF%E5%AF%B9%E8%B1%A1).png" alt></li>
+</ul>
+<h1 id="%E4%B8%89%E3%80%81selection%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95" tabindex="-1">三、Selection常用静态方法</h1>
+<h2 id="3.1-%E5%88%A4%E6%96%AD%E6%9F%90%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E8%A2%AB%E9%80%89%E4%B8%AD" tabindex="-1">3.1 判断某个对象是否被选中</h2>
+<ol>
+<li>方法<br>
+选择多个对象时，只要在里面也能判断为被选中</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Contains <span class="comment">//判断某个对象是否被选中(选择多个对象时，只要在里面也能判断为被选中)</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>示例</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">    <span class="keyword">private</span> Object obj;</span><br><span class="line">    <span class="comment">//判断某个对象是否被选中</span></span><br><span class="line">    obj = EditorGUILayout.ObjectField(<span class="string">&quot;用于判断是否被选中的对象&quot;</span>, obj, <span class="keyword">typeof</span>(GameObject), <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;判断对象是否被选中&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (Selection.Contains(obj))</span><br><span class="line">            Debug.Log(<span class="string">&quot;对象有被选中&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            Debug.Log(<span class="string">&quot;对象没有被选中&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line"><span class="meta">## 3.2 筛选对象</span></span><br><span class="line"><span class="number">1.</span> 作用：从当前选择对象中，筛选出想要的内容</span><br><span class="line"><span class="number">2.</span> 方法</span><br><span class="line">```cs</span><br><span class="line">    Selection.GetFiltered(类型, 筛选模式)</span><br><span class="line">    Selection.GetFiltered&lt;类型&gt;(筛选模式)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//  筛选模式：SelectionMode</span></span><br><span class="line">    <span class="comment">//  Unfiltered: 不过滤</span></span><br><span class="line">    <span class="comment">//  TopLevel: 只获取最上层对象，子对象不获取</span></span><br><span class="line">    <span class="comment">//  Deep: 父对象、子对象都获取</span></span><br><span class="line">    <span class="comment">//  ExcludePrefab: 排除预设体</span></span><br><span class="line">    <span class="comment">//  Editable: 只选择可编辑的对象</span></span><br><span class="line">    <span class="comment">//  OnlyUserModifiable: 仅用户可修改的内容</span></span><br><span class="line">    <span class="comment">//  Assets: 只返回资源文件夹下的内容</span></span><br><span class="line">    <span class="comment">//  DeepAssets: 如果存在子文件夹，其中的内容也获取</span></span><br><span class="line">    <span class="comment">//  如果要混用 位或 | 即可</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>示例</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">//筛选对象</span></span><br><span class="line"><span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;筛选所有对象&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    Object[] objs = Selection.GetFiltered(<span class="keyword">typeof</span>(Object), SelectionMode.Assets | SelectionMode.DeepAssets);</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; objs.Length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(objs[i].name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3.3-%E5%BD%93%E9%80%89%E4%B8%AD%E5%8F%98%E5%8C%96%E6%97%B6%E4%BC%9A%E8%B0%83%E7%94%A8%E7%9A%84%E5%A7%94%E6%89%98" tabindex="-1">3.3 当选中变化时会调用的委托</h2>
+<ol>
+<li>方法</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Selection.selectionChanged += 函数;<span class="comment">//选择的物体变化时调用</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>示例</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnEnable</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Selection.selectionChanged += SelectionChanged;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnDestroy</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Selection.selectionChanged -= SelectionChanged;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">SelectionChanged</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;选择的对象变化了&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3.4-%E6%95%88%E6%9E%9C" tabindex="-1">3.4 效果</h2>
+<ul>
+<li>判断某个对象是否被选中及当选中变化时会调用的委托<br>
+<img src="/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/L20Selection%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95.png" alt></li>
+<li>筛选对象（筛选了Editor下的内容及其子文件夹内容）<br>
+<img src="/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/L20Selection%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95-%E7%AD%9B%E9%80%89%E5%AF%B9%E8%B1%A1.png" alt></li>
+</ul>
+<h1 id="%E5%9B%9B%E3%80%81%E6%80%BB%E7%BB%93" tabindex="-1">四、总结</h1>
+<ul>
+<li>Selection公共类主要是帮助我们获取到选择的对象的</li>
+<li>我们可以利用它对选中对象进行一些处理</li>
+</ul>
+<p>Selection公共类 更多API：<a href="https://docs.unity.cn/cn/2022.1/ScriptReference/Selection.html">https://docs.unity.cn/cn/2022.1/ScriptReference/Selection.html</a></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>Unity学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Unity编辑器拓展</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity编辑器拓展（六）-Event公共类</title>
+    <url>/2025/04/26/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%85%AD-Event%E5%85%AC%E5%85%B1%E7%B1%BB/</url>
+    <content><![CDATA[<p>Event公共类相关内容</p>
 <span id="more"></span>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
@@ -5213,10 +5384,50 @@ LuaRocks 安装方法：</li>
       </tags>
   </entry>
   <entry>
-    <title>Unity编辑器拓展（四）--EditorGUIUtility公共类</title>
+    <title>Unity编辑器拓展（四）-EditorGUIUtility公共类</title>
     <url>/2025/04/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%9B%9B-EditorGUIUtility%E5%85%AC%E5%85%B1%E7%B1%BB/</url>
     <content><![CDATA[<p>EditorGUIUtility公共类相关内容</p>
 <span id="more"></span>
+<ul>
+<li><a href="#%E4%B8%80editorguiutility%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88">一、EditorGUIUtility公共类的作用是什么</a></li>
+<li><a href="#%E4%BA%8C%E8%B5%84%E6%BA%90%E5%8A%A0%E8%BD%BD">二、资源加载</a>
+<ul>
+<li><a href="#21-editor-default-resources%E6%96%87%E4%BB%B6%E5%A4%B9">2.1 Editor Default Resources文件夹</a></li>
+<li><a href="#22-%E5%8A%A0%E8%BD%BD%E8%B5%84%E6%BA%90%E5%A6%82%E6%9E%9C%E8%B5%84%E6%BA%90%E4%B8%8D%E5%AD%98%E5%9C%A8%E8%BF%94%E5%9B%9Enull">2.2 加载资源（如果资源不存在返回null）</a></li>
+<li><a href="#23-%E5%8A%A0%E8%BD%BD%E8%B5%84%E6%BA%90%E5%A6%82%E6%9E%9C%E8%B5%84%E6%BA%90%E4%B8%8D%E5%AD%98%E5%9C%A8%E4%BC%9A%E7%9B%B4%E6%8E%A5%E6%8A%A5%E9%94%99">2.3 加载资源（如果资源不存在会直接报错）</a></li>
+<li><a href="#23-%E6%95%88%E6%9E%9C">2.3 效果</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89%E6%90%9C%E7%B4%A2%E6%A1%86%E6%9F%A5%E8%AF%A2%E5%AF%B9%E8%B1%A1%E9%80%89%E4%B8%AD%E6%8F%90%E7%A4%BA">三、搜索框查询、对象选中提示</a>
+<ul>
+<li><a href="#31-%E6%90%9C%E7%B4%A2%E6%A1%86%E6%9F%A5%E8%AF%A2">3.1 搜索框查询</a></li>
+<li><a href="#32-%E5%AF%B9%E8%B1%A1%E9%80%89%E4%B8%AD%E6%8F%90%E7%A4%BA">3.2 对象选中提示</a></li>
+<li><a href="#33-%E6%95%88%E6%9E%9C">3.3 效果</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B%E7%AA%97%E5%8F%A3%E4%BA%8B%E4%BB%B6%E4%BC%A0%E9%80%92%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2">四、窗口事件传递、坐标转换</a>
+<ul>
+<li><a href="#41-region-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80-%E7%AA%97%E5%8F%A3%E4%BA%8B%E4%BB%B6%E4%BC%A0%E9%80%92">4.1 region 知识点一 窗口事件传递</a></li>
+<li><a href="#42-%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2">4.2 坐标转换</a></li>
+<li><a href="#43-%E6%95%88%E6%9E%9C">4.3 效果</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94%E6%8C%87%E5%AE%9A%E5%8C%BA%E5%9F%9F%E4%BD%BF%E7%94%A8%E5%AF%B9%E5%BA%94%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88">五、指定区域使用对应鼠标指针</a>
+<ul>
+<li><a href="#51-%E6%96%B9%E6%B3%95">5.1 方法</a></li>
+<li><a href="#52-%E7%A4%BA%E4%BE%8B">5.2 示例</a></li>
+<li><a href="#53-%E6%95%88%E6%9E%9C">5.3 效果</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%AD%E7%BB%98%E5%88%B6%E8%89%B2%E6%9D%BF%E7%BB%98%E5%88%B6%E6%9B%B2%E7%BA%BF">六、绘制色板、绘制曲线</a>
+<ul>
+<li><a href="#61-%E7%BB%98%E5%88%B6%E8%89%B2%E6%9D%BF">6.1 绘制色板</a></li>
+<li><a href="#62-%E7%BB%98%E5%88%B6%E6%9B%B2%E7%BA%BF">6.2 绘制曲线</a></li>
+<li><a href="#63-%E6%95%88%E6%9E%9C">6.3 效果</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%83%E6%9B%B4%E5%A4%9Aapi">七、更多API</a></li>
+</ul>
 <h1 id="%E4%B8%80%E3%80%81editorguiutility%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88" tabindex="-1">一、EditorGUIUtility公共类的作用是什么</h1>
 <ul>
 <li>Utility是实用的意思，EditorGUIUtility 是 EditorGUI 中的一个实用工具类</li>

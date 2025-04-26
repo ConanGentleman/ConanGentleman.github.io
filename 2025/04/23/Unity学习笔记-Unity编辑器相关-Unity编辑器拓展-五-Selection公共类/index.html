@@ -24,16 +24,21 @@
 
   <meta name="description" content="Selection公共类">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Unity编辑器拓展（五）---Selection公共类">
+<meta property="og:title" content="Unity编辑器拓展（五）-Selection公共类">
 <meta property="og:url" content="http://example.com/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/index.html">
 <meta property="og:site_name" content="MiDoLi&#39;s Blog">
 <meta property="og:description" content="Selection公共类">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/L19Selection%E4%B8%AD%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%88%90%E5%91%98(%E9%80%89%E6%8B%A9%E4%BB%A3%E7%A0%81%E5%AF%B9%E8%B1%A1).png">
+<meta property="og:image" content="http://example.com/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/L19Selection%E4%B8%AD%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%88%90%E5%91%98(%E5%A4%9A%E9%80%89%E5%9C%BA%E6%99%AF%E5%AF%B9%E8%B1%A1).png">
+<meta property="og:image" content="http://example.com/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/L20Selection%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95.png">
+<meta property="og:image" content="http://example.com/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/L20Selection%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95-%E7%AD%9B%E9%80%89%E5%AF%B9%E8%B1%A1.png">
 <meta property="article:published_time" content="2025-04-23T15:32:26.000Z">
-<meta property="article:modified_time" content="2025-04-23T15:33:18.110Z">
+<meta property="article:modified_time" content="2025-04-26T15:07:57.676Z">
 <meta property="article:author" content="MiDoLi">
 <meta property="article:tag" content="Unity编辑器拓展">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/L19Selection%E4%B8%AD%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%88%90%E5%91%98(%E9%80%89%E6%8B%A9%E4%BB%A3%E7%A0%81%E5%AF%B9%E8%B1%A1).png">
 
 <link rel="canonical" href="http://example.com/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/">
 
@@ -48,7 +53,7 @@
   };
 </script>
 
-  <title>Unity编辑器拓展（五）---Selection公共类 | MiDoLi's Blog</title>
+  <title>Unity编辑器拓展（五）-Selection公共类 | MiDoLi's Blog</title>
   
 
 
@@ -213,7 +218,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Unity编辑器拓展（五）---Selection公共类
+          Unity编辑器拓展（五）-Selection公共类
         </h1>
 
         <div class="post-meta">
@@ -222,10 +227,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-04-23 23:32:26 / 修改时间：23:33:18" itemprop="dateCreated datePublished" datetime="2025-04-23T23:32:26+08:00">2025-04-23</time>
+              <time title="创建时间：2025-04-23 23:32:26" itemprop="dateCreated datePublished" datetime="2025-04-23T23:32:26+08:00">2025-04-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-04-26 23:07:57" itemprop="dateModified" datetime="2025-04-26T23:07:57+08:00">2025-04-26</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -237,7 +248,7 @@
             </span>
 
           
-            <span id="/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/" class="post-meta-item leancloud_visitors" data-flag-title="Unity编辑器拓展（五）---Selection公共类" title="阅读次数">
+            <span id="/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/" class="post-meta-item leancloud_visitors" data-flag-title="Unity编辑器拓展（五）-Selection公共类" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -270,14 +281,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -291,6 +302,162 @@
       
         <p>Selection公共类</p>
 <span id="more"></span>
+<ul>
+<li><a href="#%E4%B8%80selection%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88">一、Selection公共类的作用是什么</a>
+<ul>
+<li><a href="#11-selection%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88">1.1 Selection公共类的作用是什么</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8Cselection%E4%B8%AD%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%88%90%E5%91%98">二、Selection中常用静态成员</a>
+<ul>
+<li><a href="#21-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84object">2.1 获取当前选择的Object</a></li>
+<li><a href="#22-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84gameobject">2.2 获取当前选择的GameObject</a></li>
+<li><a href="#23-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84transform">2.3 获取当前选择的Transform</a></li>
+<li><a href="#24-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89object">2.4 获取当前选择的所有Object</a></li>
+<li><a href="#25-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89gameobject">2.5 获取当前选择的所有GameObject</a></li>
+<li><a href="#26-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89transform">2.6 获取当前选择的所有Transform</a></li>
+<li><a href="#27-%E5%89%8D%E9%9D%A26%E4%B8%AD%E6%83%85%E5%86%B5%E4%BD%BF%E7%94%A8">2.7 前面6中情况使用</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89selection%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95">三、Selection常用静态方法</a>
+<ul>
+<li><a href="#31-%E5%88%A4%E6%96%AD%E6%9F%90%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E8%A2%AB%E9%80%89%E4%B8%AD">3.1 判断某个对象是否被选中</a></li>
+<li><a href="#32-%E7%AD%9B%E9%80%89%E5%AF%B9%E8%B1%A1">3.2 筛选对象</a></li>
+<li><a href="#33-%E5%BD%93%E9%80%89%E4%B8%AD%E5%8F%98%E5%8C%96%E6%97%B6%E4%BC%9A%E8%B0%83%E7%94%A8%E7%9A%84%E5%A7%94%E6%89%98">3.3 当选中变化时会调用的委托</a></li>
+<li><a href="#34-%E6%95%88%E6%9E%9C">3.4 效果</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B%E6%80%BB%E7%BB%93">四、总结</a></li>
+</ul>
+<h1 id="%E4%B8%80%E3%80%81selection%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88" tabindex="-1">一、Selection公共类的作用是什么</h1>
+<h2 id="1.1-selection%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88" tabindex="-1">1.1 Selection公共类的作用是什么</h2>
+<ul>
+<li>主要用来获取当前在Unity编辑器中选择的对象</li>
+<li>只能用于编辑器开发中</li>
+</ul>
+<h1 id="%E4%BA%8C%E3%80%81selection%E4%B8%AD%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%88%90%E5%91%98" tabindex="-1">二、Selection中常用静态成员</h1>
+<h2 id="2.1-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84object" tabindex="-1">2.1 获取当前选择的Object</h2>
+<ol>
+<li>作用：</li>
+</ol>
+<ul>
+<li>获取当前在面板上选择的游戏物体Object，未选择则返回Null</li>
+<li>选择多个则返回最后一个选择的游戏物体</li>
+</ul>
+<ol start="2">
+<li>方法</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Selection.activeObject</span><br></pre></td></tr></table></figure>
+<h2 id="2.2-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84gameobject" tabindex="-1">2.2 获取当前选择的GameObject</h2>
+<ol>
+<li>作用：</li>
+</ol>
+<ul>
+<li>获取当前在面板上选择的游戏物体GameObject，未选择则返回Null</li>
+<li>选择多个则返回最后一个选择的游戏物体</li>
+</ul>
+<ol start="2">
+<li>方法</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Selection.activeGameObject</span><br></pre></td></tr></table></figure>
+<h2 id="2.3-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84transform" tabindex="-1">2.3 获取当前选择的Transform</h2>
+<ol>
+<li>作用</li>
+</ol>
+<ul>
+<li>获取当前在面板上选择的游戏物体的Transform，未选择则返回Null</li>
+<li>选择多个则返回最后一个选择的游戏物体</li>
+<li><strong>只能获取到场景中（Hierarchy）的对象的Transform</strong></li>
+</ul>
+<ol start="2">
+<li>方法</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Selection.activeTransform</span><br></pre></td></tr></table></figure>
+<h2 id="2.4-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89object" tabindex="-1">2.4 获取当前选择的所有Object</h2>
+<ol>
+<li>作用：</li>
+</ol>
+<ul>
+<li>获取当前在面板上选择的物体<strong>数组</strong>，未选择则返回Null</li>
+</ul>
+<ol start="2">
+<li>方法</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Selection.objects </span><br></pre></td></tr></table></figure>
+<h2 id="2.5-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89gameobject" tabindex="-1">2.5 获取当前选择的所有GameObject</h2>
+<ol>
+<li>作用：</li>
+</ol>
+<ul>
+<li>获取当前在面板上选择的<strong>游戏物体或Project中预设体 GameObject数组</strong></li>
+<li>未选择则返回Null</li>
+</ul>
+<ol start="2">
+<li>方法</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Selection.gameObjects</span><br><span class="line"><span class="comment">//可以遍历获取所有信息</span></span><br></pre></td></tr></table></figure>
+<h2 id="2.6-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89transform" tabindex="-1">2.6 获取当前选择的所有Transform</h2>
+<ol>
+<li>作用</li>
+</ol>
+<ul>
+<li>获取当前在面板上选择的游戏物体Transform数组，未选择则返回Null</li>
+</ul>
+<ol start="2">
+<li>方法</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Selection.transforms</span><br><span class="line"><span class="comment">//可以遍历获取所有信息</span></span><br></pre></td></tr></table></figure>
+<h2 id="2.7-%E5%89%8D%E9%9D%A26%E4%B8%AD%E6%83%85%E5%86%B5%E4%BD%BF%E7%94%A8" tabindex="-1">2.7 前面6中情况使用</h2>
+<ol>
+<li>示例</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> StringBuilder str = <span class="keyword">new</span> StringBuilder(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line"><span class="keyword">private</span> StringBuilder str2 = <span class="keyword">new</span> StringBuilder(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line"><span class="keyword">private</span> StringBuilder str3 = <span class="keyword">new</span> StringBuilder(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line"><span class="keyword">private</span> StringBuilder str4 = <span class="keyword">new</span> StringBuilder(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line"><span class="comment">//1.当前选择的Object</span></span><br><span class="line"><span class="keyword">if</span>(GUILayout.Button(<span class="string">&quot;获取当前选择的Object的名字&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(Selection.activeObject != <span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        str.Clear();</span><br><span class="line">        str.Append(Selection.activeObject.name);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (Selection.activeObject <span class="keyword">is</span> GameObject)</span><br><span class="line">            Debug.Log(<span class="string">&quot;它是游戏对象&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(Selection.activeObject <span class="keyword">is</span> Texture)</span><br><span class="line">            Debug.Log(<span class="string">&quot;它是一张纹理&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (Selection.activeObject <span class="keyword">is</span> TextAsset)</span><br><span class="line">            Debug.Log(<span class="string">&quot;它是一个文本&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            Debug.Log(<span class="string">&quot;它是其他类型的资源&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        str.Clear();</span><br><span class="line">        str.Append(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EditorGUILayout.LabelField(<span class="string">&quot;当前选择的对象&quot;</span>, str.ToString());</span><br><span class="line"><span class="comment">//2.当前选择的GameObject</span></span><br><span class="line"><span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;获取当前选择的GameObject的名字&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Selection.activeGameObject != <span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        str2.Clear();</span><br><span class="line">        str2.Append(Selection.activeGameObject.name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        str2.Clear();</span><br><span class="line">        str2.Append(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EditorGUILayout.LabelField(<span class="string">&quot;当前选择GameObject对象&quot;</span>, str2.ToString());</span><br><span class="line"><span class="comment">//3.当前选择的Transform</span></span><br><span class="line"><span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;获取当前选择的Transform的名字&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Selection.activeTransform != <span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        str3.Clear();</span><br><span class="line">        str3.Append(Selection.activeTransform.name);</span><br><span class="line">        Selection.activeTransform.position = <span class="keyword">new</span> Vector3(<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>); <span class="comment">//改变对象的位置</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        str3.Clear();</span><br><span class="line">        str3.Append(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EditorGUILayout.LabelField(<span class="string">&quot;当前选择Transform对象&quot;</span>, str3.ToString());</span><br><span class="line"><span class="comment">//4.当前选择的所有Object</span></span><br><span class="line"><span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;获取当前选择的所有Object的名字&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Selection.count != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        str4.Clear();</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; Selection.objects.Length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            str4.Append(Selection.objects[i].name + <span class="string">&quot;||&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        str4.Clear();</span><br><span class="line">        str4.Append(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EditorGUILayout.LabelField(<span class="string">&quot;当前选择的所有Object对象&quot;</span>, str4.ToString());</span><br><span class="line"><span class="comment">//5.当前选择的所有GameObject</span></span><br><span class="line"><span class="comment">//Selection.gameObjects</span></span><br><span class="line"><span class="comment">//6.当前选择的所有Transform</span></span><br><span class="line"><span class="comment">//Selection.transforms</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>效果</li>
+</ol>
+<ul>
+<li>选择代码对象<br>
+<img src="/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/L19Selection%E4%B8%AD%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%88%90%E5%91%98(%E9%80%89%E6%8B%A9%E4%BB%A3%E7%A0%81%E5%AF%B9%E8%B1%A1).png" alt></li>
+<li>多选场景对象<br>
+<img src="/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/L19Selection%E4%B8%AD%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%88%90%E5%91%98(%E5%A4%9A%E9%80%89%E5%9C%BA%E6%99%AF%E5%AF%B9%E8%B1%A1).png" alt></li>
+</ul>
+<h1 id="%E4%B8%89%E3%80%81selection%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95" tabindex="-1">三、Selection常用静态方法</h1>
+<h2 id="3.1-%E5%88%A4%E6%96%AD%E6%9F%90%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E8%A2%AB%E9%80%89%E4%B8%AD" tabindex="-1">3.1 判断某个对象是否被选中</h2>
+<ol>
+<li>方法<br>
+选择多个对象时，只要在里面也能判断为被选中</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Contains <span class="comment">//判断某个对象是否被选中(选择多个对象时，只要在里面也能判断为被选中)</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>示例</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> Object obj;</span><br><span class="line">    <span class="comment">//判断某个对象是否被选中</span></span><br><span class="line">    obj = EditorGUILayout.ObjectField(<span class="string">&quot;用于判断是否被选中的对象&quot;</span>, obj, <span class="keyword">typeof</span>(GameObject), <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;判断对象是否被选中&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (Selection.Contains(obj))</span><br><span class="line">            Debug.Log(<span class="string">&quot;对象有被选中&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            Debug.Log(<span class="string">&quot;对象没有被选中&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line"><span class="meta">## 3.2 筛选对象</span></span><br><span class="line"><span class="number">1.</span> 作用：从当前选择对象中，筛选出想要的内容</span><br><span class="line"><span class="number">2.</span> 方法</span><br><span class="line">```cs</span><br><span class="line">    Selection.GetFiltered(类型, 筛选模式)</span><br><span class="line">    Selection.GetFiltered&lt;类型&gt;(筛选模式)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//  筛选模式：SelectionMode</span></span><br><span class="line">    <span class="comment">//  Unfiltered: 不过滤</span></span><br><span class="line">    <span class="comment">//  TopLevel: 只获取最上层对象，子对象不获取</span></span><br><span class="line">    <span class="comment">//  Deep: 父对象、子对象都获取</span></span><br><span class="line">    <span class="comment">//  ExcludePrefab: 排除预设体</span></span><br><span class="line">    <span class="comment">//  Editable: 只选择可编辑的对象</span></span><br><span class="line">    <span class="comment">//  OnlyUserModifiable: 仅用户可修改的内容</span></span><br><span class="line">    <span class="comment">//  Assets: 只返回资源文件夹下的内容</span></span><br><span class="line">    <span class="comment">//  DeepAssets: 如果存在子文件夹，其中的内容也获取</span></span><br><span class="line">    <span class="comment">//  如果要混用 位或 | 即可</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>示例</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//筛选对象</span></span><br><span class="line"><span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;筛选所有对象&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    Object[] objs = Selection.GetFiltered(<span class="keyword">typeof</span>(Object), SelectionMode.Assets | SelectionMode.DeepAssets);</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; objs.Length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(objs[i].name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3.3-%E5%BD%93%E9%80%89%E4%B8%AD%E5%8F%98%E5%8C%96%E6%97%B6%E4%BC%9A%E8%B0%83%E7%94%A8%E7%9A%84%E5%A7%94%E6%89%98" tabindex="-1">3.3 当选中变化时会调用的委托</h2>
+<ol>
+<li>方法</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Selection.selectionChanged += 函数;<span class="comment">//选择的物体变化时调用</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>示例</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnEnable</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Selection.selectionChanged += SelectionChanged;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnDestroy</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Selection.selectionChanged -= SelectionChanged;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">SelectionChanged</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;选择的对象变化了&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3.4-%E6%95%88%E6%9E%9C" tabindex="-1">3.4 效果</h2>
+<ul>
+<li>判断某个对象是否被选中及当选中变化时会调用的委托<br>
+<img src="/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/L20Selection%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95.png" alt></li>
+<li>筛选对象（筛选了Editor下的内容及其子文件夹内容）<br>
+<img src="/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/L20Selection%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95-%E7%AD%9B%E9%80%89%E5%AF%B9%E8%B1%A1.png" alt></li>
+</ul>
+<h1 id="%E5%9B%9B%E3%80%81%E6%80%BB%E7%BB%93" tabindex="-1">四、总结</h1>
+<ul>
+<li>Selection公共类主要是帮助我们获取到选择的对象的</li>
+<li>我们可以利用它对选中对象进行一些处理</li>
+</ul>
+<p>Selection公共类 更多API：<a target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2022.1/ScriptReference/Selection.html">https://docs.unity.cn/cn/2022.1/ScriptReference/Selection.html</a></p>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 
@@ -317,10 +484,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2025/04/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%9B%9B-EditorGUIUtility%E5%85%AC%E5%85%B1%E7%B1%BB/" rel="prev" title="Unity编辑器拓展（四）--EditorGUIUtility公共类">
-      <i class="fa fa-chevron-left"></i> Unity编辑器拓展（四）--EditorGUIUtility公共类
+    <a href="/2025/04/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%9B%9B-EditorGUIUtility%E5%85%AC%E5%85%B1%E7%B1%BB/" rel="prev" title="Unity编辑器拓展（四）-EditorGUIUtility公共类">
+      <i class="fa fa-chevron-left"></i> Unity编辑器拓展（四）-EditorGUIUtility公共类
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2025/04/26/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%85%AD-Event%E5%85%AC%E5%85%B1%E7%B1%BB/" rel="next" title="Unity编辑器拓展（六）-Event公共类">
+      Unity编辑器拓展（六）-Event公共类 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -380,6 +550,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81selection%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text">一、Selection公共类的作用是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1.1-selection%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 Selection公共类的作用是什么</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81selection%E4%B8%AD%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%88%90%E5%91%98"><span class="nav-number">2.</span> <span class="nav-text">二、Selection中常用静态成员</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2.1-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84object"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 获取当前选择的Object</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2.2-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84gameobject"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 获取当前选择的GameObject</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2.3-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84transform"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 获取当前选择的Transform</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2.4-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89object"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 获取当前选择的所有Object</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2.5-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89gameobject"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 获取当前选择的所有GameObject</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2.6-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89transform"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 获取当前选择的所有Transform</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2.7-%E5%89%8D%E9%9D%A26%E4%B8%AD%E6%83%85%E5%86%B5%E4%BD%BF%E7%94%A8"><span class="nav-number">2.7.</span> <span class="nav-text">2.7 前面6中情况使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81selection%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">三、Selection常用静态方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3.1-%E5%88%A4%E6%96%AD%E6%9F%90%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E8%A2%AB%E9%80%89%E4%B8%AD"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 判断某个对象是否被选中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3.3-%E5%BD%93%E9%80%89%E4%B8%AD%E5%8F%98%E5%8C%96%E6%97%B6%E4%BC%9A%E8%B0%83%E7%94%A8%E7%9A%84%E5%A7%94%E6%89%98"><span class="nav-number">3.2.</span> <span class="nav-text">3.3 当选中变化时会调用的委托</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3.4-%E6%95%88%E6%9E%9C"><span class="nav-number">3.3.</span> <span class="nav-text">3.4 效果</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">四、总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -395,7 +566,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -506,12 +677,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">64k</span>
+    <span title="站点总字数">65k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:52</span>
+    <span title="站点阅读时长">3:58</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
