@@ -22,20 +22,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Event公共类相关内容">
+  <meta name="description" content="Inspector窗口拓展相关内容">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Unity编辑器拓展（六）-Event公共类">
-<meta property="og:url" content="http://example.com/2025/04/26/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%85%AD-Event%E5%85%AC%E5%85%B1%E7%B1%BB/index.html">
+<meta property="og:title" content="Unity编辑器拓展（七）-Inspector窗口拓展">
+<meta property="og:url" content="http://example.com/2025/04/27/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%B8%83-Inspector%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/index.html">
 <meta property="og:site_name" content="MiDoLi&#39;s Blog">
-<meta property="og:description" content="Event公共类相关内容">
+<meta property="og:description" content="Inspector窗口拓展相关内容">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-04-26T15:03:00.000Z">
-<meta property="article:modified_time" content="2025-04-27T14:19:52.563Z">
+<meta property="article:published_time" content="2025-04-27T14:23:20.000Z">
+<meta property="article:modified_time" content="2025-04-27T14:24:32.569Z">
 <meta property="article:author" content="MiDoLi">
 <meta property="article:tag" content="Unity编辑器拓展">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2025/04/26/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%85%AD-Event%E5%85%AC%E5%85%B1%E7%B1%BB/">
+<link rel="canonical" href="http://example.com/2025/04/27/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%B8%83-Inspector%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/">
 
 
 <script id="page-configurations">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>Unity编辑器拓展（六）-Event公共类 | MiDoLi's Blog</title>
+  <title>Unity编辑器拓展（七）-Inspector窗口拓展 | MiDoLi's Blog</title>
   
 
 
@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/26/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%85%AD-Event%E5%85%AC%E5%85%B1%E7%B1%BB/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/27/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%B8%83-Inspector%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/midoli.jpg">
@@ -213,7 +213,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Unity编辑器拓展（六）-Event公共类
+          Unity编辑器拓展（七）-Inspector窗口拓展
         </h1>
 
         <div class="post-meta">
@@ -222,16 +222,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2025-04-26 23:03:00" itemprop="dateCreated datePublished" datetime="2025-04-26T23:03:00+08:00">2025-04-26</time>
+              <time title="创建时间：2025-04-27 22:23:20 / 修改时间：22:24:32" itemprop="dateCreated datePublished" datetime="2025-04-27T22:23:20+08:00">2025-04-27</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-04-27 22:19:52" itemprop="dateModified" datetime="2025-04-27T22:19:52+08:00">2025-04-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -243,7 +237,7 @@
             </span>
 
           
-            <span id="/2025/04/26/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%85%AD-Event%E5%85%AC%E5%85%B1%E7%B1%BB/" class="post-meta-item leancloud_visitors" data-flag-title="Unity编辑器拓展（六）-Event公共类" title="阅读次数">
+            <span id="/2025/04/27/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%B8%83-Inspector%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/" class="post-meta-item leancloud_visitors" data-flag-title="Unity编辑器拓展（七）-Inspector窗口拓展" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -265,8 +259,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2025/04/26/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%85%AD-Event%E5%85%AC%E5%85%B1%E7%B1%BB/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2025/04/26/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%85%AD-Event%E5%85%AC%E5%85%B1%E7%B1%BB/" itemprop="commentCount"></span>
+    <a title="valine" href="/2025/04/27/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%B8%83-Inspector%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/04/27/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%B8%83-Inspector%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -276,14 +270,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>979</span>
+              <span>10</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -295,109 +289,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Event公共类相关内容</p>
+        <p>Inspector窗口拓展相关内容</p>
 <span id="more"></span>
-<h1 id="%E4%B8%80%E3%80%81event%E5%85%AC%E5%85%B1%E7%B1%BB%E6%98%AF%E7%94%A8%E6%9D%A5%E5%81%9A%E4%BB%80%E4%B9%88%E7%9A%84%EF%BC%9F" tabindex="-1">一、Event公共类是用来做什么的？</h1>
-<ul>
-<li>它提供了许多属性和方法，允许你检查和处理用户输入</li>
-<li>主要用于在Unity编辑器拓展开发中</li>
-<li>因为<strong>Input相关内容需要在运行时才能监听输入</strong></li>
-<li>而<strong>Event专门提供给编辑模式下使用，可以帮助我们检测鼠标键盘输入等事件相关操作</strong></li>
-<li>在 <strong>OnGUI 和 OnSceneView 中都能使用</strong></li>
-</ul>
-<h1 id="%E4%BA%8C%E3%80%81-%E9%87%8D%E8%A6%81api" tabindex="-1">二、 重要API</h1>
-<ol>
-<li>获取当前输入事件</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Event.current</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>alt键是否按下</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Event.current.alt</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>shift键是否按下</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Event.current.shift</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>ctrl键是否按下</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Event.current.control</span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>是否是鼠标事件</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Event.current.isMouse</span><br></pre></td></tr></table></figure>
-<ol start="6">
-<li>判断鼠标左中右键</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Evnet.current.button (<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span> 分别代表 左,右,中 如果大于<span class="number">2</span>可能是其他鼠标按键)</span><br></pre></td></tr></table></figure>
-<ol start="7">
-<li>鼠标位置</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Event.curretn.mousePosition</span><br></pre></td></tr></table></figure>
-<ol start="8">
-<li>判断是否是键盘输入</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Event.current.isKey</span><br></pre></td></tr></table></figure>
-<ol start="9">
-<li>获取键盘输入的字符</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Event.current.character</span><br></pre></td></tr></table></figure>
-<ol start="10">
-<li>获取键盘输入对应的KeyCode</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Event.current.keyCode</span><br></pre></td></tr></table></figure>
-<ol start="11">
-<li>判断输入类型</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Event.current.type</span><br><span class="line">EventType枚举和它比较即可</span><br><span class="line">EventType中有常用的 鼠标按下抬起拖拽，键盘按下抬起等等类型</span><br></pre></td></tr></table></figure>
-<ol start="12">
-<li>是否锁定大写 对应键盘上caps键是否开启</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Event.current.capsLock</span><br></pre></td></tr></table></figure>
-<ol start="13">
-<li>Windows键或Command键是否按下</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Event.current.command</span><br></pre></td></tr></table></figure>
-<ol start="14">
-<li>键盘事件 字符串</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Event.current.commandName</span><br></pre></td></tr></table></figure>
-<ul>
-<li>可以用来判断是否触发了对应的键盘事件</li>
-<li>返回值：
-<ul>
-<li>Copy:拷贝</li>
-<li>Paste:粘贴</li>
-<li>Cut:剪切</li>
-</ul>
-</li>
-</ul>
-<ol start="15">
-<li>鼠标间隔移动距离</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Event.current.delta</span><br></pre></td></tr></table></figure>
-<ol start="16">
-<li>是否是功能键输入</li>
-</ol>
-<ul>
-<li>功能键指小键盘中的 方向键, page up, page down, backspace等等</li>
-</ul>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Event.current.functionKey</span><br></pre></td></tr></table></figure>
-<ol start="17">
-<li>小键盘是否开启</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Event.current.numeric</span><br></pre></td></tr></table></figure>
-<ol start="18">
-<li>避免组合键冲突</li>
-</ol>
-<ul>
-<li>在处理完对应输入事件后，调用该方法，可以阻止事件继续派发，放置和Unity其他编辑器事件逻辑冲突</li>
-</ul>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Event.current.Use()</span><br></pre></td></tr></table></figure>
-<h1 id="%E4%B8%89%E3%80%81-api%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B" tabindex="-1">三、 API使用示例</h1>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.获取当前事件</span></span><br><span class="line"><span class="comment">//  Event.current</span></span><br><span class="line">Event eve = Event.current;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.alt键是否按下</span></span><br><span class="line"><span class="comment">//  Event.current.alt</span></span><br><span class="line"><span class="keyword">if</span> (eve.alt)</span><br><span class="line">    Debug.Log(<span class="string">&quot;alt键按下了&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//3.shift键是否按下</span></span><br><span class="line"><span class="comment">//  Event.current.shift</span></span><br><span class="line"><span class="keyword">if</span> (eve.shift)</span><br><span class="line">    Debug.Log(<span class="string">&quot;shift键按下了&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//4.ctrl键是否按下</span></span><br><span class="line"><span class="comment">//  Event.current.control</span></span><br><span class="line"><span class="keyword">if</span> (eve.control)</span><br><span class="line">    Debug.Log(<span class="string">&quot;control键按下了&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//5.是否是鼠标事件</span></span><br><span class="line"><span class="comment">//  Event.current.isMouse</span></span><br><span class="line"><span class="keyword">if</span> (eve.isMouse)</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;鼠标相关事件&quot;</span>);</span><br><span class="line">    <span class="comment">//6.判断鼠标左中右键</span></span><br><span class="line">    <span class="comment">//  Event.current.button (0,1,2 分别代表 左,右,中 如果大于2可能是其他鼠标按键)</span></span><br><span class="line">    Debug.Log(eve.button);</span><br><span class="line">    <span class="comment">//7.鼠标位置</span></span><br><span class="line">    <span class="comment">//  Event.current.mousePosition</span></span><br><span class="line">    Debug.Log(<span class="string">&quot;鼠标位置&quot;</span> + eve.mousePosition);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//8.判断是否是键盘输入</span></span><br><span class="line"><span class="comment">//  Event.current.isKey</span></span><br><span class="line"><span class="keyword">if</span>(eve.isKey)</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;键盘相关事件&quot;</span>);</span><br><span class="line">    <span class="comment">//9.获取键盘输入的字符</span></span><br><span class="line">    <span class="comment">//  Event.current.character</span></span><br><span class="line">    Debug.Log(eve.character);</span><br><span class="line">    <span class="comment">//10.获取键盘输入对应的KeyCode</span></span><br><span class="line">    <span class="comment">//  Event.current.keyCode</span></span><br><span class="line">    <span class="comment">//Debug.Log(eve.keyCode);</span></span><br><span class="line">    <span class="keyword">switch</span> (eve.keyCode)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> KeyCode.Space:</span><br><span class="line">            Debug.Log(<span class="string">&quot;空格键输入&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//11.判断输入类型</span></span><br><span class="line"><span class="comment">//  Event.current.type</span></span><br><span class="line"><span class="comment">//  EventType枚举和它比较即可</span></span><br><span class="line"><span class="comment">//  EventType中有常用的 鼠标按下抬起拖拽，键盘按下抬起等等类型</span></span><br><span class="line"><span class="comment">//  一般会配合它 来判断 比如 键盘 鼠标的抬起按下相关的操作</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//12.是否锁定大写 对应键盘上caps键是否开启</span></span><br><span class="line"><span class="comment">//  Event.current.capsLock</span></span><br><span class="line"><span class="keyword">if</span> (eve.capsLock)</span><br><span class="line">    Debug.Log(<span class="string">&quot;大小写锁定开启&quot;</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    Debug.Log(<span class="string">&quot;大小写锁定关闭&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//13.Windows键或Command键是否按下</span></span><br><span class="line"><span class="comment">//  Event.current.command</span></span><br><span class="line"><span class="keyword">if</span> (eve.command)</span><br><span class="line">    Debug.Log(<span class="string">&quot;PC win键按下 或 Mac Command键按下&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//14.键盘事件 字符串</span></span><br><span class="line"><span class="comment">//  Event.current.commandName</span></span><br><span class="line"><span class="comment">//  可以用来判断是否触发了对应的键盘事件</span></span><br><span class="line"><span class="comment">//  返回值：</span></span><br><span class="line"><span class="comment">//  Copy:拷贝</span></span><br><span class="line"><span class="comment">//  Paste:粘贴</span></span><br><span class="line"><span class="comment">//  Cut:剪切</span></span><br><span class="line"><span class="keyword">if</span>(eve.commandName == <span class="string">&quot;Copy&quot;</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;按下了ctrl + c&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (eve.commandName == <span class="string">&quot;Paste&quot;</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;按下了ctrl + v&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (eve.commandName == <span class="string">&quot;Cut&quot;</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;按下了ctrl + x&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//15.鼠标间隔移动距离</span></span><br><span class="line"><span class="comment">//  Event.current.delta</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Debug.Log(eve.delta);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//16.是否是功能键输入</span></span><br><span class="line"><span class="comment">//  Event.current.functionKey</span></span><br><span class="line"><span class="comment">//  功能键指小键盘中的 方向键, page up, page down, backspace等等</span></span><br><span class="line"><span class="keyword">if</span> (eve.functionKey)</span><br><span class="line">    Debug.Log(<span class="string">&quot;有功能按键输入&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//17.小键盘是否开启</span></span><br><span class="line"><span class="comment">//  Event.current.numeric</span></span><br><span class="line"><span class="keyword">if</span>(eve.numeric)</span><br><span class="line">    Debug.Log(<span class="string">&quot;小键盘是否开启&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//18.避免组合键冲突</span></span><br><span class="line"><span class="comment">//  Event.current.Use()</span></span><br><span class="line"><span class="comment">//  在处理完对应输入事件后，调用该方法，可以阻止事件继续派发，防止和Unity其他编辑器事件逻辑冲突</span></span><br><span class="line">eve.Use();</span><br></pre></td></tr></table></figure>
-<h1 id="%E4%BA%94%E3%80%81-%E6%9B%B4%E5%A4%9A%E5%86%85%E5%AE%B9" tabindex="-1">五、 更多内容</h1>
-<p><a target="_blank" rel="noopener" href="https://docs.unity3d.com/ScriptReference/Event.html">https://docs.unity3d.com/ScriptReference/Event.html</a></p>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 
@@ -424,13 +317,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/" rel="prev" title="Unity编辑器拓展（五）-Selection公共类">
-      <i class="fa fa-chevron-left"></i> Unity编辑器拓展（五）-Selection公共类
+    <a href="/2025/04/26/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%85%AD-Event%E5%85%AC%E5%85%B1%E7%B1%BB/" rel="prev" title="Unity编辑器拓展（六）-Event公共类">
+      <i class="fa fa-chevron-left"></i> Unity编辑器拓展（六）-Event公共类
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2025/04/27/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%B8%83-Inspector%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/" rel="next" title="Unity编辑器拓展（七）-Inspector窗口拓展">
-      Unity编辑器拓展（七）-Inspector窗口拓展 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -490,7 +380,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81event%E5%85%AC%E5%85%B1%E7%B1%BB%E6%98%AF%E7%94%A8%E6%9D%A5%E5%81%9A%E4%BB%80%E4%B9%88%E7%9A%84%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">一、Event公共类是用来做什么的？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81-%E9%87%8D%E8%A6%81api"><span class="nav-number">2.</span> <span class="nav-text">二、 重要API</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81-api%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="nav-number">3.</span> <span class="nav-text">三、 API使用示例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81-%E6%9B%B4%E5%A4%9A%E5%86%85%E5%AE%B9"><span class="nav-number">4.</span> <span class="nav-text">五、 更多内容</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

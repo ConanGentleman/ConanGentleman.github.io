@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/2024/07/21/hello-world-1/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="48a0ae5effc070c82e44be4a84f8ae9a09954921e0e4136a68b7e5fd229605e4">8857952509ef9895f61625fe2d594ef339e937d6685a3f98341208c8d2d367f4dc0b58f485d52aa0392b14c338af3a49fa9334860d39e66200a503ef5c6f15e63ad2aba5b3bf18c0d6d9f7017f8db44c2c9343dded772edbc3c220543b5d966a4117eabff0585a2d555d0aad8bfd14e10eab5b64af4637f63aeb3e8dd9946bf6da6710df2eb5cb68d40344fab74bc207f2b3ab564720dd3bbdaf275382565b91fc09d67374a24e44135d9e7555af78484137904f464ddd94cb8db1eee25c0c9978eb6e799b1ad3780f520bf6b233d1743f3783536c51e859ec0ee37cfad84134b99bf5c26ed05c01a5b415dcecd23171</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <tags>
+        <tag>作为日记加密</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo在多台电脑上提交和更新</title>
     <url>/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/</url>
     <content><![CDATA[<p>参考链接：<a href="https://blog.csdn.net/K1052176873/article/details/122879462">https://blog.csdn.net/K1052176873/article/details/122879462</a></p>
@@ -76,6 +95,51 @@ clone该仓库到本地（clone的是hexo默认分支）</li>
 上面步骤中，<strong>npm install其实就是读取了packages.json里面的信息，自动安装依赖</strong>，有的小伙伴<strong>可能只执行npm install就行了，不过按照上面的三步是最稳妥的。</strong></p>
 <p>这里提一嘴，当新电脑上的操作成功之后，其实对于新电脑还是老电脑其实都无所谓了，任何一台电脑包括老电脑只要安装了NodeJs环境，就都可以按照在新电脑上的操作完整地复刻出一个hexo环境，你甚至可以把老电脑原有的hexo工程删掉再执行上面这几步一样可以快速构建hexo环境，可以看到步骤非常简单。</p>
 <p>此外，为了保证同步，推荐<strong>先git pull合并</strong>更新再进行博客的编写。</p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>hexo博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo博客搭建</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2024/07/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="quick-start" tabindex="-1">Quick Start</h2>
+<h3 id="create-a-new-post" tabindex="-1">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server" tabindex="-1">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files" tabindex="-1">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites" tabindex="-1">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+  </entry>
+  <entry>
+    <title>解决Hexo图片不显示的问题</title>
+    <url>/2024/08/11/%E8%A7%A3%E5%86%B3Hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>在本地markdown上，照片能正常显示，但是部署后却不显示。看了一下<a href="https://hexo.io/zh-cn/docs/asset-folders">官方文档</a>，Hexo3以上可以通过设置post_asset_folder来解决。</p>
+<span id="more"></span>
+<ol>
+<li>在Blog根目录安装插件：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-<span class="selector-tag">image</span> <span class="attr">--save</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>在全局配置文件中找到post_asset_folder并配置</li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">marked:</span></span><br><span class="line">  <span class="attr">prependRoot:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">postAsset:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>启用后，资源图片将会被自动解析为其对应文章的路径。 例如： image.jpg 位置为 /2020/01/02/foo/image.jpg ，这表示它是 /2020/01/02/foo/ 文章的一张资源图片， ![](image.jpg) 将会被解析为 &lt;img src=“/2020/01/02/foo/image.jpg”&gt; 。</p>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
@@ -785,203 +849,6 @@ clone该仓库到本地（clone的是hexo默认分支）</li>
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2024/07/21/hello-world-1/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="48a0ae5effc070c82e44be4a84f8ae9a09954921e0e4136a68b7e5fd229605e4">8857952509ef9895f61625fe2d594ef339e937d6685a3f98341208c8d2d367f4dc0b58f485d52aa0392b14c338af3a49fa9334860d39e66200a503ef5c6f15e63ad2aba5b3bf18c0d6d9f7017f8db44c2c9343dded772edbc3c220543b5d966a4117eabff0585a2d555d0aad8bfd14e10eab5b64af4637f63aeb3e8dd9946bf6da6710df2eb5cb68d40344fab74bc207f2b3ab564720dd3bbdaf275382565b91fc09d67374a24e44135d9e7555af78484137904f464ddd94cb8db1eee25c0c9978eb6e799b1ad3780f520bf6b233d1743f3783536c51e859ec0ee37cfad84134b99bf5c26ed05c01a5b415dcecd23171</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <tags>
-        <tag>作为日记加密</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2024/07/01/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-start" tabindex="-1">Quick Start</h2>
-<h3 id="create-a-new-post" tabindex="-1">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server" tabindex="-1">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files" tabindex="-1">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites" tabindex="-1">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-  </entry>
-  <entry>
-    <title>解决Hexo图片不显示的问题</title>
-    <url>/2024/08/11/%E8%A7%A3%E5%86%B3Hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>在本地markdown上，照片能正常显示，但是部署后却不显示。看了一下<a href="https://hexo.io/zh-cn/docs/asset-folders">官方文档</a>，Hexo3以上可以通过设置post_asset_folder来解决。</p>
-<span id="more"></span>
-<ol>
-<li>在Blog根目录安装插件：</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-<span class="selector-tag">image</span> <span class="attr">--save</span></span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>在全局配置文件中找到post_asset_folder并配置</li>
-</ol>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">marked:</span></span><br><span class="line">  <span class="attr">prependRoot:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">postAsset:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>启用后，资源图片将会被自动解析为其对应文章的路径。 例如： image.jpg 位置为 /2020/01/02/foo/image.jpg ，这表示它是 /2020/01/02/foo/ 文章的一张资源图片， ![](image.jpg) 将会被解析为 &lt;img src=“/2020/01/02/foo/image.jpg”&gt; 。</p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>hexo博客搭建</category>
-      </categories>
-      <tags>
-        <tag>hexo博客搭建</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>3D数学基础-图形和游戏开发-学习笔记 第一章 笛卡尔坐标系</title>
-    <url>/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/</url>
-    <content><![CDATA[<p>选择性的记录内容，学习笔记</p>
-<span id="more"></span>
-<h1 id="%E7%9B%AE%E5%BD%95" tabindex="-1">目录</h1>
-<ul>
-<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
-<li><a href="#11-%E4%B8%80%E7%BB%B4%E6%95%B0%E5%AD%A6">1.1 一维数学</a></li>
-<li><a href="#12-%E4%BA%8C%E7%BB%B4%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A9%BA%E9%97%B4">1.2 二维笛卡尔空间</a>
-<ul>
-<li><a href="#122-%E4%BB%BB%E6%84%8F%E4%BA%8C%E7%BB%B4%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4">1.2.2 任意二维坐标空间</a></li>
-<li><a href="#123-%E4%BD%BF%E7%94%A8%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E6%8C%87%E5%AE%9A%E4%BA%8C%E7%BB%B4%E4%B8%AD%E7%9A%84%E4%BD%8D%E7%BD%AE">1.2.3 使用笛卡尔坐标指定二维中的位置</a></li>
-</ul>
-</li>
-<li><a href="#13-%E4%B8%89%E7%BB%B4%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A9%BA%E9%97%B4">1.3 三维笛卡尔空间</a>
-<ul>
-<li><a href="#131-%E6%96%B0%E5%A2%9E%E7%BB%B4%E5%BA%A6%E5%92%8C%E8%BD%B4">1.3.1 新增维度和轴</a></li>
-<li><a href="#132-%E5%9C%A8%E4%B8%89%E7%BB%B4%E4%B8%AD%E5%88%B6%E5%8A%A8%E4%BD%8D%E7%BD%AE">1.3.2 在三维中制动位置</a></li>
-<li><a href="#133-%E5%B7%A6%E6%89%8B%E4%B8%8E%E5%8F%B3%E6%89%8B%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4">1.3.3 左手与右手坐标空间</a></li>
-<li><a href="#134-%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E7%9A%84%E9%87%8D%E8%A6%81%E7%BA%A6%E5%AE%9A">1.3.4 一些使用的重要约定</a></li>
-</ul>
-</li>
-<li><a href="#14-%E4%B8%80%E4%BA%9B%E9%9B%B6%E6%95%A3%E7%9A%84%E7%9F%A5%E8%AF%86">1.4 一些零散的知识</a>
-<ul>
-<li><a href="#141-%E6%B1%82%E5%92%8C%E4%B8%8E%E6%B1%82%E7%A7%AF%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%B3%95">1.4.1 求和与求积的表示法</a></li>
-<li><a href="#142-%E5%8C%BA%E9%97%B4%E7%AC%A6%E5%8F%B7">1.4.2 区间符号</a></li>
-<li><a href="#143-%E8%A7%92%E5%BA%A6%E5%BA%A6%E6%95%B0%E5%92%8C%E5%BC%A7%E5%BA%A6">1.4.3 角度、度数和弧度</a></li>
-<li><a href="#144-%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0">1.4.4 三角函数</a></li>
-<li><a href="#145-%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F-">1.4.5 三角函数恒等式 ⭐</a></li>
-</ul>
-</li>
-</ul>
-<h1 id="1.1-%E4%B8%80%E7%BB%B4%E6%95%B0%E5%AD%A6" tabindex="-1">1.1 一维数学</h1>
-<h1 id="1.2-%E4%BA%8C%E7%BB%B4%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A9%BA%E9%97%B4" tabindex="-1">1.2 二维笛卡尔空间</h1>
-<h2 id="1.2.2-%E4%BB%BB%E6%84%8F%E4%BA%8C%E7%BB%B4%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">1.2.2 任意二维坐标空间</h2>
-<p>原点、x轴、y轴</p>
-<h2 id="1.2.3-%E4%BD%BF%E7%94%A8%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E6%8C%87%E5%AE%9A%E4%BA%8C%E7%BB%B4%E4%B8%AD%E7%9A%84%E4%BD%8D%E7%BD%AE" tabindex="-1">1.2.3 使用笛卡尔坐标指定二维中的位置</h2>
-<p>坐标点表示为(x,y)</p>
-<h1 id="1.3-%E4%B8%89%E7%BB%B4%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A9%BA%E9%97%B4" tabindex="-1">1.3 三维笛卡尔空间</h1>
-<h2 id="1.3.1-%E6%96%B0%E5%A2%9E%E7%BB%B4%E5%BA%A6%E5%92%8C%E8%BD%B4" tabindex="-1">1.3.1 新增维度和轴</h2>
-<p>新增z轴</p>
-<h2 id="1.3.2-%E5%9C%A8%E4%B8%89%E7%BB%B4%E4%B8%AD%E5%88%B6%E5%8A%A8%E4%BD%8D%E7%BD%AE" tabindex="-1">1.3.2 在三维中制动位置</h2>
-<p>坐标点表示为(x,y,z)</p>
-<h2 id="1.3.3-%E5%B7%A6%E6%89%8B%E4%B8%8E%E5%8F%B3%E6%89%8B%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">1.3.3 左手与右手坐标空间</h2>
-<p><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.3.3%E5%B7%A6%E6%89%8B%E4%B8%8E%E5%8F%B3%E6%89%8B%E5%9D%90%E6%A0%87%E7%B3%BB.jpg" alt></p>
-<p><strong>1. 左手坐标系</strong></p>
-<ul>
-<li>伸出左手，用拇指和食指做出一个L形</li>
-<li>拇指指向你的右边，食指朝上</li>
-<li>现在伸展你的第三根手指（中指），使它直接指向前方</li>
-</ul>
-<p>这样你就形成了一个<strong>左手坐标系</strong>。你的拇指、食指和第三根（中指）手指分别指向+x、+y和+z方向。</p>
-<p><strong>2. 右手坐标系</strong></p>
-<ul>
-<li>伸出有手，用拇指和食指做出一个L形</li>
-<li>拇指指向你的左边，食指朝上</li>
-<li>现在伸展你的第三根手指（中指），使它直接指向前方<br>
-这样你就形成了一个<strong>右手坐标系</strong>。你的拇指、食指和第三根（中指）手指分别指向+x、+y和+z方向。</li>
-</ul>
-<p><strong>3. 左旋、右旋坐标系</strong><br>
-<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.3.3%E5%B7%A6%E6%97%8B%E3%80%81%E5%8F%B3%E6%97%8B%E5%9D%90%E6%A0%87%E7%B3%BB.jpg" alt><br>
-左旋和右旋坐标系在“正旋转”的定义上也有所不同。假设在空间中有一条直线，需要围绕这条直线旋转指定的角度。我们将此线称为旋转轴(Axis of Rotation)。<br>
-（1） 左（右）手规则。在左（右）手坐标系中，告知哪一个方向是旋转正方向的，哪一个方向是旋转负方向的标准方法称为<strong>左（右）手规则</strong>。</p>
-<ul>
-<li>将左（右）手摆出一个“竖起大拇指”的位置，拇指指向旋转轴的正值端</li>
-<li>此时，围绕旋转轴的正向旋转方向就是手指卷曲的方向。</li>
-</ul>
-<p><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.3.3%E5%B7%A6%E6%97%8B%E3%80%81%E5%8F%B3%E6%97%8B%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%BB%E8%BD%B4%E6%97%8B%E8%BD%AC.jpg" alt><br>
-（2）从图中可以看出，在<strong>左手坐标系</strong>中，<strong>正向旋转</strong>从轴的正端看时是<strong>顺时针</strong>旋转的;而在<strong>右手坐标系中，正向旋转是逆时针旋转</strong>的。</p>
-<p><strong>4. 左右手坐标系转换</strong></p>
-<p>交换一个轴的正负端</p>
-<p><strong>5. 左右手坐标系的应用</strong><br>
-一些较新的计算机图形文献使用左手坐标系，而传统的图形文献和更多面向数学的线性代数的研究人员则倾向于使用右手坐标系</p>
-<h2 id="1.3.4-%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E7%9A%84%E9%87%8D%E8%A6%81%E7%BA%A6%E5%AE%9A" tabindex="-1">1.3.4 一些使用的重要约定</h2>
-<ol>
-<li>在设计三维虚拟世界时，必须事先做出几种设计决策，例如左手或右手坐标系、哪个方向是+y等。</li>
-<li><strong><font color="red">这本书后续将使用左手坐标系(+x、+y和+z方向分别指向右、上和前)作为例子讲解，当出现差异时会特别加以指出</font></strong></li>
-</ol>
-<h1 id="1.4-%E4%B8%80%E4%BA%9B%E9%9B%B6%E6%95%A3%E7%9A%84%E7%9F%A5%E8%AF%86" tabindex="-1">1.4 一些零散的知识</h1>
-<h3 id="1.4.1-%E6%B1%82%E5%92%8C%E4%B8%8E%E6%B1%82%E7%A7%AF%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%B3%95" tabindex="-1">1.4.1 求和与求积的表示法</h3>
-<p><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.1%E6%B1%82%E5%92%8C%E8%A1%A8%E7%A4%BA%E6%B3%95.jpg" alt><br>
-<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.1%E6%B1%82%E7%A7%AF%E8%A1%A8%E7%A4%BA%E6%B3%95.jpg" alt></p>
-<h2 id="1.4.2-%E5%8C%BA%E9%97%B4%E7%AC%A6%E5%8F%B7" tabindex="-1">1.4.2 区间符号</h2>
-<ul>
-<li><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[a,b]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">b</span><span class="mclose">]</span></span></span></span></eq> 表示 “所有满足<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>≤</mo><mi>x</mi><mo>≤</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a≤x≤b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span></eq>的数字<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span></eq>” ,是一个闭区间，包含a,b</li>
-<li><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(a,b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span></span></span></span></eq> 表示 “所有满足<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>&lt;</mo><mi>x</mi><mo>&lt;</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a&lt;x&lt;b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span></eq>的数字<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span></eq>” ,是一个开区间，不包含a,b</li>
-<li><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">(a,b]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">b</span><span class="mclose">]</span></span></span></span></eq> 与<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">[a,b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span></span></span></span></eq> 表示半开区间</li>
-</ul>
-<h2 id="1.4.3-%E8%A7%92%E5%BA%A6%E3%80%81%E5%BA%A6%E6%95%B0%E5%92%8C%E5%BC%A7%E5%BA%A6" tabindex="-1">1.4.3 角度、度数和弧度</h2>
-<p>（1）角度可以测量平面中的旋转量。表示角度的变量通常被赋予希腊字母<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span></span></span></eq>。用于指定角度的最重要的度量单位是<strong>度( °）和弧度（rad）</strong>。</p>
-<p>（2）人类通常使用度（Degree）数来测量角度。<strong>一度表示旋转1/360，因此360°代表旋转完整的一圈</strong>。然而，数学家更喜欢以弧度为单位测量角度，<strong>弧度是基于圆的属性的度量单位</strong>。当以弧度指定两条线之间的角度时，<strong>实际上是测量单位圆(以半径为1的原点为中心的圆）的截取弧的长度</strong></p>
-<p>（3）弧度和度数的转换<br>
-<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.1%E5%BC%A7%E5%BA%A6%E5%92%8C%E8%A7%92%E5%BA%A6%E7%9A%84%E8%BD%AC%E6%8D%A2.jpg" alt></p>
-<h2 id="1.4.4-%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0" tabindex="-1">1.4.4 三角函数</h2>
-<p>（1） 正弦<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mi>o</mi><mi>s</mi><mi>θ</mi></mrow><annotation encoding="application/x-tex">cos\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">cos</span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span></span></span></eq>、余弦<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>i</mi><mi>n</mi><mi>θ</mi></mrow><annotation encoding="application/x-tex">sin\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">in</span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span></span></span></eq></p>
-<ul>
-<li>在坐标中也有特殊的意义， <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mi>o</mi><mi>s</mi><mi>θ</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">cos\theta = x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">cos</span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span></eq> ,<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>i</mi><mi>n</mi><mi>θ</mi><mo>=</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">sin\theta = y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">in</span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></eq></li>
-</ul>
-<p>（2）割线(secant)、余割（cosecant）、切线（tangent）和余切（cotangent）也是有用的三角函数。<br>
-<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.4%20%E5%89%B2%E7%BA%BF%E3%80%81%E4%BD%99%E5%89%B2%E3%80%81%E5%88%87%E7%BA%BF%E5%92%8C%E4%BD%99%E5%88%87.jpg" alt></p>
-<p>（3） 勾股与三角函数的对应关系<br>
-在术语中，勾被称为邻边(Adjacent)，长度为x;股被称为对边(Opposite),长度为y。它们都是相对于角度0进行解释的。同样，在这里字母顺序也是一个有用的记忆辅助手段——Adjacent和 Opposite 的顺序与相应的cosine和 sine 的顺序是相同的。弦则被称为斜边（Hypotenuse)，而缩写词 <strong>hyp、adj和 opp则分别指的是斜边、邻边和对边的长度</strong>，如图所示。<br>
-<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.4%20%E5%8B%BE%E8%82%A1%E4%B8%8E%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0.jpg" alt></p>
-<ul>
-<li>当<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span></span></span></eq>为钝角时，上述等式不太适用，因为不能形成具有钝角内角的直角三角形。但是，通过在标准位置显示角度并允许旋转的线条为任何长度r，可以使用x、y和r表示以下对比关系。<br>
-<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.4%20%E5%8B%BE%E8%82%A1%E4%B8%8E%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0_%E8%A7%92%E5%BA%A6%E4%B8%BA%E9%92%9D%E8%A7%92%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt><br>
-<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.4%20%E5%8B%BE%E8%82%A1%E4%B8%8E%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0_%E8%A7%92%E5%BA%A6%E4%B8%BA%E9%92%9D%E8%A7%92.jpg" alt></li>
-</ul>
-<p><strong>（4）常见角度的度数和弧度值，以及相应的三角函数的值</strong>⭐<br>
-<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.4%20%E5%B8%B8%E8%A7%81%E8%A7%92%E5%BA%A6%E7%9A%84%E5%BA%A6%E6%95%B0%E5%92%8C%E5%BC%A7%E5%BA%A6%E5%80%BC%E4%BB%A5%E5%8F%8A%E7%9B%B8%E5%BA%94%E7%9A%84%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E7%9A%84%E5%80%BC.jpg" alt><br>
-<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.4%20%E5%B8%B8%E8%A7%81%E8%A7%92%E5%BA%A6%E7%9A%84%E5%BA%A6%E6%95%B0%E5%92%8C%E5%BC%A7%E5%BA%A6%E5%80%BC%E4%BB%A5%E5%8F%8A%E7%9B%B8%E5%BA%94%E7%9A%84%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E7%9A%84%E5%80%BC1.jpg" alt></p>
-<h2 id="1.4.5-%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F-%E2%AD%90" tabindex="-1">1.4.5 三角函数恒等式 ⭐</h2>
-<p>（1）基本恒等式（可基于单位圆的对称性推导出）<br>
-<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.5%20%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F.jpg" alt></p>
-<p>（2）毕达哥拉斯恒等式<br>
-<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.5%20%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F_%E6%AF%95%E8%BE%BE%E5%93%A5%E6%8B%89%E6%96%AF%E6%81%92%E7%AD%89%E5%BC%8F.jpg" alt></p>
-<p>（3）和差公式<br>
-<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.5%20%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F_%E5%92%8C%E5%B7%AE%E5%85%AC%E5%BC%8F.jpg" alt></p>
-<p>（4）等腰三角形恒等式（和差公式的特殊情况）<br>
-<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.5%20%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F_%E7%AD%89%E8%85%B0%E4%B8%89%E8%A7%92%E5%BD%A2%E6%81%92%E7%AD%89%E5%BC%8F.jpg" alt></p>
-<p>（5）正弦定理与余弦定理<br>
-<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.5%20%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F_%E6%AD%A3%E5%BC%A6%E5%AE%9A%E7%90%86%E4%B8%8E%E4%BD%99%E5%BC%A6%E5%AE%9A%E7%90%86.jpg" alt></p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>3D数学基础</category>
-      </categories>
-      <tags>
-        <tag>3D数学基础</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>3D数学基础-图形和游戏开发-学习笔记 第三章 多个坐标空间</title>
     <url>/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/</url>
     <content><![CDATA[<p>开发人员会为特定的理由构建坐标空间（有经验的老手可能会告诉你说“在不同的情况下需要不同的空间”）。</p>
@@ -1107,6 +974,139 @@ clone该仓库到本地（clone的是hexo默认分支）</li>
 分解为这样的层次结构的模型有时被称为关节模型(Articulated Model)。</li>
 </ol>
 <h1 id="3.5-%E9%92%88%E5%AF%B9%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4%E7%9A%84%E5%86%8D%E8%A7%A3%E9%87%8A" tabindex="-1">3.5 针对直立空间的再解释</h1>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>3D数学基础</category>
+      </categories>
+      <tags>
+        <tag>3D数学基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3D数学基础-图形和游戏开发-学习笔记 第一章 笛卡尔坐标系</title>
+    <url>/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/</url>
+    <content><![CDATA[<p>选择性的记录内容，学习笔记</p>
+<span id="more"></span>
+<h1 id="%E7%9B%AE%E5%BD%95" tabindex="-1">目录</h1>
+<ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#11-%E4%B8%80%E7%BB%B4%E6%95%B0%E5%AD%A6">1.1 一维数学</a></li>
+<li><a href="#12-%E4%BA%8C%E7%BB%B4%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A9%BA%E9%97%B4">1.2 二维笛卡尔空间</a>
+<ul>
+<li><a href="#122-%E4%BB%BB%E6%84%8F%E4%BA%8C%E7%BB%B4%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4">1.2.2 任意二维坐标空间</a></li>
+<li><a href="#123-%E4%BD%BF%E7%94%A8%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E6%8C%87%E5%AE%9A%E4%BA%8C%E7%BB%B4%E4%B8%AD%E7%9A%84%E4%BD%8D%E7%BD%AE">1.2.3 使用笛卡尔坐标指定二维中的位置</a></li>
+</ul>
+</li>
+<li><a href="#13-%E4%B8%89%E7%BB%B4%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A9%BA%E9%97%B4">1.3 三维笛卡尔空间</a>
+<ul>
+<li><a href="#131-%E6%96%B0%E5%A2%9E%E7%BB%B4%E5%BA%A6%E5%92%8C%E8%BD%B4">1.3.1 新增维度和轴</a></li>
+<li><a href="#132-%E5%9C%A8%E4%B8%89%E7%BB%B4%E4%B8%AD%E5%88%B6%E5%8A%A8%E4%BD%8D%E7%BD%AE">1.3.2 在三维中制动位置</a></li>
+<li><a href="#133-%E5%B7%A6%E6%89%8B%E4%B8%8E%E5%8F%B3%E6%89%8B%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4">1.3.3 左手与右手坐标空间</a></li>
+<li><a href="#134-%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E7%9A%84%E9%87%8D%E8%A6%81%E7%BA%A6%E5%AE%9A">1.3.4 一些使用的重要约定</a></li>
+</ul>
+</li>
+<li><a href="#14-%E4%B8%80%E4%BA%9B%E9%9B%B6%E6%95%A3%E7%9A%84%E7%9F%A5%E8%AF%86">1.4 一些零散的知识</a>
+<ul>
+<li><a href="#141-%E6%B1%82%E5%92%8C%E4%B8%8E%E6%B1%82%E7%A7%AF%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%B3%95">1.4.1 求和与求积的表示法</a></li>
+<li><a href="#142-%E5%8C%BA%E9%97%B4%E7%AC%A6%E5%8F%B7">1.4.2 区间符号</a></li>
+<li><a href="#143-%E8%A7%92%E5%BA%A6%E5%BA%A6%E6%95%B0%E5%92%8C%E5%BC%A7%E5%BA%A6">1.4.3 角度、度数和弧度</a></li>
+<li><a href="#144-%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0">1.4.4 三角函数</a></li>
+<li><a href="#145-%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F-">1.4.5 三角函数恒等式 ⭐</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="1.1-%E4%B8%80%E7%BB%B4%E6%95%B0%E5%AD%A6" tabindex="-1">1.1 一维数学</h1>
+<h1 id="1.2-%E4%BA%8C%E7%BB%B4%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A9%BA%E9%97%B4" tabindex="-1">1.2 二维笛卡尔空间</h1>
+<h2 id="1.2.2-%E4%BB%BB%E6%84%8F%E4%BA%8C%E7%BB%B4%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">1.2.2 任意二维坐标空间</h2>
+<p>原点、x轴、y轴</p>
+<h2 id="1.2.3-%E4%BD%BF%E7%94%A8%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E6%8C%87%E5%AE%9A%E4%BA%8C%E7%BB%B4%E4%B8%AD%E7%9A%84%E4%BD%8D%E7%BD%AE" tabindex="-1">1.2.3 使用笛卡尔坐标指定二维中的位置</h2>
+<p>坐标点表示为(x,y)</p>
+<h1 id="1.3-%E4%B8%89%E7%BB%B4%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A9%BA%E9%97%B4" tabindex="-1">1.3 三维笛卡尔空间</h1>
+<h2 id="1.3.1-%E6%96%B0%E5%A2%9E%E7%BB%B4%E5%BA%A6%E5%92%8C%E8%BD%B4" tabindex="-1">1.3.1 新增维度和轴</h2>
+<p>新增z轴</p>
+<h2 id="1.3.2-%E5%9C%A8%E4%B8%89%E7%BB%B4%E4%B8%AD%E5%88%B6%E5%8A%A8%E4%BD%8D%E7%BD%AE" tabindex="-1">1.3.2 在三维中制动位置</h2>
+<p>坐标点表示为(x,y,z)</p>
+<h2 id="1.3.3-%E5%B7%A6%E6%89%8B%E4%B8%8E%E5%8F%B3%E6%89%8B%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4" tabindex="-1">1.3.3 左手与右手坐标空间</h2>
+<p><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.3.3%E5%B7%A6%E6%89%8B%E4%B8%8E%E5%8F%B3%E6%89%8B%E5%9D%90%E6%A0%87%E7%B3%BB.jpg" alt></p>
+<p><strong>1. 左手坐标系</strong></p>
+<ul>
+<li>伸出左手，用拇指和食指做出一个L形</li>
+<li>拇指指向你的右边，食指朝上</li>
+<li>现在伸展你的第三根手指（中指），使它直接指向前方</li>
+</ul>
+<p>这样你就形成了一个<strong>左手坐标系</strong>。你的拇指、食指和第三根（中指）手指分别指向+x、+y和+z方向。</p>
+<p><strong>2. 右手坐标系</strong></p>
+<ul>
+<li>伸出有手，用拇指和食指做出一个L形</li>
+<li>拇指指向你的左边，食指朝上</li>
+<li>现在伸展你的第三根手指（中指），使它直接指向前方<br>
+这样你就形成了一个<strong>右手坐标系</strong>。你的拇指、食指和第三根（中指）手指分别指向+x、+y和+z方向。</li>
+</ul>
+<p><strong>3. 左旋、右旋坐标系</strong><br>
+<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.3.3%E5%B7%A6%E6%97%8B%E3%80%81%E5%8F%B3%E6%97%8B%E5%9D%90%E6%A0%87%E7%B3%BB.jpg" alt><br>
+左旋和右旋坐标系在“正旋转”的定义上也有所不同。假设在空间中有一条直线，需要围绕这条直线旋转指定的角度。我们将此线称为旋转轴(Axis of Rotation)。<br>
+（1） 左（右）手规则。在左（右）手坐标系中，告知哪一个方向是旋转正方向的，哪一个方向是旋转负方向的标准方法称为<strong>左（右）手规则</strong>。</p>
+<ul>
+<li>将左（右）手摆出一个“竖起大拇指”的位置，拇指指向旋转轴的正值端</li>
+<li>此时，围绕旋转轴的正向旋转方向就是手指卷曲的方向。</li>
+</ul>
+<p><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.3.3%E5%B7%A6%E6%97%8B%E3%80%81%E5%8F%B3%E6%97%8B%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%BB%E8%BD%B4%E6%97%8B%E8%BD%AC.jpg" alt><br>
+（2）从图中可以看出，在<strong>左手坐标系</strong>中，<strong>正向旋转</strong>从轴的正端看时是<strong>顺时针</strong>旋转的;而在<strong>右手坐标系中，正向旋转是逆时针旋转</strong>的。</p>
+<p><strong>4. 左右手坐标系转换</strong></p>
+<p>交换一个轴的正负端</p>
+<p><strong>5. 左右手坐标系的应用</strong><br>
+一些较新的计算机图形文献使用左手坐标系，而传统的图形文献和更多面向数学的线性代数的研究人员则倾向于使用右手坐标系</p>
+<h2 id="1.3.4-%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E7%9A%84%E9%87%8D%E8%A6%81%E7%BA%A6%E5%AE%9A" tabindex="-1">1.3.4 一些使用的重要约定</h2>
+<ol>
+<li>在设计三维虚拟世界时，必须事先做出几种设计决策，例如左手或右手坐标系、哪个方向是+y等。</li>
+<li><strong><font color="red">这本书后续将使用左手坐标系(+x、+y和+z方向分别指向右、上和前)作为例子讲解，当出现差异时会特别加以指出</font></strong></li>
+</ol>
+<h1 id="1.4-%E4%B8%80%E4%BA%9B%E9%9B%B6%E6%95%A3%E7%9A%84%E7%9F%A5%E8%AF%86" tabindex="-1">1.4 一些零散的知识</h1>
+<h3 id="1.4.1-%E6%B1%82%E5%92%8C%E4%B8%8E%E6%B1%82%E7%A7%AF%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%B3%95" tabindex="-1">1.4.1 求和与求积的表示法</h3>
+<p><img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.1%E6%B1%82%E5%92%8C%E8%A1%A8%E7%A4%BA%E6%B3%95.jpg" alt><br>
+<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.1%E6%B1%82%E7%A7%AF%E8%A1%A8%E7%A4%BA%E6%B3%95.jpg" alt></p>
+<h2 id="1.4.2-%E5%8C%BA%E9%97%B4%E7%AC%A6%E5%8F%B7" tabindex="-1">1.4.2 区间符号</h2>
+<ul>
+<li><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[a,b]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">b</span><span class="mclose">]</span></span></span></span></eq> 表示 “所有满足<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>≤</mo><mi>x</mi><mo>≤</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a≤x≤b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span></eq>的数字<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span></eq>” ,是一个闭区间，包含a,b</li>
+<li><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(a,b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span></span></span></span></eq> 表示 “所有满足<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>&lt;</mo><mi>x</mi><mo>&lt;</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a&lt;x&lt;b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span></eq>的数字<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span></eq>” ,是一个开区间，不包含a,b</li>
+<li><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">(a,b]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">b</span><span class="mclose">]</span></span></span></span></eq> 与<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">[a,b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span></span></span></span></eq> 表示半开区间</li>
+</ul>
+<h2 id="1.4.3-%E8%A7%92%E5%BA%A6%E3%80%81%E5%BA%A6%E6%95%B0%E5%92%8C%E5%BC%A7%E5%BA%A6" tabindex="-1">1.4.3 角度、度数和弧度</h2>
+<p>（1）角度可以测量平面中的旋转量。表示角度的变量通常被赋予希腊字母<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span></span></span></eq>。用于指定角度的最重要的度量单位是<strong>度( °）和弧度（rad）</strong>。</p>
+<p>（2）人类通常使用度（Degree）数来测量角度。<strong>一度表示旋转1/360，因此360°代表旋转完整的一圈</strong>。然而，数学家更喜欢以弧度为单位测量角度，<strong>弧度是基于圆的属性的度量单位</strong>。当以弧度指定两条线之间的角度时，<strong>实际上是测量单位圆(以半径为1的原点为中心的圆）的截取弧的长度</strong></p>
+<p>（3）弧度和度数的转换<br>
+<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.1%E5%BC%A7%E5%BA%A6%E5%92%8C%E8%A7%92%E5%BA%A6%E7%9A%84%E8%BD%AC%E6%8D%A2.jpg" alt></p>
+<h2 id="1.4.4-%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0" tabindex="-1">1.4.4 三角函数</h2>
+<p>（1） 正弦<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mi>o</mi><mi>s</mi><mi>θ</mi></mrow><annotation encoding="application/x-tex">cos\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">cos</span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span></span></span></eq>、余弦<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>i</mi><mi>n</mi><mi>θ</mi></mrow><annotation encoding="application/x-tex">sin\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">in</span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span></span></span></eq></p>
+<ul>
+<li>在坐标中也有特殊的意义， <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mi>o</mi><mi>s</mi><mi>θ</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">cos\theta = x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">cos</span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span></eq> ,<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>i</mi><mi>n</mi><mi>θ</mi><mo>=</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">sin\theta = y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">in</span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></eq></li>
+</ul>
+<p>（2）割线(secant)、余割（cosecant）、切线（tangent）和余切（cotangent）也是有用的三角函数。<br>
+<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.4%20%E5%89%B2%E7%BA%BF%E3%80%81%E4%BD%99%E5%89%B2%E3%80%81%E5%88%87%E7%BA%BF%E5%92%8C%E4%BD%99%E5%88%87.jpg" alt></p>
+<p>（3） 勾股与三角函数的对应关系<br>
+在术语中，勾被称为邻边(Adjacent)，长度为x;股被称为对边(Opposite),长度为y。它们都是相对于角度0进行解释的。同样，在这里字母顺序也是一个有用的记忆辅助手段——Adjacent和 Opposite 的顺序与相应的cosine和 sine 的顺序是相同的。弦则被称为斜边（Hypotenuse)，而缩写词 <strong>hyp、adj和 opp则分别指的是斜边、邻边和对边的长度</strong>，如图所示。<br>
+<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.4%20%E5%8B%BE%E8%82%A1%E4%B8%8E%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0.jpg" alt></p>
+<ul>
+<li>当<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span></span></span></eq>为钝角时，上述等式不太适用，因为不能形成具有钝角内角的直角三角形。但是，通过在标准位置显示角度并允许旋转的线条为任何长度r，可以使用x、y和r表示以下对比关系。<br>
+<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.4%20%E5%8B%BE%E8%82%A1%E4%B8%8E%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0_%E8%A7%92%E5%BA%A6%E4%B8%BA%E9%92%9D%E8%A7%92%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt><br>
+<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.4%20%E5%8B%BE%E8%82%A1%E4%B8%8E%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0_%E8%A7%92%E5%BA%A6%E4%B8%BA%E9%92%9D%E8%A7%92.jpg" alt></li>
+</ul>
+<p><strong>（4）常见角度的度数和弧度值，以及相应的三角函数的值</strong>⭐<br>
+<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.4%20%E5%B8%B8%E8%A7%81%E8%A7%92%E5%BA%A6%E7%9A%84%E5%BA%A6%E6%95%B0%E5%92%8C%E5%BC%A7%E5%BA%A6%E5%80%BC%E4%BB%A5%E5%8F%8A%E7%9B%B8%E5%BA%94%E7%9A%84%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E7%9A%84%E5%80%BC.jpg" alt><br>
+<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.4%20%E5%B8%B8%E8%A7%81%E8%A7%92%E5%BA%A6%E7%9A%84%E5%BA%A6%E6%95%B0%E5%92%8C%E5%BC%A7%E5%BA%A6%E5%80%BC%E4%BB%A5%E5%8F%8A%E7%9B%B8%E5%BA%94%E7%9A%84%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E7%9A%84%E5%80%BC1.jpg" alt></p>
+<h2 id="1.4.5-%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F-%E2%AD%90" tabindex="-1">1.4.5 三角函数恒等式 ⭐</h2>
+<p>（1）基本恒等式（可基于单位圆的对称性推导出）<br>
+<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.5%20%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F.jpg" alt></p>
+<p>（2）毕达哥拉斯恒等式<br>
+<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.5%20%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F_%E6%AF%95%E8%BE%BE%E5%93%A5%E6%8B%89%E6%96%AF%E6%81%92%E7%AD%89%E5%BC%8F.jpg" alt></p>
+<p>（3）和差公式<br>
+<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.5%20%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F_%E5%92%8C%E5%B7%AE%E5%85%AC%E5%BC%8F.jpg" alt></p>
+<p>（4）等腰三角形恒等式（和差公式的特殊情况）<br>
+<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.5%20%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F_%E7%AD%89%E8%85%B0%E4%B8%89%E8%A7%92%E5%BD%A2%E6%81%92%E7%AD%89%E5%BC%8F.jpg" alt></p>
+<p>（5）正弦定理与余弦定理<br>
+<img src="/2024/09/20/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/1.4.5%20%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F_%E6%AD%A3%E5%BC%A6%E5%AE%9A%E7%90%86%E4%B8%8E%E4%BD%99%E5%BC%A6%E5%AE%9A%E7%90%86.jpg" alt></p>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
@@ -1439,6 +1439,57 @@ F^{-1}(F(a)) = F(F^{-1}(a))=a
 <p>下表5.1总结了各种类型的变换。在此表中，<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">Y</mi></mrow><annotation encoding="application/x-tex">\bold{Y}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf" style="margin-right:0.02875em;">Y</span></span></span></span></eq>表示该行中的的变换始终具有与该列关联的属性。没有<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">Y</mi></mrow><annotation encoding="application/x-tex">\bold{Y}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf" style="margin-right:0.02875em;">Y</span></span></span></span></eq>并不意味着“永远不”关联；相反，它意意味着&quot;并不总是&quot;关联<br>
 <img src="/2025/02/17/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%9F%A9%E9%98%B5%E5%92%8C%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2/5.7.7%20%E5%8F%98%E6%8D%A2%E7%9A%84%E7%B1%BB%E5%9E%8B1.png" alt><br>
 <img src="/2025/02/17/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%9F%A9%E9%98%B5%E5%92%8C%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2/5.7.7%20%E5%8F%98%E6%8D%A2%E7%9A%84%E7%B1%BB%E5%9E%8B2.png" alt></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>3D数学基础</category>
+      </categories>
+      <tags>
+        <tag>3D数学基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3D数学基础-图形和游戏开发-学习笔记 第六章 矩阵详解</title>
+    <url>/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<p>之前第4章介绍了矩阵的大部分重要属性和操作,并讨论了如何使用矩阵来表示一般的几何变换。第5章详细讨论了矩阵和几何变换。本章将通过讨论一些更有趣和有用的矩阵运算来结束矩阵主题。</p>
+<span id="more"></span>
+<ul>
+<li>第6.1节将介绍矩阵的行列式。</li>
+<li>第6.2节将解释矩阵的逆矩阵。</li>
+<li>第6.3节将讨论正交矩阵。</li>
+<li>第6.4节将介绍齐次矢量和4×4矩阵,并演示如何将它们应用于三维中执行仿射变换。</li>
+<li>第6.5节将讨论透视投影,并展示如何使用4x4矩阵进行透视投影。</li>
+</ul>
+<h1 id="6.1-%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F" tabindex="-1">6.1 矩阵行列式</h1>
+<p>对于方形矩阵,有一个特殊的标量称为矩阵的行列式(Determinant)。行列式在线性代数中有许多有用的属性,在几何中也有一些有趣的解释。<br>
+按照习惯,我们将首先讨论一些数学,然后做一些几何解释；第6.1.1节将介绍行列式的符号，并给出用于计算2×2或3×3矩阵的行列式的线性代数规则；第6.1.2节将讨论子矩阵行列式(Minor)和余子式(Cofactor)；第6.1.3节节将展示如何使用子矩阵和余子式计算任意nxn矩阵的行列式；第6.1.4节将从几何角度解释行列式。</p>
+<h2 id="6.1.1-%E5%85%B3%E4%BA%8E2%C3%972%E5%92%8C3%C3%973%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F" tabindex="-1">6.1.1 关于2×2和3×3的行列式</h2>
+<ol>
+<li>方形矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">M</mi></mrow><annotation encoding="application/x-tex">\bold{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">M</span></span></span></span></eq>的行列式表示为<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><mi mathvariant="bold">M</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">|\bold{M}|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathbf">M</span><span class="mord">∣</span></span></span></span></eq>,有些图书也将它表示为&quot;det <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">M</mi></mrow><annotation encoding="application/x-tex">\bold{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">M</span></span></span></span></eq>&quot;。非方形矩阵的行列式是未定义的。本节将介绍如何计算2×2和3×3矩阵的行列式。第6.1.3节将讨论相当复杂的一般性<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n\times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></eq>矩阵的行列式。</li>
+</ol>
+<ul>
+<li><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">2</mn><mo>×</mo><mn mathvariant="bold">2</mn></mrow><annotation encoding="application/x-tex">\bold{2}\times \bold{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord mathbf">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord mathbf">2</span></span></span></span></eq>的行列式由下式给出：<br>
+<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%202x2%E7%9F%A9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F.png" alt><br>
+（当编写矩阵的行列式时，将使用垂直线代替括号）
+<ul>
+<li>使用下面的示意图可以更容易地记住式(6.1)。只需沿对角线和反对角线分别让元素相乘,然后使用对角线元素相乘的结果减去反对角线元无素相乘的结果即可。<br>
+<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.1.1%202x2%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97.png" alt></li>
+</ul>
+</li>
+<li><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">3</mn><mo>×</mo><mn mathvariant="bold">3</mn></mrow><annotation encoding="application/x-tex">\bold{3}\times \bold{3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord mathbf">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord mathbf">3</span></span></span></span></eq>的行列式由下式给出：<br>
+<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%203x3%E7%9F%A9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F.png" alt>
+<ul>
+<li>我们可以通过一个类似的示意图来帮助记忆式(6.2)。先并排编写矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">M</mi></mrow><annotation encoding="application/x-tex">\bold{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">M</span></span></span></span></eq>的两个副本,然后沿对角线和反对角线分别让元素相乘,最后使用对角线元素相乘的结果的和减去反对角线元素相乘的结果即可。<br>
+<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%203x3%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97.png" alt></li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>如果将<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">3</mn><mo>×</mo><mn mathvariant="bold">3</mn></mrow><annotation encoding="application/x-tex">\bold{3}\times \bold{3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord mathbf">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord mathbf">3</span></span></span></span></eq>矩阵的行解释为3个矢量,那么该矩阵的行列式就等价于3个矢量的所谓三重积(TripleProduct),具体如下:<br>
+<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%203x3%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F%E4%B8%8E%E4%B8%89%E7%BB%B4%E7%9F%A2%E9%87%8F%E4%B8%89%E9%87%8D%E7%A7%AF.png" alt></li>
+</ol>
+<h2 id="6.1.2-%E5%AD%90%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F%E5%92%8C%E4%BD%99%E5%AD%90%E5%BC%8F" tabindex="-1">6.1.2 子矩阵行列式和余子式</h2>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
@@ -1838,57 +1889,6 @@ c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></spa
 </ol>
 <h2 id="2.13-%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F" tabindex="-1">2.13 线性代数恒等式</h2>
 <p><img src="/2024/09/21/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9F%A2%E9%87%8F/2.13%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F.jpg" alt></p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>3D数学基础</category>
-      </categories>
-      <tags>
-        <tag>3D数学基础</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>3D数学基础-图形和游戏开发-学习笔记 第六章 矩阵详解</title>
-    <url>/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<p>之前第4章介绍了矩阵的大部分重要属性和操作,并讨论了如何使用矩阵来表示一般的几何变换。第5章详细讨论了矩阵和几何变换。本章将通过讨论一些更有趣和有用的矩阵运算来结束矩阵主题。</p>
-<span id="more"></span>
-<ul>
-<li>第6.1节将介绍矩阵的行列式。</li>
-<li>第6.2节将解释矩阵的逆矩阵。</li>
-<li>第6.3节将讨论正交矩阵。</li>
-<li>第6.4节将介绍齐次矢量和4×4矩阵,并演示如何将它们应用于三维中执行仿射变换。</li>
-<li>第6.5节将讨论透视投影,并展示如何使用4x4矩阵进行透视投影。</li>
-</ul>
-<h1 id="6.1-%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F" tabindex="-1">6.1 矩阵行列式</h1>
-<p>对于方形矩阵,有一个特殊的标量称为矩阵的行列式(Determinant)。行列式在线性代数中有许多有用的属性,在几何中也有一些有趣的解释。<br>
-按照习惯,我们将首先讨论一些数学,然后做一些几何解释；第6.1.1节将介绍行列式的符号，并给出用于计算2×2或3×3矩阵的行列式的线性代数规则；第6.1.2节将讨论子矩阵行列式(Minor)和余子式(Cofactor)；第6.1.3节节将展示如何使用子矩阵和余子式计算任意nxn矩阵的行列式；第6.1.4节将从几何角度解释行列式。</p>
-<h2 id="6.1.1-%E5%85%B3%E4%BA%8E2%C3%972%E5%92%8C3%C3%973%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F" tabindex="-1">6.1.1 关于2×2和3×3的行列式</h2>
-<ol>
-<li>方形矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">M</mi></mrow><annotation encoding="application/x-tex">\bold{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">M</span></span></span></span></eq>的行列式表示为<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><mi mathvariant="bold">M</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">|\bold{M}|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathbf">M</span><span class="mord">∣</span></span></span></span></eq>,有些图书也将它表示为&quot;det <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">M</mi></mrow><annotation encoding="application/x-tex">\bold{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">M</span></span></span></span></eq>&quot;。非方形矩阵的行列式是未定义的。本节将介绍如何计算2×2和3×3矩阵的行列式。第6.1.3节将讨论相当复杂的一般性<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n\times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></eq>矩阵的行列式。</li>
-</ol>
-<ul>
-<li><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">2</mn><mo>×</mo><mn mathvariant="bold">2</mn></mrow><annotation encoding="application/x-tex">\bold{2}\times \bold{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord mathbf">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord mathbf">2</span></span></span></span></eq>的行列式由下式给出：<br>
-<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%202x2%E7%9F%A9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F.png" alt><br>
-（当编写矩阵的行列式时，将使用垂直线代替括号）
-<ul>
-<li>使用下面的示意图可以更容易地记住式(6.1)。只需沿对角线和反对角线分别让元素相乘,然后使用对角线元素相乘的结果减去反对角线元无素相乘的结果即可。<br>
-<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.1.1%202x2%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97.png" alt></li>
-</ul>
-</li>
-<li><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">3</mn><mo>×</mo><mn mathvariant="bold">3</mn></mrow><annotation encoding="application/x-tex">\bold{3}\times \bold{3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord mathbf">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord mathbf">3</span></span></span></span></eq>的行列式由下式给出：<br>
-<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%203x3%E7%9F%A9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F.png" alt>
-<ul>
-<li>我们可以通过一个类似的示意图来帮助记忆式(6.2)。先并排编写矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">M</mi></mrow><annotation encoding="application/x-tex">\bold{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">M</span></span></span></span></eq>的两个副本,然后沿对角线和反对角线分别让元素相乘,最后使用对角线元素相乘的结果的和减去反对角线元素相乘的结果即可。<br>
-<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%203x3%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97.png" alt></li>
-</ul>
-</li>
-</ul>
-<ol start="3">
-<li>如果将<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">3</mn><mo>×</mo><mn mathvariant="bold">3</mn></mrow><annotation encoding="application/x-tex">\bold{3}\times \bold{3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord mathbf">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord mathbf">3</span></span></span></span></eq>矩阵的行解释为3个矢量,那么该矩阵的行列式就等价于3个矢量的所谓三重积(TripleProduct),具体如下:<br>
-<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%203x3%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F%E4%B8%8E%E4%B8%89%E7%BB%B4%E7%9F%A2%E9%87%8F%E4%B8%89%E9%87%8D%E7%A7%AF.png" alt></li>
-</ol>
-<h2 id="6.1.2-%E5%AD%90%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F%E5%92%8C%E4%BD%99%E5%AD%90%E5%BC%8F" tabindex="-1">6.1.2 子矩阵行列式和余子式</h2>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
@@ -2312,6 +2312,90 @@ M347 1759 V0 H263 V1759 v0 v1759 h84z"/></svg></span></span></span><span class="
       </categories>
       <tags>
         <tag>热更新相关</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo文章多了如何管理</title>
+    <url>/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<p>每次通过hexo new ‘xxx’创建新的博文时，都会将生成的.md文件放置在_post文件夹下，随着文章数的增多，_post文件夹也会越来越混乱。</p>
+<span id="more"></span>
+<p>可以通过配置全局配置文件_config.yml来依据年月进行分配，在文件中查找new_post_name:并修改为</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">new_post_name:</span> <span class="string">:year/:month/:title.md</span></span><br></pre></td></tr></table></figure>
+<p>修改后，每次创建的文章将会以生成的年月进行管理。</p>
+<ul>
+<li>如果想直接进行分类创建，可以选择采用如下命令进行创建。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new post -p /文件夹名/文件名.md</span><br></pre></td></tr></table></figure>
+<p>如执行如下命令后<br>
+<img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E5%91%BD%E4%BB%A4.jpg" alt><br>
+文章将会被创建在QFramework中<br>
+<img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.jpg" alt><br>
+<img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%841.jpg" alt></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>hexo博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo博客搭建</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第一章-GUI概述</title>
+    <url>/2025/03/31/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UI%E7%B3%BB%E7%BB%9F%E4%B9%8BGUI-%E4%B8%80-GUI%E6%A6%82%E8%BF%B0/</url>
+    <content><![CDATA[<p>学习 Unity中的UI系统之GUI部分</p>
+<span id="more"></span>
+<h1 id="%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFui%E7%B3%BB%E7%BB%9F" tabindex="-1">一、什么是UI系统</h1>
+<ul>
+<li>Ul是User Interface(用户界面)的简称</li>
+<li>用户界面就是游戏中的登录，注册，背包，人物等等功能面板，游戏中最多的逻辑功能就是和UI相关的功能</li>
+<li>Unity中的UI系统可以理解为：Unity提供给我们制作UI功能的手段</li>
+</ul>
+<h1 id="%E4%BA%8C%E3%80%81ui%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7" tabindex="-1">二、UI系统的重要性</h1>
+<p>UI是游戏中最重要的部分，不管是2D游戏还是3D游戏，几乎所有游戏功能都和UI有关系，所以它是极其重要的。UI开发几乎会伴随你的整个游戏开发生涯</p>
+<h1 id="%E4%B8%89%E3%80%81ui%E7%9A%84%E9%87%8D%E8%A6%81%E5%86%85%E5%AE%B9" tabindex="-1">三、UI的重要内容</h1>
+<ul>
+<li>基本控件使用</li>
+<li>复合控件使用</li>
+<li>对GUI进行封装，让其使用更方便。</li>
+</ul>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>Unity学习笔记</category>
+      </categories>
+      <tags>
+        <tag>UI系统之GUI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GUI的工作原理和主要作用</title>
+    <url>/2025/03/31/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UI%E7%B3%BB%E7%BB%9F%E4%B9%8BGUI-%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%92%8C%E4%B8%BB%E8%A6%81%E4%BD%9C%E7%94%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>Unity学习笔记</category>
+      </categories>
+      <tags>
+        <tag>UI系统之GUI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity编辑器拓展（七）-Inspector窗口拓展</title>
+    <url>/2025/04/27/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%B8%83-Inspector%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/</url>
+    <content><![CDATA[<p>Inspector窗口拓展相关内容</p>
+<span id="more"></span>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>Unity学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Unity编辑器拓展</tag>
       </tags>
   </entry>
   <entry>
@@ -4465,75 +4549,6 @@ LuaRocks 安装方法：</li>
       </tags>
   </entry>
   <entry>
-    <title>hexo文章多了如何管理</title>
-    <url>/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/</url>
-    <content><![CDATA[<p>每次通过hexo new ‘xxx’创建新的博文时，都会将生成的.md文件放置在_post文件夹下，随着文章数的增多，_post文件夹也会越来越混乱。</p>
-<span id="more"></span>
-<p>可以通过配置全局配置文件_config.yml来依据年月进行分配，在文件中查找new_post_name:并修改为</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">new_post_name:</span> <span class="string">:year/:month/:title.md</span></span><br></pre></td></tr></table></figure>
-<p>修改后，每次创建的文章将会以生成的年月进行管理。</p>
-<ul>
-<li>如果想直接进行分类创建，可以选择采用如下命令进行创建。</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new post -p /文件夹名/文件名.md</span><br></pre></td></tr></table></figure>
-<p>如执行如下命令后<br>
-<img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E5%91%BD%E4%BB%A4.jpg" alt><br>
-文章将会被创建在QFramework中<br>
-<img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.jpg" alt><br>
-<img src="/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%841.jpg" alt></p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>hexo博客搭建</category>
-      </categories>
-      <tags>
-        <tag>hexo博客搭建</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>第一章-GUI概述</title>
-    <url>/2025/03/31/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UI%E7%B3%BB%E7%BB%9F%E4%B9%8BGUI-%E4%B8%80-GUI%E6%A6%82%E8%BF%B0/</url>
-    <content><![CDATA[<p>学习 Unity中的UI系统之GUI部分</p>
-<span id="more"></span>
-<h1 id="%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFui%E7%B3%BB%E7%BB%9F" tabindex="-1">一、什么是UI系统</h1>
-<ul>
-<li>Ul是User Interface(用户界面)的简称</li>
-<li>用户界面就是游戏中的登录，注册，背包，人物等等功能面板，游戏中最多的逻辑功能就是和UI相关的功能</li>
-<li>Unity中的UI系统可以理解为：Unity提供给我们制作UI功能的手段</li>
-</ul>
-<h1 id="%E4%BA%8C%E3%80%81ui%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7" tabindex="-1">二、UI系统的重要性</h1>
-<p>UI是游戏中最重要的部分，不管是2D游戏还是3D游戏，几乎所有游戏功能都和UI有关系，所以它是极其重要的。UI开发几乎会伴随你的整个游戏开发生涯</p>
-<h1 id="%E4%B8%89%E3%80%81ui%E7%9A%84%E9%87%8D%E8%A6%81%E5%86%85%E5%AE%B9" tabindex="-1">三、UI的重要内容</h1>
-<ul>
-<li>基本控件使用</li>
-<li>复合控件使用</li>
-<li>对GUI进行封装，让其使用更方便。</li>
-</ul>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>Unity学习笔记</category>
-      </categories>
-      <tags>
-        <tag>UI系统之GUI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GUI的工作原理和主要作用</title>
-    <url>/2025/03/31/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UI%E7%B3%BB%E7%BB%9F%E4%B9%8BGUI-%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%92%8C%E4%B8%BB%E8%A6%81%E4%BD%9C%E7%94%A8/</url>
-    <content><![CDATA[<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>Unity学习笔记</category>
-      </categories>
-      <tags>
-        <tag>UI系统之GUI</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Unity编辑器拓展（一）-自定义菜单栏拓展</title>
     <url>/2024/12/02/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%B8%80-%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95%E6%A0%8F%E6%8B%93%E5%B1%95/</url>
     <content><![CDATA[<h2 id="%E4%B8%80%E3%80%81-%E7%89%B9%E6%AE%8A%E6%96%87%E4%BB%B6%E5%A4%B9editor" tabindex="-1">一、 特殊文件夹Editor</h2>
@@ -4672,6 +4687,469 @@ LuaRocks 安装方法：</li>
 <li>添加自定义页签 需要用到特性 MenuItem</li>
 <li>添加代码添加页签 需要用到特性 AddComponentMenu</li>
 </ol>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>Unity学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Unity编辑器拓展</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity编辑器拓展（五）-Selection公共类</title>
+    <url>/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/</url>
+    <content><![CDATA[<p>Selection公共类</p>
+<span id="more"></span>
+<ul>
+<li><a href="#%E4%B8%80selection%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88">一、Selection公共类的作用是什么</a>
+<ul>
+<li><a href="#11-selection%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88">1.1 Selection公共类的作用是什么</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8Cselection%E4%B8%AD%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%88%90%E5%91%98">二、Selection中常用静态成员</a>
+<ul>
+<li><a href="#21-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84object">2.1 获取当前选择的Object</a></li>
+<li><a href="#22-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84gameobject">2.2 获取当前选择的GameObject</a></li>
+<li><a href="#23-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84transform">2.3 获取当前选择的Transform</a></li>
+<li><a href="#24-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89object">2.4 获取当前选择的所有Object</a></li>
+<li><a href="#25-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89gameobject">2.5 获取当前选择的所有GameObject</a></li>
+<li><a href="#26-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89transform">2.6 获取当前选择的所有Transform</a></li>
+<li><a href="#27-%E5%89%8D%E9%9D%A26%E4%B8%AD%E6%83%85%E5%86%B5%E4%BD%BF%E7%94%A8">2.7 前面6中情况使用</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89selection%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95">三、Selection常用静态方法</a>
+<ul>
+<li><a href="#31-%E5%88%A4%E6%96%AD%E6%9F%90%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E8%A2%AB%E9%80%89%E4%B8%AD">3.1 判断某个对象是否被选中</a></li>
+<li><a href="#32-%E7%AD%9B%E9%80%89%E5%AF%B9%E8%B1%A1">3.2 筛选对象</a></li>
+<li><a href="#33-%E5%BD%93%E9%80%89%E4%B8%AD%E5%8F%98%E5%8C%96%E6%97%B6%E4%BC%9A%E8%B0%83%E7%94%A8%E7%9A%84%E5%A7%94%E6%89%98">3.3 当选中变化时会调用的委托</a></li>
+<li><a href="#34-%E6%95%88%E6%9E%9C">3.4 效果</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B%E6%80%BB%E7%BB%93">四、总结</a></li>
+</ul>
+<h1 id="%E4%B8%80%E3%80%81selection%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88" tabindex="-1">一、Selection公共类的作用是什么</h1>
+<h2 id="1.1-selection%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88" tabindex="-1">1.1 Selection公共类的作用是什么</h2>
+<ul>
+<li>主要用来获取当前在Unity编辑器中选择的对象</li>
+<li>只能用于编辑器开发中</li>
+</ul>
+<h1 id="%E4%BA%8C%E3%80%81selection%E4%B8%AD%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%88%90%E5%91%98" tabindex="-1">二、Selection中常用静态成员</h1>
+<h2 id="2.1-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84object" tabindex="-1">2.1 获取当前选择的Object</h2>
+<ol>
+<li>作用：</li>
+</ol>
+<ul>
+<li>获取当前在面板上选择的游戏物体Object，未选择则返回Null</li>
+<li>选择多个则返回最后一个选择的游戏物体</li>
+</ul>
+<ol start="2">
+<li>方法</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Selection.activeObject</span><br></pre></td></tr></table></figure>
+<h2 id="2.2-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84gameobject" tabindex="-1">2.2 获取当前选择的GameObject</h2>
+<ol>
+<li>作用：</li>
+</ol>
+<ul>
+<li>获取当前在面板上选择的游戏物体GameObject，未选择则返回Null</li>
+<li>选择多个则返回最后一个选择的游戏物体</li>
+</ul>
+<ol start="2">
+<li>方法</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Selection.activeGameObject</span><br></pre></td></tr></table></figure>
+<h2 id="2.3-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84transform" tabindex="-1">2.3 获取当前选择的Transform</h2>
+<ol>
+<li>作用</li>
+</ol>
+<ul>
+<li>获取当前在面板上选择的游戏物体的Transform，未选择则返回Null</li>
+<li>选择多个则返回最后一个选择的游戏物体</li>
+<li><strong>只能获取到场景中（Hierarchy）的对象的Transform</strong></li>
+</ul>
+<ol start="2">
+<li>方法</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Selection.activeTransform</span><br></pre></td></tr></table></figure>
+<h2 id="2.4-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89object" tabindex="-1">2.4 获取当前选择的所有Object</h2>
+<ol>
+<li>作用：</li>
+</ol>
+<ul>
+<li>获取当前在面板上选择的物体<strong>数组</strong>，未选择则返回Null</li>
+</ul>
+<ol start="2">
+<li>方法</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Selection.objects </span><br></pre></td></tr></table></figure>
+<h2 id="2.5-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89gameobject" tabindex="-1">2.5 获取当前选择的所有GameObject</h2>
+<ol>
+<li>作用：</li>
+</ol>
+<ul>
+<li>获取当前在面板上选择的<strong>游戏物体或Project中预设体 GameObject数组</strong></li>
+<li>未选择则返回Null</li>
+</ul>
+<ol start="2">
+<li>方法</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Selection.gameObjects</span><br><span class="line"><span class="comment">//可以遍历获取所有信息</span></span><br></pre></td></tr></table></figure>
+<h2 id="2.6-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89transform" tabindex="-1">2.6 获取当前选择的所有Transform</h2>
+<ol>
+<li>作用</li>
+</ol>
+<ul>
+<li>获取当前在面板上选择的游戏物体Transform数组，未选择则返回Null</li>
+</ul>
+<ol start="2">
+<li>方法</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Selection.transforms</span><br><span class="line"><span class="comment">//可以遍历获取所有信息</span></span><br></pre></td></tr></table></figure>
+<h2 id="2.7-%E5%89%8D%E9%9D%A26%E4%B8%AD%E6%83%85%E5%86%B5%E4%BD%BF%E7%94%A8" tabindex="-1">2.7 前面6中情况使用</h2>
+<ol>
+<li>示例</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> StringBuilder str = <span class="keyword">new</span> StringBuilder(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line"><span class="keyword">private</span> StringBuilder str2 = <span class="keyword">new</span> StringBuilder(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line"><span class="keyword">private</span> StringBuilder str3 = <span class="keyword">new</span> StringBuilder(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line"><span class="keyword">private</span> StringBuilder str4 = <span class="keyword">new</span> StringBuilder(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line"><span class="comment">//1.当前选择的Object</span></span><br><span class="line"><span class="keyword">if</span>(GUILayout.Button(<span class="string">&quot;获取当前选择的Object的名字&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(Selection.activeObject != <span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        str.Clear();</span><br><span class="line">        str.Append(Selection.activeObject.name);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (Selection.activeObject <span class="keyword">is</span> GameObject)</span><br><span class="line">            Debug.Log(<span class="string">&quot;它是游戏对象&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(Selection.activeObject <span class="keyword">is</span> Texture)</span><br><span class="line">            Debug.Log(<span class="string">&quot;它是一张纹理&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (Selection.activeObject <span class="keyword">is</span> TextAsset)</span><br><span class="line">            Debug.Log(<span class="string">&quot;它是一个文本&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            Debug.Log(<span class="string">&quot;它是其他类型的资源&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        str.Clear();</span><br><span class="line">        str.Append(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EditorGUILayout.LabelField(<span class="string">&quot;当前选择的对象&quot;</span>, str.ToString());</span><br><span class="line"><span class="comment">//2.当前选择的GameObject</span></span><br><span class="line"><span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;获取当前选择的GameObject的名字&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Selection.activeGameObject != <span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        str2.Clear();</span><br><span class="line">        str2.Append(Selection.activeGameObject.name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        str2.Clear();</span><br><span class="line">        str2.Append(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EditorGUILayout.LabelField(<span class="string">&quot;当前选择GameObject对象&quot;</span>, str2.ToString());</span><br><span class="line"><span class="comment">//3.当前选择的Transform</span></span><br><span class="line"><span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;获取当前选择的Transform的名字&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Selection.activeTransform != <span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        str3.Clear();</span><br><span class="line">        str3.Append(Selection.activeTransform.name);</span><br><span class="line">        Selection.activeTransform.position = <span class="keyword">new</span> Vector3(<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>); <span class="comment">//改变对象的位置</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        str3.Clear();</span><br><span class="line">        str3.Append(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EditorGUILayout.LabelField(<span class="string">&quot;当前选择Transform对象&quot;</span>, str3.ToString());</span><br><span class="line"><span class="comment">//4.当前选择的所有Object</span></span><br><span class="line"><span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;获取当前选择的所有Object的名字&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Selection.count != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        str4.Clear();</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; Selection.objects.Length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            str4.Append(Selection.objects[i].name + <span class="string">&quot;||&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        str4.Clear();</span><br><span class="line">        str4.Append(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EditorGUILayout.LabelField(<span class="string">&quot;当前选择的所有Object对象&quot;</span>, str4.ToString());</span><br><span class="line"><span class="comment">//5.当前选择的所有GameObject</span></span><br><span class="line"><span class="comment">//Selection.gameObjects</span></span><br><span class="line"><span class="comment">//6.当前选择的所有Transform</span></span><br><span class="line"><span class="comment">//Selection.transforms</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>效果</li>
+</ol>
+<ul>
+<li>选择代码对象<br>
+<img src="/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/L19Selection%E4%B8%AD%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%88%90%E5%91%98(%E9%80%89%E6%8B%A9%E4%BB%A3%E7%A0%81%E5%AF%B9%E8%B1%A1).png" alt></li>
+<li>多选场景对象<br>
+<img src="/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/L19Selection%E4%B8%AD%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%88%90%E5%91%98(%E5%A4%9A%E9%80%89%E5%9C%BA%E6%99%AF%E5%AF%B9%E8%B1%A1).png" alt></li>
+</ul>
+<h1 id="%E4%B8%89%E3%80%81selection%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95" tabindex="-1">三、Selection常用静态方法</h1>
+<h2 id="3.1-%E5%88%A4%E6%96%AD%E6%9F%90%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E8%A2%AB%E9%80%89%E4%B8%AD" tabindex="-1">3.1 判断某个对象是否被选中</h2>
+<ol>
+<li>方法<br>
+选择多个对象时，只要在里面也能判断为被选中</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Contains <span class="comment">//判断某个对象是否被选中(选择多个对象时，只要在里面也能判断为被选中)</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>示例</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">    <span class="keyword">private</span> Object obj;</span><br><span class="line">    <span class="comment">//判断某个对象是否被选中</span></span><br><span class="line">    obj = EditorGUILayout.ObjectField(<span class="string">&quot;用于判断是否被选中的对象&quot;</span>, obj, <span class="keyword">typeof</span>(GameObject), <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;判断对象是否被选中&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (Selection.Contains(obj))</span><br><span class="line">            Debug.Log(<span class="string">&quot;对象有被选中&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            Debug.Log(<span class="string">&quot;对象没有被选中&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line"><span class="meta">## 3.2 筛选对象</span></span><br><span class="line"><span class="number">1.</span> 作用：从当前选择对象中，筛选出想要的内容</span><br><span class="line"><span class="number">2.</span> 方法</span><br><span class="line">```cs</span><br><span class="line">    Selection.GetFiltered(类型, 筛选模式)</span><br><span class="line">    Selection.GetFiltered&lt;类型&gt;(筛选模式)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//  筛选模式：SelectionMode</span></span><br><span class="line">    <span class="comment">//  Unfiltered: 不过滤</span></span><br><span class="line">    <span class="comment">//  TopLevel: 只获取最上层对象，子对象不获取</span></span><br><span class="line">    <span class="comment">//  Deep: 父对象、子对象都获取</span></span><br><span class="line">    <span class="comment">//  ExcludePrefab: 排除预设体</span></span><br><span class="line">    <span class="comment">//  Editable: 只选择可编辑的对象</span></span><br><span class="line">    <span class="comment">//  OnlyUserModifiable: 仅用户可修改的内容</span></span><br><span class="line">    <span class="comment">//  Assets: 只返回资源文件夹下的内容</span></span><br><span class="line">    <span class="comment">//  DeepAssets: 如果存在子文件夹，其中的内容也获取</span></span><br><span class="line">    <span class="comment">//  如果要混用 位或 | 即可</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>示例</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">//筛选对象</span></span><br><span class="line"><span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;筛选所有对象&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    Object[] objs = Selection.GetFiltered(<span class="keyword">typeof</span>(Object), SelectionMode.Assets | SelectionMode.DeepAssets);</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; objs.Length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(objs[i].name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3.3-%E5%BD%93%E9%80%89%E4%B8%AD%E5%8F%98%E5%8C%96%E6%97%B6%E4%BC%9A%E8%B0%83%E7%94%A8%E7%9A%84%E5%A7%94%E6%89%98" tabindex="-1">3.3 当选中变化时会调用的委托</h2>
+<ol>
+<li>方法</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Selection.selectionChanged += 函数;<span class="comment">//选择的物体变化时调用</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>示例</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnEnable</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Selection.selectionChanged += SelectionChanged;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnDestroy</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Selection.selectionChanged -= SelectionChanged;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">SelectionChanged</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;选择的对象变化了&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3.4-%E6%95%88%E6%9E%9C" tabindex="-1">3.4 效果</h2>
+<ul>
+<li>判断某个对象是否被选中及当选中变化时会调用的委托<br>
+<img src="/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/L20Selection%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95.png" alt></li>
+<li>筛选对象（筛选了Editor下的内容及其子文件夹内容）<br>
+<img src="/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/L20Selection%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95-%E7%AD%9B%E9%80%89%E5%AF%B9%E8%B1%A1.png" alt></li>
+</ul>
+<h1 id="%E5%9B%9B%E3%80%81%E6%80%BB%E7%BB%93" tabindex="-1">四、总结</h1>
+<ul>
+<li>Selection公共类主要是帮助我们获取到选择的对象的</li>
+<li>我们可以利用它对选中对象进行一些处理</li>
+</ul>
+<p>Selection公共类 更多API：<a href="https://docs.unity.cn/cn/2022.1/ScriptReference/Selection.html">https://docs.unity.cn/cn/2022.1/ScriptReference/Selection.html</a></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>Unity学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Unity编辑器拓展</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity编辑器拓展（二）-自定义窗口拓展</title>
+    <url>/2025/02/25/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%8C-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/</url>
+    <content><![CDATA[<p>Unity编辑器拓展（二）-自定义窗口拓展学习</p>
+<span id="more"></span>
+<h2 id="%E4%B8%80%E3%80%81%E5%88%9B%E5%BB%BA%E7%AA%97%E5%8F%A3%E7%B1%BB" tabindex="-1">一、创建窗口类</h2>
+<ol>
+<li>
+<p>命名空间：UnityEditor</p>
+</li>
+<li>
+<p>继承类名：EditorWindow</p>
+</li>
+<li>
+<p>方法：</p>
+</li>
+</ol>
+<ul>
+<li>当我们想要为Unity拓展一个自定义窗口时</li>
+<li>我们只需要实现一个继承了EditorWindow的类即可</li>
+<li>并且在该类的OnGUI函数中编写面板控件相关的逻辑</li>
+</ul>
+<ol start="4">
+<li>示例</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Lesson2</span> : <span class="title">EditorWindow</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnGUI</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        GUILayout.Label(<span class="string">&quot;测试文本&quot;</span>); <span class="comment">//绘制文本</span></span><br><span class="line">        <span class="keyword">if</span>(GUILayout.Button(<span class="string">&quot;测试按钮&quot;</span>)) <span class="comment">//绘制点击按钮</span></span><br><span class="line">        &#123;</span><br><span class="line">            Debug.Log(<span class="string">&quot;Test&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="%E4%BA%8C%E3%80%81%E6%98%BE%E7%A4%BA%E7%AA%97%E5%8F%A3" tabindex="-1">二、显示窗口</h2>
+<ol>
+<li>
+<p>用自定义菜单栏拓展的方式，添加一个自定义页签用于开启窗口<br>
+调用EditorWindow.GetWindow</p>
+</li>
+<li>
+<p>EditorWindow.GetWindow方法有很多种重载，其中的主要参数一般有</p>
+</li>
+</ol>
+<ul>
+<li>Type或T：窗口类的类型</li>
+<li>utility：为 true 可创建浮动实用程序窗口，设置为 false 可创建正常窗口。所谓浮动窗口就是可以自由拖动自由改变大小</li>
+<li>title：窗口标题</li>
+<li>focus：是否为窗口提供焦点（如果已存在）。（如果 GetWindow 创建新窗口，则将始终获得焦点）</li>
+<li>desiredDockNextTo:窗口试图停靠到其上的 EditorWindow 类型的数组</li>
+</ul>
+<ol start="3">
+<li>
+<p>创建窗口对象<br>
+之后调用对象的Show方法即可显示窗口</p>
+</li>
+<li>
+<p>代码</p>
+</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">[<span class="meta">MenuItem(<span class="string">&quot;Unity编辑器拓展/Lesson2/显示自定义面板&quot;</span>)</span>]</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ShowWindow</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Lesson2 win = EditorWindow.GetWindow&lt;Lesson2&gt;(); <span class="comment">//获取窗口（唯一窗口），如果希望有多个窗口的话使用EditorWindow.CreateWindow&lt;Lesson2&gt;();</span></span><br><span class="line">    win.titleContent = <span class="keyword">new</span> GUIContent(<span class="string">&quot;我的窗口&quot;</span>); <span class="comment">//创建窗口</span></span><br><span class="line">    win.Show(); <span class="comment">//显示窗口</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>效果（与1点的代码同时）<br>
+<img src="/2025/02/25/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%8C-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/2.%20%E6%98%BE%E7%A4%BA%E7%AA%97%E5%8F%A3.png" alt></li>
+</ol>
+<h2 id="%E4%B8%89%E3%80%81%E7%AA%97%E5%8F%A3%E4%BA%8B%E4%BB%B6%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0" tabindex="-1">三、窗口事件回调函数</h2>
+<ol>
+<li>继承EditorWindow的窗口类 自带一些事件回调函数，当触发对应事件时会自动进入</li>
+</ol>
+<ul>
+<li>(1) OnHierarchyChange():当场景中的层次结构（Hierarchy）发生变化时调用。
+<ul>
+<li>例如，当游戏对象被创建、删除或重命名时触发。</li>
+</ul>
+</li>
+<li>(2) OnFocus():当窗口获得焦点时调用。
+<ul>
+<li>在这个方法中，你可以执行一些在窗口获得焦点时需要进行的操作。</li>
+</ul>
+</li>
+<li>(3) OnLostFocus():当窗口失去焦点时调用。
+<ul>
+<li>通常在这个方法中执行一些在窗口失去焦点时需要进行的清理工作。</li>
+</ul>
+</li>
+<li>(4) OnProjectChange():当项目资源发生变化时调用。
+<ul>
+<li>例如，当添加、删除或修改项目中的文件时触发。</li>
+</ul>
+</li>
+<li>(5) OnInspectorUpdate():在检视器（Inspector）面板更新时调用。
+<ul>
+<li>可以在这个方法中执行需要在检视器面板刷新时进行的逻辑，比如更新显示的信息</li>
+</ul>
+</li>
+<li>(6) OnSelectionChange():当选择的对象发生变化时调用。
+<ul>
+<li>在这个方法中，你可以执行与所选对象相关的操作，以确保编辑器窗口的内容与当前选择保持同步。</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>示例</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnHierarchyChange</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;当Hierarchy窗口内容发生变化时&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnFocus</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;获取焦点&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnLostFocus</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;失去焦点&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnProjectChange</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;当Project窗口内容发生变化时&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnInspectorUpdate</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;当Inspector窗口内容发生变化时&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnSelectionChange</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;当选中对象发生变化时&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="%E5%9B%9B%E3%80%81%E7%AA%97%E5%8F%A3%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0" tabindex="-1">四、窗口中常用的生命周期函数</h2>
+<ol>
+<li>OnEnable():
+<ul>
+<li>当窗口被激活时调用，通常在窗口创建时会调用一次。</li>
+<li>在这个方法中，你可以进行一些初始化工作，例如注册事件监听器或设置初始变量。</li>
+</ul>
+</li>
+<li>OnGUI():
+<ul>
+<li>每帧都会调用此方法，用于绘制编辑器窗口的 GUI。</li>
+<li>在这个方法中，你可以使用 GUILayout 或 EditorGUILayout 等类创建界面元素，以便用户与窗口进行交互。</li>
+</ul>
+</li>
+<li>OnDestroy():
+<ul>
+<li>当窗口被销毁时调用，通常在关闭编辑器或切换场景时触发。在这里进行最终的清理工作，确保没有未释放的资源。</li>
+</ul>
+</li>
+<li>Update():
+<ul>
+<li>在编辑器窗口每帧更新时调用。通常在这里执行一些需要在每帧进行的逻辑</li>
+</ul>
+</li>
+</ol>
+<h2 id="%E4%BA%94%E3%80%81%E7%BC%96%E8%BE%91%E5%99%A8%E7%AA%97%E5%8F%A3%E7%B1%BB%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E6%88%90%E5%91%98" tabindex="-1">五、编辑器窗口类中的常用成员</h2>
+<p>Unity官方文档有关于编辑器窗口类的API说明<br>
+<a href="https://docs.unity.cn/cn/2022.3/ScriptReference/EditorWindow.html">https://docs.unity.cn/cn/2022.3/ScriptReference/EditorWindow.html</a></p>
+<ol>
+<li>
+<p>静态变量</p>
+<ul>
+<li>(1) focusedWindow：当前已获得键盘焦点的 EditorWindow。（只读）</li>
+<li>(2) mouseOverWindow：当前在鼠标光标下的 EditorWindow。（只读）</li>
+</ul>
+</li>
+<li>
+<p>静态函数</p>
+</li>
+</ol>
+<ul>
+<li>(1) CreateWindow: 创建窗口，如果允许一个窗口有多个可以用该API创建窗口</li>
+<li>(2) GetWindow: 通过它我们可以创建一个窗口对象</li>
+<li>(3) GetWindowWithRect：返回一个指定位置、大小的窗口</li>
+<li>(4) HasOpenInstances：检查编辑器窗口是否打开</li>
+</ul>
+<ol start="3">
+<li>成员变量</li>
+</ol>
+<ul>
+<li>(1) titleContent：窗口标题名</li>
+<li>(2) positon：窗口位置大小信息</li>
+<li>(3) wantsMouseEnterLeaveWindow:如果设置为 true，则每当鼠标进入或离开窗口时，该窗口都会收到一次 OnGUI 调用</li>
+</ul>
+<ol start="4">
+<li>成员函数</li>
+</ol>
+<ul>
+<li>(1) Show: 显示面板</li>
+<li>(2) Repaint：重绘窗口</li>
+<li>(3) Close: 关闭窗口</li>
+</ul>
+<h2 id="%E5%85%AD%E3%80%81%E6%80%BB%E7%BB%93" tabindex="-1">六、总结</h2>
+<p>编辑器拓展中想要实现自定义窗口</p>
+<ol>
+<li>只需要继承EditorWindow类</li>
+<li>主要在OnGUI中利用GUI相关API绘制控件处理功能逻辑</li>
+<li>对应的事件回调函数，可以帮助我们监听到一些特殊情况用于处理对应逻辑</li>
+</ol>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>Unity学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Unity编辑器拓展</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity编辑器拓展（六）-Event公共类</title>
+    <url>/2025/04/26/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%85%AD-Event%E5%85%AC%E5%85%B1%E7%B1%BB/</url>
+    <content><![CDATA[<p>Event公共类相关内容</p>
+<span id="more"></span>
+<h1 id="%E4%B8%80%E3%80%81event%E5%85%AC%E5%85%B1%E7%B1%BB%E6%98%AF%E7%94%A8%E6%9D%A5%E5%81%9A%E4%BB%80%E4%B9%88%E7%9A%84%EF%BC%9F" tabindex="-1">一、Event公共类是用来做什么的？</h1>
+<ul>
+<li>它提供了许多属性和方法，允许你检查和处理用户输入</li>
+<li>主要用于在Unity编辑器拓展开发中</li>
+<li>因为<strong>Input相关内容需要在运行时才能监听输入</strong></li>
+<li>而<strong>Event专门提供给编辑模式下使用，可以帮助我们检测鼠标键盘输入等事件相关操作</strong></li>
+<li>在 <strong>OnGUI 和 OnSceneView 中都能使用</strong></li>
+</ul>
+<h1 id="%E4%BA%8C%E3%80%81-%E9%87%8D%E8%A6%81api" tabindex="-1">二、 重要API</h1>
+<ol>
+<li>获取当前输入事件</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Event.current</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>alt键是否按下</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Event.current.alt</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>shift键是否按下</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Event.current.shift</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>ctrl键是否按下</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Event.current.control</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>是否是鼠标事件</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Event.current.isMouse</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>判断鼠标左中右键</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Evnet.current.button (<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span> 分别代表 左,右,中 如果大于<span class="number">2</span>可能是其他鼠标按键)</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>鼠标位置</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Event.curretn.mousePosition</span><br></pre></td></tr></table></figure>
+<ol start="8">
+<li>判断是否是键盘输入</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Event.current.isKey</span><br></pre></td></tr></table></figure>
+<ol start="9">
+<li>获取键盘输入的字符</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Event.current.character</span><br></pre></td></tr></table></figure>
+<ol start="10">
+<li>获取键盘输入对应的KeyCode</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Event.current.keyCode</span><br></pre></td></tr></table></figure>
+<ol start="11">
+<li>判断输入类型</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Event.current.type</span><br><span class="line">EventType枚举和它比较即可</span><br><span class="line">EventType中有常用的 鼠标按下抬起拖拽，键盘按下抬起等等类型</span><br></pre></td></tr></table></figure>
+<ol start="12">
+<li>是否锁定大写 对应键盘上caps键是否开启</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Event.current.capsLock</span><br></pre></td></tr></table></figure>
+<ol start="13">
+<li>Windows键或Command键是否按下</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Event.current.command</span><br></pre></td></tr></table></figure>
+<ol start="14">
+<li>键盘事件 字符串</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Event.current.commandName</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可以用来判断是否触发了对应的键盘事件</li>
+<li>返回值：
+<ul>
+<li>Copy:拷贝</li>
+<li>Paste:粘贴</li>
+<li>Cut:剪切</li>
+</ul>
+</li>
+</ul>
+<ol start="15">
+<li>鼠标间隔移动距离</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Event.current.delta</span><br></pre></td></tr></table></figure>
+<ol start="16">
+<li>是否是功能键输入</li>
+</ol>
+<ul>
+<li>功能键指小键盘中的 方向键, page up, page down, backspace等等</li>
+</ul>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Event.current.functionKey</span><br></pre></td></tr></table></figure>
+<ol start="17">
+<li>小键盘是否开启</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Event.current.numeric</span><br></pre></td></tr></table></figure>
+<ol start="18">
+<li>避免组合键冲突</li>
+</ol>
+<ul>
+<li>在处理完对应输入事件后，调用该方法，可以阻止事件继续派发，放置和Unity其他编辑器事件逻辑冲突</li>
+</ul>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Event.current.Use()</span><br></pre></td></tr></table></figure>
+<h1 id="%E4%B8%89%E3%80%81-api%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B" tabindex="-1">三、 API使用示例</h1>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1.获取当前事件</span></span><br><span class="line"><span class="comment">//  Event.current</span></span><br><span class="line">Event eve = Event.current;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.alt键是否按下</span></span><br><span class="line"><span class="comment">//  Event.current.alt</span></span><br><span class="line"><span class="keyword">if</span> (eve.alt)</span><br><span class="line">    Debug.Log(<span class="string">&quot;alt键按下了&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//3.shift键是否按下</span></span><br><span class="line"><span class="comment">//  Event.current.shift</span></span><br><span class="line"><span class="keyword">if</span> (eve.shift)</span><br><span class="line">    Debug.Log(<span class="string">&quot;shift键按下了&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//4.ctrl键是否按下</span></span><br><span class="line"><span class="comment">//  Event.current.control</span></span><br><span class="line"><span class="keyword">if</span> (eve.control)</span><br><span class="line">    Debug.Log(<span class="string">&quot;control键按下了&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//5.是否是鼠标事件</span></span><br><span class="line"><span class="comment">//  Event.current.isMouse</span></span><br><span class="line"><span class="keyword">if</span> (eve.isMouse)</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;鼠标相关事件&quot;</span>);</span><br><span class="line">    <span class="comment">//6.判断鼠标左中右键</span></span><br><span class="line">    <span class="comment">//  Event.current.button (0,1,2 分别代表 左,右,中 如果大于2可能是其他鼠标按键)</span></span><br><span class="line">    Debug.Log(eve.button);</span><br><span class="line">    <span class="comment">//7.鼠标位置</span></span><br><span class="line">    <span class="comment">//  Event.current.mousePosition</span></span><br><span class="line">    Debug.Log(<span class="string">&quot;鼠标位置&quot;</span> + eve.mousePosition);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//8.判断是否是键盘输入</span></span><br><span class="line"><span class="comment">//  Event.current.isKey</span></span><br><span class="line"><span class="keyword">if</span>(eve.isKey)</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;键盘相关事件&quot;</span>);</span><br><span class="line">    <span class="comment">//9.获取键盘输入的字符</span></span><br><span class="line">    <span class="comment">//  Event.current.character</span></span><br><span class="line">    Debug.Log(eve.character);</span><br><span class="line">    <span class="comment">//10.获取键盘输入对应的KeyCode</span></span><br><span class="line">    <span class="comment">//  Event.current.keyCode</span></span><br><span class="line">    <span class="comment">//Debug.Log(eve.keyCode);</span></span><br><span class="line">    <span class="keyword">switch</span> (eve.keyCode)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> KeyCode.Space:</span><br><span class="line">            Debug.Log(<span class="string">&quot;空格键输入&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//11.判断输入类型</span></span><br><span class="line"><span class="comment">//  Event.current.type</span></span><br><span class="line"><span class="comment">//  EventType枚举和它比较即可</span></span><br><span class="line"><span class="comment">//  EventType中有常用的 鼠标按下抬起拖拽，键盘按下抬起等等类型</span></span><br><span class="line"><span class="comment">//  一般会配合它 来判断 比如 键盘 鼠标的抬起按下相关的操作</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//12.是否锁定大写 对应键盘上caps键是否开启</span></span><br><span class="line"><span class="comment">//  Event.current.capsLock</span></span><br><span class="line"><span class="keyword">if</span> (eve.capsLock)</span><br><span class="line">    Debug.Log(<span class="string">&quot;大小写锁定开启&quot;</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    Debug.Log(<span class="string">&quot;大小写锁定关闭&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//13.Windows键或Command键是否按下</span></span><br><span class="line"><span class="comment">//  Event.current.command</span></span><br><span class="line"><span class="keyword">if</span> (eve.command)</span><br><span class="line">    Debug.Log(<span class="string">&quot;PC win键按下 或 Mac Command键按下&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//14.键盘事件 字符串</span></span><br><span class="line"><span class="comment">//  Event.current.commandName</span></span><br><span class="line"><span class="comment">//  可以用来判断是否触发了对应的键盘事件</span></span><br><span class="line"><span class="comment">//  返回值：</span></span><br><span class="line"><span class="comment">//  Copy:拷贝</span></span><br><span class="line"><span class="comment">//  Paste:粘贴</span></span><br><span class="line"><span class="comment">//  Cut:剪切</span></span><br><span class="line"><span class="keyword">if</span>(eve.commandName == <span class="string">&quot;Copy&quot;</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;按下了ctrl + c&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (eve.commandName == <span class="string">&quot;Paste&quot;</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;按下了ctrl + v&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (eve.commandName == <span class="string">&quot;Cut&quot;</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;按下了ctrl + x&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//15.鼠标间隔移动距离</span></span><br><span class="line"><span class="comment">//  Event.current.delta</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Debug.Log(eve.delta);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//16.是否是功能键输入</span></span><br><span class="line"><span class="comment">//  Event.current.functionKey</span></span><br><span class="line"><span class="comment">//  功能键指小键盘中的 方向键, page up, page down, backspace等等</span></span><br><span class="line"><span class="keyword">if</span> (eve.functionKey)</span><br><span class="line">    Debug.Log(<span class="string">&quot;有功能按键输入&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//17.小键盘是否开启</span></span><br><span class="line"><span class="comment">//  Event.current.numeric</span></span><br><span class="line"><span class="keyword">if</span>(eve.numeric)</span><br><span class="line">    Debug.Log(<span class="string">&quot;小键盘是否开启&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//18.避免组合键冲突</span></span><br><span class="line"><span class="comment">//  Event.current.Use()</span></span><br><span class="line"><span class="comment">//  在处理完对应输入事件后，调用该方法，可以阻止事件继续派发，防止和Unity其他编辑器事件逻辑冲突</span></span><br><span class="line">eve.Use();</span><br></pre></td></tr></table></figure>
+<h1 id="%E4%BA%94%E3%80%81-%E6%9B%B4%E5%A4%9A%E5%86%85%E5%AE%B9" tabindex="-1">五、 更多内容</h1>
+<p><a href="https://docs.unity3d.com/ScriptReference/Event.html">https://docs.unity3d.com/ScriptReference/Event.html</a></p>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
@@ -5011,368 +5489,6 @@ LuaRocks 安装方法：</li>
 <p><img src="/2025/03/04/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%B8%89-EditorGUI%E7%9B%B8%E5%85%B3/L11%E5%8A%A8%E7%94%BB%E6%9B%B2%E7%BA%BF%E6%8E%A7%E4%BB%B6%E5%92%8C%E5%B8%83%E5%B1%80API.png" alt></p>
 <h1 id="%E5%8D%81%E3%80%81%E6%80%BB%E7%BB%93" tabindex="-1">十、总结</h1>
 <p>EditorGUILayout中更多内容：<a href="https://docs.unity.cn/cn/2022.3/ScriptReference/EditorGUILayout.html">https://docs.unity.cn/cn/2022.3/ScriptReference/EditorGUILayout.html</a></p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>Unity学习笔记</category>
-      </categories>
-      <tags>
-        <tag>Unity编辑器拓展</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Unity编辑器拓展（二）-自定义窗口拓展</title>
-    <url>/2025/02/25/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%8C-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/</url>
-    <content><![CDATA[<p>Unity编辑器拓展（二）-自定义窗口拓展学习</p>
-<span id="more"></span>
-<h2 id="%E4%B8%80%E3%80%81%E5%88%9B%E5%BB%BA%E7%AA%97%E5%8F%A3%E7%B1%BB" tabindex="-1">一、创建窗口类</h2>
-<ol>
-<li>
-<p>命名空间：UnityEditor</p>
-</li>
-<li>
-<p>继承类名：EditorWindow</p>
-</li>
-<li>
-<p>方法：</p>
-</li>
-</ol>
-<ul>
-<li>当我们想要为Unity拓展一个自定义窗口时</li>
-<li>我们只需要实现一个继承了EditorWindow的类即可</li>
-<li>并且在该类的OnGUI函数中编写面板控件相关的逻辑</li>
-</ul>
-<ol start="4">
-<li>示例</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Lesson2</span> : <span class="title">EditorWindow</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnGUI</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        GUILayout.Label(<span class="string">&quot;测试文本&quot;</span>); <span class="comment">//绘制文本</span></span><br><span class="line">        <span class="keyword">if</span>(GUILayout.Button(<span class="string">&quot;测试按钮&quot;</span>)) <span class="comment">//绘制点击按钮</span></span><br><span class="line">        &#123;</span><br><span class="line">            Debug.Log(<span class="string">&quot;Test&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="%E4%BA%8C%E3%80%81%E6%98%BE%E7%A4%BA%E7%AA%97%E5%8F%A3" tabindex="-1">二、显示窗口</h2>
-<ol>
-<li>
-<p>用自定义菜单栏拓展的方式，添加一个自定义页签用于开启窗口<br>
-调用EditorWindow.GetWindow</p>
-</li>
-<li>
-<p>EditorWindow.GetWindow方法有很多种重载，其中的主要参数一般有</p>
-</li>
-</ol>
-<ul>
-<li>Type或T：窗口类的类型</li>
-<li>utility：为 true 可创建浮动实用程序窗口，设置为 false 可创建正常窗口。所谓浮动窗口就是可以自由拖动自由改变大小</li>
-<li>title：窗口标题</li>
-<li>focus：是否为窗口提供焦点（如果已存在）。（如果 GetWindow 创建新窗口，则将始终获得焦点）</li>
-<li>desiredDockNextTo:窗口试图停靠到其上的 EditorWindow 类型的数组</li>
-</ul>
-<ol start="3">
-<li>
-<p>创建窗口对象<br>
-之后调用对象的Show方法即可显示窗口</p>
-</li>
-<li>
-<p>代码</p>
-</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">[<span class="meta">MenuItem(<span class="string">&quot;Unity编辑器拓展/Lesson2/显示自定义面板&quot;</span>)</span>]</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ShowWindow</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Lesson2 win = EditorWindow.GetWindow&lt;Lesson2&gt;(); <span class="comment">//获取窗口（唯一窗口），如果希望有多个窗口的话使用EditorWindow.CreateWindow&lt;Lesson2&gt;();</span></span><br><span class="line">    win.titleContent = <span class="keyword">new</span> GUIContent(<span class="string">&quot;我的窗口&quot;</span>); <span class="comment">//创建窗口</span></span><br><span class="line">    win.Show(); <span class="comment">//显示窗口</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>效果（与1点的代码同时）<br>
-<img src="/2025/02/25/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%8C-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/2.%20%E6%98%BE%E7%A4%BA%E7%AA%97%E5%8F%A3.png" alt></li>
-</ol>
-<h2 id="%E4%B8%89%E3%80%81%E7%AA%97%E5%8F%A3%E4%BA%8B%E4%BB%B6%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0" tabindex="-1">三、窗口事件回调函数</h2>
-<ol>
-<li>继承EditorWindow的窗口类 自带一些事件回调函数，当触发对应事件时会自动进入</li>
-</ol>
-<ul>
-<li>(1) OnHierarchyChange():当场景中的层次结构（Hierarchy）发生变化时调用。
-<ul>
-<li>例如，当游戏对象被创建、删除或重命名时触发。</li>
-</ul>
-</li>
-<li>(2) OnFocus():当窗口获得焦点时调用。
-<ul>
-<li>在这个方法中，你可以执行一些在窗口获得焦点时需要进行的操作。</li>
-</ul>
-</li>
-<li>(3) OnLostFocus():当窗口失去焦点时调用。
-<ul>
-<li>通常在这个方法中执行一些在窗口失去焦点时需要进行的清理工作。</li>
-</ul>
-</li>
-<li>(4) OnProjectChange():当项目资源发生变化时调用。
-<ul>
-<li>例如，当添加、删除或修改项目中的文件时触发。</li>
-</ul>
-</li>
-<li>(5) OnInspectorUpdate():在检视器（Inspector）面板更新时调用。
-<ul>
-<li>可以在这个方法中执行需要在检视器面板刷新时进行的逻辑，比如更新显示的信息</li>
-</ul>
-</li>
-<li>(6) OnSelectionChange():当选择的对象发生变化时调用。
-<ul>
-<li>在这个方法中，你可以执行与所选对象相关的操作，以确保编辑器窗口的内容与当前选择保持同步。</li>
-</ul>
-</li>
-</ul>
-<ol start="2">
-<li>示例</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnHierarchyChange</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;当Hierarchy窗口内容发生变化时&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnFocus</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;获取焦点&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnLostFocus</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;失去焦点&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnProjectChange</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;当Project窗口内容发生变化时&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnInspectorUpdate</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;当Inspector窗口内容发生变化时&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnSelectionChange</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;当选中对象发生变化时&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="%E5%9B%9B%E3%80%81%E7%AA%97%E5%8F%A3%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0" tabindex="-1">四、窗口中常用的生命周期函数</h2>
-<ol>
-<li>OnEnable():
-<ul>
-<li>当窗口被激活时调用，通常在窗口创建时会调用一次。</li>
-<li>在这个方法中，你可以进行一些初始化工作，例如注册事件监听器或设置初始变量。</li>
-</ul>
-</li>
-<li>OnGUI():
-<ul>
-<li>每帧都会调用此方法，用于绘制编辑器窗口的 GUI。</li>
-<li>在这个方法中，你可以使用 GUILayout 或 EditorGUILayout 等类创建界面元素，以便用户与窗口进行交互。</li>
-</ul>
-</li>
-<li>OnDestroy():
-<ul>
-<li>当窗口被销毁时调用，通常在关闭编辑器或切换场景时触发。在这里进行最终的清理工作，确保没有未释放的资源。</li>
-</ul>
-</li>
-<li>Update():
-<ul>
-<li>在编辑器窗口每帧更新时调用。通常在这里执行一些需要在每帧进行的逻辑</li>
-</ul>
-</li>
-</ol>
-<h2 id="%E4%BA%94%E3%80%81%E7%BC%96%E8%BE%91%E5%99%A8%E7%AA%97%E5%8F%A3%E7%B1%BB%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E6%88%90%E5%91%98" tabindex="-1">五、编辑器窗口类中的常用成员</h2>
-<p>Unity官方文档有关于编辑器窗口类的API说明<br>
-<a href="https://docs.unity.cn/cn/2022.3/ScriptReference/EditorWindow.html">https://docs.unity.cn/cn/2022.3/ScriptReference/EditorWindow.html</a></p>
-<ol>
-<li>
-<p>静态变量</p>
-<ul>
-<li>(1) focusedWindow：当前已获得键盘焦点的 EditorWindow。（只读）</li>
-<li>(2) mouseOverWindow：当前在鼠标光标下的 EditorWindow。（只读）</li>
-</ul>
-</li>
-<li>
-<p>静态函数</p>
-</li>
-</ol>
-<ul>
-<li>(1) CreateWindow: 创建窗口，如果允许一个窗口有多个可以用该API创建窗口</li>
-<li>(2) GetWindow: 通过它我们可以创建一个窗口对象</li>
-<li>(3) GetWindowWithRect：返回一个指定位置、大小的窗口</li>
-<li>(4) HasOpenInstances：检查编辑器窗口是否打开</li>
-</ul>
-<ol start="3">
-<li>成员变量</li>
-</ol>
-<ul>
-<li>(1) titleContent：窗口标题名</li>
-<li>(2) positon：窗口位置大小信息</li>
-<li>(3) wantsMouseEnterLeaveWindow:如果设置为 true，则每当鼠标进入或离开窗口时，该窗口都会收到一次 OnGUI 调用</li>
-</ul>
-<ol start="4">
-<li>成员函数</li>
-</ol>
-<ul>
-<li>(1) Show: 显示面板</li>
-<li>(2) Repaint：重绘窗口</li>
-<li>(3) Close: 关闭窗口</li>
-</ul>
-<h2 id="%E5%85%AD%E3%80%81%E6%80%BB%E7%BB%93" tabindex="-1">六、总结</h2>
-<p>编辑器拓展中想要实现自定义窗口</p>
-<ol>
-<li>只需要继承EditorWindow类</li>
-<li>主要在OnGUI中利用GUI相关API绘制控件处理功能逻辑</li>
-<li>对应的事件回调函数，可以帮助我们监听到一些特殊情况用于处理对应逻辑</li>
-</ol>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>Unity学习笔记</category>
-      </categories>
-      <tags>
-        <tag>Unity编辑器拓展</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Unity编辑器拓展（五）-Selection公共类</title>
-    <url>/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/</url>
-    <content><![CDATA[<p>Selection公共类</p>
-<span id="more"></span>
-<ul>
-<li><a href="#%E4%B8%80selection%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88">一、Selection公共类的作用是什么</a>
-<ul>
-<li><a href="#11-selection%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88">1.1 Selection公共类的作用是什么</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BA%8Cselection%E4%B8%AD%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%88%90%E5%91%98">二、Selection中常用静态成员</a>
-<ul>
-<li><a href="#21-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84object">2.1 获取当前选择的Object</a></li>
-<li><a href="#22-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84gameobject">2.2 获取当前选择的GameObject</a></li>
-<li><a href="#23-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84transform">2.3 获取当前选择的Transform</a></li>
-<li><a href="#24-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89object">2.4 获取当前选择的所有Object</a></li>
-<li><a href="#25-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89gameobject">2.5 获取当前选择的所有GameObject</a></li>
-<li><a href="#26-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89transform">2.6 获取当前选择的所有Transform</a></li>
-<li><a href="#27-%E5%89%8D%E9%9D%A26%E4%B8%AD%E6%83%85%E5%86%B5%E4%BD%BF%E7%94%A8">2.7 前面6中情况使用</a></li>
-</ul>
-</li>
-<li><a href="#%E4%B8%89selection%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95">三、Selection常用静态方法</a>
-<ul>
-<li><a href="#31-%E5%88%A4%E6%96%AD%E6%9F%90%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E8%A2%AB%E9%80%89%E4%B8%AD">3.1 判断某个对象是否被选中</a></li>
-<li><a href="#32-%E7%AD%9B%E9%80%89%E5%AF%B9%E8%B1%A1">3.2 筛选对象</a></li>
-<li><a href="#33-%E5%BD%93%E9%80%89%E4%B8%AD%E5%8F%98%E5%8C%96%E6%97%B6%E4%BC%9A%E8%B0%83%E7%94%A8%E7%9A%84%E5%A7%94%E6%89%98">3.3 当选中变化时会调用的委托</a></li>
-<li><a href="#34-%E6%95%88%E6%9E%9C">3.4 效果</a></li>
-</ul>
-</li>
-<li><a href="#%E5%9B%9B%E6%80%BB%E7%BB%93">四、总结</a></li>
-</ul>
-<h1 id="%E4%B8%80%E3%80%81selection%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88" tabindex="-1">一、Selection公共类的作用是什么</h1>
-<h2 id="1.1-selection%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88" tabindex="-1">1.1 Selection公共类的作用是什么</h2>
-<ul>
-<li>主要用来获取当前在Unity编辑器中选择的对象</li>
-<li>只能用于编辑器开发中</li>
-</ul>
-<h1 id="%E4%BA%8C%E3%80%81selection%E4%B8%AD%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%88%90%E5%91%98" tabindex="-1">二、Selection中常用静态成员</h1>
-<h2 id="2.1-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84object" tabindex="-1">2.1 获取当前选择的Object</h2>
-<ol>
-<li>作用：</li>
-</ol>
-<ul>
-<li>获取当前在面板上选择的游戏物体Object，未选择则返回Null</li>
-<li>选择多个则返回最后一个选择的游戏物体</li>
-</ul>
-<ol start="2">
-<li>方法</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Selection.activeObject</span><br></pre></td></tr></table></figure>
-<h2 id="2.2-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84gameobject" tabindex="-1">2.2 获取当前选择的GameObject</h2>
-<ol>
-<li>作用：</li>
-</ol>
-<ul>
-<li>获取当前在面板上选择的游戏物体GameObject，未选择则返回Null</li>
-<li>选择多个则返回最后一个选择的游戏物体</li>
-</ul>
-<ol start="2">
-<li>方法</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Selection.activeGameObject</span><br></pre></td></tr></table></figure>
-<h2 id="2.3-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84transform" tabindex="-1">2.3 获取当前选择的Transform</h2>
-<ol>
-<li>作用</li>
-</ol>
-<ul>
-<li>获取当前在面板上选择的游戏物体的Transform，未选择则返回Null</li>
-<li>选择多个则返回最后一个选择的游戏物体</li>
-<li><strong>只能获取到场景中（Hierarchy）的对象的Transform</strong></li>
-</ul>
-<ol start="2">
-<li>方法</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Selection.activeTransform</span><br></pre></td></tr></table></figure>
-<h2 id="2.4-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89object" tabindex="-1">2.4 获取当前选择的所有Object</h2>
-<ol>
-<li>作用：</li>
-</ol>
-<ul>
-<li>获取当前在面板上选择的物体<strong>数组</strong>，未选择则返回Null</li>
-</ul>
-<ol start="2">
-<li>方法</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Selection.objects </span><br></pre></td></tr></table></figure>
-<h2 id="2.5-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89gameobject" tabindex="-1">2.5 获取当前选择的所有GameObject</h2>
-<ol>
-<li>作用：</li>
-</ol>
-<ul>
-<li>获取当前在面板上选择的<strong>游戏物体或Project中预设体 GameObject数组</strong></li>
-<li>未选择则返回Null</li>
-</ul>
-<ol start="2">
-<li>方法</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Selection.gameObjects</span><br><span class="line"><span class="comment">//可以遍历获取所有信息</span></span><br></pre></td></tr></table></figure>
-<h2 id="2.6-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%80%89%E6%8B%A9%E7%9A%84%E6%89%80%E6%9C%89transform" tabindex="-1">2.6 获取当前选择的所有Transform</h2>
-<ol>
-<li>作用</li>
-</ol>
-<ul>
-<li>获取当前在面板上选择的游戏物体Transform数组，未选择则返回Null</li>
-</ul>
-<ol start="2">
-<li>方法</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Selection.transforms</span><br><span class="line"><span class="comment">//可以遍历获取所有信息</span></span><br></pre></td></tr></table></figure>
-<h2 id="2.7-%E5%89%8D%E9%9D%A26%E4%B8%AD%E6%83%85%E5%86%B5%E4%BD%BF%E7%94%A8" tabindex="-1">2.7 前面6中情况使用</h2>
-<ol>
-<li>示例</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> StringBuilder str = <span class="keyword">new</span> StringBuilder(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line"><span class="keyword">private</span> StringBuilder str2 = <span class="keyword">new</span> StringBuilder(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line"><span class="keyword">private</span> StringBuilder str3 = <span class="keyword">new</span> StringBuilder(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line"><span class="keyword">private</span> StringBuilder str4 = <span class="keyword">new</span> StringBuilder(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line"><span class="comment">//1.当前选择的Object</span></span><br><span class="line"><span class="keyword">if</span>(GUILayout.Button(<span class="string">&quot;获取当前选择的Object的名字&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(Selection.activeObject != <span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        str.Clear();</span><br><span class="line">        str.Append(Selection.activeObject.name);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (Selection.activeObject <span class="keyword">is</span> GameObject)</span><br><span class="line">            Debug.Log(<span class="string">&quot;它是游戏对象&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(Selection.activeObject <span class="keyword">is</span> Texture)</span><br><span class="line">            Debug.Log(<span class="string">&quot;它是一张纹理&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (Selection.activeObject <span class="keyword">is</span> TextAsset)</span><br><span class="line">            Debug.Log(<span class="string">&quot;它是一个文本&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            Debug.Log(<span class="string">&quot;它是其他类型的资源&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        str.Clear();</span><br><span class="line">        str.Append(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EditorGUILayout.LabelField(<span class="string">&quot;当前选择的对象&quot;</span>, str.ToString());</span><br><span class="line"><span class="comment">//2.当前选择的GameObject</span></span><br><span class="line"><span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;获取当前选择的GameObject的名字&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Selection.activeGameObject != <span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        str2.Clear();</span><br><span class="line">        str2.Append(Selection.activeGameObject.name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        str2.Clear();</span><br><span class="line">        str2.Append(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EditorGUILayout.LabelField(<span class="string">&quot;当前选择GameObject对象&quot;</span>, str2.ToString());</span><br><span class="line"><span class="comment">//3.当前选择的Transform</span></span><br><span class="line"><span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;获取当前选择的Transform的名字&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Selection.activeTransform != <span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        str3.Clear();</span><br><span class="line">        str3.Append(Selection.activeTransform.name);</span><br><span class="line">        Selection.activeTransform.position = <span class="keyword">new</span> Vector3(<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>); <span class="comment">//改变对象的位置</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        str3.Clear();</span><br><span class="line">        str3.Append(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EditorGUILayout.LabelField(<span class="string">&quot;当前选择Transform对象&quot;</span>, str3.ToString());</span><br><span class="line"><span class="comment">//4.当前选择的所有Object</span></span><br><span class="line"><span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;获取当前选择的所有Object的名字&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Selection.count != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        str4.Clear();</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; Selection.objects.Length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            str4.Append(Selection.objects[i].name + <span class="string">&quot;||&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        str4.Clear();</span><br><span class="line">        str4.Append(<span class="string">&quot;没有选择&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EditorGUILayout.LabelField(<span class="string">&quot;当前选择的所有Object对象&quot;</span>, str4.ToString());</span><br><span class="line"><span class="comment">//5.当前选择的所有GameObject</span></span><br><span class="line"><span class="comment">//Selection.gameObjects</span></span><br><span class="line"><span class="comment">//6.当前选择的所有Transform</span></span><br><span class="line"><span class="comment">//Selection.transforms</span></span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>效果</li>
-</ol>
-<ul>
-<li>选择代码对象<br>
-<img src="/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/L19Selection%E4%B8%AD%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%88%90%E5%91%98(%E9%80%89%E6%8B%A9%E4%BB%A3%E7%A0%81%E5%AF%B9%E8%B1%A1).png" alt></li>
-<li>多选场景对象<br>
-<img src="/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/L19Selection%E4%B8%AD%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%88%90%E5%91%98(%E5%A4%9A%E9%80%89%E5%9C%BA%E6%99%AF%E5%AF%B9%E8%B1%A1).png" alt></li>
-</ul>
-<h1 id="%E4%B8%89%E3%80%81selection%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95" tabindex="-1">三、Selection常用静态方法</h1>
-<h2 id="3.1-%E5%88%A4%E6%96%AD%E6%9F%90%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E8%A2%AB%E9%80%89%E4%B8%AD" tabindex="-1">3.1 判断某个对象是否被选中</h2>
-<ol>
-<li>方法<br>
-选择多个对象时，只要在里面也能判断为被选中</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Contains <span class="comment">//判断某个对象是否被选中(选择多个对象时，只要在里面也能判断为被选中)</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>示例</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">    <span class="keyword">private</span> Object obj;</span><br><span class="line">    <span class="comment">//判断某个对象是否被选中</span></span><br><span class="line">    obj = EditorGUILayout.ObjectField(<span class="string">&quot;用于判断是否被选中的对象&quot;</span>, obj, <span class="keyword">typeof</span>(GameObject), <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;判断对象是否被选中&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (Selection.Contains(obj))</span><br><span class="line">            Debug.Log(<span class="string">&quot;对象有被选中&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            Debug.Log(<span class="string">&quot;对象没有被选中&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line"><span class="meta">## 3.2 筛选对象</span></span><br><span class="line"><span class="number">1.</span> 作用：从当前选择对象中，筛选出想要的内容</span><br><span class="line"><span class="number">2.</span> 方法</span><br><span class="line">```cs</span><br><span class="line">    Selection.GetFiltered(类型, 筛选模式)</span><br><span class="line">    Selection.GetFiltered&lt;类型&gt;(筛选模式)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//  筛选模式：SelectionMode</span></span><br><span class="line">    <span class="comment">//  Unfiltered: 不过滤</span></span><br><span class="line">    <span class="comment">//  TopLevel: 只获取最上层对象，子对象不获取</span></span><br><span class="line">    <span class="comment">//  Deep: 父对象、子对象都获取</span></span><br><span class="line">    <span class="comment">//  ExcludePrefab: 排除预设体</span></span><br><span class="line">    <span class="comment">//  Editable: 只选择可编辑的对象</span></span><br><span class="line">    <span class="comment">//  OnlyUserModifiable: 仅用户可修改的内容</span></span><br><span class="line">    <span class="comment">//  Assets: 只返回资源文件夹下的内容</span></span><br><span class="line">    <span class="comment">//  DeepAssets: 如果存在子文件夹，其中的内容也获取</span></span><br><span class="line">    <span class="comment">//  如果要混用 位或 | 即可</span></span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>示例</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">//筛选对象</span></span><br><span class="line"><span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;筛选所有对象&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    Object[] objs = Selection.GetFiltered(<span class="keyword">typeof</span>(Object), SelectionMode.Assets | SelectionMode.DeepAssets);</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; objs.Length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(objs[i].name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="3.3-%E5%BD%93%E9%80%89%E4%B8%AD%E5%8F%98%E5%8C%96%E6%97%B6%E4%BC%9A%E8%B0%83%E7%94%A8%E7%9A%84%E5%A7%94%E6%89%98" tabindex="-1">3.3 当选中变化时会调用的委托</h2>
-<ol>
-<li>方法</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Selection.selectionChanged += 函数;<span class="comment">//选择的物体变化时调用</span></span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>示例</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnEnable</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Selection.selectionChanged += SelectionChanged;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnDestroy</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Selection.selectionChanged -= SelectionChanged;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">SelectionChanged</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;选择的对象变化了&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="3.4-%E6%95%88%E6%9E%9C" tabindex="-1">3.4 效果</h2>
-<ul>
-<li>判断某个对象是否被选中及当选中变化时会调用的委托<br>
-<img src="/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/L20Selection%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95.png" alt></li>
-<li>筛选对象（筛选了Editor下的内容及其子文件夹内容）<br>
-<img src="/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/L20Selection%E5%B8%B8%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95-%E7%AD%9B%E9%80%89%E5%AF%B9%E8%B1%A1.png" alt></li>
-</ul>
-<h1 id="%E5%9B%9B%E3%80%81%E6%80%BB%E7%BB%93" tabindex="-1">四、总结</h1>
-<ul>
-<li>Selection公共类主要是帮助我们获取到选择的对象的</li>
-<li>我们可以利用它对选中对象进行一些处理</li>
-</ul>
-<p>Selection公共类 更多API：<a href="https://docs.unity.cn/cn/2022.1/ScriptReference/Selection.html">https://docs.unity.cn/cn/2022.1/ScriptReference/Selection.html</a></p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>Unity学习笔记</category>
-      </categories>
-      <tags>
-        <tag>Unity编辑器拓展</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Unity编辑器拓展（六）-Event公共类</title>
-    <url>/2025/04/26/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%85%AD-Event%E5%85%AC%E5%85%B1%E7%B1%BB/</url>
-    <content><![CDATA[<p>Event公共类相关内容</p>
-<span id="more"></span>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
