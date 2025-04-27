@@ -177,10 +177,13 @@ Selection公共类
 ## 3.1 判断某个对象是否被选中
 1. 方法
 选择多个对象时，只要在里面也能判断为被选中
+
 ```cs
     Contains //判断某个对象是否被选中(选择多个对象时，只要在里面也能判断为被选中)
 ```
-1. 示例
+
+2. 示例
+
 ```cs
     private Object obj;
     //判断某个对象是否被选中
@@ -228,10 +231,13 @@ Selection公共类
 
 ## 3.3 当选中变化时会调用的委托
 1. 方法
+
 ```cs
     Selection.selectionChanged += 函数;//选择的物体变化时调用
 ```
+
 2. 示例
+
 ```cs
     private void OnEnable()
     {
@@ -247,6 +253,7 @@ Selection公共类
         Debug.Log("选择的对象变化了");
     }
 ```
+
 ## 3.4 效果
 - 判断某个对象是否被选中及当选中变化时会调用的委托
 ![](./五-Selection公共类/L20Selection常用静态方法.png)
