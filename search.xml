@@ -5871,4 +5871,19 @@ SerializedProperty: <a href="https://docs.unity.cn/cn/2022.1/ScriptReference/Ser
         <tag>Unity编辑器拓展</tag>
       </tags>
   </entry>
+  <entry>
+    <title>基于UE5的多人联机TPS游戏deme</title>
+    <url>/2025/11/09/ue5%E7%9B%B8%E5%85%B3-ue5-online-TPS/</url>
+    <content><![CDATA[<p>做了个新的demo，基于UE5的多人联机TPS游戏</p>
+<p>链接：<a href="https://www.bilibili.com/video/BV1Mx1jBzErz/?spm_id_from=333.1387.homepage.video_card.click">https://www.bilibili.com/video/BV1Mx1jBzErz/?spm_id_from=333.1387.homepage.video_card.click</a></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>ue5</category>
+      </categories>
+      <tags>
+        <tag>ue5</tag>
+      </tags>
+  </entry>
 </search>
