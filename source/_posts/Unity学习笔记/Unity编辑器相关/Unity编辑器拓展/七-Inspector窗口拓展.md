@@ -114,3 +114,259 @@ public class Lesson22Editor : Editor
 }
 
 ```
+
+![](./七-Inspector窗口拓展/L22Inspector窗口拓展-基础知识.png)
+
+# 二、数组、List属性 自定义显示
+
+## 2.1 数组、List属性在Inspector窗口显示 基础方式
+1. 主要知识点：
+```cs
+    EditorGUILayout.PropertyField(SerializedProperty对象, 标题);
+        //该API会按照属性类型自己去处理控件绘制的逻辑
+```
+
+## 2.2 数组、List属性在Inspector窗口显示 自定义方式
+如果我们不想要Unity默认的绘制方式去显示 数组、List相关内容
+我们也可以完全自定义布局方式
+1. 主要知识点：
+    利用SerializedProperty中数组相关的API来完成自定义
+    - (1) arraySize 获取数组或List容量
+    - (2) InsertArrayElementAtIndex(索引) 为数组在指定索引插入默认元素（容量会变化）
+    - (3).DeleteArrayElementAtIndex(索引) 为数组在指定索引删除元素（容量会变化）
+    - (4).GetArrayElementAtIndex(索引) 获取数组中指定索引位置的 SerializedProperty 对象
+
+## 2.3 代码示例
+
+```cs
+// lesson22.cs
+    public string[] strs;
+    public int[] ints;
+    public GameObject[] gameObjects;
+
+    public List<GameObject> listObjs;
+    private int count;
+
+// lesson22Editor.cs
+
+    private SerializedProperty strs;
+    private SerializedProperty ints;
+    private SerializedProperty gameObjects;
+
+    private SerializedProperty listObjs;
+
+    private void OnEnable(){
+         //默认得到的数组和List容量为空
+        strs = serializedObject.FindProperty("strs"); 
+        ints = serializedObject.FindProperty("ints"); 
+        gameObjects = serializedObject.FindProperty("gameObjects"); 
+
+        listObjs = serializedObject.FindProperty("listObjs");
+        //初始化当前容量 否则 每次一开始都是0
+        count = listObjs.arraySize;
+    }
+
+    public override void OnInspectorGUI()
+    {
+        serializedObject.Update(); //需要用Update()和ApplyModifiedProperties()进行包裹
+        //容量设置
+        count = EditorGUILayout.IntField("List容量", count);
+
+        //是否要缩减 移除尾部的内容
+        //从后往前去移除 避免移除不干净
+        //当容量变少时 才会走这的逻辑
+        for (int i = listObjs.arraySize - 1; i >= count; i--)
+            listObjs.DeleteArrayElementAtIndex(i);
+
+        //根据容量绘制需要设置的每一个索引位置的对象
+        for (int i = 0; i < count; i++)
+        {
+            //去判断如果数组或者LIst容量不够 去通过插入的形式去扩容
+            if (listObjs.arraySize <= i)
+                listObjs.InsertArrayElementAtIndex(i);
+
+            SerializedProperty indexPro = listObjs.GetArrayElementAtIndex(i);
+            EditorGUILayout.ObjectField(indexPro, new GUIContent($"索引{i}"));
+        }
+        EditorGUILayout.Space(10);
+
+        EditorGUILayout.PropertyField(strs, new GUIContent("字符串数组")); //不能放到折叠中（因为数组本身自带折叠
+        EditorGUILayout.PropertyField(ints, new GUIContent("整形数组")); //不能放到折叠中（因为数组本身自带折叠
+        EditorGUILayout.PropertyField(gameObjects, new GUIContent("游戏对象数组")); //不能放到折叠中（因为数组本身自带折叠
+        //EditorGUILayout.PropertyField(listObjs, new GUIContent("游戏对象List"));
+        serializedObject.ApplyModifiedProperties();
+    }
+```
+
+## 2.4 效果
+![](./七-Inspector窗口拓展/L23Inspector窗口拓展-数组、List属性%20自定义显示.png)
+
+
+# 三、自定义属性 自定义显示
+
+## 3.1 自定义属性 在Inspector窗口显示 基础方式
+主要知识点：
+```cs
+    EditorGUILayout.PropertyField(SerializedProperty对象, 标题);
+    //该API会按照属性类型自己去处理控件绘制的逻辑
+```
+
+## 3.2 自定义属性 在Inspector窗口显示 自定义方式
+如果我们不想要Unity默认的绘制方式去显示 自定义数据结构类 相关内容
+我们也可以完全自定义布局方式
+1. 主要知识点：
+```cs
+    //下面两种方法访问自定义属性的子属性
+    SerializedProperty.FindPropertyRelative(属性)
+    serializedObject.FindProperty(属性.子属性)
+```
+## 3.3 代码示例
+```cs
+//lesson22.cs
+[Serializable] //想在inspector窗口上显示则 必加该特性 
+public class MyCustonPro
+{
+    public int i;
+    public float f;
+}
+public class Lesson22 : MonoBehaviour
+{
+     public MyCustonPro myCustom;
+}
+// lesson22Editor.cs
+    private void OnEnable()
+    {
+        serializedObject.Update(); //需要用Update()和ApplyModifiedProperties()进行包裹
+        myCustom = serializedObject.FindProperty("myCustom");
+
+        //下面两种获取方式
+        //myCustomI = myCustom.FindPropertyRelative("i");
+        //myCustomF = myCustom.FindPropertyRelative("f");
+        myCustomI = serializedObject.FindProperty("myCustom.i");
+        myCustomF = serializedObject.FindProperty("myCustom.f");
+        serializedObject.ApplyModifiedProperties();
+    }
+```
+
+
+## 3.4 效果
+![](./七-Inspector窗口拓展/L24Inspector窗口拓展-自定义属性%20自定义显示.png)
+
+# 四、字典属性 自定义显示
+
+## 4.0 知识回顾 SerizlizeField特性
+让私有字段可以被序列化（能够在Unity的Inspector窗口被看到）
+
+## 4.1 如何在Inspector窗口编辑字典成员
+Unity默认是不支持Dictionary在Inspector窗口被显示的
+我们只有**利用两个List（或数组）成员来间接设置Dictionary**
+
+## 4.2 ISerializationCallbackReceiver接口
+**该接口是Unity提供的用于序列化和反序列化时执行自定义逻辑的接口**
+实现该接口的类能够在对象被序列化到磁盘或从磁盘反序列化时执行一些额外代码
+1. **接口中函数：**
+    - OnBeforeSerialize: 在对象被序列化之前调用
+    - OnAfterDeserialize: 在对象从磁盘反序列化后调用
+
+    由于我们需要用两个List存储Dictionary的具体值
+    相当于字典中的真正内容是存储在两个List中的
+    **所以我们需要在**
+    **OnBeforeSerialize序列化之前：将Dictionary里的数据存入List中进行序列化**
+    **OnAfterDeserialize反序列化之后：将List中反序列化出来的数据存储到Dictionary中**
+
+## 4.3 利用两个List在Inspector窗口中自定义Dictionary显示
+由于我们在Inspector窗口中显示的信息的数据来源是List
+因此我们只需要利用List在Inspector窗口中自定义显示即可
+
+## 4.4 总结
+由于Unity中不支持在Inspector窗口直接使用Dictionary
+因此我们可以利用两个List（或数组）来间接的表达Dictionary成员
+
+## 4.5 代码示例
+```cs
+//lesson22.cs
+public class Lesson22 : MonoBehaviour, ISerializationCallbackReceiver{
+    public Dictionary<int, string> myDic = new Dictionary<int, string>() { { 1, "123" }, { 2, "234" } };
+
+    [SerializeField]
+    private List<int> keys = new List<int>();
+    [SerializeField]
+    private List<string> values = new List<string>();
+
+    //反序列化之后自动调用
+    public void OnAfterDeserialize()
+    {
+        myDic.Clear();
+        for (int i = 0; i < keys.Count; i++)
+        {
+            if (!myDic.ContainsKey(keys[i]))
+                myDic.Add(keys[i], values[i]);
+            else
+                Debug.LogWarning("字典Dictionary容器中不允许有相同的键");
+        }
+    }
+
+    //序列化之前自动调用
+    public void OnBeforeSerialize()
+    {
+        keys.Clear();
+        values.Clear();
+        foreach (var item in myDic)
+        {
+            keys.Add(item.Key);
+            values.Add(item.Value);
+        }
+    }
+    void Start()
+    {
+        foreach (var item in myDic)
+        {
+            print($"Dic:{item.Key} - {item.Value}");
+        }
+    }
+}
+
+// lesson2Editor.cs
+    private SerializedProperty keys;
+    private SerializedProperty values;
+
+    private int dicCount;
+    private void OnEnable()
+    {
+        
+        dicCount = keys.arraySize;
+    }
+    public override void OnInspectorGUI()
+    {
+        serializedObject.Update(); //需要用Update()和ApplyModifiedProperties()进行包裹
+         dicCount = EditorGUILayout.IntField("字典容量", dicCount);
+        //容量变少时 把多的删了
+        for (int i = keys.arraySize - 1; i >= dicCount; i--)
+        {
+            keys.DeleteArrayElementAtIndex(i);
+            values.DeleteArrayElementAtIndex(i);
+        }
+
+        for (int i = 0; i < dicCount; i++)
+        {
+            //如果容量不够 扩容
+            if (keys.arraySize <= i)
+            {
+                keys.InsertArrayElementAtIndex(i);
+                values.InsertArrayElementAtIndex(i);
+            }
+            //去真正的自定义键值对的修改
+            SerializedProperty indexKey = keys.GetArrayElementAtIndex(i);
+            SerializedProperty indexValue = values.GetArrayElementAtIndex(i);
+            EditorGUILayout.BeginHorizontal();
+            indexKey.intValue = EditorGUILayout.IntField("字典的键", indexKey.intValue);
+            indexValue.stringValue = EditorGUILayout.TextField("字典的值", indexValue.stringValue);
+            EditorGUILayout.EndHorizontal();
+        }
+
+        serializedObject.ApplyModifiedProperties();
+    }
+```
+## 4.6 效果
+
+![](./七-Inspector窗口拓展/L25Inspector窗口拓展-字典属性%20自定义显示.png)
