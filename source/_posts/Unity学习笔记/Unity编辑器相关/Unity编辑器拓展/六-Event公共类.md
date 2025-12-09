@@ -8,6 +8,12 @@ categories: Unity学习笔记
 Event公共类相关内容
 <!--more-->
 
+- [一、Event公共类是用来做什么的？](#一event公共类是用来做什么的)
+- [二、 重要API](#二-重要api)
+- [三、 API使用示例](#三-api使用示例)
+- [四、 更多内容](#四-更多内容)
+
+
 # 一、Event公共类是用来做什么的？
 - 它提供了许多属性和方法，允许你检查和处理用户输入
 - 主要用于在Unity编辑器拓展开发中
@@ -213,5 +219,5 @@ Event公共类相关内容
     eve.Use();
 ```
 
-# 五、 更多内容
+# 四、 更多内容
 https://docs.unity3d.com/ScriptReference/Event.html
