@@ -532,3 +532,153 @@ public class Lesson26Editor : Editor
 ![](./八-Scene窗口拓展/L32HandleUtility公共类.png)
 距离线段距离
 ![](./八-Scene窗口拓展/L32HandleUtility公共类-线段距离.png)
+
+# 九、Gizmos类是什么及响应函数
+
+## 9.1 知识点一 Gizmos类是用来做什么的？
+- Gizmos和Handles一样
+- 是用来让我们拓展Scene窗口的
+- 而Gizmos相对Handles来说
+- 它主要专注于绘制辅助线、图标、形状等
+- 而Handles主要用来绘制编辑器控制手柄等
+
+## 9.2 知识点二 Gizmos响应函数
+- 在继承MonoBehaviour的脚本中实现以下函数
+- 便可以在其中使用Gizmos来进行图形图像的绘制
+1. OnDrawGizmos() 在每帧调用，绘制的内容随时可以在Scene窗口中看见
+2. OnDrawGizmosSelected() 仅当脚本依附的GameObject被选中时才会每帧调用绘制相关内容
+它们的执行类似生命周期函数，Unity会帮助我们自动执行
+
+# 十、Gizmos类中的 颜色、立方体、视锥、跟随旋转
+
+## 10.1 知识点一 Gizmos修改颜色
+Gizmos.color = Color.green;
+
+## 10.2 知识点二 Gizmos绘制立方体
+Gizmos.DrawCube(中心点, 大小);
+Gizmos.DrawWireCube(中心点, 大小);
+
+## 10.3 知识点三 Gizmos绘制视锥
+Gizmos.DrawFrustum(绘制中心, FOV(Field of View,视野)角度, 远裁切平面, 近裁切平面, 屏幕长宽比); 
+
+## 10.4 知识点四 如何改变绘制内容的角度
+- 修改Gizmos绘制前的矩阵
+Gizmos.matrix
+Gizmos.matrix = Matrix4x4.TRS(位置, 角度, 缩放);
+- 还原矩阵
+Gizmos.matrix = Matrix4x4.identity
+
+## 10.5 代码
+挂载在一个节点上，不放在Editor文件夹下
+```cs
+    private void OnDrawGizmosSelected()
+    {
+        //将绘制矩阵还原(设置成默认，避免跟着移动、旋转、缩放)
+        Gizmos.matrix = Matrix4x4.identity;
+        Gizmos.color = Color.green;
+        Gizmos.DrawCube(Vector3.zero, Vector3.one);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(this.transform.position, new Vector3(2, 1, 3));//随节点移动
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawFrustum(this.transform.position, 30, 50, 0.5f, 1.7f);
+        //将绘制矩阵该为某个对象的 这样就可以跟着 移动 旋转 缩放了
+        Gizmos.matrix = Matrix4x4.TRS(this.transform.position, this.transform.rotation, Vector3.one);
+        //Gizmos.matrix = this.transform.localToWorldMatrix; //移动 旋转 缩放完全跟随节点
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireCube(Vector3.zero, new Vector3(2, 1, 4));
+    }
+```
+
+## 10.6 效果
+![](./八-Scene窗口拓展/L34Gizmos类中的%20颜色、立方体、视锥、跟随旋转.png)
+
+# 十一、Gizmos类中的 贴图、图标
+
+## 11.1 知识点一 Gizmos绘制贴图
+只会在二维平面上绘制
+Gizmos.DrawGUITexture(new Rect(x, y, w, h), 图片信息); 
+
+
+## 12.1 知识点二 Gizmos绘制图标
+图标需要放置在固定文件夹中Assets/Gizmos/中
+
+Gizmos.DrawIcon(Vector3.up, "图标名");
+
+## 12.2 代码
+```cs
+    public Texture pic;
+    private void OnDrawGizmos()
+    {
+        if(pic != null)
+           Gizmos.DrawGUITexture(new Rect(this.transform.position.x, this.transform.position.y, 160, 90), pic);
+
+        Gizmos.DrawIcon(this.transform.position, "MyIcon");
+    }
+```
+## 12.3 效果
+![](./八-Scene窗口拓展/L35Gizmos类中的%20贴图、图标1.png)
+![](./八-Scene窗口拓展/L35Gizmos类中的%20贴图、图标2.png)
+
+# 十二、Gizmos类中的 线段、网格、射线
+
+## 12.1 知识点一 Gizmos绘制线段
+    Gizmos.DrawLine(起点, 终点);
+
+
+## 12.2 知识点二 Gizmos绘制网格
+    Gizmos.DrawMesh(mesh, 位置, 角度);
+
+
+## 12.3 知识点三 Gizmos绘制射线
+    Gizmos.DrawRay(起点, 方向); 
+
+## 12.4 代码
+```cs
+    public Mesh mesh;
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(this.transform.position, this.transform.position + Vector3.one);
+        Gizmos.color = Color.blue;
+        if(mesh != null)
+            Gizmos.DrawMesh(mesh, this.transform.position, this.transform.rotation);
+
+        Gizmos.DrawRay(this.transform.position, this.transform.forward);
+    }
+```
+## 12.5 效果
+![](./八-Scene窗口拓展/L36Gizmos类中的%20线段、网格、射线.png)
+
+
+# 十三、
+
+## 13.1  知识点一 Gizmos绘制球体
+Gizmos.DrawSphere(中心点, 半径);
+Gizmos.DrawWireSphere(中心点, 半径); //球体网格
+
+## 13.2 知识点二 Gizmos绘制网格线
+Gizmos.DrawWireMesh(mesh, 位置, 角度);
+
+
+## 13.3 更多Gizmos相关
+https://docs.unity3d.com/ScriptReference/Gizmos.html
+
+
+## 13.4 代码
+```cs
+    public Mesh mesh;
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(this.transform.position, 2);
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(this.transform.position, 3);//球体网格
+
+        Gizmos.color = Color.yellow;
+        if(mesh != null)
+            Gizmos.DrawWireMesh(mesh, this.transform.position, this.transform.rotation);
+    }
+```
+
+## 13.5 效果
+![](./八-Scene窗口拓展/L37Gizmos类中的%20球体、网格线.png)
