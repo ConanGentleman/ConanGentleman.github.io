@@ -34,7 +34,7 @@
 <meta property="og:image" content="http://example.com/2025/04/27/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%B8%83-Inspector%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/L24Inspector%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7%20%E8%87%AA%E5%AE%9A%E4%B9%89%E6%98%BE%E7%A4%BA.png">
 <meta property="og:image" content="http://example.com/2025/04/27/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%B8%83-Inspector%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/L25Inspector%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95-%E5%AD%97%E5%85%B8%E5%B1%9E%E6%80%A7%20%E8%87%AA%E5%AE%9A%E4%B9%89%E6%98%BE%E7%A4%BA.png">
 <meta property="article:published_time" content="2025-04-27T14:23:20.000Z">
-<meta property="article:modified_time" content="2025-11-09T14:36:04.138Z">
+<meta property="article:modified_time" content="2025-12-09T14:04:28.390Z">
 <meta property="article:author" content="MiDoLi">
 <meta property="article:tag" content="Unity编辑器拓展">
 <meta name="twitter:card" content="summary">
@@ -235,7 +235,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-11-09 22:36:04" itemprop="dateModified" datetime="2025-11-09T22:36:04+08:00">2025-11-09</time>
+                <time title="修改时间：2025-12-09 22:04:28" itemprop="dateModified" datetime="2025-12-09T22:04:28+08:00">2025-12-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -281,14 +281,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
+              <span>2.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>8 分钟</span>
+              <span>9 分钟</span>
             </span>
 
         </div>
@@ -302,6 +302,45 @@
       
         <p>Inspector窗口拓展相关内容</p>
 <span id="more"></span>
+<ul>
+<li><a href="#%E4%B8%80inspector%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">一、Inspector窗口拓展 基础知识</a>
+<ul>
+<li><a href="#11-inspector%E7%AA%97%E5%8F%A3%E8%87%AA%E5%AE%9A%E4%B9%89%E6%98%BE%E7%A4%BA%E6%8C%87%E4%BB%80%E4%B9%88">1.1 Inspector窗口自定义显示指什么？</a></li>
+<li><a href="#12-serializedobject%E5%92%8Cserializedproperty%E7%9A%84%E4%BD%9C%E7%94%A8">1.2 SerializedObject和SerializedProperty的作用</a></li>
+<li><a href="#13-%E8%87%AA%E5%AE%9A%E4%B9%89-%E8%84%9A%E6%9C%AC%E5%9C%A8inspector%E7%AA%97%E5%8F%A3%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%9A%84%E5%86%85%E5%AE%B9">1.3 自定义 脚本在Inspector窗口中显示的内容</a></li>
+<li><a href="#14-%E8%8E%B7%E5%8F%96%E8%84%9A%E6%9C%AC%E4%BE%9D%E9%99%84%E7%9A%84%E5%AF%B9%E8%B1%A1">1.4 获取脚本依附的对象</a></li>
+<li><a href="#15-%E6%80%BB%E7%BB%93">1.5 总结</a></li>
+<li><a href="#16-%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B">1.6 代码示例</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E6%95%B0%E7%BB%84list%E5%B1%9E%E6%80%A7-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%98%BE%E7%A4%BA">二、数组、List属性 自定义显示</a>
+<ul>
+<li><a href="#21-%E6%95%B0%E7%BB%84list%E5%B1%9E%E6%80%A7%E5%9C%A8inspector%E7%AA%97%E5%8F%A3%E6%98%BE%E7%A4%BA-%E5%9F%BA%E7%A1%80%E6%96%B9%E5%BC%8F">2.1 数组、List属性在Inspector窗口显示 基础方式</a></li>
+<li><a href="#22-%E6%95%B0%E7%BB%84list%E5%B1%9E%E6%80%A7%E5%9C%A8inspector%E7%AA%97%E5%8F%A3%E6%98%BE%E7%A4%BA-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E5%BC%8F">2.2 数组、List属性在Inspector窗口显示 自定义方式</a></li>
+<li><a href="#23-%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B">2.3 代码示例</a></li>
+<li><a href="#24-%E6%95%88%E6%9E%9C">2.4 效果</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%98%BE%E7%A4%BA">三、自定义属性 自定义显示</a>
+<ul>
+<li><a href="#31-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7-%E5%9C%A8inspector%E7%AA%97%E5%8F%A3%E6%98%BE%E7%A4%BA-%E5%9F%BA%E7%A1%80%E6%96%B9%E5%BC%8F">3.1 自定义属性 在Inspector窗口显示 基础方式</a></li>
+<li><a href="#32-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7-%E5%9C%A8inspector%E7%AA%97%E5%8F%A3%E6%98%BE%E7%A4%BA-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E5%BC%8F">3.2 自定义属性 在Inspector窗口显示 自定义方式</a></li>
+<li><a href="#33-%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B">3.3 代码示例</a></li>
+<li><a href="#34-%E6%95%88%E6%9E%9C">3.4 效果</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B%E5%AD%97%E5%85%B8%E5%B1%9E%E6%80%A7-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%98%BE%E7%A4%BA">四、字典属性 自定义显示</a>
+<ul>
+<li><a href="#40-%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE-serizlizefield%E7%89%B9%E6%80%A7">4.0 知识回顾 SerizlizeField特性</a></li>
+<li><a href="#41-%E5%A6%82%E4%BD%95%E5%9C%A8inspector%E7%AA%97%E5%8F%A3%E7%BC%96%E8%BE%91%E5%AD%97%E5%85%B8%E6%88%90%E5%91%98">4.1 如何在Inspector窗口编辑字典成员</a></li>
+<li><a href="#42-iserializationcallbackreceiver%E6%8E%A5%E5%8F%A3">4.2 ISerializationCallbackReceiver接口</a></li>
+<li><a href="#43-%E5%88%A9%E7%94%A8%E4%B8%A4%E4%B8%AAlist%E5%9C%A8inspector%E7%AA%97%E5%8F%A3%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89dictionary%E6%98%BE%E7%A4%BA">4.3 利用两个List在Inspector窗口中自定义Dictionary显示</a></li>
+<li><a href="#44-%E6%80%BB%E7%BB%93">4.4 总结</a></li>
+<li><a href="#45-%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B">4.5 代码示例</a></li>
+<li><a href="#46-%E6%95%88%E6%9E%9C">4.6 效果</a></li>
+</ul>
+</li>
+</ul>
 <h1 id="%E4%B8%80%E3%80%81inspector%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86" tabindex="-1">一、Inspector窗口拓展 基础知识</h1>
 <h2 id="1.1-inspector%E7%AA%97%E5%8F%A3%E8%87%AA%E5%AE%9A%E4%B9%89%E6%98%BE%E7%A4%BA%E6%8C%87%E4%BB%80%E4%B9%88%EF%BC%9F" tabindex="-1">1.1 Inspector窗口自定义显示指什么？</h2>
 <ul>
@@ -559,7 +598,7 @@ SerializedProperty: <a target="_blank" rel="noopener" href="https://docs.unity.c
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -670,12 +709,12 @@ SerializedProperty: <a target="_blank" rel="noopener" href="https://docs.unity.c
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">71k</span>
+    <span title="站点总字数">73k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:19</span>
+    <span title="站点阅读时长">4:25</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

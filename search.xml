@@ -1,111 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2024/07/21/hello-world-1/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="48a0ae5effc070c82e44be4a84f8ae9a09954921e0e4136a68b7e5fd229605e4">8857952509ef9895f61625fe2d594ef339e937d6685a3f98341208c8d2d367f4dc0b58f485d52aa0392b14c338af3a49fa9334860d39e66200a503ef5c6f15e63ad2aba5b3bf18c0d6d9f7017f8db44c2c9343dded772edbc3c220543b5d966a4117eabff0585a2d555d0aad8bfd14e10eab5b64af4637f63aeb3e8dd9946bf6da6710df2eb5cb68d40344fab74bc207f2b3ab564720dd3bbdaf275382565b91fc09d67374a24e44135d9e7555af78484137904f464ddd94cb8db1eee25c0c9978eb6e799b1ad3780f520bf6b233d1743f3783536c51e859ec0ee37cfad84134b99bf5c26ed05c01a5b415dcecd23171</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <tags>
-        <tag>作为日记加密</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo在多台电脑上提交和更新</title>
-    <url>/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/</url>
-    <content><![CDATA[<p>参考链接：<a href="https://blog.csdn.net/K1052176873/article/details/122879462">https://blog.csdn.net/K1052176873/article/details/122879462</a></p>
-<p>有时候更换电脑需要也将博客迁移，但新电脑上直接配置是效率较低的因此git来管理</p>
-<span id="more"></span>
-<h1 id="%E4%B8%80%E3%80%81hexo%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E8%AF%B4%E6%98%8E" tabindex="-1">一、Hexo的文件夹说明</h1>
-<p><img src="/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E8%AF%B4%E6%98%8E.png" alt></p>
-<h1 id="%E4%BA%8C%E3%80%81%E5%90%8C%E6%AD%A5%E5%8E%9F%E7%90%86" tabindex="-1">二、同步原理</h1>
-<ol>
-<li>主要思路是利用git分支来实现hexo的同步。<br>
-<strong>hexo生成的静态页面文件默认放在master分支上，这是由_config.yml配置文件所决定的</strong><br>
-你可以在全局配置文件_config.yml中找到这么一段</li>
-</ol>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:username/username.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-<p>因此每当我们<strong>执行hexo d</strong>的时候，hexo都会帮我们把<strong>生成好的静态页面文件推到master分支上</strong></p>
-<p>在我们<strong>第一次部署好博客的时候</strong>，github给我们创建的唯一一个分支就是<strong>master分支，同时也是默认分支</strong>。默认分支就<strong>意味着每次我们执行git clone 仓库地址或者git pull 仓库地址拉取的是默认分支的代码</strong>。</p>
-<p><strong>但是执行hexo d</strong> 对应的分支和默认分支是没有关系的，因为这<strong>是由配置文件决定的，配置文件写的哪个分支就是哪个分支</strong>。</p>
-<ol start="2">
-<li>因此，hexo生成的<strong>静态博客文件默认放在master分支上</strong>。<strong>hexo的源文件（部署环境文件）可以都放在source分支上</strong>（可以新创建一个source分支）。然后<strong>把source分支设置成默认分支</strong>。有小伙伴可能会担心默认分支的改变会不会影响到原来的网页的正常显示，其实如果是<strong>用GitHub Pages对博客进行托管</strong>的话也很简单，第一次搭建博客默认使用master分支作为页面。在下图所示的设置里可以找到。如果<strong>不小心搞错了只要把分支设置成静态页面对应的分支就好了</strong>。<br>
-<img src="/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/%E5%8D%9A%E5%AE%A2%E5%88%86%E6%94%AF%E9%80%89%E6%8B%A9.png" alt></li>
-</ol>
-<p><strong>把source分支设置成默认分支，用来存放源文件，master分支依然存放静态文件</strong>。在老电脑上，我们需要<strong>把必要的源文件push到source分支。换新电脑时，直接git clone 仓库地址此时会从source分支下载源文件</strong>，剩下的就是安装hexo环境，在新电脑上就可以重新生成静态页面了，并且<strong>因为配置文件clone下来，deploy配置依旧是master分支，所以在新电脑上执行hexo d还是会把更新过后的静态文件推送到master分支上</strong>。</p>
-<p>由于master分支和source分支实际上是相互独立的两个普通的分支，所以我们<strong>源文件和静态页面的更新也是相互独立的，故而需要手动分别执行git add . git commit git push来更新源文件,然后执行hexo d更新静态页面</strong>。</p>
-<h1 id="%E4%BA%8C%E3%80%81%E6%97%A7%E7%94%B5%E8%84%91%E5%85%B7%E4%BD%93%E6%93%8D%E4%BD%9C%EF%BC%88%E2%AD%90%EF%BC%89" tabindex="-1">二、旧电脑具体操作（⭐）</h1>
-<ol>
-<li>github准备<br>
-创建一个分支hexo，在输入框输入hexo并点击下面的创建。<br>
-<img src="/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF.png" alt></li>
-<li>设置默认分支<br>
-<img src="/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E5%88%86%E6%94%AF.png" alt></li>
-<li>打包将要推送到GitHub上的原始文件<br>
-clone该仓库到本地（clone的是hexo默认分支）</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone git@github.com:username/username.github.io.git</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>
-<p>下载的文件夹里仅留下.git 文件夹，其他的文件都删除</p>
-</li>
-<li>
-<p>找到原博客文件位置，将文件夹内除.deploy_git 以外都复制到clone下来的文件夹中</p>
-</li>
-<li>
-<p>现在clone下来的文件夹内应该有个 <strong>.gitignore文件</strong> ，用来忽略一些不需要的文件，表示这些类型文件不需要git。如果没有，右键新建，<strong>内容如下</strong>：</p>
-</li>
-</ol>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="meta">.DS_Store</span></span><br><span class="line">Thumbs<span class="number">.</span><span class="built_in">db</span></span><br><span class="line"><span class="built_in">db</span><span class="number">.</span>json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line"><span class="meta">public</span>/</span><br><span class="line"><span class="meta">.deploy</span>*/</span><br></pre></td></tr></table></figure>
-<ol start="7">
-<li>如果<strong>已经clone过主题文件，那么需要把theme主题文件夹里的 .git 也删除</strong>。因为git不能嵌套上传，最好是显示隐藏文件，检查一下有没有，<strong>否则上传的时候会出错</strong>，导致你的主题文件无法上传，这样你的配置在别的电脑上就用不了了。<br>
-<img src="/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/%E4%B8%BB%E9%A2%98%E6%96%87%E4%BB%B6git%E5%88%A0%E9%99%A4.png" alt></li>
-<li>将clone并修改以后的文件夹推送到远程库</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit –m add_branch</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-<ol start="9">
-<li>此时已经成功将整个网站推送到了远程库的默认分支hexo,</li>
-<li>至此，网站部署至master分支，整个网站备份至hexo分支。当网站的配置或文章修改后都要将远程仓库更新。首先，依次执行</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m 内容</span><br><span class="line">git push （或者git push origin hexo）</span><br></pre></td></tr></table></figure>
-<p>保证hexo分支版本最新。然后执行</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
-<p>在此之前，有时可能需要执行<strong>hexo clean</strong>，完成后就会发现，最新改动已经更新到master分支了，两个分支互不干扰！</p>
-<h1 id="%E4%B8%89%E3%80%81%E6%96%B0%E7%94%B5%E8%84%91%E4%B8%8A%E7%9A%84%E6%93%8D%E4%BD%9C%EF%BC%88%E2%AD%90%EF%BC%89" tabindex="-1">三、新电脑上的操作（⭐）</h1>
-<ol>
-<li>将新电脑的生成的ssh key添加到GitHub账户上</li>
-<li>在新电脑上克隆username.github.io仓库的source分支(就是存放源码的分支)到本地，此时本地git仓库处于source分支,可以执行git branch -v查看。</li>
-<li>在新电脑的username.github.io文件夹下执行</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo (如果安装后hexo无效使用 npm install -g hexo来全局安装hexo)</span><br><span class="line">npm install</span><br><span class="line">npm install hexo-deployer-git （记得，不需要hexo init这条指令）</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>最后执行</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<p>等命令即可提交成功<br>
-上面步骤中，<strong>npm install其实就是读取了packages.json里面的信息，自动安装依赖</strong>，有的小伙伴<strong>可能只执行npm install就行了，不过按照上面的三步是最稳妥的。</strong></p>
-<p>这里提一嘴，当新电脑上的操作成功之后，其实对于新电脑还是老电脑其实都无所谓了，任何一台电脑包括老电脑只要安装了NodeJs环境，就都可以按照在新电脑上的操作完整地复刻出一个hexo环境，你甚至可以把老电脑原有的hexo工程删掉再执行上面这几步一样可以快速构建hexo环境，可以看到步骤非常简单。</p>
-<p>此外，为了保证同步，推荐<strong>先git pull合并</strong>更新再进行博客的编写。</p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>hexo博客搭建</category>
-      </categories>
-      <tags>
-        <tag>hexo博客搭建</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo+next博客搭建并部署到github</title>
     <url>/2024/08/07/Hexo-next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0github/</url>
     <content><![CDATA[<h1 id="%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85%E4%B8%8B%E8%BD%BDnode.js%E3%80%81vscode%E3%80%81git" tabindex="-1">一、安装下载Node.js、Vscode、Git</h1>
@@ -804,6 +699,92 @@ clone该仓库到本地（clone的是hexo默认分支）</li>
       </tags>
   </entry>
   <entry>
+    <title>Hexo在多台电脑上提交和更新</title>
+    <url>/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/</url>
+    <content><![CDATA[<p>参考链接：<a href="https://blog.csdn.net/K1052176873/article/details/122879462">https://blog.csdn.net/K1052176873/article/details/122879462</a></p>
+<p>有时候更换电脑需要也将博客迁移，但新电脑上直接配置是效率较低的因此git来管理</p>
+<span id="more"></span>
+<h1 id="%E4%B8%80%E3%80%81hexo%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E8%AF%B4%E6%98%8E" tabindex="-1">一、Hexo的文件夹说明</h1>
+<p><img src="/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E8%AF%B4%E6%98%8E.png" alt></p>
+<h1 id="%E4%BA%8C%E3%80%81%E5%90%8C%E6%AD%A5%E5%8E%9F%E7%90%86" tabindex="-1">二、同步原理</h1>
+<ol>
+<li>主要思路是利用git分支来实现hexo的同步。<br>
+<strong>hexo生成的静态页面文件默认放在master分支上，这是由_config.yml配置文件所决定的</strong><br>
+你可以在全局配置文件_config.yml中找到这么一段</li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:username/username.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<p>因此每当我们<strong>执行hexo d</strong>的时候，hexo都会帮我们把<strong>生成好的静态页面文件推到master分支上</strong></p>
+<p>在我们<strong>第一次部署好博客的时候</strong>，github给我们创建的唯一一个分支就是<strong>master分支，同时也是默认分支</strong>。默认分支就<strong>意味着每次我们执行git clone 仓库地址或者git pull 仓库地址拉取的是默认分支的代码</strong>。</p>
+<p><strong>但是执行hexo d</strong> 对应的分支和默认分支是没有关系的，因为这<strong>是由配置文件决定的，配置文件写的哪个分支就是哪个分支</strong>。</p>
+<ol start="2">
+<li>因此，hexo生成的<strong>静态博客文件默认放在master分支上</strong>。<strong>hexo的源文件（部署环境文件）可以都放在source分支上</strong>（可以新创建一个source分支）。然后<strong>把source分支设置成默认分支</strong>。有小伙伴可能会担心默认分支的改变会不会影响到原来的网页的正常显示，其实如果是<strong>用GitHub Pages对博客进行托管</strong>的话也很简单，第一次搭建博客默认使用master分支作为页面。在下图所示的设置里可以找到。如果<strong>不小心搞错了只要把分支设置成静态页面对应的分支就好了</strong>。<br>
+<img src="/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/%E5%8D%9A%E5%AE%A2%E5%88%86%E6%94%AF%E9%80%89%E6%8B%A9.png" alt></li>
+</ol>
+<p><strong>把source分支设置成默认分支，用来存放源文件，master分支依然存放静态文件</strong>。在老电脑上，我们需要<strong>把必要的源文件push到source分支。换新电脑时，直接git clone 仓库地址此时会从source分支下载源文件</strong>，剩下的就是安装hexo环境，在新电脑上就可以重新生成静态页面了，并且<strong>因为配置文件clone下来，deploy配置依旧是master分支，所以在新电脑上执行hexo d还是会把更新过后的静态文件推送到master分支上</strong>。</p>
+<p>由于master分支和source分支实际上是相互独立的两个普通的分支，所以我们<strong>源文件和静态页面的更新也是相互独立的，故而需要手动分别执行git add . git commit git push来更新源文件,然后执行hexo d更新静态页面</strong>。</p>
+<h1 id="%E4%BA%8C%E3%80%81%E6%97%A7%E7%94%B5%E8%84%91%E5%85%B7%E4%BD%93%E6%93%8D%E4%BD%9C%EF%BC%88%E2%AD%90%EF%BC%89" tabindex="-1">二、旧电脑具体操作（⭐）</h1>
+<ol>
+<li>github准备<br>
+创建一个分支hexo，在输入框输入hexo并点击下面的创建。<br>
+<img src="/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF.png" alt></li>
+<li>设置默认分支<br>
+<img src="/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E5%88%86%E6%94%AF.png" alt></li>
+<li>打包将要推送到GitHub上的原始文件<br>
+clone该仓库到本地（clone的是hexo默认分支）</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone git@github.com:username/username.github.io.git</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>
+<p>下载的文件夹里仅留下.git 文件夹，其他的文件都删除</p>
+</li>
+<li>
+<p>找到原博客文件位置，将文件夹内除.deploy_git 以外都复制到clone下来的文件夹中</p>
+</li>
+<li>
+<p>现在clone下来的文件夹内应该有个 <strong>.gitignore文件</strong> ，用来忽略一些不需要的文件，表示这些类型文件不需要git。如果没有，右键新建，<strong>内容如下</strong>：</p>
+</li>
+</ol>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="meta">.DS_Store</span></span><br><span class="line">Thumbs<span class="number">.</span><span class="built_in">db</span></span><br><span class="line"><span class="built_in">db</span><span class="number">.</span>json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line"><span class="meta">public</span>/</span><br><span class="line"><span class="meta">.deploy</span>*/</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>如果<strong>已经clone过主题文件，那么需要把theme主题文件夹里的 .git 也删除</strong>。因为git不能嵌套上传，最好是显示隐藏文件，检查一下有没有，<strong>否则上传的时候会出错</strong>，导致你的主题文件无法上传，这样你的配置在别的电脑上就用不了了。<br>
+<img src="/2024/12/01/Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0/%E4%B8%BB%E9%A2%98%E6%96%87%E4%BB%B6git%E5%88%A0%E9%99%A4.png" alt></li>
+<li>将clone并修改以后的文件夹推送到远程库</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit –m add_branch</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<ol start="9">
+<li>此时已经成功将整个网站推送到了远程库的默认分支hexo,</li>
+<li>至此，网站部署至master分支，整个网站备份至hexo分支。当网站的配置或文章修改后都要将远程仓库更新。首先，依次执行</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m 内容</span><br><span class="line">git push （或者git push origin hexo）</span><br></pre></td></tr></table></figure>
+<p>保证hexo分支版本最新。然后执行</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+<p>在此之前，有时可能需要执行<strong>hexo clean</strong>，完成后就会发现，最新改动已经更新到master分支了，两个分支互不干扰！</p>
+<h1 id="%E4%B8%89%E3%80%81%E6%96%B0%E7%94%B5%E8%84%91%E4%B8%8A%E7%9A%84%E6%93%8D%E4%BD%9C%EF%BC%88%E2%AD%90%EF%BC%89" tabindex="-1">三、新电脑上的操作（⭐）</h1>
+<ol>
+<li>将新电脑的生成的ssh key添加到GitHub账户上</li>
+<li>在新电脑上克隆username.github.io仓库的source分支(就是存放源码的分支)到本地，此时本地git仓库处于source分支,可以执行git branch -v查看。</li>
+<li>在新电脑的username.github.io文件夹下执行</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo (如果安装后hexo无效使用 npm install -g hexo来全局安装hexo)</span><br><span class="line">npm install</span><br><span class="line">npm install hexo-deployer-git （记得，不需要hexo init这条指令）</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>最后执行</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>等命令即可提交成功<br>
+上面步骤中，<strong>npm install其实就是读取了packages.json里面的信息，自动安装依赖</strong>，有的小伙伴<strong>可能只执行npm install就行了，不过按照上面的三步是最稳妥的。</strong></p>
+<p>这里提一嘴，当新电脑上的操作成功之后，其实对于新电脑还是老电脑其实都无所谓了，任何一台电脑包括老电脑只要安装了NodeJs环境，就都可以按照在新电脑上的操作完整地复刻出一个hexo环境，你甚至可以把老电脑原有的hexo工程删掉再执行上面这几步一样可以快速构建hexo环境，可以看到步骤非常简单。</p>
+<p>此外，为了保证同步，推荐<strong>先git pull合并</strong>更新再进行博客的编写。</p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>hexo博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo博客搭建</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2024/07/01/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -823,6 +804,25 @@ clone该仓库到本地（clone的是hexo默认分支）</li>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2024/07/21/hello-world-1/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="48a0ae5effc070c82e44be4a84f8ae9a09954921e0e4136a68b7e5fd229605e4">8857952509ef9895f61625fe2d594ef339e937d6685a3f98341208c8d2d367f4dc0b58f485d52aa0392b14c338af3a49fa9334860d39e66200a503ef5c6f15e63ad2aba5b3bf18c0d6d9f7017f8db44c2c9343dded772edbc3c220543b5d966a4117eabff0585a2d555d0aad8bfd14e10eab5b64af4637f63aeb3e8dd9946bf6da6710df2eb5cb68d40344fab74bc207f2b3ab564720dd3bbdaf275382565b91fc09d67374a24e44135d9e7555af78484137904f464ddd94cb8db1eee25c0c9978eb6e799b1ad3780f520bf6b233d1743f3783536c51e859ec0ee37cfad84134b99bf5c26ed05c01a5b415dcecd23171</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <tags>
+        <tag>作为日记加密</tag>
+      </tags>
   </entry>
   <entry>
     <title>解决Hexo图片不显示的问题</title>
@@ -1314,6 +1314,57 @@ F^{-1}(F(a)) = F(F^{-1}(a))=a
       </tags>
   </entry>
   <entry>
+    <title>3D数学基础-图形和游戏开发-学习笔记 第六章 矩阵详解</title>
+    <url>/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<p>之前第4章介绍了矩阵的大部分重要属性和操作,并讨论了如何使用矩阵来表示一般的几何变换。第5章详细讨论了矩阵和几何变换。本章将通过讨论一些更有趣和有用的矩阵运算来结束矩阵主题。</p>
+<span id="more"></span>
+<ul>
+<li>第6.1节将介绍矩阵的行列式。</li>
+<li>第6.2节将解释矩阵的逆矩阵。</li>
+<li>第6.3节将讨论正交矩阵。</li>
+<li>第6.4节将介绍齐次矢量和4×4矩阵,并演示如何将它们应用于三维中执行仿射变换。</li>
+<li>第6.5节将讨论透视投影,并展示如何使用4x4矩阵进行透视投影。</li>
+</ul>
+<h1 id="6.1-%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F" tabindex="-1">6.1 矩阵行列式</h1>
+<p>对于方形矩阵,有一个特殊的标量称为矩阵的行列式(Determinant)。行列式在线性代数中有许多有用的属性,在几何中也有一些有趣的解释。<br>
+按照习惯,我们将首先讨论一些数学,然后做一些几何解释；第6.1.1节将介绍行列式的符号，并给出用于计算2×2或3×3矩阵的行列式的线性代数规则；第6.1.2节将讨论子矩阵行列式(Minor)和余子式(Cofactor)；第6.1.3节节将展示如何使用子矩阵和余子式计算任意nxn矩阵的行列式；第6.1.4节将从几何角度解释行列式。</p>
+<h2 id="6.1.1-%E5%85%B3%E4%BA%8E2%C3%972%E5%92%8C3%C3%973%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F" tabindex="-1">6.1.1 关于2×2和3×3的行列式</h2>
+<ol>
+<li>方形矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">M</mi></mrow><annotation encoding="application/x-tex">\bold{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">M</span></span></span></span></eq>的行列式表示为<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><mi mathvariant="bold">M</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">|\bold{M}|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathbf">M</span><span class="mord">∣</span></span></span></span></eq>,有些图书也将它表示为&quot;det <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">M</mi></mrow><annotation encoding="application/x-tex">\bold{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">M</span></span></span></span></eq>&quot;。非方形矩阵的行列式是未定义的。本节将介绍如何计算2×2和3×3矩阵的行列式。第6.1.3节将讨论相当复杂的一般性<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n\times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></eq>矩阵的行列式。</li>
+</ol>
+<ul>
+<li><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">2</mn><mo>×</mo><mn mathvariant="bold">2</mn></mrow><annotation encoding="application/x-tex">\bold{2}\times \bold{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord mathbf">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord mathbf">2</span></span></span></span></eq>的行列式由下式给出：<br>
+<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%202x2%E7%9F%A9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F.png" alt><br>
+（当编写矩阵的行列式时，将使用垂直线代替括号）
+<ul>
+<li>使用下面的示意图可以更容易地记住式(6.1)。只需沿对角线和反对角线分别让元素相乘,然后使用对角线元素相乘的结果减去反对角线元无素相乘的结果即可。<br>
+<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.1.1%202x2%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97.png" alt></li>
+</ul>
+</li>
+<li><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">3</mn><mo>×</mo><mn mathvariant="bold">3</mn></mrow><annotation encoding="application/x-tex">\bold{3}\times \bold{3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord mathbf">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord mathbf">3</span></span></span></span></eq>的行列式由下式给出：<br>
+<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%203x3%E7%9F%A9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F.png" alt>
+<ul>
+<li>我们可以通过一个类似的示意图来帮助记忆式(6.2)。先并排编写矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">M</mi></mrow><annotation encoding="application/x-tex">\bold{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">M</span></span></span></span></eq>的两个副本,然后沿对角线和反对角线分别让元素相乘,最后使用对角线元素相乘的结果的和减去反对角线元素相乘的结果即可。<br>
+<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%203x3%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97.png" alt></li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>如果将<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">3</mn><mo>×</mo><mn mathvariant="bold">3</mn></mrow><annotation encoding="application/x-tex">\bold{3}\times \bold{3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord mathbf">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord mathbf">3</span></span></span></span></eq>矩阵的行解释为3个矢量,那么该矩阵的行列式就等价于3个矢量的所谓三重积(TripleProduct),具体如下:<br>
+<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%203x3%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F%E4%B8%8E%E4%B8%89%E7%BB%B4%E7%9F%A2%E9%87%8F%E4%B8%89%E9%87%8D%E7%A7%AF.png" alt></li>
+</ol>
+<h2 id="6.1.2-%E5%AD%90%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F%E5%92%8C%E4%BD%99%E5%AD%90%E5%BC%8F" tabindex="-1">6.1.2 子矩阵行列式和余子式</h2>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>3D数学基础</category>
+      </categories>
+      <tags>
+        <tag>3D数学基础</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>3D数学基础-图形和游戏开发-学习笔记 第三章 多个坐标空间</title>
     <url>/2024/10/04/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4/</url>
     <content><![CDATA[<p>开发人员会为特定的理由构建坐标空间（有经验的老手可能会告诉你说“在不同的情况下需要不同的空间”）。</p>
@@ -1439,57 +1490,6 @@ F^{-1}(F(a)) = F(F^{-1}(a))=a
 分解为这样的层次结构的模型有时被称为关节模型(Articulated Model)。</li>
 </ol>
 <h1 id="3.5-%E9%92%88%E5%AF%B9%E7%9B%B4%E7%AB%8B%E7%A9%BA%E9%97%B4%E7%9A%84%E5%86%8D%E8%A7%A3%E9%87%8A" tabindex="-1">3.5 针对直立空间的再解释</h1>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>3D数学基础</category>
-      </categories>
-      <tags>
-        <tag>3D数学基础</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>3D数学基础-图形和游戏开发-学习笔记 第六章 矩阵详解</title>
-    <url>/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<p>之前第4章介绍了矩阵的大部分重要属性和操作,并讨论了如何使用矩阵来表示一般的几何变换。第5章详细讨论了矩阵和几何变换。本章将通过讨论一些更有趣和有用的矩阵运算来结束矩阵主题。</p>
-<span id="more"></span>
-<ul>
-<li>第6.1节将介绍矩阵的行列式。</li>
-<li>第6.2节将解释矩阵的逆矩阵。</li>
-<li>第6.3节将讨论正交矩阵。</li>
-<li>第6.4节将介绍齐次矢量和4×4矩阵,并演示如何将它们应用于三维中执行仿射变换。</li>
-<li>第6.5节将讨论透视投影,并展示如何使用4x4矩阵进行透视投影。</li>
-</ul>
-<h1 id="6.1-%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F" tabindex="-1">6.1 矩阵行列式</h1>
-<p>对于方形矩阵,有一个特殊的标量称为矩阵的行列式(Determinant)。行列式在线性代数中有许多有用的属性,在几何中也有一些有趣的解释。<br>
-按照习惯,我们将首先讨论一些数学,然后做一些几何解释；第6.1.1节将介绍行列式的符号，并给出用于计算2×2或3×3矩阵的行列式的线性代数规则；第6.1.2节将讨论子矩阵行列式(Minor)和余子式(Cofactor)；第6.1.3节节将展示如何使用子矩阵和余子式计算任意nxn矩阵的行列式；第6.1.4节将从几何角度解释行列式。</p>
-<h2 id="6.1.1-%E5%85%B3%E4%BA%8E2%C3%972%E5%92%8C3%C3%973%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F" tabindex="-1">6.1.1 关于2×2和3×3的行列式</h2>
-<ol>
-<li>方形矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">M</mi></mrow><annotation encoding="application/x-tex">\bold{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">M</span></span></span></span></eq>的行列式表示为<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><mi mathvariant="bold">M</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">|\bold{M}|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathbf">M</span><span class="mord">∣</span></span></span></span></eq>,有些图书也将它表示为&quot;det <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">M</mi></mrow><annotation encoding="application/x-tex">\bold{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">M</span></span></span></span></eq>&quot;。非方形矩阵的行列式是未定义的。本节将介绍如何计算2×2和3×3矩阵的行列式。第6.1.3节将讨论相当复杂的一般性<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n\times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></eq>矩阵的行列式。</li>
-</ol>
-<ul>
-<li><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">2</mn><mo>×</mo><mn mathvariant="bold">2</mn></mrow><annotation encoding="application/x-tex">\bold{2}\times \bold{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord mathbf">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord mathbf">2</span></span></span></span></eq>的行列式由下式给出：<br>
-<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%202x2%E7%9F%A9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F.png" alt><br>
-（当编写矩阵的行列式时，将使用垂直线代替括号）
-<ul>
-<li>使用下面的示意图可以更容易地记住式(6.1)。只需沿对角线和反对角线分别让元素相乘,然后使用对角线元素相乘的结果减去反对角线元无素相乘的结果即可。<br>
-<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.1.1%202x2%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97.png" alt></li>
-</ul>
-</li>
-<li><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">3</mn><mo>×</mo><mn mathvariant="bold">3</mn></mrow><annotation encoding="application/x-tex">\bold{3}\times \bold{3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord mathbf">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord mathbf">3</span></span></span></span></eq>的行列式由下式给出：<br>
-<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%203x3%E7%9F%A9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F.png" alt>
-<ul>
-<li>我们可以通过一个类似的示意图来帮助记忆式(6.2)。先并排编写矩阵<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">M</mi></mrow><annotation encoding="application/x-tex">\bold{M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">M</span></span></span></span></eq>的两个副本,然后沿对角线和反对角线分别让元素相乘,最后使用对角线元素相乘的结果的和减去反对角线元素相乘的结果即可。<br>
-<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%203x3%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97.png" alt></li>
-</ul>
-</li>
-</ul>
-<ol start="3">
-<li>如果将<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">3</mn><mo>×</mo><mn mathvariant="bold">3</mn></mrow><annotation encoding="application/x-tex">\bold{3}\times \bold{3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord mathbf">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord mathbf">3</span></span></span></span></eq>矩阵的行解释为3个矢量,那么该矩阵的行列式就等价于3个矢量的所谓三重积(TripleProduct),具体如下:<br>
-<img src="/2025/03/29/3D%E6%B8%B8%E6%88%8F%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%BE%E5%BD%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/6.6.1%203x3%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F%E4%B8%8E%E4%B8%89%E7%BB%B4%E7%9F%A2%E9%87%8F%E4%B8%89%E9%87%8D%E7%A7%AF.png" alt></li>
-</ol>
-<h2 id="6.1.2-%E5%AD%90%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F%E5%92%8C%E4%BD%99%E5%AD%90%E5%BC%8F" tabindex="-1">6.1.2 子矩阵行列式和余子式</h2>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
@@ -4465,21 +4465,6 @@ LuaRocks 安装方法：</li>
       </tags>
   </entry>
   <entry>
-    <title>基于UE5的多人联机TPS游戏deme</title>
-    <url>/2025/11/09/ue5%E7%9B%B8%E5%85%B3-ue5-online-TPS/</url>
-    <content><![CDATA[<p>做了个新的demo，基于UE5的多人联机TPS游戏</p>
-<p>链接：<a href="https://www.bilibili.com/video/BV1Mx1jBzErz/?spm_id_from=333.1387.homepage.video_card.click">https://www.bilibili.com/video/BV1Mx1jBzErz/?spm_id_from=333.1387.homepage.video_card.click</a></p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>ue5</category>
-      </categories>
-      <tags>
-        <tag>ue5</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo文章多了如何管理</title>
     <url>/2024/08/13/hexo%E6%96%87%E7%AB%A0%E5%A4%9A%E4%BA%86%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<p>每次通过hexo new ‘xxx’创建新的博文时，都会将生成的.md文件放置在_post文件夹下，随着文章数的增多，_post文件夹也会越来越混乱。</p>
@@ -4504,6 +4489,21 @@ LuaRocks 安装方法：</li>
       </categories>
       <tags>
         <tag>hexo博客搭建</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于UE5的多人联机TPS游戏deme</title>
+    <url>/2025/11/09/ue5%E7%9B%B8%E5%85%B3-ue5-online-TPS/</url>
+    <content><![CDATA[<p>做了个新的demo，基于UE5的多人联机TPS游戏</p>
+<p>链接：<a href="https://www.bilibili.com/video/BV1Mx1jBzErz/?spm_id_from=333.1387.homepage.video_card.click">https://www.bilibili.com/video/BV1Mx1jBzErz/?spm_id_from=333.1387.homepage.video_card.click</a></p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>ue5</category>
+      </categories>
+      <tags>
+        <tag>ue5</tag>
       </tags>
   </entry>
   <entry>
@@ -4702,6 +4702,45 @@ LuaRocks 安装方法：</li>
     <url>/2025/04/27/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%B8%83-Inspector%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/</url>
     <content><![CDATA[<p>Inspector窗口拓展相关内容</p>
 <span id="more"></span>
+<ul>
+<li><a href="#%E4%B8%80inspector%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">一、Inspector窗口拓展 基础知识</a>
+<ul>
+<li><a href="#11-inspector%E7%AA%97%E5%8F%A3%E8%87%AA%E5%AE%9A%E4%B9%89%E6%98%BE%E7%A4%BA%E6%8C%87%E4%BB%80%E4%B9%88">1.1 Inspector窗口自定义显示指什么？</a></li>
+<li><a href="#12-serializedobject%E5%92%8Cserializedproperty%E7%9A%84%E4%BD%9C%E7%94%A8">1.2 SerializedObject和SerializedProperty的作用</a></li>
+<li><a href="#13-%E8%87%AA%E5%AE%9A%E4%B9%89-%E8%84%9A%E6%9C%AC%E5%9C%A8inspector%E7%AA%97%E5%8F%A3%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%9A%84%E5%86%85%E5%AE%B9">1.3 自定义 脚本在Inspector窗口中显示的内容</a></li>
+<li><a href="#14-%E8%8E%B7%E5%8F%96%E8%84%9A%E6%9C%AC%E4%BE%9D%E9%99%84%E7%9A%84%E5%AF%B9%E8%B1%A1">1.4 获取脚本依附的对象</a></li>
+<li><a href="#15-%E6%80%BB%E7%BB%93">1.5 总结</a></li>
+<li><a href="#16-%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B">1.6 代码示例</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E6%95%B0%E7%BB%84list%E5%B1%9E%E6%80%A7-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%98%BE%E7%A4%BA">二、数组、List属性 自定义显示</a>
+<ul>
+<li><a href="#21-%E6%95%B0%E7%BB%84list%E5%B1%9E%E6%80%A7%E5%9C%A8inspector%E7%AA%97%E5%8F%A3%E6%98%BE%E7%A4%BA-%E5%9F%BA%E7%A1%80%E6%96%B9%E5%BC%8F">2.1 数组、List属性在Inspector窗口显示 基础方式</a></li>
+<li><a href="#22-%E6%95%B0%E7%BB%84list%E5%B1%9E%E6%80%A7%E5%9C%A8inspector%E7%AA%97%E5%8F%A3%E6%98%BE%E7%A4%BA-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E5%BC%8F">2.2 数组、List属性在Inspector窗口显示 自定义方式</a></li>
+<li><a href="#23-%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B">2.3 代码示例</a></li>
+<li><a href="#24-%E6%95%88%E6%9E%9C">2.4 效果</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%98%BE%E7%A4%BA">三、自定义属性 自定义显示</a>
+<ul>
+<li><a href="#31-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7-%E5%9C%A8inspector%E7%AA%97%E5%8F%A3%E6%98%BE%E7%A4%BA-%E5%9F%BA%E7%A1%80%E6%96%B9%E5%BC%8F">3.1 自定义属性 在Inspector窗口显示 基础方式</a></li>
+<li><a href="#32-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7-%E5%9C%A8inspector%E7%AA%97%E5%8F%A3%E6%98%BE%E7%A4%BA-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E5%BC%8F">3.2 自定义属性 在Inspector窗口显示 自定义方式</a></li>
+<li><a href="#33-%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B">3.3 代码示例</a></li>
+<li><a href="#34-%E6%95%88%E6%9E%9C">3.4 效果</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B%E5%AD%97%E5%85%B8%E5%B1%9E%E6%80%A7-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%98%BE%E7%A4%BA">四、字典属性 自定义显示</a>
+<ul>
+<li><a href="#40-%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE-serizlizefield%E7%89%B9%E6%80%A7">4.0 知识回顾 SerizlizeField特性</a></li>
+<li><a href="#41-%E5%A6%82%E4%BD%95%E5%9C%A8inspector%E7%AA%97%E5%8F%A3%E7%BC%96%E8%BE%91%E5%AD%97%E5%85%B8%E6%88%90%E5%91%98">4.1 如何在Inspector窗口编辑字典成员</a></li>
+<li><a href="#42-iserializationcallbackreceiver%E6%8E%A5%E5%8F%A3">4.2 ISerializationCallbackReceiver接口</a></li>
+<li><a href="#43-%E5%88%A9%E7%94%A8%E4%B8%A4%E4%B8%AAlist%E5%9C%A8inspector%E7%AA%97%E5%8F%A3%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89dictionary%E6%98%BE%E7%A4%BA">4.3 利用两个List在Inspector窗口中自定义Dictionary显示</a></li>
+<li><a href="#44-%E6%80%BB%E7%BB%93">4.4 总结</a></li>
+<li><a href="#45-%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B">4.5 代码示例</a></li>
+<li><a href="#46-%E6%95%88%E6%9E%9C">4.6 效果</a></li>
+</ul>
+</li>
+</ul>
 <h1 id="%E4%B8%80%E3%80%81inspector%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86" tabindex="-1">一、Inspector窗口拓展 基础知识</h1>
 <h2 id="1.1-inspector%E7%AA%97%E5%8F%A3%E8%87%AA%E5%AE%9A%E4%B9%89%E6%98%BE%E7%A4%BA%E6%8C%87%E4%BB%80%E4%B9%88%EF%BC%9F" tabindex="-1">1.1 Inspector窗口自定义显示指什么？</h2>
 <ul>
@@ -4851,182 +4890,6 @@ SerializedProperty: <a href="https://docs.unity.cn/cn/2022.1/ScriptReference/Ser
 <figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">//lesson22.cs</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Lesson22</span> : <span class="title">MonoBehaviour</span>, <span class="title">ISerializationCallbackReceiver</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> Dictionary&lt;<span class="built_in">int</span>, <span class="built_in">string</span>&gt; myDic = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">int</span>, <span class="built_in">string</span>&gt;() &#123; &#123; <span class="number">1</span>, <span class="string">&quot;123&quot;</span> &#125;, &#123; <span class="number">2</span>, <span class="string">&quot;234&quot;</span> &#125; &#125;;</span><br><span class="line"></span><br><span class="line">    [<span class="meta">SerializeField</span>]</span><br><span class="line">    <span class="keyword">private</span> List&lt;<span class="built_in">int</span>&gt; keys = <span class="keyword">new</span> List&lt;<span class="built_in">int</span>&gt;();</span><br><span class="line">    [<span class="meta">SerializeField</span>]</span><br><span class="line">    <span class="keyword">private</span> List&lt;<span class="built_in">string</span>&gt; values = <span class="keyword">new</span> List&lt;<span class="built_in">string</span>&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//反序列化之后自动调用</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnAfterDeserialize</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        myDic.Clear();</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; keys.Count; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (!myDic.ContainsKey(keys[i]))</span><br><span class="line">                myDic.Add(keys[i], values[i]);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                Debug.LogWarning(<span class="string">&quot;字典Dictionary容器中不允许有相同的键&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//序列化之前自动调用</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnBeforeSerialize</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        keys.Clear();</span><br><span class="line">        values.Clear();</span><br><span class="line">        <span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> myDic)</span><br><span class="line">        &#123;</span><br><span class="line">            keys.Add(item.Key);</span><br><span class="line">            values.Add(item.Value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> myDic)</span><br><span class="line">        &#123;</span><br><span class="line">            print(<span class="string">$&quot;Dic:<span class="subst">&#123;item.Key&#125;</span> - <span class="subst">&#123;item.Value&#125;</span>&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// lesson2Editor.cs</span></span><br><span class="line">    <span class="keyword">private</span> SerializedProperty keys;</span><br><span class="line">    <span class="keyword">private</span> SerializedProperty values;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">int</span> dicCount;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnEnable</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">        dicCount = keys.arraySize;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OnInspectorGUI</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        serializedObject.Update(); <span class="comment">//需要用Update()和ApplyModifiedProperties()进行包裹</span></span><br><span class="line">         dicCount = EditorGUILayout.IntField(<span class="string">&quot;字典容量&quot;</span>, dicCount);</span><br><span class="line">        <span class="comment">//容量变少时 把多的删了</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = keys.arraySize - <span class="number">1</span>; i &gt;= dicCount; i--)</span><br><span class="line">        &#123;</span><br><span class="line">            keys.DeleteArrayElementAtIndex(i);</span><br><span class="line">            values.DeleteArrayElementAtIndex(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; dicCount; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//如果容量不够 扩容</span></span><br><span class="line">            <span class="keyword">if</span> (keys.arraySize &lt;= i)</span><br><span class="line">            &#123;</span><br><span class="line">                keys.InsertArrayElementAtIndex(i);</span><br><span class="line">                values.InsertArrayElementAtIndex(i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//去真正的自定义键值对的修改</span></span><br><span class="line">            SerializedProperty indexKey = keys.GetArrayElementAtIndex(i);</span><br><span class="line">            SerializedProperty indexValue = values.GetArrayElementAtIndex(i);</span><br><span class="line">            EditorGUILayout.BeginHorizontal();</span><br><span class="line">            indexKey.intValue = EditorGUILayout.IntField(<span class="string">&quot;字典的键&quot;</span>, indexKey.intValue);</span><br><span class="line">            indexValue.stringValue = EditorGUILayout.TextField(<span class="string">&quot;字典的值&quot;</span>, indexValue.stringValue);</span><br><span class="line">            EditorGUILayout.EndHorizontal();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        serializedObject.ApplyModifiedProperties();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <h2 id="4.6-%E6%95%88%E6%9E%9C" tabindex="-1">4.6 效果</h2>
 <p><img src="/2025/04/27/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%B8%83-Inspector%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/L25Inspector%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95-%E5%AD%97%E5%85%B8%E5%B1%9E%E6%80%A7%20%E8%87%AA%E5%AE%9A%E4%B9%89%E6%98%BE%E7%A4%BA.png" alt></p>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-]]></content>
-      <categories>
-        <category>Unity学习笔记</category>
-      </categories>
-      <tags>
-        <tag>Unity编辑器拓展</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Unity编辑器拓展（二）-自定义窗口拓展</title>
-    <url>/2025/02/25/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%8C-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/</url>
-    <content><![CDATA[<p>Unity编辑器拓展（二）-自定义窗口拓展学习</p>
-<span id="more"></span>
-<h2 id="%E4%B8%80%E3%80%81%E5%88%9B%E5%BB%BA%E7%AA%97%E5%8F%A3%E7%B1%BB" tabindex="-1">一、创建窗口类</h2>
-<ol>
-<li>
-<p>命名空间：UnityEditor</p>
-</li>
-<li>
-<p>继承类名：EditorWindow</p>
-</li>
-<li>
-<p>方法：</p>
-</li>
-</ol>
-<ul>
-<li>当我们想要为Unity拓展一个自定义窗口时</li>
-<li>我们只需要实现一个继承了EditorWindow的类即可</li>
-<li>并且在该类的OnGUI函数中编写面板控件相关的逻辑</li>
-</ul>
-<ol start="4">
-<li>示例</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Lesson2</span> : <span class="title">EditorWindow</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnGUI</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        GUILayout.Label(<span class="string">&quot;测试文本&quot;</span>); <span class="comment">//绘制文本</span></span><br><span class="line">        <span class="keyword">if</span>(GUILayout.Button(<span class="string">&quot;测试按钮&quot;</span>)) <span class="comment">//绘制点击按钮</span></span><br><span class="line">        &#123;</span><br><span class="line">            Debug.Log(<span class="string">&quot;Test&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="%E4%BA%8C%E3%80%81%E6%98%BE%E7%A4%BA%E7%AA%97%E5%8F%A3" tabindex="-1">二、显示窗口</h2>
-<ol>
-<li>
-<p>用自定义菜单栏拓展的方式，添加一个自定义页签用于开启窗口<br>
-调用EditorWindow.GetWindow</p>
-</li>
-<li>
-<p>EditorWindow.GetWindow方法有很多种重载，其中的主要参数一般有</p>
-</li>
-</ol>
-<ul>
-<li>Type或T：窗口类的类型</li>
-<li>utility：为 true 可创建浮动实用程序窗口，设置为 false 可创建正常窗口。所谓浮动窗口就是可以自由拖动自由改变大小</li>
-<li>title：窗口标题</li>
-<li>focus：是否为窗口提供焦点（如果已存在）。（如果 GetWindow 创建新窗口，则将始终获得焦点）</li>
-<li>desiredDockNextTo:窗口试图停靠到其上的 EditorWindow 类型的数组</li>
-</ul>
-<ol start="3">
-<li>
-<p>创建窗口对象<br>
-之后调用对象的Show方法即可显示窗口</p>
-</li>
-<li>
-<p>代码</p>
-</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">[<span class="meta">MenuItem(<span class="string">&quot;Unity编辑器拓展/Lesson2/显示自定义面板&quot;</span>)</span>]</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ShowWindow</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Lesson2 win = EditorWindow.GetWindow&lt;Lesson2&gt;(); <span class="comment">//获取窗口（唯一窗口），如果希望有多个窗口的话使用EditorWindow.CreateWindow&lt;Lesson2&gt;();</span></span><br><span class="line">    win.titleContent = <span class="keyword">new</span> GUIContent(<span class="string">&quot;我的窗口&quot;</span>); <span class="comment">//创建窗口</span></span><br><span class="line">    win.Show(); <span class="comment">//显示窗口</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>效果（与1点的代码同时）<br>
-<img src="/2025/02/25/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%8C-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/2.%20%E6%98%BE%E7%A4%BA%E7%AA%97%E5%8F%A3.png" alt></li>
-</ol>
-<h2 id="%E4%B8%89%E3%80%81%E7%AA%97%E5%8F%A3%E4%BA%8B%E4%BB%B6%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0" tabindex="-1">三、窗口事件回调函数</h2>
-<ol>
-<li>继承EditorWindow的窗口类 自带一些事件回调函数，当触发对应事件时会自动进入</li>
-</ol>
-<ul>
-<li>(1) OnHierarchyChange():当场景中的层次结构（Hierarchy）发生变化时调用。
-<ul>
-<li>例如，当游戏对象被创建、删除或重命名时触发。</li>
-</ul>
-</li>
-<li>(2) OnFocus():当窗口获得焦点时调用。
-<ul>
-<li>在这个方法中，你可以执行一些在窗口获得焦点时需要进行的操作。</li>
-</ul>
-</li>
-<li>(3) OnLostFocus():当窗口失去焦点时调用。
-<ul>
-<li>通常在这个方法中执行一些在窗口失去焦点时需要进行的清理工作。</li>
-</ul>
-</li>
-<li>(4) OnProjectChange():当项目资源发生变化时调用。
-<ul>
-<li>例如，当添加、删除或修改项目中的文件时触发。</li>
-</ul>
-</li>
-<li>(5) OnInspectorUpdate():在检视器（Inspector）面板更新时调用。
-<ul>
-<li>可以在这个方法中执行需要在检视器面板刷新时进行的逻辑，比如更新显示的信息</li>
-</ul>
-</li>
-<li>(6) OnSelectionChange():当选择的对象发生变化时调用。
-<ul>
-<li>在这个方法中，你可以执行与所选对象相关的操作，以确保编辑器窗口的内容与当前选择保持同步。</li>
-</ul>
-</li>
-</ul>
-<ol start="2">
-<li>示例</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnHierarchyChange</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;当Hierarchy窗口内容发生变化时&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnFocus</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;获取焦点&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnLostFocus</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;失去焦点&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnProjectChange</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;当Project窗口内容发生变化时&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnInspectorUpdate</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;当Inspector窗口内容发生变化时&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnSelectionChange</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;当选中对象发生变化时&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="%E5%9B%9B%E3%80%81%E7%AA%97%E5%8F%A3%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0" tabindex="-1">四、窗口中常用的生命周期函数</h2>
-<ol>
-<li>OnEnable():
-<ul>
-<li>当窗口被激活时调用，通常在窗口创建时会调用一次。</li>
-<li>在这个方法中，你可以进行一些初始化工作，例如注册事件监听器或设置初始变量。</li>
-</ul>
-</li>
-<li>OnGUI():
-<ul>
-<li>每帧都会调用此方法，用于绘制编辑器窗口的 GUI。</li>
-<li>在这个方法中，你可以使用 GUILayout 或 EditorGUILayout 等类创建界面元素，以便用户与窗口进行交互。</li>
-</ul>
-</li>
-<li>OnDestroy():
-<ul>
-<li>当窗口被销毁时调用，通常在关闭编辑器或切换场景时触发。在这里进行最终的清理工作，确保没有未释放的资源。</li>
-</ul>
-</li>
-<li>Update():
-<ul>
-<li>在编辑器窗口每帧更新时调用。通常在这里执行一些需要在每帧进行的逻辑</li>
-</ul>
-</li>
-</ol>
-<h2 id="%E4%BA%94%E3%80%81%E7%BC%96%E8%BE%91%E5%99%A8%E7%AA%97%E5%8F%A3%E7%B1%BB%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E6%88%90%E5%91%98" tabindex="-1">五、编辑器窗口类中的常用成员</h2>
-<p>Unity官方文档有关于编辑器窗口类的API说明<br>
-<a href="https://docs.unity.cn/cn/2022.3/ScriptReference/EditorWindow.html">https://docs.unity.cn/cn/2022.3/ScriptReference/EditorWindow.html</a></p>
-<ol>
-<li>
-<p>静态变量</p>
-<ul>
-<li>(1) focusedWindow：当前已获得键盘焦点的 EditorWindow。（只读）</li>
-<li>(2) mouseOverWindow：当前在鼠标光标下的 EditorWindow。（只读）</li>
-</ul>
-</li>
-<li>
-<p>静态函数</p>
-</li>
-</ol>
-<ul>
-<li>(1) CreateWindow: 创建窗口，如果允许一个窗口有多个可以用该API创建窗口</li>
-<li>(2) GetWindow: 通过它我们可以创建一个窗口对象</li>
-<li>(3) GetWindowWithRect：返回一个指定位置、大小的窗口</li>
-<li>(4) HasOpenInstances：检查编辑器窗口是否打开</li>
-</ul>
-<ol start="3">
-<li>成员变量</li>
-</ol>
-<ul>
-<li>(1) titleContent：窗口标题名</li>
-<li>(2) positon：窗口位置大小信息</li>
-<li>(3) wantsMouseEnterLeaveWindow:如果设置为 true，则每当鼠标进入或离开窗口时，该窗口都会收到一次 OnGUI 调用</li>
-</ul>
-<ol start="4">
-<li>成员函数</li>
-</ol>
-<ul>
-<li>(1) Show: 显示面板</li>
-<li>(2) Repaint：重绘窗口</li>
-<li>(3) Close: 关闭窗口</li>
-</ul>
-<h2 id="%E5%85%AD%E3%80%81%E6%80%BB%E7%BB%93" tabindex="-1">六、总结</h2>
-<p>编辑器拓展中想要实现自定义窗口</p>
-<ol>
-<li>只需要继承EditorWindow类</li>
-<li>主要在OnGUI中利用GUI相关API绘制控件处理功能逻辑</li>
-<li>对应的事件回调函数，可以帮助我们监听到一些特殊情况用于处理对应逻辑</li>
-</ol>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
@@ -5377,6 +5240,197 @@ SerializedProperty: <a href="https://docs.unity.cn/cn/2022.1/ScriptReference/Ser
       </tags>
   </entry>
   <entry>
+    <title>Unity编辑器拓展（九）-EditorUtility公共类</title>
+    <url>/2025/12/09/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%B9%9D-EditorUtility%E5%85%AC%E5%85%B1%E7%B1%BB/</url>
+    <content><![CDATA[<p>Unity编辑器拓展（九）-EditorUtility公共类 学习笔记</p>
+<span id="more"></span>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>Unity学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Unity编辑器拓展</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity编辑器拓展（二）-自定义窗口拓展</title>
+    <url>/2025/02/25/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%8C-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/</url>
+    <content><![CDATA[<p>Unity编辑器拓展（二）-自定义窗口拓展学习</p>
+<span id="more"></span>
+<h2 id="%E4%B8%80%E3%80%81%E5%88%9B%E5%BB%BA%E7%AA%97%E5%8F%A3%E7%B1%BB" tabindex="-1">一、创建窗口类</h2>
+<ol>
+<li>
+<p>命名空间：UnityEditor</p>
+</li>
+<li>
+<p>继承类名：EditorWindow</p>
+</li>
+<li>
+<p>方法：</p>
+</li>
+</ol>
+<ul>
+<li>当我们想要为Unity拓展一个自定义窗口时</li>
+<li>我们只需要实现一个继承了EditorWindow的类即可</li>
+<li>并且在该类的OnGUI函数中编写面板控件相关的逻辑</li>
+</ul>
+<ol start="4">
+<li>示例</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Lesson2</span> : <span class="title">EditorWindow</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnGUI</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        GUILayout.Label(<span class="string">&quot;测试文本&quot;</span>); <span class="comment">//绘制文本</span></span><br><span class="line">        <span class="keyword">if</span>(GUILayout.Button(<span class="string">&quot;测试按钮&quot;</span>)) <span class="comment">//绘制点击按钮</span></span><br><span class="line">        &#123;</span><br><span class="line">            Debug.Log(<span class="string">&quot;Test&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="%E4%BA%8C%E3%80%81%E6%98%BE%E7%A4%BA%E7%AA%97%E5%8F%A3" tabindex="-1">二、显示窗口</h2>
+<ol>
+<li>
+<p>用自定义菜单栏拓展的方式，添加一个自定义页签用于开启窗口<br>
+调用EditorWindow.GetWindow</p>
+</li>
+<li>
+<p>EditorWindow.GetWindow方法有很多种重载，其中的主要参数一般有</p>
+</li>
+</ol>
+<ul>
+<li>Type或T：窗口类的类型</li>
+<li>utility：为 true 可创建浮动实用程序窗口，设置为 false 可创建正常窗口。所谓浮动窗口就是可以自由拖动自由改变大小</li>
+<li>title：窗口标题</li>
+<li>focus：是否为窗口提供焦点（如果已存在）。（如果 GetWindow 创建新窗口，则将始终获得焦点）</li>
+<li>desiredDockNextTo:窗口试图停靠到其上的 EditorWindow 类型的数组</li>
+</ul>
+<ol start="3">
+<li>
+<p>创建窗口对象<br>
+之后调用对象的Show方法即可显示窗口</p>
+</li>
+<li>
+<p>代码</p>
+</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">[<span class="meta">MenuItem(<span class="string">&quot;Unity编辑器拓展/Lesson2/显示自定义面板&quot;</span>)</span>]</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ShowWindow</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Lesson2 win = EditorWindow.GetWindow&lt;Lesson2&gt;(); <span class="comment">//获取窗口（唯一窗口），如果希望有多个窗口的话使用EditorWindow.CreateWindow&lt;Lesson2&gt;();</span></span><br><span class="line">    win.titleContent = <span class="keyword">new</span> GUIContent(<span class="string">&quot;我的窗口&quot;</span>); <span class="comment">//创建窗口</span></span><br><span class="line">    win.Show(); <span class="comment">//显示窗口</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>效果（与1点的代码同时）<br>
+<img src="/2025/02/25/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%8C-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/2.%20%E6%98%BE%E7%A4%BA%E7%AA%97%E5%8F%A3.png" alt></li>
+</ol>
+<h2 id="%E4%B8%89%E3%80%81%E7%AA%97%E5%8F%A3%E4%BA%8B%E4%BB%B6%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0" tabindex="-1">三、窗口事件回调函数</h2>
+<ol>
+<li>继承EditorWindow的窗口类 自带一些事件回调函数，当触发对应事件时会自动进入</li>
+</ol>
+<ul>
+<li>(1) OnHierarchyChange():当场景中的层次结构（Hierarchy）发生变化时调用。
+<ul>
+<li>例如，当游戏对象被创建、删除或重命名时触发。</li>
+</ul>
+</li>
+<li>(2) OnFocus():当窗口获得焦点时调用。
+<ul>
+<li>在这个方法中，你可以执行一些在窗口获得焦点时需要进行的操作。</li>
+</ul>
+</li>
+<li>(3) OnLostFocus():当窗口失去焦点时调用。
+<ul>
+<li>通常在这个方法中执行一些在窗口失去焦点时需要进行的清理工作。</li>
+</ul>
+</li>
+<li>(4) OnProjectChange():当项目资源发生变化时调用。
+<ul>
+<li>例如，当添加、删除或修改项目中的文件时触发。</li>
+</ul>
+</li>
+<li>(5) OnInspectorUpdate():在检视器（Inspector）面板更新时调用。
+<ul>
+<li>可以在这个方法中执行需要在检视器面板刷新时进行的逻辑，比如更新显示的信息</li>
+</ul>
+</li>
+<li>(6) OnSelectionChange():当选择的对象发生变化时调用。
+<ul>
+<li>在这个方法中，你可以执行与所选对象相关的操作，以确保编辑器窗口的内容与当前选择保持同步。</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>示例</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnHierarchyChange</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;当Hierarchy窗口内容发生变化时&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnFocus</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;获取焦点&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnLostFocus</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;失去焦点&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnProjectChange</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;当Project窗口内容发生变化时&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnInspectorUpdate</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;当Inspector窗口内容发生变化时&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnSelectionChange</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;当选中对象发生变化时&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="%E5%9B%9B%E3%80%81%E7%AA%97%E5%8F%A3%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0" tabindex="-1">四、窗口中常用的生命周期函数</h2>
+<ol>
+<li>OnEnable():
+<ul>
+<li>当窗口被激活时调用，通常在窗口创建时会调用一次。</li>
+<li>在这个方法中，你可以进行一些初始化工作，例如注册事件监听器或设置初始变量。</li>
+</ul>
+</li>
+<li>OnGUI():
+<ul>
+<li>每帧都会调用此方法，用于绘制编辑器窗口的 GUI。</li>
+<li>在这个方法中，你可以使用 GUILayout 或 EditorGUILayout 等类创建界面元素，以便用户与窗口进行交互。</li>
+</ul>
+</li>
+<li>OnDestroy():
+<ul>
+<li>当窗口被销毁时调用，通常在关闭编辑器或切换场景时触发。在这里进行最终的清理工作，确保没有未释放的资源。</li>
+</ul>
+</li>
+<li>Update():
+<ul>
+<li>在编辑器窗口每帧更新时调用。通常在这里执行一些需要在每帧进行的逻辑</li>
+</ul>
+</li>
+</ol>
+<h2 id="%E4%BA%94%E3%80%81%E7%BC%96%E8%BE%91%E5%99%A8%E7%AA%97%E5%8F%A3%E7%B1%BB%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E6%88%90%E5%91%98" tabindex="-1">五、编辑器窗口类中的常用成员</h2>
+<p>Unity官方文档有关于编辑器窗口类的API说明<br>
+<a href="https://docs.unity.cn/cn/2022.3/ScriptReference/EditorWindow.html">https://docs.unity.cn/cn/2022.3/ScriptReference/EditorWindow.html</a></p>
+<ol>
+<li>
+<p>静态变量</p>
+<ul>
+<li>(1) focusedWindow：当前已获得键盘焦点的 EditorWindow。（只读）</li>
+<li>(2) mouseOverWindow：当前在鼠标光标下的 EditorWindow。（只读）</li>
+</ul>
+</li>
+<li>
+<p>静态函数</p>
+</li>
+</ol>
+<ul>
+<li>(1) CreateWindow: 创建窗口，如果允许一个窗口有多个可以用该API创建窗口</li>
+<li>(2) GetWindow: 通过它我们可以创建一个窗口对象</li>
+<li>(3) GetWindowWithRect：返回一个指定位置、大小的窗口</li>
+<li>(4) HasOpenInstances：检查编辑器窗口是否打开</li>
+</ul>
+<ol start="3">
+<li>成员变量</li>
+</ol>
+<ul>
+<li>(1) titleContent：窗口标题名</li>
+<li>(2) positon：窗口位置大小信息</li>
+<li>(3) wantsMouseEnterLeaveWindow:如果设置为 true，则每当鼠标进入或离开窗口时，该窗口都会收到一次 OnGUI 调用</li>
+</ul>
+<ol start="4">
+<li>成员函数</li>
+</ol>
+<ul>
+<li>(1) Show: 显示面板</li>
+<li>(2) Repaint：重绘窗口</li>
+<li>(3) Close: 关闭窗口</li>
+</ul>
+<h2 id="%E5%85%AD%E3%80%81%E6%80%BB%E7%BB%93" tabindex="-1">六、总结</h2>
+<p>编辑器拓展中想要实现自定义窗口</p>
+<ol>
+<li>只需要继承EditorWindow类</li>
+<li>主要在OnGUI中利用GUI相关API绘制控件处理功能逻辑</li>
+<li>对应的事件回调函数，可以帮助我们监听到一些特殊情况用于处理对应逻辑</li>
+</ol>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+]]></content>
+      <categories>
+        <category>Unity学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Unity编辑器拓展</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Unity编辑器拓展（五）-Selection公共类</title>
     <url>/2025/04/23/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E4%BA%94-Selection%E5%85%AC%E5%85%B1%E7%B1%BB/</url>
     <content><![CDATA[<p>Selection公共类</p>
@@ -5552,6 +5606,118 @@ SerializedProperty: <a href="https://docs.unity.cn/cn/2022.1/ScriptReference/Ser
     <url>/2025/11/11/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%85%AB-Scene%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/</url>
     <content><![CDATA[<p>Unity编辑器拓展（七）-Scene窗口拓展 学习笔记</p>
 <span id="more"></span>
+<ul>
+<li><a href="#%E4%B8%80-handles%E7%B1%BB%E6%98%AF%E4%BB%80%E4%B9%88%E5%8F%8A%E5%93%8D%E5%BA%94%E5%87%BD%E6%95%B0">一、 Handles类是什么及响应函数</a>
+<ul>
+<li><a href="#11-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80-handles%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8">1.1 知识点一 Handles公共类的作用</a></li>
+<li><a href="#12-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C-scene%E7%AA%97%E5%8F%A3%E6%9B%B4%E6%96%B0%E5%93%8D%E5%BA%94%E5%87%BD%E6%95%B0">1.2 知识点二 Scene窗口更新响应函数</a></li>
+<li><a href="#13-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AA%97%E5%8F%A3%E4%B8%AD%E7%9B%91%E5%90%ACscene%E7%AA%97%E5%8F%A3%E6%9B%B4%E6%96%B0%E5%93%8D%E5%BA%94%E5%87%BD%E6%95%B0">1.3 知识点三 自定义窗口中监听Scene窗口更新响应函数</a></li>
+<li><a href="#14-%E6%80%BB%E7%BB%93">1.4 总结</a></li>
+<li><a href="#15-%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B">1.5 代码示例</a></li>
+<li><a href="#16-%E6%95%88%E6%9E%9C">1.6 效果</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8Chandles%E7%B1%BB%E4%B8%AD%E7%9A%84-%E6%96%87%E6%9C%AC%E7%BA%BF%E6%AE%B5%E8%99%9A%E7%BA%BF%E6%8E%A7%E4%BB%B6">二、Handles类中的 文本、线段、虚线控件</a>
+<ul>
+<li><a href="#21-handles%E4%B8%AD%E7%9A%84%E9%A2%9C%E8%89%B2%E6%8E%A7%E5%88%B6">2.1 Handles中的颜色控制</a></li>
+<li><a href="#22-handles%E4%B8%AD%E7%9A%84%E6%96%87%E6%9C%AC%E6%8E%A7%E4%BB%B6">2.2 Handles中的文本控件</a></li>
+<li><a href="#23-handles%E4%B8%AD%E7%9A%84%E7%BA%BF%E6%AE%B5%E6%8E%A7%E4%BB%B6">2.3 Handles中的线段控件</a></li>
+<li><a href="#24-handles%E4%B8%AD%E7%9A%84%E8%99%9A%E7%BA%BF%E6%8E%A7%E4%BB%B6">2.4 Handles中的虚线控件</a></li>
+<li><a href="#25-%E4%BB%A3%E7%A0%81">2.5 代码</a></li>
+<li><a href="#26-%E6%95%88%E6%9E%9C">2.6 效果</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89handles%E7%B1%BB%E4%B8%AD%E7%9A%84-%E5%BC%A7%E7%BA%BF%E5%9C%86%E7%AB%8B%E6%96%B9%E4%BD%93%E5%87%A0%E4%BD%95%E4%BD%93">三、Handles类中的 弧线、圆、立方体、几何体</a>
+<ul>
+<li><a href="#31-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80-handles%E4%B8%AD%E7%9A%84%E5%BC%A7%E7%BA%BF%E5%9C%86%E5%BC%A7">3.1 知识点一 Handles中的弧线(圆弧)</a></li>
+<li><a href="#32-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C-handles%E4%B8%AD%E7%9A%84%E5%9C%86">3.2 知识点二 Handles中的圆</a></li>
+<li><a href="#33-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89-handles%E4%B8%AD%E7%9A%84%E7%AB%8B%E6%96%B9%E4%BD%93%E7%BA%BF%E6%A1%86">3.3 知识点三 Handles中的立方体线框</a></li>
+<li><a href="#34-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%9B%9B-handles%E4%B8%AD%E7%9A%84%E5%87%A0%E4%BD%95%E4%BD%93">3.4 知识点四 Handles中的几何体</a></li>
+<li><a href="#35-%E4%BB%A3%E7%A0%81">3.5 代码</a></li>
+<li><a href="#36-%E6%95%88%E6%9E%9C">3.6 效果</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9Bhandles%E7%B1%BB%E4%B8%AD%E7%9A%84-%E7%A7%BB%E5%8A%A8%E6%97%8B%E8%BD%AC%E7%BC%A9%E6%94%BE">四、Handles类中的 移动、旋转、缩放</a>
+<ul>
+<li><a href="#41--%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80-handles%E4%B8%AD%E7%9A%84%E7%A7%BB%E5%8A%A8%E8%BD%B4">4.1  知识点一 Handles中的移动轴</a></li>
+<li><a href="#42-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C-handles%E4%B8%AD%E7%9A%84%E6%97%8B%E8%BD%AC%E8%BD%B4">4.2 知识点二 Handles中的旋转轴</a></li>
+<li><a href="#43-handles%E4%B8%AD%E7%9A%84%E7%BC%A9%E6%94%BE%E8%BD%B4">4.3 Handles中的缩放轴</a></li>
+<li><a href="#44-%E4%BB%A3%E7%A0%81">4.4 代码</a></li>
+<li><a href="#45-%E6%95%88%E6%9E%9C">4.5 效果</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94handles%E7%B1%BB%E4%B8%AD%E7%9A%84-%E8%87%AA%E7%94%B1%E7%A7%BB%E5%8A%A8%E8%87%AA%E7%94%B1%E6%97%8B%E8%BD%AC">五、Handles类中的 自由移动、自由旋转</a>
+<ul>
+<li><a href="#%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE">知识回顾</a></li>
+<li><a href="#51-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80-handles%E4%B8%AD%E7%9A%84%E8%87%AA%E7%94%B1%E7%A7%BB%E5%8A%A8%E5%BD%93%E5%89%8D%E6%91%84%E5%83%8F%E6%9C%BA%E6%A8%AA%E6%88%AA%E9%9D%A2">5.1 知识点一 Handles中的自由移动（当前摄像机横截面）</a></li>
+<li><a href="#52-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C-handles%E4%B8%AD%E7%9A%84%E8%87%AA%E7%94%B1%E6%97%8B%E8%BD%AC">5.2 知识点二 Handles中的自由旋转</a></li>
+<li><a href="#53-%E4%BB%A3%E7%A0%81">5.3 代码</a></li>
+<li><a href="#54-%E6%95%88%E6%9E%9C">5.4 效果</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%ADhandles%E7%B1%BB%E4%B8%AD%E7%9A%84-%E6%98%BE%E7%A4%BAgui">六、Handles类中的 显示GUI</a>
+<ul>
+<li><a href="#61-scene%E4%B8%AD%E6%98%BE%E7%A4%BAgui">6.1 Scene中显示GUI</a></li>
+<li><a href="#62-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C-%E8%8E%B7%E5%8F%96scene%E7%AA%97%E5%8F%A3%E5%A4%A7%E5%B0%8F">6.2 知识点二 获取Scene窗口大小</a></li>
+<li><a href="#63-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89-handles%E6%9B%B4%E5%A4%9A%E5%86%85%E5%AE%B9">6.3 知识点三 Handles更多内容(⭐⭐⭐)</a></li>
+<li><a href="#64-%E4%BB%A3%E7%A0%81">6.4 代码</a></li>
+<li><a href="#65-%E6%95%88%E6%9E%9C">6.5 效果</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%83%E5%89%8D%E5%87%A0%E4%B8%AA%E7%9A%84%E4%BB%A3%E7%A0%81%E6%B1%87%E6%80%BB">七、前几个的代码汇总</a></li>
+<li><a href="#%E5%85%ABhandleutility%E5%85%AC%E5%85%B1%E7%B1%BB">八、HandleUtility公共类</a>
+<ul>
+<li><a href="#81-region-%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE-%E8%8E%B7%E5%8F%96%E7%AA%97%E5%8F%A3%E4%B8%8A%E9%BC%A0%E6%A0%87%E4%BD%8D%E7%BD%AE">8.1 #region 知识回顾 获取窗口上鼠标位置</a></li>
+<li><a href="#82-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80-handleutility%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%B8%BB%E8%A6%81%E4%BD%9C%E7%94%A8">8.2 知识点一 HandleUtility公共类的主要作用</a></li>
+<li><a href="#83-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C-handleutility%E7%B1%BB%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8api">8.3 知识点二 HandleUtility类中的常用API</a></li>
+<li><a href="#84-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89-%E6%9B%B4%E5%A4%9A%E5%86%85%E5%AE%B9">8.4 知识点三 更多内容</a></li>
+<li><a href="#85-%E4%BB%A3%E7%A0%81">8.5 代码</a></li>
+<li><a href="#86-%E6%95%88%E6%9E%9C">8.6 效果</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B9%9Dgizmos%E7%B1%BB%E6%98%AF%E4%BB%80%E4%B9%88%E5%8F%8A%E5%93%8D%E5%BA%94%E5%87%BD%E6%95%B0">九、Gizmos类是什么及响应函数</a>
+<ul>
+<li><a href="#91-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80-gizmos%E7%B1%BB%E6%98%AF%E7%94%A8%E6%9D%A5%E5%81%9A%E4%BB%80%E4%B9%88%E7%9A%84">9.1 知识点一 Gizmos类是用来做什么的？</a></li>
+<li><a href="#92-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C-gizmos%E5%93%8D%E5%BA%94%E5%87%BD%E6%95%B0">9.2 知识点二 Gizmos响应函数</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8D%81gizmos%E7%B1%BB%E4%B8%AD%E7%9A%84-%E9%A2%9C%E8%89%B2%E7%AB%8B%E6%96%B9%E4%BD%93%E8%A7%86%E9%94%A5%E8%B7%9F%E9%9A%8F%E6%97%8B%E8%BD%AC">十、Gizmos类中的 颜色、立方体、视锥、跟随旋转</a>
+<ul>
+<li><a href="#101-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80-gizmos%E4%BF%AE%E6%94%B9%E9%A2%9C%E8%89%B2">10.1 知识点一 Gizmos修改颜色</a></li>
+<li><a href="#102-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C-gizmos%E7%BB%98%E5%88%B6%E7%AB%8B%E6%96%B9%E4%BD%93">10.2 知识点二 Gizmos绘制立方体</a></li>
+<li><a href="#103-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89-gizmos%E7%BB%98%E5%88%B6%E8%A7%86%E9%94%A5">10.3 知识点三 Gizmos绘制视锥</a></li>
+<li><a href="#104-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%9B%9B-%E5%A6%82%E4%BD%95%E6%94%B9%E5%8F%98%E7%BB%98%E5%88%B6%E5%86%85%E5%AE%B9%E7%9A%84%E8%A7%92%E5%BA%A6">10.4 知识点四 如何改变绘制内容的角度</a></li>
+<li><a href="#105-%E4%BB%A3%E7%A0%81">10.5 代码</a></li>
+<li><a href="#106-%E6%95%88%E6%9E%9C">10.6 效果</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8D%81%E4%B8%80gizmos%E7%B1%BB%E4%B8%AD%E7%9A%84-%E8%B4%B4%E5%9B%BE%E5%9B%BE%E6%A0%87">十一、Gizmos类中的 贴图、图标</a>
+<ul>
+<li><a href="#111-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80-gizmos%E7%BB%98%E5%88%B6%E8%B4%B4%E5%9B%BE">11.1 知识点一 Gizmos绘制贴图</a></li>
+<li><a href="#121-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C-gizmos%E7%BB%98%E5%88%B6%E5%9B%BE%E6%A0%87">12.1 知识点二 Gizmos绘制图标</a></li>
+<li><a href="#122-%E4%BB%A3%E7%A0%81">12.2 代码</a></li>
+<li><a href="#123-%E6%95%88%E6%9E%9C">12.3 效果</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8D%81%E4%BA%8Cgizmos%E7%B1%BB%E4%B8%AD%E7%9A%84-%E7%BA%BF%E6%AE%B5%E7%BD%91%E6%A0%BC%E5%B0%84%E7%BA%BF">十二、Gizmos类中的 线段、网格、射线</a>
+<ul>
+<li><a href="#121-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80-gizmos%E7%BB%98%E5%88%B6%E7%BA%BF%E6%AE%B5">12.1 知识点一 Gizmos绘制线段</a></li>
+<li><a href="#122-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C-gizmos%E7%BB%98%E5%88%B6%E7%BD%91%E6%A0%BC">12.2 知识点二 Gizmos绘制网格</a></li>
+<li><a href="#123-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89-gizmos%E7%BB%98%E5%88%B6%E5%B0%84%E7%BA%BF">12.3 知识点三 Gizmos绘制射线</a></li>
+<li><a href="#124-%E4%BB%A3%E7%A0%81">12.4 代码</a></li>
+<li><a href="#125-%E6%95%88%E6%9E%9C">12.5 效果</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8D%81%E4%B8%89">十三、</a>
+<ul>
+<li><a href="#131--%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80-gizmos%E7%BB%98%E5%88%B6%E7%90%83%E4%BD%93">13.1  知识点一 Gizmos绘制球体</a></li>
+<li><a href="#132-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C-gizmos%E7%BB%98%E5%88%B6%E7%BD%91%E6%A0%BC%E7%BA%BF">13.2 知识点二 Gizmos绘制网格线</a></li>
+<li><a href="#133-%E6%9B%B4%E5%A4%9Agizmos%E7%9B%B8%E5%85%B3">13.3 更多Gizmos相关</a></li>
+<li><a href="#134-%E4%BB%A3%E7%A0%81">13.4 代码</a></li>
+<li><a href="#135-%E6%95%88%E6%9E%9C">13.5 效果</a></li>
+</ul>
+</li>
+</ul>
 <h1 id="%E4%B8%80%E3%80%81-handles%E7%B1%BB%E6%98%AF%E4%BB%80%E4%B9%88%E5%8F%8A%E5%93%8D%E5%BA%94%E5%87%BD%E6%95%B0" tabindex="-1">一、 Handles类是什么及响应函数</h1>
 <h2 id="1.1-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80-handles%E5%85%AC%E5%85%B1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8" tabindex="-1">1.1 知识点一 Handles公共类的作用</h2>
 <p>Handles类提供了很多API</p>
@@ -5787,6 +5953,84 @@ Handles.DrawWireDisc(圆心, 法线, 半径);</p>
 <p><img src="/2025/11/11/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%85%AB-Scene%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/L32HandleUtility%E5%85%AC%E5%85%B1%E7%B1%BB.png" alt><br>
 距离线段距离<br>
 <img src="/2025/11/11/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%85%AB-Scene%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/L32HandleUtility%E5%85%AC%E5%85%B1%E7%B1%BB-%E7%BA%BF%E6%AE%B5%E8%B7%9D%E7%A6%BB.png" alt></p>
+<h1 id="%E4%B9%9D%E3%80%81gizmos%E7%B1%BB%E6%98%AF%E4%BB%80%E4%B9%88%E5%8F%8A%E5%93%8D%E5%BA%94%E5%87%BD%E6%95%B0" tabindex="-1">九、Gizmos类是什么及响应函数</h1>
+<h2 id="9.1-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80-gizmos%E7%B1%BB%E6%98%AF%E7%94%A8%E6%9D%A5%E5%81%9A%E4%BB%80%E4%B9%88%E7%9A%84%EF%BC%9F" tabindex="-1">9.1 知识点一 Gizmos类是用来做什么的？</h2>
+<ul>
+<li>Gizmos和Handles一样</li>
+<li>是用来让我们拓展Scene窗口的</li>
+<li>而Gizmos相对Handles来说</li>
+<li>它主要专注于绘制辅助线、图标、形状等</li>
+<li>而Handles主要用来绘制编辑器控制手柄等</li>
+</ul>
+<h2 id="9.2-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C-gizmos%E5%93%8D%E5%BA%94%E5%87%BD%E6%95%B0" tabindex="-1">9.2 知识点二 Gizmos响应函数</h2>
+<ul>
+<li>在继承MonoBehaviour的脚本中实现以下函数</li>
+<li>便可以在其中使用Gizmos来进行图形图像的绘制</li>
+</ul>
+<ol>
+<li>OnDrawGizmos() 在每帧调用，绘制的内容随时可以在Scene窗口中看见</li>
+<li>OnDrawGizmosSelected() 仅当脚本依附的GameObject被选中时才会每帧调用绘制相关内容<br>
+它们的执行类似生命周期函数，Unity会帮助我们自动执行</li>
+</ol>
+<h1 id="%E5%8D%81%E3%80%81gizmos%E7%B1%BB%E4%B8%AD%E7%9A%84-%E9%A2%9C%E8%89%B2%E3%80%81%E7%AB%8B%E6%96%B9%E4%BD%93%E3%80%81%E8%A7%86%E9%94%A5%E3%80%81%E8%B7%9F%E9%9A%8F%E6%97%8B%E8%BD%AC" tabindex="-1">十、Gizmos类中的 颜色、立方体、视锥、跟随旋转</h1>
+<h2 id="10.1-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80-gizmos%E4%BF%AE%E6%94%B9%E9%A2%9C%E8%89%B2" tabindex="-1">10.1 知识点一 Gizmos修改颜色</h2>
+<p>Gizmos.color = Color.green;</p>
+<h2 id="10.2-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C-gizmos%E7%BB%98%E5%88%B6%E7%AB%8B%E6%96%B9%E4%BD%93" tabindex="-1">10.2 知识点二 Gizmos绘制立方体</h2>
+<p>Gizmos.DrawCube(中心点, 大小);<br>
+Gizmos.DrawWireCube(中心点, 大小);</p>
+<h2 id="10.3-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89-gizmos%E7%BB%98%E5%88%B6%E8%A7%86%E9%94%A5" tabindex="-1">10.3 知识点三 Gizmos绘制视锥</h2>
+<p>Gizmos.DrawFrustum(绘制中心, FOV(Field of View,视野)角度, 远裁切平面, 近裁切平面, 屏幕长宽比);</p>
+<h2 id="10.4-%E7%9F%A5%E8%AF%86%E7%82%B9%E5%9B%9B-%E5%A6%82%E4%BD%95%E6%94%B9%E5%8F%98%E7%BB%98%E5%88%B6%E5%86%85%E5%AE%B9%E7%9A%84%E8%A7%92%E5%BA%A6" tabindex="-1">10.4 知识点四 如何改变绘制内容的角度</h2>
+<ul>
+<li>修改Gizmos绘制前的矩阵<br>
+Gizmos.matrix<br>
+Gizmos.matrix = Matrix4x4.TRS(位置, 角度, 缩放);</li>
+<li>还原矩阵<br>
+Gizmos.matrix = Matrix4x4.identity</li>
+</ul>
+<h2 id="10.5-%E4%BB%A3%E7%A0%81" tabindex="-1">10.5 代码</h2>
+<p>挂载在一个节点上，不放在Editor文件夹下</p>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnDrawGizmosSelected</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//将绘制矩阵还原(设置成默认，避免跟着移动、旋转、缩放)</span></span><br><span class="line">    Gizmos.matrix = Matrix4x4.identity;</span><br><span class="line">    Gizmos.color = Color.green;</span><br><span class="line">    Gizmos.DrawCube(Vector3.zero, Vector3.one);</span><br><span class="line">    Gizmos.color = Color.red;</span><br><span class="line">    Gizmos.DrawWireCube(<span class="keyword">this</span>.transform.position, <span class="keyword">new</span> Vector3(<span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>));<span class="comment">//随节点移动</span></span><br><span class="line">    Gizmos.color = Color.yellow;</span><br><span class="line">    Gizmos.DrawFrustum(<span class="keyword">this</span>.transform.position, <span class="number">30</span>, <span class="number">50</span>, <span class="number">0.5f</span>, <span class="number">1.7f</span>);</span><br><span class="line">    <span class="comment">//将绘制矩阵该为某个对象的 这样就可以跟着 移动 旋转 缩放了</span></span><br><span class="line">    Gizmos.matrix = Matrix4x4.TRS(<span class="keyword">this</span>.transform.position, <span class="keyword">this</span>.transform.rotation, Vector3.one);</span><br><span class="line">    <span class="comment">//Gizmos.matrix = this.transform.localToWorldMatrix; //移动 旋转 缩放完全跟随节点</span></span><br><span class="line">    Gizmos.color = Color.white;</span><br><span class="line">    Gizmos.DrawWireCube(Vector3.zero, <span class="keyword">new</span> Vector3(<span class="number">2</span>, <span class="number">1</span>, <span class="number">4</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="10.6-%E6%95%88%E6%9E%9C" tabindex="-1">10.6 效果</h2>
+<p><img src="/2025/11/11/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%85%AB-Scene%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/L34Gizmos%E7%B1%BB%E4%B8%AD%E7%9A%84%20%E9%A2%9C%E8%89%B2%E3%80%81%E7%AB%8B%E6%96%B9%E4%BD%93%E3%80%81%E8%A7%86%E9%94%A5%E3%80%81%E8%B7%9F%E9%9A%8F%E6%97%8B%E8%BD%AC.png" alt></p>
+<h1 id="%E5%8D%81%E4%B8%80%E3%80%81gizmos%E7%B1%BB%E4%B8%AD%E7%9A%84-%E8%B4%B4%E5%9B%BE%E3%80%81%E5%9B%BE%E6%A0%87" tabindex="-1">十一、Gizmos类中的 贴图、图标</h1>
+<h2 id="11.1-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80-gizmos%E7%BB%98%E5%88%B6%E8%B4%B4%E5%9B%BE" tabindex="-1">11.1 知识点一 Gizmos绘制贴图</h2>
+<p>只会在二维平面上绘制<br>
+Gizmos.DrawGUITexture(new Rect(x, y, w, h), 图片信息);</p>
+<h2 id="12.1-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C-gizmos%E7%BB%98%E5%88%B6%E5%9B%BE%E6%A0%87" tabindex="-1">12.1 知识点二 Gizmos绘制图标</h2>
+<p>图标需要放置在固定文件夹中Assets/Gizmos/中</p>
+<p>Gizmos.DrawIcon(Vector3.up, “图标名”);</p>
+<h2 id="12.2-%E4%BB%A3%E7%A0%81" tabindex="-1">12.2 代码</h2>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> Texture pic;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnDrawGizmos</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(pic != <span class="literal">null</span>)</span><br><span class="line">       Gizmos.DrawGUITexture(<span class="keyword">new</span> Rect(<span class="keyword">this</span>.transform.position.x, <span class="keyword">this</span>.transform.position.y, <span class="number">160</span>, <span class="number">90</span>), pic);</span><br><span class="line"></span><br><span class="line">    Gizmos.DrawIcon(<span class="keyword">this</span>.transform.position, <span class="string">&quot;MyIcon&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="12.3-%E6%95%88%E6%9E%9C" tabindex="-1">12.3 效果</h2>
+<p><img src="/2025/11/11/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%85%AB-Scene%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/L35Gizmos%E7%B1%BB%E4%B8%AD%E7%9A%84%20%E8%B4%B4%E5%9B%BE%E3%80%81%E5%9B%BE%E6%A0%871.png" alt><br>
+<img src="/2025/11/11/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%85%AB-Scene%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/L35Gizmos%E7%B1%BB%E4%B8%AD%E7%9A%84%20%E8%B4%B4%E5%9B%BE%E3%80%81%E5%9B%BE%E6%A0%872.png" alt></p>
+<h1 id="%E5%8D%81%E4%BA%8C%E3%80%81gizmos%E7%B1%BB%E4%B8%AD%E7%9A%84-%E7%BA%BF%E6%AE%B5%E3%80%81%E7%BD%91%E6%A0%BC%E3%80%81%E5%B0%84%E7%BA%BF" tabindex="-1">十二、Gizmos类中的 线段、网格、射线</h1>
+<h2 id="12.1-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80-gizmos%E7%BB%98%E5%88%B6%E7%BA%BF%E6%AE%B5" tabindex="-1">12.1 知识点一 Gizmos绘制线段</h2>
+<pre><code>Gizmos.DrawLine(起点, 终点);
+</code></pre>
+<h2 id="12.2-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C-gizmos%E7%BB%98%E5%88%B6%E7%BD%91%E6%A0%BC" tabindex="-1">12.2 知识点二 Gizmos绘制网格</h2>
+<pre><code>Gizmos.DrawMesh(mesh, 位置, 角度);
+</code></pre>
+<h2 id="12.3-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89-gizmos%E7%BB%98%E5%88%B6%E5%B0%84%E7%BA%BF" tabindex="-1">12.3 知识点三 Gizmos绘制射线</h2>
+<pre><code>Gizmos.DrawRay(起点, 方向); 
+</code></pre>
+<h2 id="12.4-%E4%BB%A3%E7%A0%81" tabindex="-1">12.4 代码</h2>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> Mesh mesh;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnDrawGizmosSelected</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Gizmos.color = Color.red;</span><br><span class="line">    Gizmos.DrawLine(<span class="keyword">this</span>.transform.position, <span class="keyword">this</span>.transform.position + Vector3.one);</span><br><span class="line">    Gizmos.color = Color.blue;</span><br><span class="line">    <span class="keyword">if</span>(mesh != <span class="literal">null</span>)</span><br><span class="line">        Gizmos.DrawMesh(mesh, <span class="keyword">this</span>.transform.position, <span class="keyword">this</span>.transform.rotation);</span><br><span class="line"></span><br><span class="line">    Gizmos.DrawRay(<span class="keyword">this</span>.transform.position, <span class="keyword">this</span>.transform.forward);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="12.5-%E6%95%88%E6%9E%9C" tabindex="-1">12.5 效果</h2>
+<p><img src="/2025/11/11/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%85%AB-Scene%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/L36Gizmos%E7%B1%BB%E4%B8%AD%E7%9A%84%20%E7%BA%BF%E6%AE%B5%E3%80%81%E7%BD%91%E6%A0%BC%E3%80%81%E5%B0%84%E7%BA%BF.png" alt></p>
+<h1 id="%E5%8D%81%E4%B8%89%E3%80%81" tabindex="-1">十三、</h1>
+<h2 id="13.1-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80-gizmos%E7%BB%98%E5%88%B6%E7%90%83%E4%BD%93" tabindex="-1">13.1  知识点一 Gizmos绘制球体</h2>
+<p>Gizmos.DrawSphere(中心点, 半径);<br>
+Gizmos.DrawWireSphere(中心点, 半径); //球体网格</p>
+<h2 id="13.2-%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C-gizmos%E7%BB%98%E5%88%B6%E7%BD%91%E6%A0%BC%E7%BA%BF" tabindex="-1">13.2 知识点二 Gizmos绘制网格线</h2>
+<p>Gizmos.DrawWireMesh(mesh, 位置, 角度);</p>
+<h2 id="13.3-%E6%9B%B4%E5%A4%9Agizmos%E7%9B%B8%E5%85%B3" tabindex="-1">13.3 更多Gizmos相关</h2>
+<p><a href="https://docs.unity3d.com/ScriptReference/Gizmos.html">https://docs.unity3d.com/ScriptReference/Gizmos.html</a></p>
+<h2 id="13.4-%E4%BB%A3%E7%A0%81" tabindex="-1">13.4 代码</h2>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> Mesh mesh;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnDrawGizmosSelected</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Gizmos.color = Color.red;</span><br><span class="line">    Gizmos.DrawSphere(<span class="keyword">this</span>.transform.position, <span class="number">2</span>);</span><br><span class="line">    Gizmos.color = Color.white;</span><br><span class="line">    Gizmos.DrawWireSphere(<span class="keyword">this</span>.transform.position, <span class="number">3</span>);<span class="comment">//球体网格</span></span><br><span class="line"></span><br><span class="line">    Gizmos.color = Color.yellow;</span><br><span class="line">    <span class="keyword">if</span>(mesh != <span class="literal">null</span>)</span><br><span class="line">        Gizmos.DrawWireMesh(mesh, <span class="keyword">this</span>.transform.position, <span class="keyword">this</span>.transform.rotation);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="13.5-%E6%95%88%E6%9E%9C" tabindex="-1">13.5 效果</h2>
+<p><img src="/2025/11/11/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%85%AB-Scene%E7%AA%97%E5%8F%A3%E6%8B%93%E5%B1%95/L37Gizmos%E7%B1%BB%E4%B8%AD%E7%9A%84%20%E7%90%83%E4%BD%93%E3%80%81%E7%BD%91%E6%A0%BC%E7%BA%BF.png" alt></p>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
 ]]></content>
@@ -5802,6 +6046,12 @@ Handles.DrawWireDisc(圆心, 法线, 半径);</p>
     <url>/2025/04/26/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E5%85%B3-Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%8B%93%E5%B1%95-%E5%85%AD-Event%E5%85%AC%E5%85%B1%E7%B1%BB/</url>
     <content><![CDATA[<p>Event公共类相关内容</p>
 <span id="more"></span>
+<ul>
+<li><a href="#%E4%B8%80event%E5%85%AC%E5%85%B1%E7%B1%BB%E6%98%AF%E7%94%A8%E6%9D%A5%E5%81%9A%E4%BB%80%E4%B9%88%E7%9A%84">一、Event公共类是用来做什么的？</a></li>
+<li><a href="#%E4%BA%8C-%E9%87%8D%E8%A6%81api">二、 重要API</a></li>
+<li><a href="#%E4%B8%89-api%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B">三、 API使用示例</a></li>
+<li><a href="#%E5%9B%9B-%E6%9B%B4%E5%A4%9A%E5%86%85%E5%AE%B9">四、 更多内容</a></li>
+</ul>
 <h1 id="%E4%B8%80%E3%80%81event%E5%85%AC%E5%85%B1%E7%B1%BB%E6%98%AF%E7%94%A8%E6%9D%A5%E5%81%9A%E4%BB%80%E4%B9%88%E7%9A%84%EF%BC%9F" tabindex="-1">一、Event公共类是用来做什么的？</h1>
 <ul>
 <li>它提供了许多属性和方法，允许你检查和处理用户输入</li>
@@ -5901,7 +6151,7 @@ Handles.DrawWireDisc(圆心, 法线, 半径);</p>
 <figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">Event.current.Use()</span><br></pre></td></tr></table></figure>
 <h1 id="%E4%B8%89%E3%80%81-api%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B" tabindex="-1">三、 API使用示例</h1>
 <figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1.获取当前事件</span></span><br><span class="line"><span class="comment">//  Event.current</span></span><br><span class="line">Event eve = Event.current;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.alt键是否按下</span></span><br><span class="line"><span class="comment">//  Event.current.alt</span></span><br><span class="line"><span class="keyword">if</span> (eve.alt)</span><br><span class="line">    Debug.Log(<span class="string">&quot;alt键按下了&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//3.shift键是否按下</span></span><br><span class="line"><span class="comment">//  Event.current.shift</span></span><br><span class="line"><span class="keyword">if</span> (eve.shift)</span><br><span class="line">    Debug.Log(<span class="string">&quot;shift键按下了&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//4.ctrl键是否按下</span></span><br><span class="line"><span class="comment">//  Event.current.control</span></span><br><span class="line"><span class="keyword">if</span> (eve.control)</span><br><span class="line">    Debug.Log(<span class="string">&quot;control键按下了&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//5.是否是鼠标事件</span></span><br><span class="line"><span class="comment">//  Event.current.isMouse</span></span><br><span class="line"><span class="keyword">if</span> (eve.isMouse)</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;鼠标相关事件&quot;</span>);</span><br><span class="line">    <span class="comment">//6.判断鼠标左中右键</span></span><br><span class="line">    <span class="comment">//  Event.current.button (0,1,2 分别代表 左,右,中 如果大于2可能是其他鼠标按键)</span></span><br><span class="line">    Debug.Log(eve.button);</span><br><span class="line">    <span class="comment">//7.鼠标位置</span></span><br><span class="line">    <span class="comment">//  Event.current.mousePosition</span></span><br><span class="line">    Debug.Log(<span class="string">&quot;鼠标位置&quot;</span> + eve.mousePosition);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//8.判断是否是键盘输入</span></span><br><span class="line"><span class="comment">//  Event.current.isKey</span></span><br><span class="line"><span class="keyword">if</span>(eve.isKey)</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;键盘相关事件&quot;</span>);</span><br><span class="line">    <span class="comment">//9.获取键盘输入的字符</span></span><br><span class="line">    <span class="comment">//  Event.current.character</span></span><br><span class="line">    Debug.Log(eve.character);</span><br><span class="line">    <span class="comment">//10.获取键盘输入对应的KeyCode</span></span><br><span class="line">    <span class="comment">//  Event.current.keyCode</span></span><br><span class="line">    <span class="comment">//Debug.Log(eve.keyCode);</span></span><br><span class="line">    <span class="keyword">switch</span> (eve.keyCode)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> KeyCode.Space:</span><br><span class="line">            Debug.Log(<span class="string">&quot;空格键输入&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//11.判断输入类型</span></span><br><span class="line"><span class="comment">//  Event.current.type</span></span><br><span class="line"><span class="comment">//  EventType枚举和它比较即可</span></span><br><span class="line"><span class="comment">//  EventType中有常用的 鼠标按下抬起拖拽，键盘按下抬起等等类型</span></span><br><span class="line"><span class="comment">//  一般会配合它 来判断 比如 键盘 鼠标的抬起按下相关的操作</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//12.是否锁定大写 对应键盘上caps键是否开启</span></span><br><span class="line"><span class="comment">//  Event.current.capsLock</span></span><br><span class="line"><span class="keyword">if</span> (eve.capsLock)</span><br><span class="line">    Debug.Log(<span class="string">&quot;大小写锁定开启&quot;</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    Debug.Log(<span class="string">&quot;大小写锁定关闭&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//13.Windows键或Command键是否按下</span></span><br><span class="line"><span class="comment">//  Event.current.command</span></span><br><span class="line"><span class="keyword">if</span> (eve.command)</span><br><span class="line">    Debug.Log(<span class="string">&quot;PC win键按下 或 Mac Command键按下&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//14.键盘事件 字符串</span></span><br><span class="line"><span class="comment">//  Event.current.commandName</span></span><br><span class="line"><span class="comment">//  可以用来判断是否触发了对应的键盘事件</span></span><br><span class="line"><span class="comment">//  返回值：</span></span><br><span class="line"><span class="comment">//  Copy:拷贝</span></span><br><span class="line"><span class="comment">//  Paste:粘贴</span></span><br><span class="line"><span class="comment">//  Cut:剪切</span></span><br><span class="line"><span class="keyword">if</span>(eve.commandName == <span class="string">&quot;Copy&quot;</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;按下了ctrl + c&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (eve.commandName == <span class="string">&quot;Paste&quot;</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;按下了ctrl + v&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (eve.commandName == <span class="string">&quot;Cut&quot;</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;按下了ctrl + x&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//15.鼠标间隔移动距离</span></span><br><span class="line"><span class="comment">//  Event.current.delta</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Debug.Log(eve.delta);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//16.是否是功能键输入</span></span><br><span class="line"><span class="comment">//  Event.current.functionKey</span></span><br><span class="line"><span class="comment">//  功能键指小键盘中的 方向键, page up, page down, backspace等等</span></span><br><span class="line"><span class="keyword">if</span> (eve.functionKey)</span><br><span class="line">    Debug.Log(<span class="string">&quot;有功能按键输入&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//17.小键盘是否开启</span></span><br><span class="line"><span class="comment">//  Event.current.numeric</span></span><br><span class="line"><span class="keyword">if</span>(eve.numeric)</span><br><span class="line">    Debug.Log(<span class="string">&quot;小键盘是否开启&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//18.避免组合键冲突</span></span><br><span class="line"><span class="comment">//  Event.current.Use()</span></span><br><span class="line"><span class="comment">//  在处理完对应输入事件后，调用该方法，可以阻止事件继续派发，防止和Unity其他编辑器事件逻辑冲突</span></span><br><span class="line">eve.Use();</span><br></pre></td></tr></table></figure>
-<h1 id="%E4%BA%94%E3%80%81-%E6%9B%B4%E5%A4%9A%E5%86%85%E5%AE%B9" tabindex="-1">五、 更多内容</h1>
+<h1 id="%E5%9B%9B%E3%80%81-%E6%9B%B4%E5%A4%9A%E5%86%85%E5%AE%B9" tabindex="-1">四、 更多内容</h1>
 <p><a href="https://docs.unity3d.com/ScriptReference/Event.html">https://docs.unity3d.com/ScriptReference/Event.html</a></p>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
