@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2026-03-07T13:26:58.830Z</updated>
+  <updated>2026-03-13T11:42:29.783Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,23 +17,23 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>post</title>
+    <title>UnityUrpShader入门学习-（三）SubShader学习</title>
     <link href="http://example.com/2026/03/07/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E4%B8%89-SubShader%E5%AD%A6%E4%B9%A0/"/>
     <id>http://example.com/2026/03/07/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E4%B8%89-SubShader%E5%AD%A6%E4%B9%A0/</id>
     <published>2026-03-07T13:26:58.000Z</published>
-    <updated>2026-03-07T13:26:58.830Z</updated>
+    <updated>2026-03-13T11:42:29.783Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">]]></content>
+    <content type="html"><![CDATA[<p>SubShader学习</p><span id="more"></span><h1 id="%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFtags" tabindex="-1">一、什么是Tags</h1><ul><li>用于Unity读取以便知道该subshader的主要目的是什么</li><li>tag的格式 “tag名称” = “tag的值”</li></ul><h1 id="%E4%BA%8C%E3%80%81subshader-tag%3A-renderpipeline%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF" tabindex="-1">二、SubShader Tag: RenderPipeline渲染管线</h1><p>用途：让subshader以何种渲染管线渲染。</p><h2 id="2.1-%E6%A0%BC%E5%BC%8F" tabindex="-1">2.1 格式</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Subshader <span class="comment">// 子着色器 (高配，红色）</span></span><br><span class="line">&#123;</span><br><span class="line">    Tags</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;RenderPipeline&quot;</span> = <span class="string">&quot;xxx&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="2.2-renderpipeline%E7%B1%BB%E5%9E%8B" tabindex="-1">2.2 RenderPipeline类型</h2><ul><li>对于内置管线的shader可以不填该项</li><li>urp的话需填写UniversalPipeline</li><li>高清渲染管线则为HDRenderPipeline</li></ul><h2 id="2.3-unity%E7%9A%84renderpipeline%E8%AE%BE%E7%BD%AE" tabindex="-1">2.3 Unity的RenderPipeline设置</h2><p>设置在Project Setting/Graphics/ScriptableRenderPipelineSettings 和 Project Setting/QualityRendering/RenderPipelineAsset(点击Levels切换) 当后者不为None时，会覆盖前者的设置</p><h2 id="2.4-%E4%B8%8D%E5%90%8Crenderpipeline%E7%B1%BB%E5%9E%8B%E7%9A%84subshader" tabindex="-1">2.4 不同RenderPipeline类型的SubShader</h2><p>当有多个不同的subshader时，按顺序从上到下执行subshader，如果subshader的tag的renderpipeline与当前Unity的RenderPipeline设置匹配则执行该subshader，且后面的subshader就不再执行了。<br>一般可以把不设置 RenderPipeline的subshader作为备选（内置管线）写在最后</p><h1 id="%E4%B8%89%E3%80%81subshader-tag%3A-queue-%E9%98%9F%E5%88%97" tabindex="-1">三、SubShader Tag: Queue 队列</h1><h2 id="3.1-%E4%BB%8B%E7%BB%8D" tabindex="-1">3.1 介绍</h2><ul><li>用途：引擎用于确定对象何时渲染</li><li>可以在材质上重载（材质&gt;属性面板&gt;渲染队列）</li></ul><h2 id="3.2-%E5%80%BC%E5%A4%A7%E5%B0%8F%E6%B8%B2%E6%9F%93%E8%A7%84%E5%88%99" tabindex="-1">3.2 值大小渲染规则</h2><ul><li>队列值 &lt;= 2500<ul><li>为不透明队列</li><li>从前到后渲染（教靠近相机的对象首先渲染）</li></ul></li><li>队列值 &gt; 2500<ul><li>透明队列</li><li>从后到前渲染（首先渲染较远的对象）</li><li>由于透明着色器往往不适用深度测试/写入，因此更改队列将更改着色器与其他透明对象的排序方式</li></ul></li></ul><h2 id="3.3-%E4%B8%80%E4%BA%9Bunity%E5%BC%95%E6%93%8E%E7%BA%A6%E5%AE%9A%E7%9A%84queue%E7%B1%BB%E5%9E%8B" tabindex="-1">3.3 一些Unity引擎约定的queue类型</h2><ul><li>Background(1000) 背景层对象</li><li>Geometry(2000) 完全不透明物体</li><li>AlphaTest(2450) 物体表面贴图有部分透明的  （如叶子贴图，有部分就是透明的）</li><li>Transparent(3000) 半透明对象（窗户、玻璃瓶</li><li>Overlay(4000)</li></ul><h2 id="3.4-%E6%A0%BC%E5%BC%8F" tabindex="-1">3.4 格式</h2><ul><li>“Queue” = “queue类型+增量”</li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Subshader <span class="comment">// 子着色器 (高配，红色）</span></span><br><span class="line">&#123;</span><br><span class="line">    Tags</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;Queue&quot;</span> = <span class="string">&quot;Geometry+1&quot;</span> <span class="comment">//设置后 材质上的RenderQueue设置为了2000 + 1 = 2001</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="3.5-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E6%B8%B2%E6%9F%93%E9%A1%BA%E5%BA%8F" tabindex="-1">3.5 如何查看渲染顺序</h2><p>运行Unity-&gt;Unity菜单栏-&gt;Window-&gt;analysis-&gt;Frame Debug</p><ul><li>DrawOpequeObjects 不透明物体</li><li>DrawTransparentObjects 半透明物体<br><img src="/2026/03/07/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E4%B8%89-SubShader%E5%AD%A6%E4%B9%A0/3.3%20tag%E4%B8%AD%E7%9A%84Queue.png" alt></li></ul><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">]]></content>
     
     
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;//cdn.jsdelivr.net/npm/katex/dist/katex.min.css&quot;&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;//cdn.jsdelivr.net/npm/markdown-</summary>
-      
+    <summary type="html">&lt;p&gt;SubShader学习&lt;/p&gt;</summary>
     
     
     
+    <category term="Unity学习笔记" scheme="http://example.com/categories/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Unity Shader" scheme="http://example.com/tags/Unity-Shader/"/>
     
   </entry>
   
