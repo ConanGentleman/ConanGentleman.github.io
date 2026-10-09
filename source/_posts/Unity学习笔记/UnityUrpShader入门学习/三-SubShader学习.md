@@ -73,7 +73,7 @@ Subshader // 子着色器 (高配，红色）
 ```
 
 ## 3.5 如何查看渲染顺序
-运行Unity->Unity菜单栏->Window->analysis->Frame Debug
+运行Unity->Unity菜单栏->Window->analysis->Frame Debug->enable
 - DrawOpequeObjects 不透明物体
 - DrawTransparentObjects 半透明物体
 ![](./三-SubShader学习/3.3%20tag中的Queue.png)
