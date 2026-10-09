@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Pass学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UnityUrpShader入门学习-（四）Pass学习">
+<meta property="og:url" content="http://example.com/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="MiDoLi&#39;s Blog">
+<meta property="og:description" content="Pass学习">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/4.3%E9%BB%98%E8%AE%A4%E8%83%8C%E9%83%A8%E5%89%94%E9%99%A4.png">
+<meta property="og:image" content="http://example.com/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/4.3%E5%A4%96%E9%83%A8%E5%89%94%E9%99%A4.png">
+<meta property="og:image" content="http://example.com/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/4.4%20%E6%B7%B1%E5%BA%A6%E6%B5%8B%E8%AF%95%E7%89%B9%E6%AE%8A%E6%83%85%E5%86%B5.png">
+<meta property="og:image" content="http://example.com/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/4.5%20ZWrite%20Off%E4%B8%8B%E7%9A%84%E8%A1%A8%E7%8E%B01.png">
+<meta property="og:image" content="http://example.com/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/4.5%20ZWrite%20Off%E4%B8%8B%E7%9A%84%E8%A1%A8%E7%8E%B02.png">
+<meta property="og:image" content="http://example.com/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/6.1%20%E9%80%8F%E6%98%8E%E6%B7%B7%E5%90%88%20one-one.png">
+<meta property="og:image" content="http://example.com/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/6.1%20%E9%80%8F%E6%98%8E%E6%B7%B7%E5%90%88SrcAlpha-OneMinusSrcAlpha.png">
+<meta property="og:image" content="http://example.com/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/6.1%20%E9%80%8F%E6%98%8E%E6%B7%B7%E5%90%88SrcAlpha-OneMinusSrcAlpha-revsuv.png">
+<meta property="og:image" content="http://example.com/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/7.1%20URP-HighFidelity-Render.png">
+<meta property="og:image" content="http://example.com/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/7.1%20%E6%96%B0%E5%BB%BARenderObject.png">
+<meta property="og:image" content="http://example.com/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/7.1%20RenderObject%E8%AE%BE%E7%BD%AE.png">
+<meta property="og:image" content="http://example.com/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/7.1%20RenderObject%E6%95%88%E6%9E%9C.png">
+<meta property="og:image" content="http://example.com/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/7.1%20RenderObject%E8%AE%BE%E7%BD%AE-%E4%BD%BF%E7%94%A8%E6%9F%90%E4%B8%AAshader.png">
+<meta property="og:image" content="http://example.com/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/7.1%20RenderObject%E6%95%88%E6%9E%9C-%E6%89%80%E6%9C%89%E4%BD%BF%E7%94%A8%E6%9F%90%E4%B8%AAshader.png">
+<meta property="og:image" content="http://example.com/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/7.1%20RenderObject%E4%B8%8D%E6%B8%B2%E6%9F%93%E6%9C%AC%E4%BD%93%E8%AE%BE%E7%BD%AE1.png">
+<meta property="og:image" content="http://example.com/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/7.1%20RenderObject%E4%B8%8D%E6%B8%B2%E6%9F%93%E6%9C%AC%E4%BD%93%E8%AE%BE%E7%BD%AE2.png">
+<meta property="article:published_time" content="2026-03-22T12:50:27.000Z">
+<meta property="article:modified_time" content="2026-10-09T16:21:02.734Z">
+<meta property="article:author" content="MiDoLi">
+<meta property="article:tag" content="Unity Shader">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/4.3%E9%BB%98%E8%AE%A4%E8%83%8C%E9%83%A8%E5%89%94%E9%99%A4.png">
+
+<link rel="canonical" href="http://example.com/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>UnityUrpShader入门学习-（四）Pass学习 | MiDoLi's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <!--pjax：防止跳转页面音乐暂停-->
+  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script> 
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="MiDoLi's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">MiDoLi's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Code builds world !</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/midoli.jpg">
+      <meta itemprop="name" content="MiDoLi">
+      <meta itemprop="description" content="欢迎来到我的世界💜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MiDoLi's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          UnityUrpShader入门学习-（四）Pass学习
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2026-03-22 20:50:27" itemprop="dateCreated datePublished" datetime="2026-03-22T20:50:27+08:00">2026-03-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-10-10 00:21:02" itemprop="dateModified" datetime="2026-10-10T00:21:02+08:00">2026-10-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Unity学习笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/" class="post-meta-item leancloud_visitors" data-flag-title="UnityUrpShader入门学习-（四）Pass学习" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>11 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Pass学习</p>
+<span id="more"></span>
+<h1 id="%E9%9B%B6%E3%80%81%E4%B8%80%E4%BA%9B%E4%B8%8E%E5%86%85%E7%BD%AE%E7%AE%A1%E7%BA%BFpass%E5%8C%BA%E5%88%AB" tabindex="-1">零、一些与内置管线pass区别</h1>
+<ol>
+<li>写多少个pass就会执行多少个pass，因此一个物体会根据pass数量渲染多次。urp会根据pass写的用途标志选择性的执行pass</li>
+</ol>
+<h1 id="%E4%B8%80%E3%80%81lightmode%E5%AD%A6%E4%B9%A0" tabindex="-1">一、LightMode学习</h1>
+<h2 id="1.1-%E6%A0%87%E8%AE%B0pass%E7%9A%84%E7%94%A8%E9%80%94" tabindex="-1">1.1 标记pass的用途</h2>
+<p>也是使用Tags进行标记，并添加LightMode字段</p>
+<h2 id="1.2-pass%E7%9A%84lightmode%E7%B1%BB%E5%9E%8B" tabindex="-1">1.2 pass的LightMode类型</h2>
+<p>类型有</p>
+<ol>
+<li>UniversalForward（用于URP管线的前向渲染）-一般用于几何体渲染输出</li>
+<li>ShadowCaster-用于生成阴影贴图</li>
+<li>DepthOnly-用于生成深度图，名为_CameraDepthTexture 的贴图</li>
+<li>DepthNormal-场景对象的法线图，生成_CameraDepthTexture贴图+_CameraNormalsTexture贴图</li>
+<li>Meta-用于光照贴图</li>
+<li>Universal2D-用于2d对象渲染</li>
+<li>SRPDefaultUnlit - 比较特殊，用于兼容不是为URP编写的Pass代码</li>
+</ol>
+<h2 id="1.3-%E4%BB%A3%E7%A0%81" tabindex="-1">1.3 代码</h2>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Subshader</span><br><span class="line">&#123;</span><br><span class="line">    pass</span><br><span class="line">    &#123;</span><br><span class="line">        Tags</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;LightMode&quot;</span> = <span class="string">&quot;UniversalForward&quot;</span> </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="%E4%BA%8C%E3%80%81lightmode%E4%B8%8E%E5%A4%9Apass%E6%B8%B2%E6%9F%93" tabindex="-1">二、LightMode与多Pass渲染</h1>
+<p>一个Subshader下使用两个pass，一个是UniversalForward 一个是SRPDefaultUnlit，这样可以让物体被渲染两次，但是再增加一个SRPDefaultUnlit没用。</p>
+<p>如果一个pass不定义LightMode，那LightMode默认为SRPDefaultUnlit</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Subshader</span><br><span class="line">&#123;</span><br><span class="line">    pass</span><br><span class="line">    &#123;</span><br><span class="line">        Tags</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;LightMode&quot;</span> = <span class="string">&quot;UniversalPipeline&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    pass</span><br><span class="line">    &#123;</span><br><span class="line">        Tags</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;LightMode&quot;</span> = <span class="string">&quot;SRPDefaultUnlit&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="%E4%B8%89%E3%80%81%E8%83%8C%E9%9D%A2%E5%89%94%E9%99%A4" tabindex="-1">三、背面剔除</h1>
+<h2 id="3.1-%E5%89%94%E9%99%A4%E7%B1%BB%E5%9E%8B" tabindex="-1">3.1 剔除类型</h2>
+<ol>
+<li>默认剔除背/内部 Cull Back ,跟平时一样</li>
+<li>剔除外部Cull Front 看到内部</li>
+<li>不剔除任何部位 Cull Off，一般用于双面材质的渲染（如头发，半透明玻璃瓶</li>
+</ol>
+<h2 id="3.2-%E4%BB%A3%E7%A0%81" tabindex="-1">3.2 代码</h2>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Subshader</span><br><span class="line">&#123;</span><br><span class="line">    pass</span><br><span class="line">    &#123;</span><br><span class="line">        Cull Back</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3.3-cull-back%E5%92%8Ccull-front%E7%9A%84%E6%95%88%E6%9E%9C%E5%9B%BE" tabindex="-1">3.3 Cull Back和Cull Front的效果图</h2>
+<ol>
+<li>Cull Back<br>
+<img src="/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/4.3%E9%BB%98%E8%AE%A4%E8%83%8C%E9%83%A8%E5%89%94%E9%99%A4.png" alt></li>
+<li>Cull Front<br>
+<img src="/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/4.3%E5%A4%96%E9%83%A8%E5%89%94%E9%99%A4.png" alt></li>
+</ol>
+<h1 id="%E5%9B%9B%E3%80%81%E6%B7%B1%E5%BA%A6%E6%B5%8B%E8%AF%95" tabindex="-1">四、深度测试</h1>
+<h2 id="4.1-%E8%AF%B4%E6%98%8E" tabindex="-1">4.1 说明</h2>
+<ul>
+<li>计算机图形硬件有一块，深度缓冲区，大小与分辨率大小一致，每一个格子记录像素的深度值，每一帧初始化为1.0，然后开始写入</li>
+<li>在图形渲染管线中，摄像机能看到的最近点（近裁剪平面）深度值为0.0，最远点深度值为1.0。最近点和最远点在Unity中对应Camera组件上的Projection下的Clipping Planer的Near（映射0.0）和Far（映射1.0）。</li>
+</ul>
+<h2 id="4.2-%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E" tabindex="-1">4.2 参数说明</h2>
+<ul>
+<li>默认 ZTest LEqual，即当前像素深度值小于等于对应深度缓冲区深度值，则通过并写入</li>
+<li>ZTest Greater ，当前像素深度值大于对应深度缓冲区深度值，则通过并写入。</li>
+<li>ZTest Less , 当前像素深度值小于对应深度缓冲区深度值，则通过并写入</li>
+<li>ZTest GEqual, 当前像素深度值大于等于对应深度缓冲区深度值，则通过并写入。</li>
+<li>ZTest Equal, 当前像素深度值等于对应深度缓冲区深度值，则通过并写入。</li>
+<li>ZTest NotEqual, 当前像素深度值不等于对应深度缓冲区深度值，则通过并写入。</li>
+<li>ZTest Always, 当前像素始终通过，并写入。</li>
+<li>ZTest Never, 当前像素始终不通过。</li>
+</ul>
+<h2 id="4.3-%E4%BB%A3%E7%A0%81" tabindex="-1">4.3 代码</h2>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Subshader</span><br><span class="line">&#123;</span><br><span class="line">    pass</span><br><span class="line">    &#123;</span><br><span class="line">        ZTest LEqual</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4.4-%E7%89%B9%E6%AE%8A%E6%83%85%E5%86%B5" tabindex="-1">4.4 特殊情况</h2>
+<ol>
+<li>
+<p>当为ZTest Always<br>
+在Unity中，当两个使用相同材质且Shader设置为ZTest Always的物体相遇时，它们的渲染顺序并非由距离摄像机的远近决定，而是严格遵循Unity的渲染队列（Render Queue）顺序</p>
+</li>
+<li>
+<p>当为 ZTest Always 且 Cull Off<br>
+Cull Off 开启了双面渲染，但物体的内部几何体（背面）与外部几何体（正面）在同一个网格中发生了“自遮挡冲突”。</p>
+</li>
+</ol>
+<p>在 <strong>ZTest Always 的强制作用下，GPU 抛弃了“深度排序”这一视觉正确性准则</strong>，导致单个物体内部的三角形绘制顺序暴露出了问题。具体来看，这体现在两个层面：</p>
+<ul>
+<li>
+<ol>
+<li>核心原因：单个物体内部的“画家算法”失效（自闪烁）</li>
+</ol>
+<ul>
+<li>对于一个封闭的 3D 物体（如球体、立方体），Cull Off 会同时渲染正面（朝外）和背面（朝内）。</li>
+<li>在正常情况下（ZTest LEqual），背面的像素因深度值更大，会被正面的像素遮挡掉，你看不到内部。<br>
+但在 ZTest Always 下，深度测试直接通过，不进行深度比较。此时，渲染顺序降级为 GPU 提交三角形的顺序（即索引缓冲区的顺序）。<strong>GPU 是并行且无序地处理网格三角形的，它不会对单个物体内的三角形做“从远到近”的排序</strong>。于是：
+<ul>
+<li>正面和背面的像素开始互相覆盖：可能背面的某个三角形比正面的三角形晚渲染，结果背面覆盖了本该可见的正面。</li>
+</ul>
+</li>
+<li>结果：物体表面会出现大量无序的斑驳噪点、破碎的网状条纹或闪烁，看起来像是被撕碎了一样，这就是典型的“Z-Fighting”（深度冲突）在无深度测试下的极端表现。</li>
+</ul>
+</li>
+<li>
+<ol start="2">
+<li>物体之间的顺序依然成立，但内部乱了</li>
+</ol>
+<ul>
+<li>
+<p>ZTest Always 保证了物体与物体之间的覆盖是确定的（后渲染的物体整体盖住先渲染的物体）。然而，每个物体自身的内部几何体是随机乱序覆盖的。</p>
+</li>
+<li>
+<p>这导致视觉上，物体可能同时出现“正面的纹理”和“内部的镜像纹理”混杂在一起，且杂乱无章。因为背面的法线虽然反了，但颜色光照可能依然有差异，混乱感极其明显。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>3.具体表现<br>
+<img src="/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/4.4%20%E6%B7%B1%E5%BA%A6%E6%B5%8B%E8%AF%95%E7%89%B9%E6%AE%8A%E6%83%85%E5%86%B5.png" alt></p>
+</li>
+</ul>
+<h2 id="4.5-ztest-greater%E7%9A%84%E7%94%A8%E9%80%94" tabindex="-1">4.5 ZTest Greater的用途</h2>
+<p>ZTest Greater 可以用于 游戏中的玩家透视</p>
+<h1 id="%E4%BA%94%E3%80%81%E6%B7%B1%E5%BA%A6%E5%86%99%E5%85%A5%E4%B8%8Eurp%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E5%88%86%E6%9E%90" tabindex="-1">五、深度写入与URP渲染管线分析</h1>
+<h2 id="5.1-zwrite" tabindex="-1">5.1 Zwrite</h2>
+<ul>
+<li>深度写入 ZWrite On（默认）/ ZWrite Off
+<ul>
+<li>ZWrite On 使用深度测试，每次深度测试通过后，写入到深入缓冲内，依据深度值进行，即无论物体绘制的先后顺序如何，近处的物体永远正确遮挡远处的物体</li>
+<li>ZWrite Off 关闭深度测试，完全依赖绘制顺序，渲染顺序完全退化为画家算法（谁后画谁在上）。</li>
+</ul>
+</li>
+</ul>
+<h2 id="5.2-zwrite-off-%E5%9C%A8camera-%E7%9A%84background-type%E5%9C%A8%E4%B8%8D%E5%90%8C%E8%AE%BE%E7%BD%AE%E4%B8%8B%E7%9A%84%E8%A1%A8%E7%8E%B0" tabindex="-1">5.2 Zwrite Off 在Camera 的Background Type在不同设置下的表现</h2>
+<ol>
+<li>Background Type 设置为skybox<br>
+用于 ZWrite Off完全依赖绘制顺序，而天空盒（skybox）是在所有不透明物体之后，最后渲染。因此永远只能看到天空盒。具体情况：
+<ul>
+<li>清除：清空颜色和深度缓冲，颜色缓冲变为默认值（如灰色）。</li>
+<li>渲染物体：物体被渲染到颜色缓冲。但因 ZWrite Off，深度缓冲中该位置的值依然是清除后的“无限远”（1.0）。</li>
+<li>渲染天空盒：天空盒的每个像素进行深度测试（ZTest LEqual）。因为深度缓冲里的值是“无限远”（1.0），而天空盒的深度也是“无限远”（1.0），测试通过。于是，天空盒的像素便覆盖掉了颜色缓冲中已有的物体像素，导致物体“消失”。<br>
+<img src="/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/4.5%20ZWrite%20Off%E4%B8%8B%E7%9A%84%E8%A1%A8%E7%8E%B01.png" alt></li>
+</ul>
+</li>
+<li>Background Type 设置为Solid Color<br>
+除了背景外，也能看到物体。具体情况：
+<ul>
+<li>清除：同样会清空颜色和深度缓冲。深度缓冲被重置为“无限远”（1.0）。</li>
+<li>渲染物体：物体被渲染，但因 ZWrite Off，深度缓冲依然为空。</li>
+<li>渲染背景：注意，<strong>这里的“背景”并不是一个需要深度测试的3D物体。颜色缓冲中未被物体覆盖的区域</strong>，直接被设置为指定的纯色。这个过程完全绕过了深度测试，因此不会覆盖已经画好的物体。<br>
+<img src="/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/4.5%20ZWrite%20Off%E4%B8%8B%E7%9A%84%E8%A1%A8%E7%8E%B02.png" alt></li>
+</ul>
+</li>
+</ol>
+<h1 id="%E5%85%AD%E3%80%81%E9%80%8F%E6%98%8E%E6%B7%B7%E5%90%88" tabindex="-1">六、透明混合</h1>
+<p>通俗来讲就是 <strong>已经在屏幕上可以看见的颜色 与 正要去屏幕上写入的颜色</strong> 之间 进行混合（各占一定比例）<br>
+注意：混合对象的Queue要设置为Transparent （透明队列） ，不然效果会有问题，即</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Subshader</span><br><span class="line">&#123;</span><br><span class="line">    pass</span><br><span class="line">    &#123;</span><br><span class="line">        Tags</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;Queue&quot;</span> = <span class="string">&quot;Transparent&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6.1-blend-%E5%85%B3%E9%94%AE%E5%AD%97" tabindex="-1">6.1 Blend 关键字</h2>
+<h2 id="6.2-%E4%BB%A3%E7%A0%81" tabindex="-1">6.2 代码</h2>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Subshader</span><br><span class="line">&#123;</span><br><span class="line">    pass</span><br><span class="line">    &#123;</span><br><span class="line">        Blend SrcFactor DstFactor <span class="comment">//SrcFactor 表示原颜色 (r,g,b,a)  DstFactor表示混合颜色(r,g,b,a) </span></span><br><span class="line">        <span class="comment">// or </span></span><br><span class="line">        Blend SrcFactor DstFactor，SrcFactorA DstFactorA</span><br><span class="line">        <span class="comment">//to support different factors for Alpha channe</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6.3-%E6%9C%80%E5%B8%B8%E8%A7%81%E7%9A%84%E6%B7%B7%E5%90%88%E5%91%BD%E4%BB%A4" tabindex="-1">6.3 最常见的混合命令</h2>
+<p>· Blend SrcAlpha OneMinusSrcAlpha- 传统的透明度</p>
+<ul>
+<li>计算公式:newBufferColor = (fragColor * fragColor.a) + (bufferColor * (1-fragColor.a))</li>
+<li>使用时要保证片元着色器返回值中的a值最好是小于1，否则也只会看到靠前物体的颜色，因为不是透明物体</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">////顶点着色器的输出结果就是片元着色器的输入信息</span></span><br><span class="line"><span class="comment">//float4 frag(v2f IN) :SV_TARGET//片元着色器，返回一个RGBA颜色结果</span></span><br><span class="line"><span class="comment">//&#123;</span></span><br><span class="line"><span class="comment">//	float4 mainTexColor = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex,IN.uv);//取得每个点的纹理坐标颜色</span></span><br><span class="line"><span class="comment">//	return mainTexColor * _MainColor * _ColorIntensity;</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//使用透明混合命令Blend SrcAlpha OneMinusSrcAlpha时片元着色器的写法</span></span><br><span class="line">float4 <span class="title function_">frag</span><span class="params">(v2f IN)</span> :SV_TARGET</span><br><span class="line">&#123;</span><br><span class="line">    float4 mainTexColor = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex,IN.uv);</span><br><span class="line">    float3 finalColor = (mainTexColor * _MainColor * _ColorIntensity).rgb;</span><br><span class="line">    <span class="keyword">return</span> float4(finalColor,<span class="number">0.5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>·Blend One OneMinusSrcAlpha-预乘透明度<br>
+·Blend One One-叠加加<br>
+·Blend OneMinusDstColor One- 柔和叠加<br>
+·Blend DstColor Zero-相乘——正片叠底<br>
+·Blend DstColor SrcColor-两倍相乘</p>
+<h2 id="6.4-%E6%B7%B7%E5%90%88%E6%96%B9%E5%BC%8F" tabindex="-1">6.4 混合方式</h2>
+<p>其中着色器颜色结果乘以SrcFactor，现有颜色目标/缓冲区像素乘以DstFactor。然后，根据单独的<strong>BlendOp</strong>操作<br>
+(默认为Add)组合每个值，以生成普换缓冲区中的值的最终顾色结果。<br>
+即它决定“源颜色（当前 Shader 算出的颜色）”和“目标颜色（已经存在于帧缓冲中的颜色）”如何组合。 默认位Add</p>
+<ul>
+<li><strong>公式大致为： 最终颜色 = BlendOp(源颜色 * 源因子, 目标颜色 * 目标因子)</strong><br>
+这些因素可以是以下之一：<br>
+·One<br>
+·Zero<br>
+·SrcColor<br>
+·SrcAIpha<br>
+·DstColor<br>
+·DstAlpha<br>
+·OneMinusSrcColor<br>
+·OneMinusSrcAlpha<br>
+·OneMinusDstColor<br>
+·OneMinusDstAlpha</li>
+</ul>
+<p>例1：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Blend SrcAlpha OneMinusSrcAlpha</span><br><span class="line">BlendOp Add</span><br></pre></td></tr></table></figure>
+<p>等价于常见的 Alpha 混合：</p>
+<figure class="highlight fix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">最终颜色 </span>=<span class="string"> 源颜色 * SrcAlpha + 目标颜色 * (1 - SrcAlpha)</span></span><br></pre></td></tr></table></figure>
+<p>例子2：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Blend SrcAlpha One</span><br><span class="line">BlendOp RevSub</span><br></pre></td></tr></table></figure>
+<p>表示：</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最终颜色 <span class="operator">=</span> 目标颜色 - 源颜色 * SrcAlpha</span><br></pre></td></tr></table></figure>
+<h2 id="6.6-%E6%95%88%E6%9E%9C" tabindex="-1">6.6 效果</h2>
+<ol>
+<li></li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Blend <span class="keyword">One</span> <span class="keyword">One</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/6.1%20%E9%80%8F%E6%98%8E%E6%B7%B7%E5%90%88%20one-one.png" alt><br>
+2.</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Blend SrcAlpha OneMinusSrcAlpha</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/6.1%20%E9%80%8F%E6%98%8E%E6%B7%B7%E5%90%88SrcAlpha-OneMinusSrcAlpha.png" alt><br>
+3.</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">Blend </span>SrcAlpha OneMinusSrcAlpha</span><br><span class="line"><span class="keyword">BlendOp </span><span class="keyword">Sub</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/6.1%20%E9%80%8F%E6%98%8E%E6%B7%B7%E5%90%88SrcAlpha-OneMinusSrcAlpha-revsuv.png" alt></p>
+<h2 id="6.7-%E6%B8%B2%E6%9F%93%E5%8D%8A%E9%80%8F%E6%98%8E%E7%89%A9%E4%BD%93%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%EF%BC%88%E2%AD%90%EF%BC%89" tabindex="-1">6.7 渲染半透明物体的注意事项（⭐）</h2>
+<p>在渲染半透明物体时，需确保</p>
+<ol>
+<li>ZWrite关闭（深度写入关闭）
+<ul>
+<li>渲染队列（Render Queue）相同的情况下，半透明物体都是从后向前渲染的</li>
+<li>不同Render Queue 会因为深度写入导致遮挡。</li>
+<li>半透明物体是在所有不透明物体渲染后才渲染的。</li>
+</ul>
+</li>
+<li>半透明物体从后(离相机远)往前渲染（unity引擎已经处理了，但要了解），且在不透明物体渲染完毕后渲染</li>
+</ol>
+<h1 id="%E4%B8%83%E3%80%81%E5%A4%9Apass%E7%9A%84shader%E5%BC%80%E5%8F%91" tabindex="-1">七、多Pass的shader开发</h1>
+<p>unity的urp渲染管线不支持多pass渲染（即多Pass的情况下 只能支持一个UniversalForward的pass，或者加上SRPDefaultUnlit能支持一下两个pass）</p>
+<h2 id="7.1-%E5%9C%A8urp%E7%AE%A1%E7%BA%BF%E4%B8%8B%E7%BC%96%E5%86%99%E5%A4%9Apass-shader%E7%9A%84%E6%96%B9%E6%B3%95" tabindex="-1">7.1 在URP管线下编写多Pass Shader的方法</h2>
+<ol>
+<li>RenderObject(可视化，比较傻瓜，只对使用特定LightMode的材质的对象生效)</li>
+<li>RenderFeature（C#脚本，可控性好）</li>
+</ol>
+<h2 id="7.2-renderobject%E8%AF%A6%E6%83%85" tabindex="-1">7.2 RenderObject详情</h2>
+<ol>
+<li>设置前shader代码结构</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">pass</span><br><span class="line">&#123;</span><br><span class="line">    Tags</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;LightMode&quot;</span> = <span class="string">&quot;UniversalForward&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">pass</span><br><span class="line">&#123;</span><br><span class="line">    Tags</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;LightMode&quot;</span> = <span class="string">&quot;Outline&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>新建一个RenderObject<br>
+Unity窗口中Edit-&gt;ProjectSetting-&gt;Graphics-&gt;Scriptable Render Pipeline Settings。点击<br>
+目前我这边是URP-HighFidelity，找到其Renderer List中的内容，关联的是URP-HighFidelity-Render<br>
+<img src="/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/7.1%20URP-HighFidelity-Render.png" alt><br>
+拉到最下方找到Add Renderer Feature 选择Render Objects(Exportimental),即可新建一个RenderObject<br>
+<img src="/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/7.1%20%E6%96%B0%E5%BB%BARenderObject.png" alt></li>
+<li>一些设置项</li>
+</ol>
+<ul>
+<li>Event，表示Pass执行的顺序</li>
+<li>Filters 筛选
+<ul>
+<li>Queue 对那些渲染队列筛选</li>
+<li>Layer Mask 对那些layer筛选</li>
+<li>LightMode Tags - 具体执行那些pass</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li>对使用特定LightMode的材质的对象生效的设置方式</li>
+</ol>
+<ul>
+<li>设置方式<br>
+<img src="/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/7.1%20RenderObject%E8%AE%BE%E7%BD%AE.png" alt></li>
+<li>效果<br>
+<img src="/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/7.1%20RenderObject%E6%95%88%E6%9E%9C.png" alt></li>
+</ul>
+<ol start="5">
+<li>对所有使用某个shader的对象生效<br>
+其中PassIndex表示使用shader中的第几个pass，下标从0开始</li>
+</ol>
+<ul>
+<li>设置方式<br>
+<img src="/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/7.1%20RenderObject%E8%AE%BE%E7%BD%AE-%E4%BD%BF%E7%94%A8%E6%9F%90%E4%B8%AAshader.png" alt></li>
+<li>效果（给胶囊也挂上了StudyShader_BasicShader）shader<br>
+<img src="/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/7.1%20RenderObject%E6%95%88%E6%9E%9C-%E6%89%80%E6%9C%89%E4%BD%BF%E7%94%A8%E6%9F%90%E4%B8%AAshader.png" alt></li>
+</ul>
+<ol start="6">
+<li>
+<p>让立方体只渲染轮廓，不渲染本体的设置及效果<br>
+新增一个layer叫cude，然后如图所示设置<br>
+<img src="/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/7.1%20RenderObject%E4%B8%8D%E6%B8%B2%E6%9F%93%E6%9C%AC%E4%BD%93%E8%AE%BE%E7%BD%AE1.png" alt><br>
+<img src="/2026/03/22/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9B-Pass%E5%AD%A6%E4%B9%A0/7.1%20RenderObject%E4%B8%8D%E6%B8%B2%E6%9F%93%E6%9C%AC%E4%BD%93%E8%AE%BE%E7%BD%AE2.png" alt></p>
+</li>
+<li>
+<p>缺点<br>
+shader和lightmode的相关参数无法传入并修改，只能使用默认值，不太灵活</p>
+</li>
+</ol>
+<h2 id="7.3-renderfeature-%E8%AF%A6%E6%83%85" tabindex="-1">7.3 RenderFeature 详情</h2>
+<p>涉及C# 后续补充</p>
+<ol>
+<li>场景：</li>
+</ol>
+<ul>
+<li>需要实现URP内置功能不支持的复杂效果，例如自定义的全屏后处理、需要访问深度/法线等G-Buffer数据、或涉及多步渲染的算法。</li>
+<li>希望将自定义效果全局应用到多个场景或摄像机上，并集中管理参数。</li>
+<li>需要对渲染流程拥有完全的控制权，包括创建和销毁临时渲染纹理（RenderTexture）、在特定的Pass间传递数据等。</li>
+</ul>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+
+    </div>
+
+    
+    
+    
+
+<div>
+  
+    
+  
+</div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Unity-Shader/" rel="tag"># Unity Shader</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/03/07/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E4%B8%89-SubShader%E5%AD%A6%E4%B9%A0/" rel="prev" title="UnityUrpShader入门学习-（三）SubShader学习">
+      <i class="fa fa-chevron-left"></i> UnityUrpShader入门学习-（三）SubShader学习
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2026/04/06/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Unity%E6%80%A7%E8%83%BD%E7%9B%B8%E5%85%B3-UGUI%E6%80%A7%E8%83%BD/" rel="next" title="UGUI性能问题">
+      UGUI性能问题 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%B6%E3%80%81%E4%B8%80%E4%BA%9B%E4%B8%8E%E5%86%85%E7%BD%AE%E7%AE%A1%E7%BA%BFpass%E5%8C%BA%E5%88%AB"><span class="nav-number">1.</span> <span class="nav-text">零、一些与内置管线pass区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81lightmode%E5%AD%A6%E4%B9%A0"><span class="nav-number">2.</span> <span class="nav-text">一、LightMode学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1.1-%E6%A0%87%E8%AE%B0pass%E7%9A%84%E7%94%A8%E9%80%94"><span class="nav-number">2.1.</span> <span class="nav-text">1.1 标记pass的用途</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1.2-pass%E7%9A%84lightmode%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.2.</span> <span class="nav-text">1.2 pass的LightMode类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1.3-%E4%BB%A3%E7%A0%81"><span class="nav-number">2.3.</span> <span class="nav-text">1.3 代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81lightmode%E4%B8%8E%E5%A4%9Apass%E6%B8%B2%E6%9F%93"><span class="nav-number">3.</span> <span class="nav-text">二、LightMode与多Pass渲染</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E8%83%8C%E9%9D%A2%E5%89%94%E9%99%A4"><span class="nav-number">4.</span> <span class="nav-text">三、背面剔除</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3.1-%E5%89%94%E9%99%A4%E7%B1%BB%E5%9E%8B"><span class="nav-number">4.1.</span> <span class="nav-text">3.1 剔除类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3.2-%E4%BB%A3%E7%A0%81"><span class="nav-number">4.2.</span> <span class="nav-text">3.2 代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3.3-cull-back%E5%92%8Ccull-front%E7%9A%84%E6%95%88%E6%9E%9C%E5%9B%BE"><span class="nav-number">4.3.</span> <span class="nav-text">3.3 Cull Back和Cull Front的效果图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%B7%B1%E5%BA%A6%E6%B5%8B%E8%AF%95"><span class="nav-number">5.</span> <span class="nav-text">四、深度测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4.1-%E8%AF%B4%E6%98%8E"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4.2-%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="nav-number">5.2.</span> <span class="nav-text">4.2 参数说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4.3-%E4%BB%A3%E7%A0%81"><span class="nav-number">5.3.</span> <span class="nav-text">4.3 代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4.4-%E7%89%B9%E6%AE%8A%E6%83%85%E5%86%B5"><span class="nav-number">5.4.</span> <span class="nav-text">4.4 特殊情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4.5-ztest-greater%E7%9A%84%E7%94%A8%E9%80%94"><span class="nav-number">5.5.</span> <span class="nav-text">4.5 ZTest Greater的用途</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%B7%B1%E5%BA%A6%E5%86%99%E5%85%A5%E4%B8%8Eurp%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E5%88%86%E6%9E%90"><span class="nav-number">6.</span> <span class="nav-text">五、深度写入与URP渲染管线分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5.1-zwrite"><span class="nav-number">6.1.</span> <span class="nav-text">5.1 Zwrite</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5.2-zwrite-off-%E5%9C%A8camera-%E7%9A%84background-type%E5%9C%A8%E4%B8%8D%E5%90%8C%E8%AE%BE%E7%BD%AE%E4%B8%8B%E7%9A%84%E8%A1%A8%E7%8E%B0"><span class="nav-number">6.2.</span> <span class="nav-text">5.2 Zwrite Off 在Camera 的Background Type在不同设置下的表现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E9%80%8F%E6%98%8E%E6%B7%B7%E5%90%88"><span class="nav-number">7.</span> <span class="nav-text">六、透明混合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6.1-blend-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">7.1.</span> <span class="nav-text">6.1 Blend 关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6.2-%E4%BB%A3%E7%A0%81"><span class="nav-number">7.2.</span> <span class="nav-text">6.2 代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6.3-%E6%9C%80%E5%B8%B8%E8%A7%81%E7%9A%84%E6%B7%B7%E5%90%88%E5%91%BD%E4%BB%A4"><span class="nav-number">7.3.</span> <span class="nav-text">6.3 最常见的混合命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6.4-%E6%B7%B7%E5%90%88%E6%96%B9%E5%BC%8F"><span class="nav-number">7.4.</span> <span class="nav-text">6.4 混合方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6.6-%E6%95%88%E6%9E%9C"><span class="nav-number">7.5.</span> <span class="nav-text">6.6 效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6.7-%E6%B8%B2%E6%9F%93%E5%8D%8A%E9%80%8F%E6%98%8E%E7%89%A9%E4%BD%93%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%EF%BC%88%E2%AD%90%EF%BC%89"><span class="nav-number">7.6.</span> <span class="nav-text">6.7 渲染半透明物体的注意事项（⭐）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E5%A4%9Apass%E7%9A%84shader%E5%BC%80%E5%8F%91"><span class="nav-number">8.</span> <span class="nav-text">七、多Pass的shader开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7.1-%E5%9C%A8urp%E7%AE%A1%E7%BA%BF%E4%B8%8B%E7%BC%96%E5%86%99%E5%A4%9Apass-shader%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">8.1.</span> <span class="nav-text">7.1 在URP管线下编写多Pass Shader的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7.2-renderobject%E8%AF%A6%E6%83%85"><span class="nav-number">8.2.</span> <span class="nav-text">7.2 RenderObject详情</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7.3-renderfeature-%E8%AF%A6%E6%83%85"><span class="nav-number">8.3.</span> <span class="nav-text">7.3 RenderFeature 详情</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="MiDoLi"
+      src="/images/midoli.jpg">
+  <p class="site-author-name" itemprop="name">MiDoLi</p>
+  <div class="site-description" itemprop="description">欢迎来到我的世界💜</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ConanGentleman" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ConanGentleman" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/936184713@qq.com" title="E-Mail → 936184713@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/8032462?spm_id_from=333.1007.0.0" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;8032462?spm_id_from&#x3D;333.1007.0.0" rel="noopener" target="_blank"><i class="fa bilibili fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/qq_41234218?type=blog" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_41234218?type&#x3D;blog" rel="noopener" target="_blank"><i class="fa csdn fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bilibili.com/" title="https:&#x2F;&#x2F;www.bilibili.com&#x2F;" rel="noopener" target="_blank">Bilibil</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+
+<div class="twopeople">
+        <div class="container" style="height:200px;">
+            <canvas class="illo" width="800" height="800" style="max-width: 200px; max-height: 200px; touch-action: none; width: 640px; height: 640px;"></canvas>
+        </div>
+        <script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople1.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/zdog.dist.js"></script>
+        <script id="rendered-js" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople.js"></script>
+        <style>
+            .twopeople{
+                margin: 0;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+            canvas {
+                display: block;
+                margin: 0 auto;
+                cursor: move;
+            }
+        </style>
+      </div>
+<!-- 外链播放器 溯（钢琴版）-->
+<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1433584979&auto=1&height=66"></iframe> -->
+<!-- 不使用上面的外链播放器了 改用下面的Aplayer -->
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+<!-- 改用Aplayer end -->
+        <div class="back-to-top animated" role="button" aria-label="accessibility.back_to_top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+
+      </div>
+    </main>
+
+
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MiDoLi</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">86k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:14</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("03/01/2023 10:00:00"); //此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+  
+
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'QTH3K4IUb5oOIc5ZyxHm6JPQ-gzGzoHsz',
+      appKey     : 'WPGPkvPHhUGV1zwuL8JITOOr',
+      placeholder: "请文明评论呀~",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+
+
+
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/fireworks.js"></script>
+
+
+<script type="text/javascript"
+    count="150"
+    opacity: 1
+    src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right"},"mobile":{"show":true}});</script></body>
+</html>
+
+<!-- 添加fork me on github入口 -->
+<a target="_blank" rel="noopener" href="https://github.com/ConanGentleman" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
