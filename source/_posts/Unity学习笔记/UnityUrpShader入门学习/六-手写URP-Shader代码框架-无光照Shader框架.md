@@ -263,7 +263,7 @@ Pass
         //材质相关的（一般是加在编写的每一个pass里）
         //加入透明剔除的变体开关,否则不透明的地方也会有阴影
         #pragma shader_feature _ALPHATEST_ON//源码里面也用了同名变体，所以会生效
-        #pragma shader_feature _SMOOTHNESS_TEXTURE_ALBED0_CHANNEL_A //将ALBEDO的通道的a作为一个平滑通道来使用
+        #pragma shader_feature _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A //将ALBEDO的通道的a作为一个平滑通道来使用
 
         #pragma multi_compile_instancing //支持GPU实例化（变体开关，只用在GPU实例化）
 
@@ -311,7 +311,7 @@ Pass
         //材质相关的（一般是加在编写的每一个pass里）
         //加入透明剔除的变体开关,否则不透明的地方也会有阴影
         #pragma shader_feature _ALPHATEST_ON//源码里面也用了同名变体，所以会生效
-        #pragma shader_feature _SMOOTHNESS_TEXTURE_ALBED0_CHANNEL_A //将ALBEDO的通道的a作为一个平滑通道来使用
+        #pragma shader_feature _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A //将ALBEDO的通道的a作为一个平滑通道来使用
 
         #pragma multi_compile_instancing //支持GPU实例化（变体开关，只用在GPU实例化）
 
@@ -328,7 +328,7 @@ Pass
 ```c
 Pass
 {
-    Name "DepthNoramls"
+    Name "DepthNormals"
     Tags{"LightMode"="DepthNormals"}
 
     ZWrite On
@@ -346,7 +346,7 @@ Pass
         //加入透明剔除的变体开关,否则不透明的地方也会有阴影
         #pragma shader_feature_local _NORMAL_MAP  //DepthNormals 需要纹理贴图
         #pragma shader_feature _ALPHATEST_ON//源码里面也用了同名变体，所以会生效
-        #pragma shader_feature _SMOOTHNESS_TEXTURE_ALBED0_CHANNEL_A //将ALBEDO的通道的a作为一个平滑通道来使用
+        #pragma shader_feature _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A //将ALBEDO的通道的a作为一个平滑通道来使用
 
         #pragma multi_compile_instancing //支持GPU实例化（变体开关，只用在GPU实例化）
 
