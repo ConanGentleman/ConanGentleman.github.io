@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="手写URP-Shader代码框架-BlinnPhong-Shader框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UnityUrpShader入门学习-（八）手写URP-Shader代码框架-BlinnPhong-Shader框架">
+<meta property="og:url" content="http://example.com/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/index.html">
+<meta property="og:site_name" content="MiDoLi&#39;s Blog">
+<meta property="og:description" content="手写URP-Shader代码框架-BlinnPhong-Shader框架">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.1-noscaleoffset%E6%95%88%E6%9E%9C.png">
+<meta property="og:image" content="http://example.com/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.1%20%E8%87%AA%E5%8F%91%E5%85%89%E7%B3%BB%E6%95%B0.png">
+<meta property="og:image" content="http://example.com/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.1%20%E8%87%AA%E5%8F%91%E5%85%89%E5%BC%80%E5%85%B3%E4%BB%A5%E5%8F%8A%E8%B4%B4%E5%9B%BE.png">
+<meta property="og:image" content="http://example.com/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.2%20%E8%B4%B4%E5%9B%BE%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B2%A1%E6%9C%89%E7%9B%B4%E6%8E%A5%E5%AE%9A%E4%B9%89.png">
+<meta property="og:image" content="http://example.com/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.4%20surfacedata%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="http://example.com/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.4%20SurfaceData%E5%8C%B9%E9%85%8DUniversal-ShaderGrapth.gif">
+<meta property="og:image" content="http://example.com/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.5%20inputdata%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="http://example.com/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.6%E8%87%AA%E5%8F%91%E5%85%89.gif">
+<meta property="og:image" content="http://example.com/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.6%E9%AB%98%E5%85%89%E5%85%89%E6%B3%BD%E5%BA%A6.gif">
+<meta property="og:image" content="http://example.com/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.6%E5%A4%9A%E5%85%89%E6%BA%90.gif">
+<meta property="og:image" content="http://example.com/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.6%E9%A1%B6%E7%82%B9%E5%85%89%E5%8F%98%E4%BD%93.gif">
+<meta property="article:published_time" content="2026-10-15T13:08:23.000Z">
+<meta property="article:modified_time" content="2026-10-18T16:20:57.142Z">
+<meta property="article:author" content="MiDoLi">
+<meta property="article:tag" content="Unity Shader">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.1-noscaleoffset%E6%95%88%E6%9E%9C.png">
+
+<link rel="canonical" href="http://example.com/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>UnityUrpShader入门学习-（八）手写URP-Shader代码框架-BlinnPhong-Shader框架 | MiDoLi's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <!--pjax：防止跳转页面音乐暂停-->
+  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script> 
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="MiDoLi's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">MiDoLi's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Code builds world !</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/midoli.jpg">
+      <meta itemprop="name" content="MiDoLi">
+      <meta itemprop="description" content="欢迎来到我的世界💜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MiDoLi's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          UnityUrpShader入门学习-（八）手写URP-Shader代码框架-BlinnPhong-Shader框架
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2026-10-15 21:08:23" itemprop="dateCreated datePublished" datetime="2026-10-15T21:08:23+08:00">2026-10-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-10-19 00:20:57" itemprop="dateModified" datetime="2026-10-19T00:20:57+08:00">2026-10-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Unity学习笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/" class="post-meta-item leancloud_visitors" data-flag-title="UnityUrpShader入门学习-（八）手写URP-Shader代码框架-BlinnPhong-Shader框架" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>25 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>手写URP-Shader代码框架-BlinnPhong-Shader框架</p>
+<span id="more"></span>
+<h1 id="%E9%9B%B6%E3%80%81%E7%9B%AE%E7%9A%84" tabindex="-1">零、目的</h1>
+<p>目的：模拟Unity URP 官方源码的SimpleLit的实现</p>
+<ul>
+<li>法线贴图的支持</li>
+<li>高光反射</li>
+<li>自发光支持</li>
+<li>平滑度支持</li>
+<li>多光源支持</li>
+</ul>
+<p>准备：<br>
+从之前的漫反射模型shader复制一份shader出来重命名ShaderFrameworkSimpleLit</p>
+<p>下面的内容均指代相对于漫反射模型shader新增的内容！</p>
+<h1 id="%E4%B8%80%E3%80%81simplelit%E5%8F%82%E6%95%B0%E5%AE%9A%E4%B9%89" tabindex="-1">一、SimpleLit参数定义</h1>
+<h2 id="1.1-%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7" tabindex="-1">1.1 定义属性</h2>
+<ol>
+<li>代码</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">Properties</span><br><span class="line">&#123;</span><br><span class="line">   [Toggle(_NORMALMAP)]_NormalMapToggle(<span class="string">&quot;Use Normal Mapping&quot;</span>,Float) = <span class="number">0</span> <span class="comment">//是否使用法线贴图卡关</span></span><br><span class="line">    <span class="comment">//法线2d贴图，添加NoScaleOffset表示不支持tiling(scaling)和offset（平铺和偏移）</span></span><br><span class="line">    <span class="comment">//默认设置为bump图，bump表示bump法线图，其法线方向没有被扰动的，与物体表秒垂直</span></span><br><span class="line">    [NoScaleOffset]_BumpMap(<span class="string">&quot;Normal Map&quot;</span>,<span class="number">2</span>d) = <span class="string">&quot;bump&quot;</span>&#123;&#125;   </span><br><span class="line"></span><br><span class="line">    <span class="comment">//是否使用自发光</span></span><br><span class="line">    [Toggle(_EMISSION)]_EmissionToggle(<span class="string">&quot;Use Emission&quot;</span>,Float) = <span class="number">0</span></span><br><span class="line">    <span class="comment">//自发光颜色 ，为(0,0,0)黑色时代表不发光</span></span><br><span class="line">    <span class="comment">//由于希望自发光的光线反弹能够对别的物体产生影响，所以自发光颜色都应超过1.0的数值</span></span><br><span class="line">    <span class="comment">//超过1.0的值越大，自发光的系数强度就越高</span></span><br><span class="line">    <span class="comment">//因此加入[HDR]</span></span><br><span class="line">    [HDR]_EmissionColor(<span class="string">&quot;Emission Color&quot;</span>,Color) = (<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">    <span class="comment">//自发光贴图，且不支持tiling(scaling)和offset（平铺和偏移）</span></span><br><span class="line">    <span class="comment">//默认设置为白色图</span></span><br><span class="line">    [NoScaleOffset]_EmissionMap(<span class="string">&quot;Emission Map&quot;</span>,<span class="number">2</span>d) = <span class="string">&quot;white&quot;</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//是否开启高光光泽度贴图 。 高光光泽度贴图就是 “镜面光贴图 + 光泽度贴图”按固定通道打包成一张的贴图。</span></span><br><span class="line">    [Toggle(_SPECGLOSSMAP)]_SpecGlossMapToggle(<span class="string">&quot;Use Specular Gloss Map&quot;</span>,Float) = <span class="number">0</span></span><br><span class="line">    <span class="comment">//镜面高光（反射）颜色</span></span><br><span class="line">    _SpecColor(<span class="string">&quot;Specular Color&quot;</span>, Color) = (<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>)</span><br><span class="line">    <span class="comment">//镜面光贴图</span></span><br><span class="line">    _SpecGlosMap(<span class="string">&quot;Specular Map&quot;</span>, <span class="number">2</span>d) = <span class="string">&quot;white&quot;</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    由于光泽度贴图是一张灰度图，所以可以跟其他的彩色贴图合并的。</span></span><br><span class="line"><span class="comment">    比如就可以跟漫反射(固有色)贴图&quot;_BaseMap&quot;合并到一张支持RGBA颜色的贴图里面。RGB通道用来放漫反射(固有色)颜色，A通道用来放光泽度</span></span><br><span class="line"><span class="comment">    或者</span></span><br><span class="line"><span class="comment">    也可以跟镜面光贴图&quot;Specular Map&quot;合并，RGB通道用来放镜面光贴图的颜色，A通道放光泽度</span></span><br><span class="line"><span class="comment">    因此声明一个开关。当开关打开时（值为1），与漫反射贴图合并，反之与镜面光贴图合并</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    [Toggle(_GLOSSINESS_FROM_BASE_ALPHA)]_GlossSource(<span class="string">&quot;Glossiness source, from Albedo Alpha (if on) vs from Specular (if off)&quot;</span>,Float) = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//平滑度支持</span></span><br><span class="line">    _Smoothness(<span class="string">&quot;Smoothness&quot;</span>,Range(<span class="number">0.0</span>,<span class="number">1.0</span>)) = <span class="number">0.5</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>属性定义具体表现</li>
+</ol>
+<ul>
+<li>[NoScaleOffset] 效果<br>
+<img src="/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.1-noscaleoffset%E6%95%88%E6%9E%9C.png" alt></li>
+<li>自发光系数<br>
+<img src="/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.1%20%E8%87%AA%E5%8F%91%E5%85%89%E7%B3%BB%E6%95%B0.png" alt></li>
+<li>自发光开关以及贴图<br>
+<img src="/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.1%20%E8%87%AA%E5%8F%91%E5%85%89%E5%BC%80%E5%85%B3%E4%BB%A5%E5%8F%8A%E8%B4%B4%E5%9B%BE.png" alt></li>
+</ul>
+<h2 id="1.2-%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F%E5%8F%8A%E5%BC%95%E5%85%A5%E5%A4%B4%E6%96%87%E4%BB%B6" tabindex="-1">1.2 定义变量及引入头文件</h2>
+<ul>
+<li>注意这里为什么没有像之前_BaseMap一样，去定义_BumpMap、_EmissionMap、_SpecGlosMap。
+<ul>
+<li>因为引入了SurfaceInput.hlsl，里面已经定了三个相关的变量了<br>
+<img src="/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.2%20%E8%B4%B4%E5%9B%BE%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B2%A1%E6%9C%89%E7%9B%B4%E6%8E%A5%E5%AE%9A%E4%B9%89.png" alt></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> <span class="comment">//一些公用的内容</span></span><br><span class="line">HLSLINCLUDE</span><br><span class="line">        <span class="comment">//自发光颜色 </span></span><br><span class="line">        float4 _EmissionColor;</span><br><span class="line">        <span class="comment">//镜面高光（反射）颜色</span></span><br><span class="line">        float4 _SpecColor;</span><br><span class="line">        <span class="comment">//平滑度</span></span><br><span class="line">        <span class="type">float</span> _Smoothness;</span><br><span class="line"></span><br><span class="line">    CBUFFER_END</span><br><span class="line">ENDHLSL</span><br><span class="line"></span><br><span class="line">Pass</span><br><span class="line">&#123;</span><br><span class="line">    HLSLPROGRAM</span><br><span class="line">        <span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Packages/com.unity.render-pipelines.universal/ShaderLibrary/SurfaceInput.hlsl&quot;</span></span></span><br><span class="line"></span><br><span class="line">        <span class="meta">#<span class="keyword">pragma</span> shader_feature _NORMALMAP <span class="comment">//变体开关 =&gt; 使用法线贴图</span></span></span><br><span class="line">        <span class="meta">#<span class="keyword">pragma</span> shader_feature _EMISSION <span class="comment">//变体开关 =&gt; 使用自发光</span></span></span><br><span class="line">        <span class="meta">#<span class="keyword">pragma</span> shader_feature _SPECGLOSSMAP <span class="comment">// 变体开关 =&gt; 使用高光光泽度贴图</span></span></span><br><span class="line">        <span class="meta">#<span class="keyword">define</span> _SPECULAR_COLOR<span class="comment">//强制开启高光颜色（镜面反射）</span></span></span><br><span class="line">        <span class="meta">#<span class="keyword">pragma</span> shader_feature _GLOSSINESS_FROM_BASE_ALPHA <span class="comment">//变体开关=&gt;光泽度贴图来自于BaseMap的alpha贴图来</span></span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//引用了 &quot;Packages/com.unity.render-pipelines.universal/ShaderLibrary/SurfaceInput.hlsl&quot; 库，里面也定义了TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap); 直接去掉</span></span><br><span class="line">        <span class="comment">//TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap);//定义2d纹理、筛选器</span></span><br><span class="line">        <span class="comment">// 注意这里为什么没有像之前_BaseMap一样，去定义_BumpMap、_EmissionMap。,也是因为引入了SurfaceInput.hlsl，里面已经定义了相关的变量了</span></span><br><span class="line">    ENDHLSL</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="%E4%BA%8C%E3%80%81simplelitpassvertex" tabindex="-1">二、SimpleLitPassVertex</h1>
+<h2 id="2.1-%E9%A1%B6%E7%82%B9%E6%95%B0%E6%8D%AE%E4%BF%AE%E6%94%B9" tabindex="-1">2.1 顶点数据修改</h2>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Attributes</span> &#123;</span></span><br><span class="line">    <span class="meta">#<span class="keyword">ifdef</span> _NORMALMAP <span class="comment">//法线贴图开关开启</span></span></span><br><span class="line">        float4 tangentOS:TANGENT<span class="comment">//切线空间的切线向量(法线贴图相关参数）</span></span><br><span class="line">    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="2.2-%E7%89%87%E5%85%83%E6%95%B0%E6%8D%AE%E4%BF%AE%E6%94%B9" tabindex="-1">2.2 片元数据修改</h2>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Varyings</span> &#123;</span> </span><br><span class="line">    <span class="meta">#<span class="keyword">ifdef</span> _NORMALMAP <span class="comment">//法线贴图开关开启</span></span></span><br><span class="line">        half4 normalWS  :TEXCOORD3;<span class="comment">//法线</span></span><br><span class="line">        half4 tangentWS :TEXCOORD4;<span class="comment">//切线</span></span><br><span class="line">        half4 bitangentWS:TEXCOORD5;<span class="comment">//副切线</span></span><br><span class="line">    <span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">        <span class="comment">//每个片元世界坐标中的法线，用于计算漫反射</span></span><br><span class="line">        float3 normalWS     :TEXCOORD3;</span><br><span class="line">    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//如果使用额外的顶点灯光</span></span><br><span class="line">    <span class="meta">#<span class="keyword">ifdef</span> _ADDITIONAL_LIGHTS_VERTEX</span></span><br><span class="line">        half4 fogFactorAndVertexLight :TEXCOORD6; <span class="comment">// x:存储雾效信息， yzw:存储顶点光照信息</span></span><br><span class="line">    <span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">        half fogFactor :TEXCOORD6; <span class="comment">//不存储额外顶点光照信息。（每个通道可以存4维向量，目前只放了一个half 还有3维度的向量可以放到该通道）</span></span><br><span class="line">    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//如果阴影数据提前传入 （而不是在片元着色器中计算的）</span></span><br><span class="line">    <span class="meta">#<span class="keyword">ifdef</span> REQUIRES_VERTEX_SHADOWCOORD_INTERPOLATOR</span></span><br><span class="line">        float3 shadowCoord :TEXCOORD7;<span class="comment">//用于存储阴影数据的变量</span></span><br><span class="line">    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="2.3-%E9%A1%B6%E7%82%B9%E7%9D%80%E8%89%B2%E5%99%A8%E4%BF%AE%E6%94%B9" tabindex="-1">2.3 顶点着色器修改</h2>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//顶点着色器，传入数据声明变量名为IN</span></span><br><span class="line">Varyings <span class="title function_">SimpleLitPassVertex</span><span class="params">(Attributes IN)</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="meta">#<span class="keyword">ifdef</span> _NORMALMAP <span class="comment">//如果开启法线贴图 ，则多传入一个法线数据</span></span></span><br><span class="line">        VertexNormalInputs normalInputs = GetVertexNormalInputs(IN.normalOS, IN.tangentOS);</span><br><span class="line">    <span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">        VertexNormalInputs normalInputs = GetVertexNormalInputs(IN.normalOS);</span><br><span class="line">    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获得视空间的方向信息</span></span><br><span class="line">    half3 viewDirWS = GetWorldSpaceViewDir(positionInputs.positionWS);</span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="keyword">ifdef</span> _NORMALMAP <span class="comment">//如果开启法线贴图 ，则多传入一个法线数据</span></span></span><br><span class="line">        <span class="comment">//通道已经定到7了，且有些老设备也只支持到通道7，所以不能再在Varyings中定义新的变量了。</span></span><br><span class="line">        <span class="comment">//不过由于OUT.normalWS定义为四维向量，但normalInputs.normalWS是个三维变量</span></span><br><span class="line">        <span class="comment">//因此可以把多的一维拿来存 试方向信息 便于后续计算高光反射</span></span><br><span class="line">        OUT.normalWS = float4(normalInputs.normalWS, viewDirWS.x);</span><br><span class="line">        OUT.tangentWS = float4(normalInputs.tangentWS, viewDirWS.y);</span><br><span class="line">        OUT.bitangentWS = float4(normalInputs.bitangentWS, viewDirWS.z);</span><br><span class="line">    <span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">        <span class="comment">// 未开启法线贴图：只需要法线</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        如果没开法线贴图，片元着色器直接用顶点插值过来的世界空间法线 normalWS 就行，不需要 T、B，所以 tangentWS 和 bitangentWS 可以完全不赋值。</span></span><br><span class="line"><span class="comment">        并且做一下归一化处理</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        OUT.normalWS = NormalizeNormalPerVertex(normalInputs.normalWS);</span><br><span class="line">    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">    half fogFactor = ComputeFogFactor(positionInputs.positionCS.z);</span><br><span class="line">    half3 vertexLight = VertexLighting(positionInputs.positionWS,normalInputs.normalWS);</span><br><span class="line">    </span><br><span class="line">    <span class="meta">#<span class="keyword">ifdef</span> _ADDITIONAL_LIGHTS_VERTEX <span class="comment">//如果使用额外点光源</span></span></span><br><span class="line">        <span class="comment">//参数：雾效，顶点光照信息（当场景中的逐像素光比较多的时候，unity为了优化性能，会把设定的像素光数量之外的灯光用顶点光照来计算</span></span><br><span class="line">        OUT.fogFactorAndVertexLight = half4(fogFactor, vertexLight);</span><br><span class="line">    <span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">        OUT.fogFactor = fogFactor;</span><br><span class="line">    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//如果阴影数据提前传入 （而不是在片元着色器中计算的）</span></span><br><span class="line">    <span class="meta">#<span class="keyword">ifdef</span> REQUIRES_VERTEX_SHADOWCOORD_INTERPOLATOR</span></span><br><span class="line">        OUT.shadowCoord = GetShadowCoord();</span><br><span class="line">    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="%E4%B8%89%E3%80%81simplelitpassfragment" tabindex="-1">三、SimpleLitPassFragment</h1>
+<p>提前拟好片元着色器代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">InitSurfaceData</span><span class="params">(Varyings IN, out SurfaceData surfaceData)</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">InitInputData</span><span class="params">(Varyings IN, half3 normalTS, out InputData inputData)</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//片元着色器 (作用在目标缓冲器，所以定义返回值的语义为SV_TARGET，大小写不敏感）</span></span><br><span class="line">half4 <span class="title function_">SimpleLitPassFragment</span><span class="params">(Varyings IN)</span> :SV_TARGET</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//计算surfaceData</span></span><br><span class="line">    SurfaceData surfaceData = (SurfaceData)<span class="number">0</span>;</span><br><span class="line">    InitSurfaceData(IN, surfaceData);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//计算inputData</span></span><br><span class="line">    InputData inputData = (InputData)<span class="number">0</span>;</span><br><span class="line">    InitInputData(IN, surfaceData.normalTS, inputData)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="comment">//直接使用Unity提供好的计算BlinnPhong光照的函数,获得BlinnPhong颜色</span></span><br><span class="line">    half4 color = UniversalFragmentBlinnPhong(inputData,surfaceData);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//将颜色与雾效混合</span></span><br><span class="line">    <span class="comment">// MixFog(color.rgb,?);</span></span><br><span class="line">    <span class="keyword">return</span> color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="%E5%9B%9B%E3%80%81%E5%AE%9E%E7%8E%B0-initsurfacedata%E6%96%B9%E6%B3%95" tabindex="-1">四、实现 InitSurfaceData方法</h1>
+<ul>
+<li>SurfaceData 结构<br>
+<img src="/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.4%20surfacedata%E7%BB%93%E6%9E%84.png" alt></li>
+<li>SurfaceData 必须匹配 Universal ShaderGrapth master node。也就是两者内容都一一对应。Base Color 就是 albedo<br>
+<img src="/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.4%20SurfaceData%E5%8C%B9%E9%85%8DUniversal-ShaderGrapth.gif" alt></li>
+<li>修改代码</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">HLSLPROGRAM</span><br><span class="line">    <span class="title function_">TEXTURE2D</span><span class="params">(_SpecGlosMap)</span>;SAMPLER(sampler_SpecGlosMap);</span><br><span class="line"></span><br><span class="line">ENDHLSL</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">SampleSpecularSmoothness在 URP 的 SimpleLitInput.hlsl 里有标准的实现。它的作用是根据当前的材质关键字，统一采样并计算出镜面反射颜色（Specular）和光滑度（Smoothness）。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">half4 <span class="title function_">SampleSpecularSmoothness</span><span class="params">(float2 uv, half alpha, half4 specColor, TEXTURE2D_PARAM(specMap, sampler_specMap))</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 默认值：无高光，完全光滑</span></span><br><span class="line">    half4 specularSmoothness = half4(<span class="number">0.0</span>h, <span class="number">0.0</span>h, <span class="number">0.0</span>h, <span class="number">1.0</span>h);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1. 决定高光颜色（RGB）的来源</span></span><br><span class="line">    <span class="meta">#<span class="keyword">ifdef</span> _SPECGLOSSMAP</span></span><br><span class="line">        <span class="comment">// 如果启用了高光贴图，则采样并与材质颜色相乘</span></span><br><span class="line">        specularSmoothness = SAMPLE_TEXTURE2D(specMap, sampler_specMap, uv) * specColor;</span><br><span class="line">    <span class="meta">#<span class="keyword">elif</span> defined(_SPECULAR_COLOR)</span></span><br><span class="line">        <span class="comment">// 否则，仅使用材质上的 _SpecColor</span></span><br><span class="line">        specularSmoothness = specColor;</span><br><span class="line">    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="keyword">if</span> UNITY_VERSION &gt;= 202120</span></span><br><span class="line">        <span class="comment">// 2. 决定光滑度（A）的来源</span></span><br><span class="line">        <span class="meta">#<span class="keyword">ifdef</span> _GLOSSINESS_FROM_BASE_ALPHA</span></span><br><span class="line">            <span class="comment">// 如果开关开启，从 Base Map 的 Alpha 通道取</span></span><br><span class="line">            <span class="comment">// 这里用 exp2 是为了将 0-1 的 alpha 映射到更符合感知的平滑度范围</span></span><br><span class="line">            specularSmoothness.a = exp2(<span class="number">10</span> * alpha + <span class="number">1</span>);</span><br><span class="line">        <span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">            <span class="comment">// 否则，从 specularSmoothness 的 Alpha 通道取（即高光贴图的 A 通道）</span></span><br><span class="line">            specularSmoothness.a = exp2(<span class="number">10</span> * specularSmoothness.a + <span class="number">1</span>);</span><br><span class="line">        <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> specularSmoothness;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">InitSurfaceData</span><span class="params">(Varyings IN, out SurfaceData surfaceData)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//获取颜色。采样：从纹理中按 UV 取出颜色</span></span><br><span class="line">    half4 baseMap = SAMPLE_TEXTURE2D(_BaseMap,sampler_BaseMap, IN.uv);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//透明剔除</span></span><br><span class="line">    <span class="meta">#<span class="keyword">ifdef</span> _ALPHATEST_ON <span class="comment">// 是如果定义了 _ALPHATEST_ON 的代码版本</span></span></span><br><span class="line">            clip(baseMap.a - _Cutoff);</span><br><span class="line">    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//计算固有色。把纹理颜色和材质颜色、顶点颜色相乘</span></span><br><span class="line">    half4 diffuse = baseMap * _BaseColor * IN.color;</span><br><span class="line">    surfaceData.albedo = diffuse.rgb;</span><br><span class="line">    <span class="comment">//对法线贴图采样 得到切线空间下的法线</span></span><br><span class="line">    <span class="comment">//surfaceData.normalTS = SAMPLE_TEXTURE2D(_BumpMap, sampler_BumpMap, IN.uv);</span></span><br><span class="line">    <span class="comment">//可能存在法线贴图没开启的情况，此时用上面的写法不对，直接调用 SampleNormal  ，其兼容了没有开启法线和开启法线贴图的情况</span></span><br><span class="line">    surfaceData.normalTS = SampleNormal(IN.uv,_BumpMap, sampler_BumpMap);</span><br><span class="line">    <span class="comment">//对自发光贴图采样 得到自发光</span></span><br><span class="line">    <span class="comment">//surfaceData.emission = SAMPLE_TEXTURE2D(_EmissionMap, sampler_EmissionMap, IN.uv);</span></span><br><span class="line">    <span class="comment">//SampleEmission的情况同理SampleNormal()</span></span><br><span class="line">    surfaceData.emission = SampleEmission(IN.uv, _EmissionColor, _EmissionMap, sampler_EmissionMap);</span><br><span class="line">    surfaceData.occlusion = <span class="number">1.0</span>; <span class="comment">//环境遮蔽</span></span><br><span class="line"></span><br><span class="line">    half4 specular = SampleSpecularSmoothness(IN.uv, baseMap.a, _SpecColor, _SpecGlosMap, sampler_SpecGlosMap);</span><br><span class="line">    <span class="comment">//镜面光（镜面反射的值是一个rgb值</span></span><br><span class="line">    surfaceData.specular = specular.rgb;</span><br><span class="line">    <span class="comment">//平滑度 specular 的alpha通道用于存储平滑度。 具体原因可以看 [Toggle(_GLOSSINESS_FROM_BASE_ALPHA)]_GlossSource 的注释</span></span><br><span class="line">    surfaceData.smoothness = specular.a * _Smoothness;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="%E4%BA%94%E3%80%81%E5%AE%9E%E7%8E%B0-initinputdata-%E6%96%B9%E6%B3%95" tabindex="-1">五、实现 InitInputData 方法</h1>
+<ul>
+<li>InputData结构<br>
+<img src="/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.5%20inputdata%E7%BB%93%E6%9E%84.png" alt></li>
+<li>具体代码</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">InitInputData</span><span class="params">(Varyings IN, half3 normalTS, out InputData inputData)</span></span><br><span class="line">&#123;</span><br><span class="line">    inputData = (InputData)<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//计算法线数据 </span></span><br><span class="line">    <span class="comment">//切线空间法线转世界空间法线</span></span><br><span class="line">    inputData.positionWS = IN.positionWS;</span><br><span class="line">    <span class="meta">#<span class="keyword">ifdef</span> _NORMALMAP</span></span><br><span class="line">        inputData.normalWS = TransformTangentToWorld(normalTS, half3x3(IN.tangentWS.xyz,IN.bitangentWS.xyz, IN.normalWS.xyz));</span><br><span class="line">        <span class="comment">//视方向向量（从之前存在第四维上的数据上直接取</span></span><br><span class="line">        half3 viewDirWS = half3(IN.normalWS.w, IN.tangentWS.w, IN.bitangentWS.w);</span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">        inputData.normalWS = IN.normalWS;</span><br><span class="line">        half3 viewDirWS = GetWorldSpaceViewDir(IN.positionWS);</span><br><span class="line">    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//从顶点空间带到片元着色器的向量数据 都需要归一化</span></span><br><span class="line">    <span class="comment">//法线归一化</span></span><br><span class="line">    inputData.normalWS = NormalizeNormalPerPixel(inputData.normalWS);</span><br><span class="line">    <span class="comment">//视方向归一化</span></span><br><span class="line">    SafeNormalize(viewDirWS);</span><br><span class="line">    inputData.viewDirectionWS = viewDirWS;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//如果阴影数据提前传入 （而不是在片元着色器中计算的）</span></span><br><span class="line">    <span class="meta">#<span class="keyword">ifdef</span> REQUIRES_VERTEX_SHADOWCOORD_INTERPOLATOR</span></span><br><span class="line">        inputData.shadowCoord = IN.shadowCoord;<span class="comment">//用于存储阴影数据的变量</span></span><br><span class="line">    <span class="meta">#<span class="keyword">elif</span> defined(MAIN_LIGHT_CALCULATE_SHADOWS) <span class="comment">//如果主灯计算阴影</span></span></span><br><span class="line">        inputData.shadowCoord = TransformWorldToShadowCoord(IN.positionWS);</span><br><span class="line">    <span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">        inputData.shadowCoord = <span class="type">float</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//雾效</span></span><br><span class="line">    <span class="meta">#<span class="keyword">ifdef</span> _ADDITIONAL_LIGHTS_VERTEX <span class="comment">//如果使用额外点光源</span></span></span><br><span class="line">        inputData.shadowCoord = IN.fogFactorAndVertexLight.yzw;</span><br><span class="line">        inputData.fogCoord = IN.fogFactorAndVertexLight.x;</span><br><span class="line">    <span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">        inputData.shadowCoord = half4(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">        inputData.fogCoord = IN.fogFactor.x;</span><br><span class="line">    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">    </span><br><span class="line">            </span><br><span class="line">    <span class="comment">//全局光照信息</span></span><br><span class="line">    inputData.bakedGI = SAMPLE_GI(IN.lightmapUV, IN.vertexSH, IN.normalWS);</span><br><span class="line">    <span class="comment">//屏幕空间UV</span></span><br><span class="line">    inputData.normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(IN.positionCS);</span><br><span class="line">    <span class="comment">//阴影遮罩信息（来自shadowMask贴图）</span></span><br><span class="line">    inputData.shadowMask = SAMPLE_SHADOWMASK(IN.lightmapUV);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="%E5%85%AD%E3%80%81simplelit%E6%B8%B2%E6%9F%93%E6%95%88%E6%9E%9C%E6%B5%8B%E8%AF%95" tabindex="-1">六、SimpleLit渲染效果测试</h1>
+<ul>
+<li>地面颜色/自发光设置为暗白色（C8C8C8）</li>
+<li>烘焙下场景generate lighting</li>
+<li>从资源商店下载资源包-DogKnight</li>
+<li>将mesh/dogpbr预制拖入场景并挂上该shader创建出来的材质</li>
+<li>将拖入场景的dogpbr预制上的polysurface1的skinned mesh renderer的meterials/element0设置为本shader创建出来的材质</li>
+<li>从dogknight/texture找到Albedo拖入材质的basemap</li>
+<li>--------法线</li>
+<li>勾选使用法线贴图，从dogknight/texture找到Normal并拖入材质的NormalMap</li>
+<li>--------自发光</li>
+<li>勾选material的use emission，从dogknight/texture找到MS并拖入材质的Emission Map，场景中右键创建Volume-&gt;Global Volume-&gt;组件上的volume/profile选择samplesceneprofile</li>
+<li>选择Main Camera-&gt;Camera组件-&gt;Rendering-&gt;勾选Post Processing</li>
+<li>选择刚刚新建的 Global Volume 调整Bloom-&gt;Intensity可以看到自发光效果<br>
+<img src="/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.6%E8%87%AA%E5%8F%91%E5%85%89.gif" alt></li>
+<li>看完自发光后取消material的use emission的勾选</li>
+<li>---------光高光泽度</li>
+<li>勾选上光高光泽Use Specular Gloss Map</li>
+<li>设置Specular Color为 808080 ，A通道设置为0.5代表平滑度</li>
+<li>从dogknight/texture找到MS并拖入材质的Specular Map</li>
+<li>将material/Smoothness调低一点0.05左右（不然不会受到Specular Map和Specular Color的影响），此时调整Specular Color 可以看出光泽区别<br>
+<img src="/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.6%E9%AB%98%E5%85%89%E5%85%89%E6%B3%BD%E5%BA%A6.gif" alt></li>
+<li>-------多光源支持</li>
+<li>场景右键-&gt;Light-&gt;Point Light</li>
+<li>代码里新支持 多光源的变体</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> multi_compile _MAIN_LIGHT_SHADOWS_CASCADE</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> multi_compile _ADDITIONAL_LIGHTS</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> mUlti_compile _ADDITIONAL_LIGHT_SHADOWS <span class="comment">//受到其他光的阴影影响</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>场景中Point Light的Shadows修改为hand shadows</li>
+<li>移动点光源可以看到具体效果<br>
+<img src="/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.6%E5%A4%9A%E5%85%89%E6%BA%90.gif" alt></li>
+<li>--------shader开启顶点光</li>
+<li>找到项目文件夹中的Settings/URP-HightFiedlity -&gt; Lighting -&gt; Additional Lights-&gt;设置为Per Vertex</li>
+<li>此时就能看到顶点光只对本shader有用，因为本shader编写了 _ADDITIONAL_LIGHTS_VERTEX相关的代码<br>
+<img src="/2026/10/15/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E5%85%AB-%E6%89%8B%E5%86%99URP-Shader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-BlinnPhong-Shader%E6%A1%86%E6%9E%B6/8.6%E9%A1%B6%E7%82%B9%E5%85%89%E5%8F%98%E4%BD%93.gif" alt></li>
+</ul>
+<h1 id="%E4%B8%83%E3%80%81%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81" tabindex="-1">七、完整代码</h1>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 漫反射模型shader框架 </span></span><br><span class="line"><span class="comment">//1. 透明剔除</span></span><br><span class="line"><span class="comment">//2. 剔除模式选择</span></span><br><span class="line"><span class="comment">//3. 阴影渲染</span></span><br><span class="line"><span class="comment">//4. 支持Depth Priming选项</span></span><br><span class="line"><span class="comment">//5. 支持漫反射的URP代码框架</span></span><br><span class="line"><span class="comment">//6. 支持GI的URP框架</span></span><br><span class="line"><span class="comment">// -----</span></span><br><span class="line"><span class="comment">//7. 法线贴图的支持</span></span><br><span class="line"><span class="comment">//8. 高光反射/光泽度支持</span></span><br><span class="line"><span class="comment">//9. 自发光支持</span></span><br><span class="line"><span class="comment">//10.平滑度支持</span></span><br><span class="line"><span class="comment">//11.多光源支持</span></span><br><span class="line">Shader <span class="string">&quot;UrpFramework/SimpleLit&quot;</span><span class="comment">//7. 模拟Unity URP 官方源码的SimpleLit的实现</span></span><br><span class="line">&#123;</span><br><span class="line">    Properties</span><br><span class="line">    &#123;</span><br><span class="line">        _BaseMap(<span class="string">&quot;Base Map&quot;</span>,<span class="number">2</span>d) = <span class="string">&quot;white&quot;</span>&#123;&#125; <span class="comment">//基本贴图</span></span><br><span class="line">        _BaseColor(<span class="string">&quot;Base Color&quot;</span>,Color) = (<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>) <span class="comment">//固有色</span></span><br><span class="line">        [Toggle(_ALPHATEST_ON)] _AlphaTestToggle(<span class="string">&quot;Alhpa Clipping&quot;</span>, Float) = <span class="number">0</span> <span class="comment">// 增加剔除代码开关（变体）</span></span><br><span class="line">        _Cutoff(<span class="string">&quot;Alpha Cutoff&quot;</span>, Float) = <span class="number">0.5</span> <span class="comment">//方便剔除的阈值自定义</span></span><br><span class="line">        [Enum(Off,<span class="number">0</span>,Front,<span class="number">1</span>,Back,<span class="number">2</span>)]_Cull(<span class="string">&quot;Cull Mode&quot;</span>, Float) = <span class="number">2.0</span> <span class="comment">//设置枚举类型。不剔除、正面剔除、背面剔除</span></span><br><span class="line"></span><br><span class="line">        [Toggle(_NORMALMAP)]_NormalMapToggle(<span class="string">&quot;Use Normal Mapping&quot;</span>,Float) = <span class="number">0</span> <span class="comment">//是否使用法线贴图开关</span></span><br><span class="line">         <span class="comment">//法线2d贴图，添加NoScaleOffset表示不支持tiling(scaling)和offset（平铺和偏移）</span></span><br><span class="line">        <span class="comment">//默认设置为bump图，bump表示bump法线图，其法线方向没有被扰动的，与物体表秒垂直</span></span><br><span class="line">        [NoScaleOffset]_BumpMap(<span class="string">&quot;Normal Map&quot;</span>,<span class="number">2</span>d) = <span class="string">&quot;bump&quot;</span>&#123;&#125;   </span><br><span class="line"></span><br><span class="line">        <span class="comment">//是否使用自发光</span></span><br><span class="line">        [Toggle(_EMISSION)]_EmissionToggle(<span class="string">&quot;Use Emission&quot;</span>,Float) = <span class="number">0</span></span><br><span class="line">        <span class="comment">//自发光颜色 ，为(0,0,0)黑色时代表不发光</span></span><br><span class="line">        <span class="comment">//由于希望自发光的光线反弹能够对别的物体产生影响，所以自发光颜色都应超过1.0的数值</span></span><br><span class="line">        <span class="comment">//超过1.0的值越大，自发光的系数强度就越高</span></span><br><span class="line">        <span class="comment">//因此加入[HDR]</span></span><br><span class="line">        [HDR]_EmissionColor(<span class="string">&quot;Emission Color&quot;</span>,Color) = (<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">        <span class="comment">//自发光贴图，且不支持tiling(scaling)和offset（平铺和偏移）</span></span><br><span class="line">        <span class="comment">//默认设置为白色图</span></span><br><span class="line">        [NoScaleOffset]_EmissionMap(<span class="string">&quot;Emission Map&quot;</span>,<span class="number">2</span>d) = <span class="string">&quot;white&quot;</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//是否开启高光光泽度贴图 。 高光光泽度贴图就是 “镜面光贴图 + 光泽度贴图”按固定通道打包成一张的贴图。</span></span><br><span class="line">        [Toggle(_SPECGLOSSMAP)]_SpecGlossMapToggle(<span class="string">&quot;Use Specular Gloss Map&quot;</span>,Float) = <span class="number">0</span></span><br><span class="line">        <span class="comment">//镜面高光（反射）颜色</span></span><br><span class="line">        _SpecColor(<span class="string">&quot;Specular Color&quot;</span>, Color) = (<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>)</span><br><span class="line">        <span class="comment">//镜面光贴图</span></span><br><span class="line">        _SpecGlosMap(<span class="string">&quot;Specular Map&quot;</span>, <span class="number">2</span>d) = <span class="string">&quot;white&quot;</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        由于光泽度贴图是一张灰度图，所以可以跟其他的彩色贴图合并的。</span></span><br><span class="line"><span class="comment">        比如就可以跟漫反射(固有色)贴图&quot;_BaseMap&quot;合并到一张支持RGBA颜色的贴图里面。RGB通道用来放漫反射(固有色)颜色，A通道用来放光泽度</span></span><br><span class="line"><span class="comment">        或者</span></span><br><span class="line"><span class="comment">        也可以跟镜面光贴图&quot;Specular Map&quot;合并，RGB通道用来放镜面光贴图的颜色，A通道放光泽度</span></span><br><span class="line"><span class="comment">        因此声明一个开关。当开关打开时（值为1），与漫反射贴图合并，反之与镜面光贴图合并</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        [Toggle(_GLOSSINESS_FROM_BASE_ALPHA)]_GlossSource(<span class="string">&quot;Glossiness source, from Albedo Alpha (if on) vs from Specular (if off)&quot;</span>,Float) = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">        <span class="comment">//平滑度支持</span></span><br><span class="line">        _Smoothness(<span class="string">&quot;Smoothness&quot;</span>,Range(<span class="number">0.0</span>,<span class="number">1.0</span>)) = <span class="number">0.5</span></span><br><span class="line">    &#125;</span><br><span class="line">    SubShader</span><br><span class="line">    &#123;</span><br><span class="line">        Tags</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;RenderPipeline&quot;</span> = <span class="string">&quot;UniversalPipeline&quot;</span></span><br><span class="line">            <span class="string">&quot;RenderType&quot;</span> = <span class="string">&quot;Opaque&quot;</span> <span class="comment">//给渲染网格物体分类用的字段</span></span><br><span class="line">            <span class="string">&quot;Queue&quot;</span> = <span class="string">&quot;Geometry&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//一些公用的内容</span></span><br><span class="line">        HLSLINCLUDE</span><br><span class="line">            <span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl&quot;</span> <span class="comment">//urp管线的一些基本的函数功能都在Core.hlsl中</span></span></span><br><span class="line">            <span class="comment">//写入需要被共享的变量</span></span><br><span class="line">            CBUFFER_START(UnityPerMaterial)</span><br><span class="line">                <span class="comment">//TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap); float4 _BaseMap_ST;//定义2d纹理、筛选器、ST</span></span><br><span class="line">                </span><br><span class="line">                <span class="comment">//定义ST。由于下面的pass引用了 &quot;Packages/com.unity.render-pipelines.universal/ShaderLibrary/SurfaceInput.hlsl&quot; 库，里面也定义了TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap);，所以不能放到HLSLINCLUDE了</span></span><br><span class="line">                float4 _BaseMap_ST;</span><br><span class="line"></span><br><span class="line">                float4  _BaseColor;</span><br><span class="line">                <span class="type">float</span> _Cutoff;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//自发光颜色 </span></span><br><span class="line">                float4 _EmissionColor;</span><br><span class="line">                <span class="comment">//镜面高光（反射）颜色</span></span><br><span class="line">                float4 _SpecColor;</span><br><span class="line">                <span class="comment">//平滑度</span></span><br><span class="line">                <span class="type">float</span> _Smoothness;</span><br><span class="line"></span><br><span class="line">            CBUFFER_END</span><br><span class="line">        ENDHLSL</span><br><span class="line"></span><br><span class="line">        Pass</span><br><span class="line">        &#123;</span><br><span class="line">            Name <span class="string">&quot;ForwardLit&quot;</span> <span class="comment">//pass名字</span></span><br><span class="line"></span><br><span class="line">            Tags&#123;<span class="string">&quot;LightMode&quot;</span> = <span class="string">&quot;UniversalForward&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line">            Cull [_Cull]</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 不写Tags表示放在SRPDefaultUnlit里</span></span><br><span class="line"></span><br><span class="line">            HLSLPROGRAM</span><br><span class="line">                <span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl&quot;</span><span class="comment">//使用DECLARE_LIGHTMAP_OR_SH需要用到的库</span></span></span><br><span class="line">                <span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Packages/com.unity.render-pipelines.universal/ShaderLibrary/SurfaceInput.hlsl&quot;</span></span></span><br><span class="line"></span><br><span class="line">                <span class="meta">#<span class="keyword">pragma</span> vertex SimpleLitPassVertex <span class="comment">//声明顶点着色器 (函数）</span></span></span><br><span class="line">                <span class="meta">#<span class="keyword">pragma</span> fragment SimpleLitPassFragment <span class="comment">//声明片元着色器 (函数）</span></span></span><br><span class="line"></span><br><span class="line">                <span class="meta">#<span class="keyword">pragma</span> shader_feature _ALPHATEST_ON <span class="comment">//变体开关=&gt; 定义开关后，shader编辑器内部会生成两个版本的代码（一个是定义了_ALPHATEST_ON开关的代码 一个是没定义_ALPHATEST_ON开关的代码）</span></span></span><br><span class="line">                <span class="meta">#<span class="keyword">pragma</span> shader_feature _NORMALMAP <span class="comment">//变体开关 =&gt; 使用法线贴图</span></span></span><br><span class="line">                <span class="meta">#<span class="keyword">pragma</span> shader_feature _EMISSION <span class="comment">//变体开关 =&gt; 使用自发光</span></span></span><br><span class="line">                <span class="meta">#<span class="keyword">pragma</span> shader_feature _SPECGLOSSMAP <span class="comment">// 变体开关 =&gt; 使用高光光泽度贴图</span></span></span><br><span class="line">                <span class="meta">#<span class="keyword">define</span> _SPECULAR_COLOR<span class="comment">//强制开启高光颜色（镜面反射）</span></span></span><br><span class="line">                <span class="meta">#<span class="keyword">pragma</span> shader_feature _GLOSSINESS_FROM_BASE_ALPHA <span class="comment">//变体开关=&gt;光泽度贴图来自于BaseMap的alpha贴图来</span></span></span><br><span class="line"></span><br><span class="line">                <span class="comment">//如果变体开关针对的是所有的shader则用multi_compile 如果针对特定的材质，则用shader_feature</span></span><br><span class="line">                <span class="meta">#<span class="keyword">pragma</span> multi_compile LIGHTMAP_ON <span class="comment">//变体开关=&gt; 打开生成光照贴图版本的shader代码。</span></span></span><br><span class="line">                <span class="meta">#<span class="keyword">pragma</span> multi_compile _MAIN_LIGHT_SHADOWS <span class="comment">//变体开关=&gt; 打开光照模型阴影版本</span></span></span><br><span class="line">                <span class="meta">#<span class="keyword">pragma</span> multi_compile _MAIN_LIGHT_SHADOWS_CASCADE</span></span><br><span class="line">                <span class="meta">#<span class="keyword">pragma</span> multi_compile _ADDITIONAL_LIGHTS</span></span><br><span class="line">                <span class="meta">#<span class="keyword">pragma</span> mUlti_compile _ADDITIONAL_LIGHT_SHADOWS <span class="comment">//受到其他光的阴影影响</span></span></span><br><span class="line"></span><br><span class="line">                <span class="comment">//引用了 &quot;Packages/com.unity.render-pipelines.universal/ShaderLibrary/SurfaceInput.hlsl&quot; 库，里面也定义了TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap); 直接去掉</span></span><br><span class="line">                <span class="comment">//TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap);//定义2d纹理、筛选器</span></span><br><span class="line">                <span class="comment">// 注意这里为什么没有像之前_BaseMap一样，去定义_BumpMap、_EmissionMap。,也是因为引入了SurfaceInput.hlsl，里面已经定义了相关的变量了</span></span><br><span class="line">                TEXTURE2D(_SpecGlosMap);SAMPLER(sampler_SpecGlosMap);</span><br><span class="line"></span><br><span class="line">                <span class="class"><span class="keyword">struct</span> <span class="title">Attributes</span> &#123;</span><span class="comment">//声明传入的顶点数据</span></span><br><span class="line">                    <span class="comment">// 命名规则：pos+（所处坐标空间的）后缀：1. OS - 对象空间 Object Space ；2. WS - 世界空间 World Space；3. VS - 视图空间 View Space；4. CS - 裁剪空间 Clip Space</span></span><br><span class="line">                    float4 positionOS   :POSITION;<span class="comment">//位置  (  :POSITION 表示标记传入位置信息 </span></span><br><span class="line">                    float4 normalOS     :NORMAL; <span class="comment">//漫反射法线</span></span><br><span class="line">                    <span class="meta">#<span class="keyword">ifdef</span> _NORMALMAP <span class="comment">//法线贴图开关开启</span></span></span><br><span class="line">                        float4 tangentOS:TANGENT;<span class="comment">//切线空间的切线向量(法线贴图相关参数）</span></span><br><span class="line">                    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">                    float2 uv           :TEXCOORD0;<span class="comment">//用于确定贴图跟立方体每个面上每个点之间的映射关系 。 TEXCOORD0 会随着版本的不同支持的通道数也会不一样</span></span><br><span class="line">                    float2 lightmapUV   :TEXCOORD1; <span class="comment">//光照贴图uv坐标。光照贴图可用于实现 光打到地面上会漫反射到物体表面（unity会主动计算）</span></span><br><span class="line">                    float4 color        :COLOR; <span class="comment">//顶点颜色</span></span><br><span class="line">                &#125;;</span><br><span class="line"></span><br><span class="line">                <span class="class"><span class="keyword">struct</span> <span class="title">Varyings</span> &#123;</span> <span class="comment">//声明顶点转换到片元着色器的一些像素信息数据（在内置管线中称为 v2f，在urp管线中称为 Varying）</span></span><br><span class="line">                    float4 positionCS   :SV_POSITION; <span class="comment">//因为包含投影信息，所以是float4。 （: SV_POSITION表示输出位置</span></span><br><span class="line">                    float2 uv           :TEXCOORD0;</span><br><span class="line">                    <span class="comment">// 定义lightmapUV 和 vertexSH</span></span><br><span class="line">                    <span class="comment">// URP 中用于处理全局光照（GI） 的关键宏</span></span><br><span class="line">                    <span class="comment">//参数1：当使用光照贴图时，你希望声明的光照贴图 UV 变量名。通常约定俗成命名为 lightmapUV 或 staticLightmapUV</span></span><br><span class="line">                    <span class="comment">//参数2：当使用光照探针时，你希望声明的顶点球谐光照变量名。</span></span><br><span class="line">                    <span class="comment">//参数3：指定这个变量占用哪个 TEXCOORD 语义槽</span></span><br><span class="line">                    DECLARE_LIGHTMAP_OR_SH(lightmapUV, vertexSH, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">////每个片元世界空间位置(世界坐标)</span></span><br><span class="line">                    float3 positionWS   :TEXCOORD2;</span><br><span class="line"></span><br><span class="line">                    <span class="meta">#<span class="keyword">ifdef</span> _NORMALMAP <span class="comment">//法线贴图开关开启</span></span></span><br><span class="line">                        half4 normalWS  :TEXCOORD3;<span class="comment">//法线</span></span><br><span class="line">                        half4 tangentWS :TEXCOORD4;<span class="comment">//切线</span></span><br><span class="line">                        half4 bitangentWS:TEXCOORD5;<span class="comment">//副切线</span></span><br><span class="line">                    <span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">                        <span class="comment">//每个片元世界坐标中的法线，用于计算漫反射</span></span><br><span class="line">                        float3 normalWS     :TEXCOORD3;</span><br><span class="line">                    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">                    <span class="comment">//如果使用额外的顶点灯光</span></span><br><span class="line">                    <span class="meta">#<span class="keyword">ifdef</span> _ADDITIONAL_LIGHTS_VERTEX</span></span><br><span class="line">                        half4 fogFactorAndVertexLight :TEXCOORD6; <span class="comment">// x:存储雾效信息， yzw:存储顶点光照信息</span></span><br><span class="line">                    <span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">                        half fogFactor :TEXCOORD6; <span class="comment">//不存储额外顶点光照信息。（每个通道可以存4维向量，目前只放了一个half 还有3维度的向量可以放到该通道）</span></span><br><span class="line">                    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">                    <span class="comment">//如果阴影数据提前传入 （而不是在片元着色器中计算的）</span></span><br><span class="line">                    <span class="meta">#<span class="keyword">ifdef</span> REQUIRES_VERTEX_SHADOWCOORD_INTERPOLATOR</span></span><br><span class="line">                        float3 shadowCoord :TEXCOORD7;<span class="comment">//用于存储阴影数据的变量</span></span><br><span class="line">                    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">                    float4 color        :COLOR; <span class="comment">//顶点颜色</span></span><br><span class="line">                &#125;;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//顶点着色器，传入数据声明变量名为IN</span></span><br><span class="line">                Varyings <span class="title function_">SimpleLitPassVertex</span><span class="params">(Attributes IN)</span> </span><br><span class="line">                &#123;</span><br><span class="line">                    Varyings OUT = (Varyings)<span class="number">0</span>; <span class="comment">//初始化输出数据为0</span></span><br><span class="line"></span><br><span class="line">                    <span class="comment">//计算在各个坐标下顶点位置的函数</span></span><br><span class="line">                    VertexPositionInputs positionInputs = GetVertexPositionInputs(IN.positionOS.xyz);</span><br><span class="line"></span><br><span class="line">                    OUT.positionCS = positionInputs.positionCS;</span><br><span class="line">                    OUT.positionWS = positionInputs.positionWS;</span><br><span class="line"></span><br><span class="line">                    <span class="meta">#<span class="keyword">ifdef</span> _NORMALMAP <span class="comment">//如果开启法线贴图 ，则多传入一个法线数据</span></span></span><br><span class="line">                        VertexNormalInputs normalInputs = GetVertexNormalInputs(IN.normalOS, IN.tangentOS);</span><br><span class="line">                    <span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">                        VertexNormalInputs normalInputs = GetVertexNormalInputs(IN.normalOS);</span><br><span class="line">                    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 获得视空间的方向信息</span></span><br><span class="line">                    half3 viewDirWS = GetWorldSpaceViewDir(positionInputs.positionWS);</span><br><span class="line"></span><br><span class="line">                    <span class="meta">#<span class="keyword">ifdef</span> _NORMALMAP <span class="comment">//如果开启法线贴图 ，则多传入一个法线数据</span></span></span><br><span class="line">                        <span class="comment">//通道已经定到7了，且有些老设备也只支持到通道7，所以不能再在Varyings中定义新的变量了。</span></span><br><span class="line">                        <span class="comment">//不过由于OUT.normalWS定义为四维向量，但normalInputs.normalWS是个三维变量</span></span><br><span class="line">                        <span class="comment">//因此可以把多的一维拿来存 试方向信息 便于后续计算高光反射</span></span><br><span class="line">                        OUT.normalWS = float4(normalInputs.normalWS, viewDirWS.x);</span><br><span class="line">                        OUT.tangentWS = float4(normalInputs.tangentWS, viewDirWS.y);</span><br><span class="line">                        OUT.bitangentWS = float4(normalInputs.bitangentWS, viewDirWS.z);</span><br><span class="line">                    <span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">                        <span class="comment">// 未开启法线贴图：只需要法线</span></span><br><span class="line">                        <span class="comment">/*</span></span><br><span class="line"><span class="comment">                        如果没开法线贴图，片元着色器直接用顶点插值过来的世界空间法线 normalWS 就行，不需要 T、B，所以 tangentWS 和 bitangentWS 可以完全不赋值。</span></span><br><span class="line"><span class="comment">                        并且做一下归一化处理</span></span><br><span class="line"><span class="comment">                        */</span></span><br><span class="line">                        OUT.normalWS = NormalizeNormalPerVertex(normalInputs.normalWS);</span><br><span class="line">                    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">                    half fogFactor = ComputeFogFactor(positionInputs.positionCS.z);</span><br><span class="line">                    half3 vertexLight = VertexLighting(positionInputs.positionWS,normalInputs.normalWS);</span><br><span class="line">                    </span><br><span class="line">                    <span class="meta">#<span class="keyword">ifdef</span> _ADDITIONAL_LIGHTS_VERTEX <span class="comment">//如果使用额外点光源</span></span></span><br><span class="line">                        <span class="comment">//参数：雾效，顶点光照信息（当场景中的逐像素光比较多的时候，unity为了优化性能，会把设定的像素光数量之外的灯光用顶点光照来计算</span></span><br><span class="line">                        OUT.fogFactorAndVertexLight = half4(fogFactor, vertexLight);</span><br><span class="line">                    <span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">                        OUT.fogFactor = fogFactor;</span><br><span class="line">                    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">                    <span class="comment">//如果阴影数据提前传入 （而不是在片元着色器中计算的）</span></span><br><span class="line">                    <span class="meta">#<span class="keyword">ifdef</span> REQUIRES_VERTEX_SHADOWCOORD_INTERPOLATOR</span></span><br><span class="line">                        OUT.shadowCoord = GetShadowCoord();</span><br><span class="line">                    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">                    </span><br><span class="line">                    <span class="comment">//计算lightmap的,算出的结果存到OUT.lightmapUV中</span></span><br><span class="line">                    <span class="comment">//unity_LightmapST 是Unity 自动传入的 float4 uniform，表示光照贴图的 缩放和偏移（ST 即 Scale/Translate）。</span></span><br><span class="line">                    OUTPUT_LIGHTMAP_UV(IN.lightmapUV, unity_LightmapST, OUT.lightmapUV);</span><br><span class="line">                    <span class="comment">/*</span></span><br><span class="line"><span class="comment">                    用于计算并输出顶点球谐光照（Vertex SH） 的宏</span></span><br><span class="line"><span class="comment">                    光照探针的数据以球谐函数（Spherical Harmonics, SH） 的形式存储，OUTPUT_SH 就是根据顶点的世界空间法线，在顶点着色器里采样这些球谐系数，把结果写入 vertexSH 变量，供片元着色器使用</span></span><br><span class="line"><span class="comment">                    */</span></span><br><span class="line">                    OUTPUT_SH(OUT.normalWS, OUT.vertexSH);</span><br><span class="line"></span><br><span class="line">                    OUT.uv = TRANSFORM_TEX(IN.uv, _BaseMap); <span class="comment">//顶点数据，传到片元数据中</span></span><br><span class="line">                    OUT.color = IN.color;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">return</span> OUT;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="comment">/*</span></span><br><span class="line"><span class="comment">                SampleSpecularSmoothness在 URP 的 SimpleLitInput.hlsl 里有标准的实现。它的作用是根据当前的材质关键字，统一采样并计算出镜面反射颜色（Specular）和光滑度（Smoothness）。</span></span><br><span class="line"><span class="comment">                */</span></span><br><span class="line">                half4 <span class="title function_">SampleSpecularSmoothness</span><span class="params">(float2 uv, half alpha, half4 specColor, TEXTURE2D_PARAM(specMap, sampler_specMap))</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">// 默认值：无高光，完全光滑</span></span><br><span class="line">                    half4 specularSmoothness = half4(<span class="number">0.0</span>h, <span class="number">0.0</span>h, <span class="number">0.0</span>h, <span class="number">1.0</span>h);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 1. 决定高光颜色（RGB）的来源</span></span><br><span class="line">                    <span class="meta">#<span class="keyword">ifdef</span> _SPECGLOSSMAP</span></span><br><span class="line">                        <span class="comment">// 如果启用了高光贴图，则采样并与材质颜色相乘</span></span><br><span class="line">                        specularSmoothness = SAMPLE_TEXTURE2D(specMap, sampler_specMap, uv) * specColor;</span><br><span class="line">                    <span class="meta">#<span class="keyword">elif</span> defined(_SPECULAR_COLOR)</span></span><br><span class="line">                        <span class="comment">// 否则，仅使用材质上的 _SpecColor</span></span><br><span class="line">                        specularSmoothness = specColor;</span><br><span class="line">                    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">                    <span class="meta">#<span class="keyword">if</span> UNITY_VERSION &gt;= 202120</span></span><br><span class="line">                        <span class="comment">// 2. 决定光滑度（A）的来源</span></span><br><span class="line">                        <span class="meta">#<span class="keyword">ifdef</span> _GLOSSINESS_FROM_BASE_ALPHA</span></span><br><span class="line">                            <span class="comment">// 如果开关开启，从 Base Map 的 Alpha 通道取</span></span><br><span class="line">                            <span class="comment">// 这里用 exp2 是为了将 0-1 的 alpha 映射到更符合感知的平滑度范围</span></span><br><span class="line">                            specularSmoothness.a = exp2(<span class="number">10</span> * alpha + <span class="number">1</span>);</span><br><span class="line">                        <span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">                            <span class="comment">// 否则，从 specularSmoothness 的 Alpha 通道取（即高光贴图的 A 通道）</span></span><br><span class="line">                            specularSmoothness.a = exp2(<span class="number">10</span> * specularSmoothness.a + <span class="number">1</span>);</span><br><span class="line">                        <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">                    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">                    <span class="keyword">return</span> specularSmoothness;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="type">void</span> <span class="title function_">InitSurfaceData</span><span class="params">(Varyings IN, out SurfaceData surfaceData)</span></span><br><span class="line">                &#123;</span><br><span class="line">                    surfaceData = (SurfaceData)<span class="number">0</span>;</span><br><span class="line">                    <span class="comment">//获取颜色。采样：从纹理中按 UV 取出颜色</span></span><br><span class="line">                    half4 baseMap = SAMPLE_TEXTURE2D(_BaseMap,sampler_BaseMap, IN.uv);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">//透明剔除</span></span><br><span class="line">                    <span class="meta">#<span class="keyword">ifdef</span> _ALPHATEST_ON <span class="comment">// 是如果定义了 _ALPHATEST_ON 的代码版本</span></span></span><br><span class="line">                          clip(baseMap.a - _Cutoff);</span><br><span class="line">                    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">                    <span class="comment">//计算固有色。把纹理颜色和材质颜色、顶点颜色相乘</span></span><br><span class="line">                    half4 diffuse = baseMap * _BaseColor * IN.color;</span><br><span class="line">                    surfaceData.albedo = diffuse.rgb;</span><br><span class="line">                    <span class="comment">//对法线贴图采样 得到切线空间下的法线</span></span><br><span class="line">                    <span class="comment">//surfaceData.normalTS = SAMPLE_TEXTURE2D(_BumpMap, sampler_BumpMap, IN.uv);</span></span><br><span class="line">                    <span class="comment">//可能存在法线贴图没开启的情况，此时用上面的写法不对，直接调用 SampleNormal  ，其兼容了没有开启法线和开启法线贴图的情况</span></span><br><span class="line">                    surfaceData.normalTS = SampleNormal(IN.uv,_BumpMap, sampler_BumpMap);</span><br><span class="line">                    <span class="comment">//对自发光贴图采样 得到自发光</span></span><br><span class="line">                    <span class="comment">//surfaceData.emission = SAMPLE_TEXTURE2D(_EmissionMap, sampler_EmissionMap, IN.uv);</span></span><br><span class="line">                    <span class="comment">//SampleEmission的情况同理SampleNormal()</span></span><br><span class="line">                    surfaceData.emission = SampleEmission(IN.uv, _EmissionColor, _EmissionMap, sampler_EmissionMap);</span><br><span class="line">                    surfaceData.occlusion = <span class="number">1.0</span>; <span class="comment">//环境遮蔽</span></span><br><span class="line"></span><br><span class="line">                    half4 specular = SampleSpecularSmoothness(IN.uv, baseMap.a, _SpecColor, _SpecGlosMap, sampler_SpecGlosMap);</span><br><span class="line">                    <span class="comment">//镜面光（镜面反射的值是一个rgb值</span></span><br><span class="line">                    surfaceData.specular = specular.rgb;</span><br><span class="line">                    <span class="comment">//平滑度 specular 的alpha通道用于存储平滑度。 具体原因可以看 [Toggle(_GLOSSINESS_FROM_BASE_ALPHA)]_GlossSource 的注释</span></span><br><span class="line">                    surfaceData.smoothness = specular.a * _Smoothness;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="type">void</span> <span class="title function_">InitInputData</span><span class="params">(Varyings IN, half3 normalTS, out InputData inputData)</span></span><br><span class="line">                &#123;</span><br><span class="line">                    inputData = (InputData)<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">                    <span class="comment">//计算法线数据 </span></span><br><span class="line">                    <span class="comment">//切线空间法线转世界空间法线</span></span><br><span class="line">                    inputData.positionWS = IN.positionWS;</span><br><span class="line">                    <span class="meta">#<span class="keyword">ifdef</span> _NORMALMAP</span></span><br><span class="line">                        inputData.normalWS = TransformTangentToWorld(normalTS, half3x3(IN.tangentWS.xyz,IN.bitangentWS.xyz, IN.normalWS.xyz));</span><br><span class="line">                        <span class="comment">//视方向向量（从之前存在第四维上的数据上直接取</span></span><br><span class="line">                        half3 viewDirWS = half3(IN.normalWS.w, IN.tangentWS.w, IN.bitangentWS.w);</span><br><span class="line"></span><br><span class="line">                    <span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">                        inputData.normalWS = IN.normalWS;</span><br><span class="line">                        half3 viewDirWS = GetWorldSpaceViewDir(IN.positionWS);</span><br><span class="line">                    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">                    <span class="comment">//从顶点空间带到片元着色器的向量数据 都需要归一化</span></span><br><span class="line">                    <span class="comment">//法线归一化</span></span><br><span class="line">                    inputData.normalWS = NormalizeNormalPerPixel(inputData.normalWS);</span><br><span class="line">                    <span class="comment">//视方向归一化</span></span><br><span class="line">                    SafeNormalize(viewDirWS);</span><br><span class="line">                    inputData.viewDirectionWS = viewDirWS;</span><br><span class="line"></span><br><span class="line">                    <span class="comment">//如果阴影数据提前传入 （而不是在片元着色器中计算的）</span></span><br><span class="line">                    <span class="meta">#<span class="keyword">ifdef</span> REQUIRES_VERTEX_SHADOWCOORD_INTERPOLATOR</span></span><br><span class="line">                        inputData.shadowCoord = IN.shadowCoord;<span class="comment">//用于存储阴影数据的变量</span></span><br><span class="line">                    <span class="meta">#<span class="keyword">elif</span> defined(MAIN_LIGHT_CALCULATE_SHADOWS) <span class="comment">//如果主灯计算阴影</span></span></span><br><span class="line">                        inputData.shadowCoord = TransformWorldToShadowCoord(IN.positionWS);</span><br><span class="line">                    <span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">                        inputData.shadowCoord = <span class="type">float</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">                    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">                    <span class="comment">//雾效</span></span><br><span class="line">                    <span class="meta">#<span class="keyword">ifdef</span> _ADDITIONAL_LIGHTS_VERTEX <span class="comment">//如果使用额外点光源</span></span></span><br><span class="line">                        inputData.shadowCoord = IN.fogFactorAndVertexLight.yzw;</span><br><span class="line">                        inputData.fogCoord = IN.fogFactorAndVertexLight.x;</span><br><span class="line">                    <span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">                        inputData.shadowCoord = half4(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">                        inputData.fogCoord = IN.fogFactor.x;</span><br><span class="line">                    <span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">                        </span><br><span class="line">                    </span><br><span class="line">                            </span><br><span class="line">                    <span class="comment">//全局光照信息</span></span><br><span class="line">                    inputData.bakedGI = SAMPLE_GI(IN.lightmapUV, IN.vertexSH, IN.normalWS);</span><br><span class="line">                    <span class="comment">//屏幕空间UV</span></span><br><span class="line">                    inputData.normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(IN.positionCS);</span><br><span class="line">                    <span class="comment">//阴影遮罩信息（来自shadowMask贴图）</span></span><br><span class="line">                    inputData.shadowMask = SAMPLE_SHADOWMASK(IN.lightmapUV);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//片元着色器 (作用在目标缓冲器，所以定义返回值的语义为SV_TARGET，大小写不敏感）</span></span><br><span class="line">                half4 <span class="title function_">SimpleLitPassFragment</span><span class="params">(Varyings IN)</span> :SV_TARGET</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">//计算surfaceData（跟表面着色输出相关的数据——颜色数据，可以理解为 shadergraph的输入节点</span></span><br><span class="line">                    SurfaceData surfaceData;</span><br><span class="line">                    InitSurfaceData(IN, surfaceData); <span class="comment">//</span></span><br><span class="line"></span><br><span class="line">                    <span class="comment">//计算inputData（向量数据，可以理解为 shadergraph的输出节点</span></span><br><span class="line">                    InputData inputData;</span><br><span class="line">                    InitInputData(IN, surfaceData.normalTS, inputData);</span><br><span class="line">                    </span><br><span class="line"></span><br><span class="line">                    <span class="comment">//直接使用Unity提供好的计算BlinnPhong光照的函数,获得BlinnPhong颜色</span></span><br><span class="line">                    half4 color = UniversalFragmentBlinnPhong(inputData,surfaceData);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">//将颜色与雾效混合</span></span><br><span class="line">                    <span class="comment">// MixFog(color.rgb,?);</span></span><br><span class="line">                    <span class="keyword">return</span> color;</span><br><span class="line">                &#125;</span><br><span class="line">            ENDHLSL</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//阴影渲染</span></span><br><span class="line">        Pass</span><br><span class="line">        &#123;</span><br><span class="line">            Name <span class="string">&quot;ShadowCaster&quot;</span></span><br><span class="line">            Tags&#123;<span class="string">&quot;LightMode&quot;</span> = <span class="string">&quot;ShadowCaster&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line">            ZWrite On</span><br><span class="line">            ZTest LEqual</span><br><span class="line"></span><br><span class="line">            ColorMask <span class="number">0</span> <span class="comment">//设置为0表示，在pass执行的过程中，对于计算出的颜色不写入。（只写入深度信息 ZTest LEqual）</span></span><br><span class="line">            Cull[_Cull] <span class="comment">//正面和背面都应该生成阴影 不然默认是背面剔除的话 从背面就看不到阴影了</span></span><br><span class="line"></span><br><span class="line">            HLSLPROGRAM</span><br><span class="line"></span><br><span class="line">                <span class="comment">//材质相关的（一般是加在编写的每一个pass里）</span></span><br><span class="line">                <span class="comment">//加入透明剔除的变体开关,否则不透明的地方也会有阴影</span></span><br><span class="line">                <span class="meta">#<span class="keyword">pragma</span> shader_feature _ALPHATEST_ON<span class="comment">//源码里面也用了同名变体，所以会生效</span></span></span><br><span class="line">                <span class="meta">#<span class="keyword">pragma</span> shader_feature _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A <span class="comment">//将ALBEDO的通道的a作为一个平滑通道来使用</span></span></span><br><span class="line"></span><br><span class="line">                <span class="meta">#<span class="keyword">pragma</span> multi_compile_instancing <span class="comment">//支持GPU实例化（变体开关，只用在GPU实例化）</span></span></span><br><span class="line"></span><br><span class="line">                <span class="comment">// 阴影相关</span></span><br><span class="line">                <span class="meta">#<span class="keyword">pragma</span> multi_compile_vertex _ _CASTING_PUNCTUAL_LIGHT_SHADOW<span class="comment">//仅用在ShadowCaster这个pass中。处理（支持）局部光（点光源/聚光灯）的。变体开关，只用在顶点着色器</span></span></span><br><span class="line"></span><br><span class="line">                <span class="comment">//阴影计算比较复杂，作为框架的展示，可以调用unity写好的阴影的顶点着色器和片元着色器</span></span><br><span class="line">                <span class="meta">#<span class="keyword">pragma</span> vertex ShadowPassVertex</span></span><br><span class="line">                <span class="meta">#<span class="keyword">pragma</span> fragment ShadowPassFragment</span></span><br><span class="line"></span><br><span class="line">                <span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Packages/com.unity.render-pipelines.core/ShaderLibrary/CommonMaterial.hlsl&quot;</span> <span class="comment">//这个要配合ShadowCasterPass使用，也需要引入（SRP的库）</span></span></span><br><span class="line">                <span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Packages/com.unity.render-pipelines.universal/ShaderLibrary/SurfaceInput.hlsl&quot;</span><span class="comment">//表面着色器输入的库</span></span></span><br><span class="line">                <span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Packages/com.unity.render-pipelines.universal/Shaders/ShadowCasterPass.hlsl&quot;</span> <span class="comment">//使用unity写好的顶点/片元着色器需要引入的HLSL（URP的库）</span></span></span><br><span class="line">            ENDHLSL</span><br><span class="line">        &#125;</span><br><span class="line">           </span><br><span class="line"></span><br><span class="line">        <span class="comment">//支持Depth Priming选项</span></span><br><span class="line">        Pass</span><br><span class="line">        &#123;</span><br><span class="line">            Name <span class="string">&quot;DepthOnly&quot;</span></span><br><span class="line">            Tags&#123;<span class="string">&quot;LightMode&quot;</span> = <span class="string">&quot;DepthOnly&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line">            ZWrite On</span><br><span class="line">            ZTest LEqual</span><br><span class="line"></span><br><span class="line">            ColorMask <span class="number">0</span> <span class="comment">//设置为0表示，在pass执行的过程中，对于计算出的颜色不写入。（只写入深度信息 ZTest LEqual）</span></span><br><span class="line"></span><br><span class="line">            HLSLPROGRAM</span><br><span class="line">            <span class="comment">//调用unity写好的顶点着色器和片元着色器</span></span><br><span class="line">            <span class="meta">#<span class="keyword">pragma</span> vertex DepthOnlyVertex</span></span><br><span class="line">            <span class="meta">#<span class="keyword">pragma</span> fragment DepthOnlyFragment</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//材质相关的（一般是加在编写的每一个pass里）</span></span><br><span class="line">            <span class="comment">//加入透明剔除的变体开关,否则不透明的地方也会有阴影</span></span><br><span class="line">            <span class="meta">#<span class="keyword">pragma</span> shader_feature _ALPHATEST_ON<span class="comment">//源码里面也用了同名变体，所以会生效</span></span></span><br><span class="line">            <span class="meta">#<span class="keyword">pragma</span> shader_feature _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A <span class="comment">//将ALBEDO的通道的a作为一个平滑通道来使用</span></span></span><br><span class="line"></span><br><span class="line">            <span class="meta">#<span class="keyword">pragma</span> multi_compile_instancing <span class="comment">//支持GPU实例化（变体开关，只用在GPU实例化）</span></span></span><br><span class="line"></span><br><span class="line">            <span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Packages/com.unity.render-pipelines.core/ShaderLibrary/CommonMaterial.hlsl&quot;</span> <span class="comment">//这个要配合ShadowCasterPass使用，也需要引入（SRP的库）</span></span></span><br><span class="line">            <span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Packages/com.unity.render-pipelines.universal/ShaderLibrary/SurfaceInput.hlsl&quot;</span><span class="comment">//表面着色器输入的库</span></span></span><br><span class="line">            <span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Packages/com.unity.render-pipelines.universal/Shaders/DepthOnlyPass.hlsl&quot;</span> <span class="comment">//使用unity写好的顶点/片元着色器需要引入的HLSL（URP的库）</span></span></span><br><span class="line">            ENDHLSL</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//支持MSAA等一些复杂的效果</span></span><br><span class="line">        Pass</span><br><span class="line">        &#123;</span><br><span class="line">            Name <span class="string">&quot;DepthNormals&quot;</span></span><br><span class="line">            Tags&#123;<span class="string">&quot;LightMode&quot;</span> = <span class="string">&quot;DepthNormals&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line">            ZWrite On</span><br><span class="line">            ZTest LEqual</span><br><span class="line"></span><br><span class="line">            <span class="comment">//需要写入深度和法线信息所需不需要关闭ColorMask</span></span><br><span class="line">            <span class="comment">//ColorMask 0 //设置为0表示，在pass执行的过程中，对于计算出的颜色不写入。（只写入深度信息 ZTest LEqual）</span></span><br><span class="line"></span><br><span class="line">            HLSLPROGRAM</span><br><span class="line">            <span class="comment">//调用unity写好的顶点着色器和片元着色器</span></span><br><span class="line">            <span class="meta">#<span class="keyword">pragma</span> vertex DepthNormalsVertex</span></span><br><span class="line">            <span class="meta">#<span class="keyword">pragma</span> fragment DepthNormalsFragment</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//材质相关的（一般是加在编写的每一个pass里）</span></span><br><span class="line">            <span class="comment">//加入透明剔除的变体开关,否则不透明的地方也会有阴影</span></span><br><span class="line">            <span class="meta">#<span class="keyword">pragma</span> shader_feature_local _NORMAL_MAP  <span class="comment">//DepthNormals 需要纹理贴图</span></span></span><br><span class="line">            <span class="meta">#<span class="keyword">pragma</span> shader_feature _ALPHATEST_ON<span class="comment">//源码里面也用了同名变体，所以会生效</span></span></span><br><span class="line">            <span class="meta">#<span class="keyword">pragma</span> shader_feature _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A <span class="comment">//将ALBEDO的通道的a作为一个平滑通道来使用</span></span></span><br><span class="line"></span><br><span class="line">            <span class="meta">#<span class="keyword">pragma</span> multi_compile_instancing <span class="comment">//支持GPU实例化（变体开关，只用在GPU实例化）</span></span></span><br><span class="line"></span><br><span class="line">            <span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Packages/com.unity.render-pipelines.core/ShaderLibrary/CommonMaterial.hlsl&quot;</span> <span class="comment">//这个要配合ShadowCasterPass使用，也需要引入（SRP的库）</span></span></span><br><span class="line">            <span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Packages/com.unity.render-pipelines.universal/ShaderLibrary/SurfaceInput.hlsl&quot;</span><span class="comment">//表面着色器输入的库</span></span></span><br><span class="line">            <span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Packages/com.unity.render-pipelines.universal/Shaders/DepthNormalsPass.hlsl&quot;</span> <span class="comment">//使用unity写好的顶点/片元着色器需要引入的HLSL（URP的库）</span></span></span><br><span class="line">            ENDHLSL</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+
+    </div>
+
+    
+    
+    
+
+<div>
+  
+    
+  
+</div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Unity-Shader/" rel="tag"># Unity Shader</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/10/14/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-UnityUrpShader%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0-%E4%B8%83-%E6%89%8B%E5%86%99URPShader%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6-%E6%BC%AB%E5%8F%8D%E5%B0%84Shader%E6%A1%86%E6%9E%B6/" rel="prev" title="UnityUrpShader入门学习-（七）手写URP-Shader代码框架-漫反射Shader框架">
+      <i class="fa fa-chevron-left"></i> UnityUrpShader入门学习-（七）手写URP-Shader代码框架-漫反射Shader框架
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%B6%E3%80%81%E7%9B%AE%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">零、目的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81simplelit%E5%8F%82%E6%95%B0%E5%AE%9A%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">一、SimpleLit参数定义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1.1-%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7"><span class="nav-number">2.1.</span> <span class="nav-text">1.1 定义属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1.2-%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F%E5%8F%8A%E5%BC%95%E5%85%A5%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">1.2 定义变量及引入头文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81simplelitpassvertex"><span class="nav-number">3.</span> <span class="nav-text">二、SimpleLitPassVertex</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2.1-%E9%A1%B6%E7%82%B9%E6%95%B0%E6%8D%AE%E4%BF%AE%E6%94%B9"><span class="nav-number">3.1.</span> <span class="nav-text">2.1 顶点数据修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2.2-%E7%89%87%E5%85%83%E6%95%B0%E6%8D%AE%E4%BF%AE%E6%94%B9"><span class="nav-number">3.2.</span> <span class="nav-text">2.2 片元数据修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2.3-%E9%A1%B6%E7%82%B9%E7%9D%80%E8%89%B2%E5%99%A8%E4%BF%AE%E6%94%B9"><span class="nav-number">3.3.</span> <span class="nav-text">2.3 顶点着色器修改</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81simplelitpassfragment"><span class="nav-number">4.</span> <span class="nav-text">三、SimpleLitPassFragment</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%AE%9E%E7%8E%B0-initsurfacedata%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">四、实现 InitSurfaceData方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%AE%9E%E7%8E%B0-initinputdata-%E6%96%B9%E6%B3%95"><span class="nav-number">6.</span> <span class="nav-text">五、实现 InitInputData 方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD%E3%80%81simplelit%E6%B8%B2%E6%9F%93%E6%95%88%E6%9E%9C%E6%B5%8B%E8%AF%95"><span class="nav-number">7.</span> <span class="nav-text">六、SimpleLit渲染效果测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81"><span class="nav-number">8.</span> <span class="nav-text">七、完整代码</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="MiDoLi"
+      src="/images/midoli.jpg">
+  <p class="site-author-name" itemprop="name">MiDoLi</p>
+  <div class="site-description" itemprop="description">欢迎来到我的世界💜</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ConanGentleman" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ConanGentleman" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/936184713@qq.com" title="E-Mail → 936184713@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/8032462?spm_id_from=333.1007.0.0" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;8032462?spm_id_from&#x3D;333.1007.0.0" rel="noopener" target="_blank"><i class="fa bilibili fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/qq_41234218?type=blog" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_41234218?type&#x3D;blog" rel="noopener" target="_blank"><i class="fa csdn fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bilibili.com/" title="https:&#x2F;&#x2F;www.bilibili.com&#x2F;" rel="noopener" target="_blank">Bilibil</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+
+<div class="twopeople">
+        <div class="container" style="height:200px;">
+            <canvas class="illo" width="800" height="800" style="max-width: 200px; max-height: 200px; touch-action: none; width: 640px; height: 640px;"></canvas>
+        </div>
+        <script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople1.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/zdog.dist.js"></script>
+        <script id="rendered-js" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople.js"></script>
+        <style>
+            .twopeople{
+                margin: 0;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+            canvas {
+                display: block;
+                margin: 0 auto;
+                cursor: move;
+            }
+        </style>
+      </div>
+<!-- 外链播放器 溯（钢琴版）-->
+<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1433584979&auto=1&height=66"></iframe> -->
+<!-- 不使用上面的外链播放器了 改用下面的Aplayer -->
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+<!-- 改用Aplayer end -->
+        <div class="back-to-top animated" role="button" aria-label="accessibility.back_to_top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+
+      </div>
+    </main>
+
+
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MiDoLi</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">101k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">6:07</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("03/01/2023 10:00:00"); //此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+  
+
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'QTH3K4IUb5oOIc5ZyxHm6JPQ-gzGzoHsz',
+      appKey     : 'WPGPkvPHhUGV1zwuL8JITOOr',
+      placeholder: "请文明评论呀~",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+
+
+
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/fireworks.js"></script>
+
+
+<script type="text/javascript"
+    count="150"
+    opacity: 1
+    src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right"},"mobile":{"show":true}});</script></body>
+</html>
+
+<!-- 添加fork me on github入口 -->
+<a target="_blank" rel="noopener" href="https://github.com/ConanGentleman" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
