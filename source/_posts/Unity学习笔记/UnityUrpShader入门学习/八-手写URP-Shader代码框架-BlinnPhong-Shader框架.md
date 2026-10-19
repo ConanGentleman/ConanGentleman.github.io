@@ -330,12 +330,12 @@ void InitInputData(Varyings IN, half3 normalTS, out InputData inputData)
     #elif defined(MAIN_LIGHT_CALCULATE_SHADOWS) //如果主灯计算阴影
         inputData.shadowCoord = TransformWorldToShadowCoord(IN.positionWS);
     #else
-        inputData.shadowCoord = float(0, 0, 0, 0);
+        inputData.shadowCoord = float4(0, 0, 0, 0);
     #endif
 
     //雾效
     #ifdef _ADDITIONAL_LIGHTS_VERTEX //如果使用额外点光源
-        inputData.shadowCoord = IN.fogFactorAndVertexLight.yzw;
+        inputData.vertexLighting = IN.fogFactorAndVertexLight.yzw;
         inputData.fogCoord = IN.fogFactorAndVertexLight.x;
     #else
         inputData.shadowCoord = half4(0,0,0,0);
@@ -726,12 +726,12 @@ Shader "UrpFramework/SimpleLit"//7. 模拟Unity URP 官方源码的SimpleLit的�
                     #elif defined(MAIN_LIGHT_CALCULATE_SHADOWS) //如果主灯计算阴影
                         inputData.shadowCoord = TransformWorldToShadowCoord(IN.positionWS);
                     #else
-                        inputData.shadowCoord = float(0, 0, 0, 0);
+                        inputData.shadowCoord = float4(0, 0, 0, 0);
                     #endif
 
                     //雾效
                     #ifdef _ADDITIONAL_LIGHTS_VERTEX //如果使用额外点光源
-                        inputData.shadowCoord = IN.fogFactorAndVertexLight.yzw;
+                        inputData.vertexLighting = IN.fogFactorAndVertexLight.yzw;
                         inputData.fogCoord = IN.fogFactorAndVertexLight.x;
                     #else
                         inputData.shadowCoord = half4(0,0,0,0);
